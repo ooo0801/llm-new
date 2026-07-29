@@ -1,0 +1,69 @@
+experiment_name: debug_qwen_0.5b_paper_mmd
+output_dir: results/debug_qwen_0.5b_paper_mmd
+seed: 42
+model:
+  name: Qwen/Qwen2.5-0.5B-Instruct
+  revision: main
+  dtype: bfloat16
+  device_map: auto
+  eager_attention: true
+data:
+  smoke: data/smoke.jsonl
+  candidate: data/candidate.jsonl
+  validation: data/validation.jsonl
+  test: data/test.jsonl
+  max_candidate_rows: 30
+generation:
+  max_input_tokens: 256
+  max_new_tokens: 64
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  system_prompt: 你是一个严谨、简洁的助手。
+sensitivity:
+  metric: js
+  batch_size: 4
+  max_length: 256
+  macro: true
+  micro: true
+  micro_parameter_patterns: [q_proj, k_proj, v_proj, o_proj, down_proj]
+  max_parameter_tensors: 8
+  hybrid_beta: 1.0
+fingerprint:
+  selected_size: 8
+  methods: [random, top_sensitivity, mcc]
+  reference_repetitions: 5
+  weights:
+    attention: 1.2
+    ffn: 1.0
+    attention_residual: 0.8
+    mlp_residual: 0.8
+activations:
+  attention_entropy_fraction: 0.70
+  ffn_quantile: 0.95
+  residual_threshold: 0.50
+  max_ffn_units_per_layer: 64
+features:
+  surface: true
+  semantic: true
+  task: true
+  semantic_model: null
+  hashed_dimension: 128
+statistics:
+  method: paper_mmd
+  permutations: 499
+  alpha: 0.05
+  seed: 42
+attacks:
+  - name: replacement_0.5b_self_control
+    type: none
+  - name: prune_30
+    type: pruning
+    ratio: 0.30
+    module_patterns: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+  - name: noise_001
+    type: gaussian_noise
+    std_ratio: 0.01
+    module_patterns: [q_proj, v_proj, down_proj]
+    seed: 42

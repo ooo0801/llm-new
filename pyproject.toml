@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-integrity-fingerprint"
+version = "0.1.0"
+description = "Sensitive-prompt fingerprints for cloud LLM integrity verification"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<3",
+  "PyYAML>=6.0",
+  "tqdm>=4.66",
+  "torch>=2.2",
+  "transformers>=4.45,<5",
+  "accelerate>=0.34",
+  "safetensors>=0.4",
+  "scipy>=1.11",
+  "pandas>=2.1",
+  "matplotlib>=3.8",
+  "seaborn>=0.13",
+]
+
+[project.optional-dependencies]
+quantization = ["bitsandbytes>=0.43"]
+semantic = ["sentence-transformers>=3.0"]
+lora = ["peft>=0.12", "datasets>=2.20"]
+api = ["fastapi>=0.115", "uvicorn>=0.30"]
+dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.6"]
+
+[project.scripts]
+llm-integrity = "llm_integrity.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "scripts"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

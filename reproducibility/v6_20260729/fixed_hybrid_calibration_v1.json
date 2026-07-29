@@ -1,0 +1,38 @@
+{
+  "initial_prompt_ids": [
+    "code_0786ec6c10e9::initial",
+    "code_9a2804e4f90a::initial",
+    "instruction_d6094de6cceb::initial",
+    "knowledge_9edb61565cee::initial",
+    "logic_0ece81476a78::initial",
+    "logic_6ad0b05f0427::initial",
+    "math_dfeba0d7005b::initial",
+    "reasoning_d3f64be842dc::initial",
+    "safety_d136003b5900::initial",
+    "structured_329ce2b8c10c::initial",
+    "summary_ec5a78dd8956::initial",
+    "translation_a77d5aded0e9::initial"
+  ],
+  "macro": {
+    "center": 12.507809122172828,
+    "sample_count": 12,
+    "scale": 0.22972576481310458,
+    "scale_method": "mad",
+    "transform": "log1p"
+  },
+  "method": "fixed_initial_development_pool_log1p_median_mad",
+  "metric": "macro_l2_raw",
+  "micro": {
+    "center": 24.786765258010526,
+    "sample_count": 12,
+    "scale": 0.2958979595904932,
+    "scale_method": "mad",
+    "transform": "log1p"
+  },
+  "sample_count": 12,
+  "source_sha256": {
+    "macro_records": "07242b5e3b0cb92bb0d87476c4e05ad014473164f50f5a8dd544cc013dde001e",
+    "micro_scores": "e4a83db9aca034752ccde255d8c5fe0089c40db8230067df16001422d4202df3"
+  },
+  "version": 1
+}

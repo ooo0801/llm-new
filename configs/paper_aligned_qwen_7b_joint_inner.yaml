@@ -1,0 +1,56 @@
+experiment_name: paper_aligned_qwen_7b_joint_inner
+base_config: configs/paper_aligned_qwen_7b.yaml
+seed: 42
+model:
+  name: Qwen/Qwen2.5-7B-Instruct
+  revision: main
+  dtype: bfloat16
+  device_map: auto
+  eager_attention: true
+generation:
+  system_prompt: 你是一个严谨、简洁的助手。
+joint_inner:
+  version: 1
+  prompt_pool: results/paper_aligned_qwen_7b/prompt_optimization/seeds_stratified_k60.jsonl
+  training_manifest: results/paper_aligned_qwen_7b/manifests_truthful_quant/attack_manifest_train.jsonl
+  validation_manifest: results/paper_aligned_qwen_7b/manifests_truthful_quant/attack_manifest_validation.jsonl
+  training_adapter_registry: results/paper_aligned_qwen_7b/finetuning_adapters/adapter_registry_train.json
+  validation_adapter_registry: results/paper_aligned_qwen_7b/finetuning_adapters/adapter_registry_validation.json
+  max_input_tokens: 128
+  smoke_input_tokens: 64
+  steps: 15
+  steps_per_family: 3
+  probes_inner: 1
+  block_types:
+    - q_proj
+    - v_proj
+    - down_proj
+  representative_layer_count: 4
+  macro:
+    families:
+      unstructured_pruning: 0.2
+      structured_pruning: 0.2
+      quantization: 0.2
+      gaussian_noise: 0.2
+      finetuning: 0.2
+    distance: squared_l2_next_token_logits
+    scale: null
+  micro:
+    weight: null
+    scale: null
+    normalized_gradient_threshold: null
+  macro_weight: 1.0
+  global_gradient_clip_norm: 1.0
+  learning_rate: 0.01
+  maximum_relative_embedding_update: 0.001
+  ppl_ratio_limit: 2.0
+  max_edit_ratio: 0.25
+  protect_digit_tokens: true
+  acceptance_stage: proxy_search_pending_hard_validation
+  calibration:
+    initial_prompts_only: true
+    smoke_prompts: 1
+    debug_prompts: 12
+    formal_prompts: 60
+    probes: 1
+    normalized_gradient_threshold: log_median_plus_5_mad

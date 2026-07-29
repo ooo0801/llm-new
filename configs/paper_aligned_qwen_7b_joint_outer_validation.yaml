@@ -1,0 +1,180 @@
+experiment_name: paper_aligned_qwen_7b_joint_outer_validation
+output_dir: results/paper_aligned_qwen_7b
+seed: 42
+model:
+  name: Qwen/Qwen2.5-7B-Instruct
+  revision: main
+  dtype: bfloat16
+  device_map: auto
+  eager_attention: true
+data:
+  smoke: data/smoke.jsonl
+  candidate: results/paper_core_qwen_7b_prompt_opt/prompt_optimization/final_sensitive_prompts.jsonl
+  validation: data/validation.jsonl
+  test: data/test.jsonl
+  max_candidate_rows: 12
+generation:
+  max_input_tokens: 512
+  max_new_tokens: 128
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  system_prompt: 你是一个严谨、简洁的助手。
+sensitivity:
+  metric: js
+  batch_size: 1
+  # The engineering boundary test established 128 tokens as the common safe
+  # full-precision length across all five modification families on this GPU.
+  max_length: 128
+  macro:
+    primary_distance: squared_l2_logits
+    secondary_distances:
+    - squared_l2_probabilities
+    - js_probabilities
+    confidence_level: 0.95
+    bootstrap_samples: 1000
+    seed: 42
+    families:
+      unstructured_pruning:
+        weight: 0.2
+        samples_debug: 1
+        samples_formal: 20
+      structured_pruning:
+        weight: 0.2
+        samples_debug: 1
+        samples_formal: 20
+      quantization:
+        weight: 0.2
+        samples_debug: 1
+        samples_formal: 20
+      gaussian_noise:
+        weight: 0.2
+        samples_debug: 1
+        samples_formal: 20
+      finetuning:
+        weight: 0.2
+        samples_debug: 1
+        samples_formal: 20
+  micro:
+    method: hutchinson_jacobian
+    legacy_method: cross_entropy_proxy
+    parameter_scope: all
+    probe_distribution: rademacher
+    probes_debug: 2
+    probes_formal: 4
+    seed: 42
+    report_per_parameter: true
+    report_by_component: true
+  micro_parameter_patterns:
+  - q_proj
+  - v_proj
+  - down_proj
+  max_parameter_tensors: 8
+  hybrid_beta: 1.0
+  prompt_optimization:
+    enabled: true
+    seed_file: results/paper_aligned_qwen_7b/prompt_optimization/seeds_stratified_k60.jsonl
+    objective: two_stage_hybrid
+    inner_proxy_objective: macro_js_single_training_variant
+    training_attack: int4
+    candidate_tokens: 16
+    learning_rate: 0.05
+    steps: 10
+    initial_temperature: 1.0
+    anneal: 0.95
+    epsilon: 1.0
+    semantic_weight: 0.1
+    ppl_ratio_limit: 2.0
+    max_edit_ratio: 0.25
+    optimize_user_tokens_only: true
+    convergence_tolerance: 0.0001
+    hard_hybrid_validation:
+      enabled: true
+      micro_method: hutchinson_jacobian_blockwise
+      macro_distribution: five_family_manifest
+      macro_metric: macro_l2_raw
+      weighting_mode: adaptive
+      hybrid_beta: 1.0
+      micro_prior_weight: 0.5
+      macro_prior_weight: 0.5
+      minimum_gain: 0.0
+      calibration_pool: initial_prompts_only
+  output:
+    representation: next_token_logits
+    position: last_non_padding
+    cast_dtype: float32
+fingerprint:
+  selected_size: 12
+  methods:
+  - mcc
+  reference_repetitions: 10
+  weights:
+    attention: 1.2
+    ffn: 1.0
+    attention_residual: 0.8
+    mlp_residual: 0.8
+activations:
+  attention_entropy_fraction: 0.7
+  ffn_quantile: 0.95
+  residual_threshold: 0.5
+  max_ffn_units_per_layer: 128
+features:
+  surface: true
+  semantic: true
+  task: true
+  semantic_model: BAAI/bge-small-zh-v1.5
+  hashed_dimension: 128
+statistics:
+  method: prompt_stratified_mmd
+  permutations: 999
+  alpha: 0.05
+  seed: 42
+attacks:
+- name: prune_30
+  type: pruning
+  ratio: 0.3
+  module_patterns:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+- name: noise_0001
+  type: gaussian_noise
+  std_ratio: 0.001
+  module_patterns:
+  - q_proj
+  - v_proj
+  - down_proj
+  seed: 42
+- name: prune_10
+  type: pruning
+  ratio: 0.1
+  module_patterns:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+- name: prune_50
+  type: pruning
+  ratio: 0.5
+  module_patterns:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+- name: int8
+  type: int8
+- name: int4
+  type: int4
+  compute_dtype: bfloat16
+paper_alignment_version: 1

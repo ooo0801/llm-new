@@ -1,0 +1,51 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and build artifacts
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Editors and notebooks
+.idea/
+.vscode/
+.ipynb_checkpoints/
+*.swp
+*~
+
+# Local secrets and machine-specific settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Model weights and caches
+models/
+cache/
+huggingface/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+
+# Runtime and experiment artifacts. Curated evidence belongs in reproducibility/.
+results/
+backups/
+*.log
+*.pid
+
+# Historical scratch copies; Git history replaces these after this baseline.
+*.bak
+*.bak_*
+untitled.py

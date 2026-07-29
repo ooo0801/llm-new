@@ -1,0 +1,99 @@
+{
+  "families": 5,
+  "outcome_metrics_used": false,
+  "per_family": 2,
+  "policy": "first_manifest_configuration_with_required_seed_replicates",
+  "selected_variants": 10,
+  "selection": {
+    "finetuning": {
+      "configuration": {
+        "alpha": 32,
+        "data_source": "isolated_attack_training_data",
+        "dropout": 0.05,
+        "learning_rate": 1e-05,
+        "method": "lora",
+        "rank": 16,
+        "steps": 50,
+        "target_scope": "attention_ffn",
+        "type": "finetuning"
+      },
+      "seeds": [
+        3407,
+        777
+      ],
+      "variant_ids": [
+        "test_finetuning_4618a1ee039c",
+        "test_finetuning_802d5e825e92"
+      ]
+    },
+    "gaussian_noise": {
+      "configuration": {
+        "scale_rule": "parameter_tensor_std",
+        "std_ratio": 0.0005,
+        "target_scope": "ffn",
+        "type": "gaussian_noise"
+      },
+      "seeds": [
+        3407,
+        777
+      ],
+      "variant_ids": [
+        "test_gaussian_noise_cb734fe6f9ca",
+        "test_gaussian_noise_d9d76c321756"
+      ]
+    },
+    "quantization": {
+      "configuration": {
+        "compute_dtype": "bfloat16",
+        "double_quant": true,
+        "method": "nf4",
+        "target_scope": "full_model",
+        "type": "quantization"
+      },
+      "seeds": [
+        3407,
+        777
+      ],
+      "variant_ids": [
+        "test_quantization_68a351d3e18a",
+        "test_quantization_52389a24f02a"
+      ]
+    },
+    "structured_pruning": {
+      "configuration": {
+        "implementation": "mask",
+        "layer_scope": "random_layer_subset",
+        "ratio": 0.05,
+        "selection": "random",
+        "structure": "ffn_channels",
+        "type": "structured_pruning"
+      },
+      "seeds": [
+        3407,
+        777
+      ],
+      "variant_ids": [
+        "test_structured_pruning_7fb86bf0e94d",
+        "test_structured_pruning_509aa86cd576"
+      ]
+    },
+    "unstructured_pruning": {
+      "configuration": {
+        "method": "global_magnitude",
+        "ratio": 0.3,
+        "target_scope": "attention",
+        "type": "unstructured_pruning"
+      },
+      "seeds": [
+        3407,
+        777
+      ],
+      "variant_ids": [
+        "test_unstructured_pruning_2f144bfd3832",
+        "test_unstructured_pruning_bdcbdc88045a"
+      ]
+    }
+  },
+  "source_manifest": "/root/autodl-tmp/llm/results/paper_aligned_qwen_7b/manifests_truthful_quant/attack_manifest_test.jsonl",
+  "split": "test"
+}

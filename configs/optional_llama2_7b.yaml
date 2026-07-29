@@ -1,0 +1,57 @@
+experiment_name: optional_llama2_7b
+output_dir: results/optional_llama2_7b
+seed: 42
+model:
+  name: meta-llama/Llama-2-7b-chat-hf
+  revision: main
+  dtype: bfloat16
+  device_map: auto
+  eager_attention: true
+data:
+  smoke: data/smoke.jsonl
+  candidate: data/candidate.jsonl
+  validation: data/validation.jsonl
+  test: data/test.jsonl
+generation:
+  max_input_tokens: 512
+  max_new_tokens: 128
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+sensitivity:
+  metric: js
+  batch_size: 1
+  max_length: 512
+  macro: true
+  micro: true
+  micro_parameter_patterns: [q_proj, v_proj, down_proj]
+  max_parameter_tensors: 8
+fingerprint:
+  selected_size: 12
+  methods: [random, top_sensitivity, mcc]
+  reference_repetitions: 10
+activations:
+  attention_entropy_fraction: 0.70
+  ffn_quantile: 0.95
+  residual_threshold: 0.50
+  max_ffn_units_per_layer: 128
+features:
+  surface: true
+  semantic: true
+  task: true
+  semantic_model: BAAI/bge-small-zh-v1.5
+  hashed_dimension: 128
+statistics:
+  method: paired_sign_flip
+  permutations: 1000
+  alpha: 0.05
+  seed: 42
+attacks:
+  - name: int8
+    type: int8
+  - name: int4
+    type: int4
+  - name: prune_30
+    type: pruning
+    ratio: 0.30
+    module_patterns: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
