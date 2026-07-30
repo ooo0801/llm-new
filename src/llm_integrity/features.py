@@ -91,6 +91,7 @@ class FeatureExtractor:
     semantic_model_name: str | None = None
     semantic_model_revision: str | None = None
     semantic_device: str = "cpu"
+    semantic_local_files_only: bool = False
     hashed_dimension: int = 128
 
     def __post_init__(self) -> None:
@@ -105,6 +106,7 @@ class FeatureExtractor:
                     self.semantic_model_name,
                     revision=self.semantic_model_revision,
                     device=self.semantic_device,
+                    local_files_only=self.semantic_local_files_only,
                 )
             return np.asarray(self._encoder.encode(texts, normalize_embeddings=True), dtype=np.float64)
         return np.stack([hashed_semantic_features(text, self.hashed_dimension) for text in texts])

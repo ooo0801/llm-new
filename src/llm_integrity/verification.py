@@ -86,6 +86,7 @@ def verify_model(
         semantic_model_name=feature_config.get("semantic_model"),
         semantic_model_revision=feature_config.get("semantic_model_revision"),
         semantic_device=str(feature_config.get("semantic_device", "cpu")),
+        semantic_local_files_only=bool(feature_config.get("semantic_local_files_only", False)),
         hashed_dimension=int(feature_config.get("hashed_dimension", 128)),
     )
     reference_features = extractor.transform(

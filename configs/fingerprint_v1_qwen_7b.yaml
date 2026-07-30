@@ -9,6 +9,7 @@ model:
   dtype: bfloat16
   device_map: auto
   eager_attention: true
+  local_files_only: true
 
 data:
   strict16_source: reproducibility/v6_20260729/final_test_validated_prompts.jsonl
@@ -51,6 +52,7 @@ features:
   semantic_model: BAAI/bge-small-zh-v1.5
   semantic_model_revision: 7999e1d3359715c523056ef9478215996d62a620
   semantic_device: cpu
+  semantic_local_files_only: true
   hashed_dimension: 128
 
 statistics:

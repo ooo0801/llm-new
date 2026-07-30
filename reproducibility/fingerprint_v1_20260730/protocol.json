@@ -31,5 +31,5 @@
   "strict16_sha256": "2fb6cdb3a20acdb6f21436ac21d93efac21ef51e37d12402e6c9bfcc915aec6f",
   "attack_manifest_sha256": "27f5bd6952066d839f3001f40e8db1e6d649d779a9e2deceda107a6c283e75f1",
   "config_path": "configs/fingerprint_v1_qwen_7b.yaml",
-  "config_sha256": "e2a37d31170517f647baf5a3faff4353baf0b1b73294307feedccaf2f84fe7e5"
+  "config_sha256": "184fe7dc6fa869d6f988242eaf3a640b8e484438a8c76bf2408c70c99fcb4d24"
 }

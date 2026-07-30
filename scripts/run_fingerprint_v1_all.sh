@@ -3,6 +3,9 @@ set -euo pipefail
 
 PYTHON="${PYTHON:-/root/autodl-tmp/venvs/llm-integrity/bin/python}"
 CONFIG="${CONFIG:-configs/fingerprint_v1_qwen_7b.yaml}"
+export HF_HOME="${HF_HOME:-/root/autodl-tmp/huggingface}"
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
 OUTPUT="results/fingerprint_v1_20260730"
 MANIFEST="reproducibility/fingerprint_v1_20260730/attack_manifest.jsonl"
 ADAPTER_ROOT="$OUTPUT/finetuning_adapters"

@@ -56,6 +56,7 @@ def load_model(model_config: Mapping[str, Any]) -> ModelBundle:
         "low_cpu_mem_usage": True,
         "device_map": model_config.get("device_map", "auto"),
         "torch_dtype": _torch_dtype(str(model_config.get("dtype", "bfloat16"))),
+        "local_files_only": bool(model_config.get("local_files_only", False)),
     }
     if bool(model_config.get("eager_attention", False)):
         kwargs["attn_implementation"] = "eager"
@@ -74,6 +75,7 @@ def load_model(model_config: Mapping[str, Any]) -> ModelBundle:
         revision=revision,
         trust_remote_code=kwargs["trust_remote_code"],
         use_fast=True,
+        local_files_only=kwargs["local_files_only"],
     )
     tokenizer.padding_side = "left"
     if tokenizer.pad_token_id is None:
