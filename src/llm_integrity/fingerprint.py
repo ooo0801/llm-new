@@ -15,6 +15,7 @@ class FingerprintEntry:
     sensitivity: float | None = None
     components: list[str] = field(default_factory=list)
     reference_responses: list[str] = field(default_factory=list)
+    reference_response_seeds: list[int] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
 
 
@@ -26,7 +27,7 @@ class ModelFingerprint:
     entries: list[FingerprintEntry]
     generation_config: dict[str, Any]
     metadata: dict[str, Any] = field(default_factory=dict)
-    schema_version: str = "1.0"
+    schema_version: str = "1.1"
 
     def save(self, path: str | Path) -> None:
         write_json(path, asdict(self))

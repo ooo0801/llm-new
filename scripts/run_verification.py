@@ -43,9 +43,13 @@ def main() -> None:
         "selection_method": fingerprint.selection_method,
         "modified": result.modified,
         "test": result.test.as_dict(),
+        "secondary_tests": {
+            key: value.as_dict() for key, value in result.secondary_tests.items()
+        },
         "prompts": result.prompts,
         "repetitions": result.repetitions,
         "attack_report": report.__dict__ if report else None,
+        "response_records": result.response_records,
     }
     output_dir = project_path(config["output_dir"]) / "verification"
     output = output_dir / f"{fingerprint.selection_method}__{args.attack}.json"

@@ -74,7 +74,7 @@ def task_features(text: str, row: dict[str, Any] | None) -> np.ndarray:
         sum(str(value).lower() in text.lower() for value in contains) / len(contains) if contains else 0.0
     )
     valid_json = 0.0
-    if row.get("category") == "structured":
+    if str(row.get("category", "")).startswith("structured"):
         try:
             import json
 
@@ -89,6 +89,8 @@ def task_features(text: str, row: dict[str, Any] | None) -> np.ndarray:
 @dataclass
 class FeatureExtractor:
     semantic_model_name: str | None = None
+    semantic_model_revision: str | None = None
+    semantic_device: str = "cpu"
     hashed_dimension: int = 128
 
     def __post_init__(self) -> None:
@@ -99,7 +101,11 @@ class FeatureExtractor:
             if self._encoder is None:
                 from sentence_transformers import SentenceTransformer
 
-                self._encoder = SentenceTransformer(self.semantic_model_name)
+                self._encoder = SentenceTransformer(
+                    self.semantic_model_name,
+                    revision=self.semantic_model_revision,
+                    device=self.semantic_device,
+                )
             return np.asarray(self._encoder.encode(texts, normalize_embeddings=True), dtype=np.float64)
         return np.stack([hashed_semantic_features(text, self.hashed_dimension) for text in texts])
 

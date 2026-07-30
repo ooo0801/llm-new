@@ -18,6 +18,7 @@ class SelectionResult:
     selected_ids: list[str]
     covered_components: set[str]
     marginal_gains: list[float]
+    trace: list[dict[str, object]]
 
 
 def component_weight(component: str, weights: Mapping[str, float]) -> float:
@@ -29,29 +30,59 @@ def greedy_mcc(
     prompt_components: Mapping[str, Iterable[str]],
     k: int,
     weights: Mapping[str, float] | None = None,
+    metadata: Mapping[str, Mapping[str, object]] | None = None,
 ) -> SelectionResult:
     if k <= 0:
         raise ValueError("k must be positive")
     weights = dict(DEFAULT_WEIGHTS if weights is None else weights)
     normalized = {key: set(value) for key, value in prompt_components.items()}
+    if k > len(normalized):
+        raise ValueError("k exceeds candidate count")
+    metadata = metadata or {}
     selected: list[str] = []
     covered: set[str] = set()
     gains: list[float] = []
+    trace: list[dict[str, object]] = []
+    selected_categories: set[str] = set()
     while len(selected) < k:
-        best_id = None
-        best_gain = 0.0
+        ranked: list[tuple[tuple[float, int, float, int], str, float]] = []
         for prompt_id, components in sorted(normalized.items()):
             if prompt_id in selected:
                 continue
             gain = sum(component_weight(c, weights) for c in components - covered)
-            if gain > best_gain:
-                best_id, best_gain = prompt_id, gain
-        if best_id is None:
-            break
+            row = metadata.get(prompt_id, {})
+            category = str(row.get("category", ""))
+            category_novelty = int(bool(category and category not in selected_categories))
+            stability = float(row.get("stability", 0.0))
+            token_count = int(row.get("token_count", 10**9))
+            ranked.append(
+                ((gain, category_novelty, stability, -token_count), prompt_id, gain)
+            )
+        if not ranked:
+            raise RuntimeError("MCC exhausted candidates before reaching k")
+        # prompt_id is kept outside the descending score tuple so exact ties
+        # are resolved by the lexicographically smallest stable identifier.
+        best_score = max(item[0] for item in ranked)
+        tied = [item for item in ranked if item[0] == best_score]
+        _, best_id, best_gain = min(tied, key=lambda item: item[1])
+        new_components = normalized[best_id] - covered
         selected.append(best_id)
         covered.update(normalized[best_id])
         gains.append(best_gain)
-    return SelectionResult(selected, covered, gains)
+        category = str(metadata.get(best_id, {}).get("category", ""))
+        if category:
+            selected_categories.add(category)
+        trace.append(
+            {
+                "step": len(selected),
+                "prompt_id": best_id,
+                "marginal_gain": best_gain,
+                "new_component_count": len(new_components),
+                "covered_component_count": len(covered),
+                "category": category or None,
+            }
+        )
+    return SelectionResult(selected, covered, gains, trace)
 
 
 def top_sensitivity(scores: Mapping[str, float], k: int) -> list[str]:

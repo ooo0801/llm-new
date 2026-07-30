@@ -21,6 +21,8 @@ class VerificationResult:
     prompts: int
     repetitions: int
     target_responses: list[str]
+    response_records: list[dict[str, Any]]
+    secondary_tests: dict[str, TestResult]
 
 
 def verify_model(
@@ -29,7 +31,10 @@ def verify_model(
     statistics_config: Mapping[str, Any],
     feature_config: Mapping[str, Any],
     repetitions: int = 1,
+    target_seeds: list[int] | None = None,
 ) -> VerificationResult:
+    if repetitions < 2 and str(statistics_config.get("method")) == "prompt_stratified_mmd":
+        raise ValueError("Prompt-stratified MMD requires at least two repetitions per prompt")
     prompts = [entry.prompt for entry in fingerprint.entries]
     rows = [entry.metadata | {"category": entry.category} for entry in fingerprint.entries]
 
@@ -37,9 +42,20 @@ def verify_model(
     target_texts: list[str] = []
     expanded_rows: list[dict[str, Any]] = []
     strata: list[str] = []
+    response_records: list[dict[str, Any]] = []
+    if target_seeds is None:
+        seed_base = int(statistics_config.get("target_seed_base", 52000))
+        target_seeds = [seed_base + index for index in range(repetitions)]
+    if len(target_seeds) != repetitions:
+        raise ValueError("target_seeds must contain exactly one seed per repetition")
 
     for repetition in range(repetitions):
-        generated = generate_texts(target, prompts, fingerprint.generation_config)
+        generated = generate_texts(
+            target,
+            prompts,
+            fingerprint.generation_config,
+            seed=int(target_seeds[repetition]),
+        )
         target_texts.extend(generated)
         expanded_rows.extend(rows)
         strata.extend(
@@ -51,9 +67,25 @@ def verify_model(
         for entry in fingerprint.entries:
             if not entry.reference_responses:
                 raise ValueError("Fingerprint has no reference responses")
-            reference_texts.append(entry.reference_responses[repetition % len(entry.reference_responses)])
+            if repetition >= len(entry.reference_responses):
+                raise ValueError(
+                    f"Fingerprint entry {entry.prompt_id!r} has fewer than "
+                    f"{repetitions} reference responses"
+                )
+            reference_texts.append(entry.reference_responses[repetition])
+        response_records.extend(
+            {
+                "prompt_id": entry.prompt_id,
+                "repetition": repetition,
+                "seed": int(target_seeds[repetition]),
+                "response": response,
+            }
+            for entry, response in zip(fingerprint.entries, generated)
+        )
     extractor = FeatureExtractor(
         semantic_model_name=feature_config.get("semantic_model"),
+        semantic_model_revision=feature_config.get("semantic_model_revision"),
+        semantic_device=str(feature_config.get("semantic_device", "cpu")),
         hashed_dimension=int(feature_config.get("hashed_dimension", 128)),
     )
     reference_features = extractor.transform(
@@ -129,10 +161,16 @@ def verify_model(
             f"Unknown verification method: {method}"
         )
 
+    secondary_tests: dict[str, TestResult] = {}
+    if bool(statistics_config.get("report_pooled_baseline", True)) and method != "paper_mmd":
+        secondary_tests["pooled_mmd"] = mmd_permutation_test(x, y, **common)
+
     return VerificationResult(
         modified=test.reject,
         test=test,
         prompts=len(prompts),
         repetitions=repetitions,
         target_responses=target_texts,
+        response_records=response_records,
+        secondary_tests=secondary_tests,
     )

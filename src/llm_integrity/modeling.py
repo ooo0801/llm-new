@@ -11,6 +11,7 @@ class ModelBundle:
     tokenizer: Any
     name: str
     device: Any
+    revision: str = "main"
 
     def close(self) -> None:
         del self.model
@@ -83,7 +84,7 @@ def load_model(model_config: Mapping[str, Any]) -> ModelBundle:
     if torch.cuda.is_available() and device.type == "cpu" and kwargs["device_map"] is None:
         model.to("cuda")
         device = next(model.parameters()).device
-    return ModelBundle(model=model, tokenizer=tokenizer, name=name, device=device)
+    return ModelBundle(model=model, tokenizer=tokenizer, name=name, device=device, revision=revision)
 
 
 def render_prompt(tokenizer: Any, prompt: str, system_prompt: str | None = None) -> str:
@@ -117,8 +118,14 @@ def generate_texts(
     bundle: ModelBundle,
     prompts: list[str],
     generation_config: Mapping[str, Any],
+    seed: int | None = None,
 ) -> list[str]:
     import torch
+
+    if seed is not None:
+        from .io import set_seed
+
+        set_seed(seed)
 
     encoded = tokenize_prompts(
         bundle,
@@ -173,6 +180,7 @@ def model_metadata(bundle: ModelBundle) -> dict[str, Any]:
     config = bundle.model.config
     return {
         "name": bundle.name,
+        "revision": bundle.revision,
         "model_type": getattr(config, "model_type", None),
         "num_hidden_layers": getattr(config, "num_hidden_layers", None),
         "num_attention_heads": getattr(config, "num_attention_heads", None),

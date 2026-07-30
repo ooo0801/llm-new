@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Callable
+from dataclasses import dataclass, field
+from typing import Any
 
 import numpy as np
 
@@ -14,8 +14,9 @@ class TestResult:
     alpha: float
     method: str
     effect_size: float | None = None
+    diagnostics: dict[str, Any] = field(default_factory=dict)
 
-    def as_dict(self) -> dict[str, float | bool | str | None]:
+    def as_dict(self) -> dict[str, Any]:
         return {
             "statistic": self.statistic,
             "p_value": self.p_value,
@@ -23,7 +24,15 @@ class TestResult:
             "alpha": self.alpha,
             "method": self.method,
             "effect_size": self.effect_size,
+            "diagnostics": self.diagnostics,
         }
+
+
+def _validate_test_settings(permutations: int, alpha: float) -> None:
+    if permutations <= 0:
+        raise ValueError("permutations must be positive")
+    if not 0.0 < alpha < 1.0:
+        raise ValueError("alpha must be between zero and one")
 
 
 def squared_distances(x: np.ndarray, y: np.ndarray) -> np.ndarray:
@@ -70,6 +79,7 @@ def mmd_permutation_test(
     seed: int = 42,
     bandwidth: float | None = None,
 ) -> TestResult:
+    _validate_test_settings(permutations, alpha)
     x = np.asarray(x, dtype=np.float64)
     y = np.asarray(y, dtype=np.float64)
     bandwidth = bandwidth or median_bandwidth(x, y)
@@ -84,7 +94,20 @@ def mmd_permutation_test(
         exceedances += mmd2_unbiased(perm_x, perm_y, bandwidth) >= observed
     p_value = (exceedances + 1) / (permutations + 1)
     effect = float(np.linalg.norm(x.mean(0) - y.mean(0)))
-    return TestResult(observed, p_value, p_value < alpha, alpha, "pooled_mmd", effect)
+    return TestResult(
+        observed,
+        p_value,
+        p_value < alpha,
+        alpha,
+        "pooled_mmd",
+        effect,
+        {
+            "permutations": permutations,
+            "exceedances": exceedances,
+            "bandwidth": bandwidth,
+            "minimum_attainable_p": 1.0 / (permutations + 1),
+        },
+    )
 
 
 def prompt_stratified_mmd_test(
@@ -104,6 +127,7 @@ def prompt_stratified_mmd_test(
 
     The test statistic is the mean of prompt-wise unbiased MMD values.
     """
+    _validate_test_settings(permutations, alpha)
     x = np.asarray(x, dtype=np.float64)
     y = np.asarray(y, dtype=np.float64)
     strata_array = np.asarray(strata, dtype=object)
@@ -228,6 +252,18 @@ def prompt_stratified_mmd_test(
         alpha=alpha,
         method="prompt_stratified_mmd",
         effect_size=effect_size,
+        diagnostics={
+            "permutations": permutations,
+            "exceedances": exceedances,
+            "strata": len(groups),
+            "samples_per_group": {
+                str(label): int(len(indices)) for label, indices in zip(labels, groups)
+            },
+            "bandwidths": {
+                str(label): float(value) for label, value in zip(labels, bandwidths)
+            },
+            "minimum_attainable_p": 1.0 / (permutations + 1),
+        },
     )
 
 
@@ -239,6 +275,7 @@ def paired_sign_flip_test(
     seed: int = 42,
 ) -> TestResult:
     """Prompt-conditioned correction: signs are flipped within prompt pairs."""
+    _validate_test_settings(permutations, alpha)
     x = np.asarray(x, dtype=np.float64)
     y = np.asarray(y, dtype=np.float64)
     if x.shape != y.shape:

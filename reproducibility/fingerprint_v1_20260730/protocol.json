@@ -1,0 +1,35 @@
+{
+  "schema_version": "fingerprint_v1_protocol_1.0",
+  "protocol_frozen_on": "2026-07-30",
+  "version_boundary": "Close the full downstream experiment on the existing 16 V6 strict accepts; category expansion is a future version.",
+  "source_rows": 22,
+  "strict16_rows": 16,
+  "category_counts": {
+    "code": 1,
+    "instruction": 2,
+    "knowledge": 3,
+    "logic": 2,
+    "safety": 5,
+    "summary": 1,
+    "translation": 2
+  },
+  "optimized_prompt_enforced": true,
+  "selected_size": 12,
+  "reference_repetitions": 10,
+  "target_repetitions": 10,
+  "primary_test": "prompt_stratified_mmd",
+  "pooled_mmd_is_ablation": true,
+  "attack_variants": [
+    "intact_v1",
+    "unstructured_prune30_v1",
+    "structured_ffn20_v1",
+    "gaussian_noise001_v1",
+    "int8_v1",
+    "nf4_v1",
+    "lora_r8_s25_v1"
+  ],
+  "strict16_sha256": "2fb6cdb3a20acdb6f21436ac21d93efac21ef51e37d12402e6c9bfcc915aec6f",
+  "attack_manifest_sha256": "27f5bd6952066d839f3001f40e8db1e6d649d779a9e2deceda107a6c283e75f1",
+  "config_path": "configs/fingerprint_v1_qwen_7b.yaml",
+  "config_sha256": "e2a37d31170517f647baf5a3faff4353baf0b1b73294307feedccaf2f84fe7e5"
+}
