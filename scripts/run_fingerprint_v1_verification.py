@@ -98,7 +98,28 @@ def main() -> None:
     }
     target = output_dir / "verification" / f"mcc_v1__{args.variant_id}.json"
     write_json(target, payload)
-    print(json.dumps(payload | {"output": str(target)}, ensure_ascii=False, indent=2))
+    print(
+        json.dumps(
+            {
+                "variant_id": args.variant_id,
+                "family": family,
+                "predicted_modified": result.modified,
+                "correct": payload["correct"],
+                "primary_p_value": result.test.p_value,
+                "primary_statistic": result.test.statistic,
+                "pooled_p_value": (
+                    result.secondary_tests["pooled_mmd"].p_value
+                    if "pooled_mmd" in result.secondary_tests
+                    else None
+                ),
+                "queries": payload["queries"],
+                "elapsed_seconds": elapsed,
+                "output": str(target),
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":

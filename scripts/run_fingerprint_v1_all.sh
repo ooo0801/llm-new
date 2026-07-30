@@ -3,7 +3,9 @@ set -euo pipefail
 
 PYTHON="${PYTHON:-/root/autodl-tmp/venvs/llm-integrity/bin/python}"
 CONFIG="${CONFIG:-configs/fingerprint_v1_qwen_7b.yaml}"
-export HF_HOME="${HF_HOME:-/root/autodl-tmp/huggingface}"
+export HF_HUB_CACHE="${HF_HUB_CACHE:-/root/autodl-tmp/huggingface}"
+export TRANSFORMERS_CACHE="${TRANSFORMERS_CACHE:-$HF_HUB_CACHE}"
+export SENTENCE_TRANSFORMERS_HOME="${SENTENCE_TRANSFORMERS_HOME:-$HF_HUB_CACHE}"
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 OUTPUT="results/fingerprint_v1_20260730"
