@@ -20,6 +20,16 @@ def file_sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def canonical_sha256(value: object) -> str:
+    serialized = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
 def read_json(path: Path) -> dict | list:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -66,8 +76,8 @@ def main() -> None:
     check(len(set(strict_ids)) == 16, "strict16 prompt IDs must be unique")
     check(protocol["strict16_rows"] == 16, "protocol strict16 count is inconsistent")
     check(protocol["optimized_prompt_enforced"] is True, "optimized prompts are not enforced")
-    check(file_sha256(release_dir / "strict16_manifest.jsonl") == protocol["strict16_sha256"], "strict16 hash differs from the frozen protocol")
-    check(file_sha256(release_dir / "attack_manifest.jsonl") == protocol["attack_manifest_sha256"], "attack manifest hash differs from the frozen protocol")
+    check(canonical_sha256(strict16) == protocol["strict16_sha256"], "strict16 content hash differs from the frozen protocol")
+    check(canonical_sha256(attacks) == protocol["attack_manifest_sha256"], "attack manifest content hash differs from the frozen protocol")
     check(file_sha256(config_path) == protocol["config_sha256"], "config hash differs from the frozen protocol")
 
     check(len(attacks) == 7, "attack manifest must contain exactly seven endpoint states")
