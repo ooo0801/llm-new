@@ -1,0 +1,207 @@
+{
+  "candidate_prompts": 16,
+  "selected_prompts": 12,
+  "selected_ids": [
+    "safety_1e228e4d44b9",
+    "summary_ec5a78dd8956",
+    "logic_3f35493753d6",
+    "instruction_9109f3338c12",
+    "code_6917fde1efb7",
+    "knowledge_9edb61565cee",
+    "translation_63cd5d7a9fa7",
+    "knowledge_aa81fa7ee63c",
+    "knowledge_075a65e696ce",
+    "safety_8c6e8a477653",
+    "translation_a77d5aded0e9",
+    "safety_d136003b5900"
+  ],
+  "selected_categories": [
+    "safety",
+    "summary",
+    "logic",
+    "instruction",
+    "code",
+    "knowledge",
+    "translation",
+    "knowledge",
+    "knowledge",
+    "safety",
+    "translation",
+    "safety"
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "prompt_id": "safety_1e228e4d44b9",
+      "marginal_gain": 4452.4,
+      "new_component_count": 4310,
+      "covered_component_count": 4310,
+      "category": "safety"
+    },
+    {
+      "step": 2,
+      "prompt_id": "summary_ec5a78dd8956",
+      "marginal_gain": 1688.0,
+      "new_component_count": 1687,
+      "covered_component_count": 5997,
+      "category": "summary"
+    },
+    {
+      "step": 3,
+      "prompt_id": "logic_3f35493753d6",
+      "marginal_gain": 1250.6,
+      "new_component_count": 1250,
+      "covered_component_count": 7247,
+      "category": "logic"
+    },
+    {
+      "step": 4,
+      "prompt_id": "instruction_9109f3338c12",
+      "marginal_gain": 1116.4,
+      "new_component_count": 1116,
+      "covered_component_count": 8363,
+      "category": "instruction"
+    },
+    {
+      "step": 5,
+      "prompt_id": "code_6917fde1efb7",
+      "marginal_gain": 919.4,
+      "new_component_count": 919,
+      "covered_component_count": 9282,
+      "category": "code"
+    },
+    {
+      "step": 6,
+      "prompt_id": "knowledge_9edb61565cee",
+      "marginal_gain": 860.2,
+      "new_component_count": 860,
+      "covered_component_count": 10142,
+      "category": "knowledge"
+    },
+    {
+      "step": 7,
+      "prompt_id": "translation_63cd5d7a9fa7",
+      "marginal_gain": 679.0,
+      "new_component_count": 679,
+      "covered_component_count": 10821,
+      "category": "translation"
+    },
+    {
+      "step": 8,
+      "prompt_id": "knowledge_aa81fa7ee63c",
+      "marginal_gain": 523.8,
+      "new_component_count": 524,
+      "covered_component_count": 11345,
+      "category": "knowledge"
+    },
+    {
+      "step": 9,
+      "prompt_id": "knowledge_075a65e696ce",
+      "marginal_gain": 423.0,
+      "new_component_count": 423,
+      "covered_component_count": 11768,
+      "category": "knowledge"
+    },
+    {
+      "step": 10,
+      "prompt_id": "safety_8c6e8a477653",
+      "marginal_gain": 344.0,
+      "new_component_count": 344,
+      "covered_component_count": 12112,
+      "category": "safety"
+    },
+    {
+      "step": 11,
+      "prompt_id": "translation_a77d5aded0e9",
+      "marginal_gain": 289.0,
+      "new_component_count": 289,
+      "covered_component_count": 12401,
+      "category": "translation"
+    },
+    {
+      "step": 12,
+      "prompt_id": "safety_d136003b5900",
+      "marginal_gain": 218.0,
+      "new_component_count": 218,
+      "covered_component_count": 12619,
+      "category": "safety"
+    }
+  ],
+  "coverage_curves": {
+    "4": {
+      "selected_ids": [
+        "safety_1e228e4d44b9",
+        "summary_ec5a78dd8956",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12"
+      ],
+      "coverage_rate": 0.6365504643020247,
+      "weighted_marginal_gain": 8507.4,
+      "covered_components": 8363
+    },
+    "8": {
+      "selected_ids": [
+        "safety_1e228e4d44b9",
+        "summary_ec5a78dd8956",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "code_6917fde1efb7",
+        "knowledge_9edb61565cee",
+        "translation_63cd5d7a9fa7",
+        "knowledge_aa81fa7ee63c"
+      ],
+      "coverage_rate": 0.8635256507839854,
+      "weighted_marginal_gain": 11489.8,
+      "covered_components": 11345
+    },
+    "12": {
+      "selected_ids": [
+        "safety_1e228e4d44b9",
+        "summary_ec5a78dd8956",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "code_6917fde1efb7",
+        "knowledge_9edb61565cee",
+        "translation_63cd5d7a9fa7",
+        "knowledge_aa81fa7ee63c",
+        "knowledge_075a65e696ce",
+        "safety_8c6e8a477653",
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900"
+      ],
+      "coverage_rate": 0.9604962703607856,
+      "weighted_marginal_gain": 12763.8,
+      "covered_components": 12619
+    },
+    "16": {
+      "selected_ids": [
+        "safety_1e228e4d44b9",
+        "summary_ec5a78dd8956",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "code_6917fde1efb7",
+        "knowledge_9edb61565cee",
+        "translation_63cd5d7a9fa7",
+        "knowledge_aa81fa7ee63c",
+        "knowledge_075a65e696ce",
+        "safety_8c6e8a477653",
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900",
+        "instruction_43e8f0520c0e",
+        "logic_0ece81476a78",
+        "safety_54d2229faad7",
+        "safety_020dda637cac"
+      ],
+      "coverage_rate": 1.0,
+      "weighted_marginal_gain": 13283.199999999999,
+      "covered_components": 13138
+    }
+  },
+  "stable_components_all": 13138,
+  "stable_components_selected": 12619,
+  "reference_responses": 120,
+  "reference_task_pass_rate": 0.7083333333333334,
+  "reference_response_sha256": "046f66faadec0f4780499f6eb5c5f069ec79ab0350a45196a98853b327cf869d",
+  "fingerprint": "results/fingerprint_v1_20260730/fingerprints/mcc_v1.json",
+  "passed": true
+}

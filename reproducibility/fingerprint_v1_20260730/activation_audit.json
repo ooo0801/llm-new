@@ -1,0 +1,29 @@
+{
+  "prompts": 16,
+  "repetitions": 2,
+  "rows": 32,
+  "minimum_jaccard": 1.0,
+  "per_prompt_jaccard": {
+    "safety_d136003b5900": 1.0,
+    "translation_a77d5aded0e9": 1.0,
+    "knowledge_9edb61565cee": 1.0,
+    "summary_ec5a78dd8956": 1.0,
+    "logic_0ece81476a78": 1.0,
+    "safety_020dda637cac": 1.0,
+    "instruction_43e8f0520c0e": 1.0,
+    "safety_8c6e8a477653": 1.0,
+    "knowledge_aa81fa7ee63c": 1.0,
+    "safety_1e228e4d44b9": 1.0,
+    "translation_63cd5d7a9fa7": 1.0,
+    "safety_54d2229faad7": 1.0,
+    "knowledge_075a65e696ce": 1.0,
+    "instruction_9109f3338c12": 1.0,
+    "code_6917fde1efb7": 1.0,
+    "logic_3f35493753d6": 1.0
+  },
+  "logit_invariance": {
+    "allclose": true,
+    "max_abs_difference": 0.0
+  },
+  "passed": true
+}
