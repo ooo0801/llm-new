@@ -12,4 +12,23 @@
 bash scripts/run_fingerprint_v1_all.sh
 ```
 
+发布前可独立复核精简证据链与校验和：
+
+```bash
+python scripts/audit_fingerprint_v1_release.py \
+  --config configs/fingerprint_v1_qwen_7b.yaml
+```
+
 运行期大文件、模型权重、LoRA 适配器和原始响应位于 `results/fingerprint_v1_20260730/`，不进入 Git。完成后，本目录只收录冻结清单、协议、指纹和精简结果。
+
+## 最终结果
+
+- 16 条激活提取重复两次，最小 Jaccard 为 1.0；
+- MCC12 稳定组件覆盖率为 96.05%；
+- 120 条参考响应、840 次目标查询；
+- 完整模型 p=0.842，未修改；
+- 非结构化剪枝、结构化剪枝、INT8、NF4、LoRA 均 p=0.001，检出；
+- 高斯噪声 0.001 p=0.710，未检出；
+- Accuracy 85.71%、Precision 100%、Recall 83.33%、F1 90.91%、FPR 0%。
+
+这些指标按七个模型状态计算，每个状态只有一个实例，只证明第一版流程闭环，不是总体检测率或总体 FPR 的高功效估计。`FINAL_REPORT.json` 保存逐状态结果与发布文件校验和。

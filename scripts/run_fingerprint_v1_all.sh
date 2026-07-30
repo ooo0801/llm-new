@@ -42,3 +42,4 @@ do
 done
 
 "$PYTHON" scripts/summarize_fingerprint_v1.py --config "$CONFIG"
+"$PYTHON" scripts/audit_fingerprint_v1_release.py --config "$CONFIG"
