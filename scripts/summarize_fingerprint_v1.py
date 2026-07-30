@@ -113,6 +113,7 @@ def main() -> None:
     activation_audit_path = output_dir / "activation_audit.json"
     fingerprint_path = output_dir / "fingerprints" / "mcc_v1.json"
     selection = json.loads(selection_path.read_text(encoding="utf-8"))
+    selection["fingerprint"] = "results/fingerprint_v1_20260730/fingerprints/mcc_v1.json"
     activation_audit = json.loads(activation_audit_path.read_text(encoding="utf-8"))
     try:
         git_commit = subprocess.check_output(
@@ -143,14 +144,30 @@ def main() -> None:
         "activation_profiles_sha256": file_sha256(output_dir / "activation_profiles.jsonl"),
     }
     reproducibility_dir.mkdir(parents=True, exist_ok=True)
-    write_json(reproducibility_dir / "FINAL_REPORT.json", report)
-    write_json(reproducibility_dir / "mcc_selection.json", selection)
-    write_json(reproducibility_dir / "activation_audit.json", activation_audit)
-    write_json(reproducibility_dir / "verification_results.json", compact_results)
+    selection_output = reproducibility_dir / "mcc_selection.json"
+    activation_output = reproducibility_dir / "activation_audit.json"
+    verification_output = reproducibility_dir / "verification_results.json"
+    fingerprint_output = reproducibility_dir / "fingerprint_mcc12.json"
+    write_json(selection_output, selection)
+    write_json(activation_output, activation_audit)
+    write_json(verification_output, compact_results)
     compact_fingerprint(
         fingerprint_path,
-        reproducibility_dir / "fingerprint_mcc12.json",
+        fingerprint_output,
     )
+    published_paths = {
+        "protocol.json": reproducibility_dir / "protocol.json",
+        "strict16_manifest.jsonl": reproducibility_dir / "strict16_manifest.jsonl",
+        "attack_manifest.jsonl": reproducibility_dir / "attack_manifest.jsonl",
+        "activation_audit.json": activation_output,
+        "mcc_selection.json": selection_output,
+        "fingerprint_mcc12.json": fingerprint_output,
+        "verification_results.json": verification_output,
+    }
+    report["published_artifact_sha256"] = {
+        name: file_sha256(path) for name, path in published_paths.items()
+    }
+    write_json(reproducibility_dir / "FINAL_REPORT.json", report)
     print(
         json.dumps(
             {
