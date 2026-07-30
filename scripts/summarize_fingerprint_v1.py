@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
-import shutil
 import subprocess
 
 from _bootstrap import ROOT, project_path
@@ -20,6 +20,52 @@ def file_sha256(path: Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def canonical_sha256(value: object) -> str:
+    serialized = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
+def compact_realization(value: dict) -> dict:
+    result = deepcopy(value)
+    details = result.get("details")
+    if isinstance(details, dict):
+        adapter_path = details.get("adapter_path")
+        if adapter_path:
+            details["adapter_path"] = (
+                "results/fingerprint_v1_20260730/finetuning_adapters/"
+                + Path(str(adapter_path)).name
+            )
+        attack_details = details.get("details")
+        if isinstance(attack_details, dict):
+            selected = attack_details.pop("selected_structures", None)
+            if isinstance(selected, dict):
+                attack_details["selected_structure_counts"] = {
+                    str(layer): len(indices) for layer, indices in selected.items()
+                }
+                attack_details["selected_structures_sha256"] = canonical_sha256(selected)
+    return result
+
+
+def compact_fingerprint(source: Path, target: Path) -> None:
+    payload = json.loads(source.read_text(encoding="utf-8"))
+    for entry in payload.get("entries", []):
+        components = entry.pop("components", [])
+        metadata = entry.setdefault("metadata", {})
+        metadata["activation_component_count"] = len(components)
+        metadata["activation_components_sha256"] = canonical_sha256(components)
+    payload.setdefault("metadata", {})["activation_components"] = (
+        "Counts and checksums are published per entry; the complete runtime "
+        "profiles remain in ignored results/. Components are not needed for "
+        "online verification after MCC selection is frozen."
+    )
+    write_json(target, payload)
 
 
 def main() -> None:
@@ -40,6 +86,9 @@ def main() -> None:
         payload = json.loads(path.read_text(encoding="utf-8"))
         results.append(payload)
         compact = {key: value for key, value in payload.items() if key != "response_records"}
+        compact["variant_realization"] = compact_realization(
+            dict(compact["variant_realization"])
+        )
         compact_results.append(compact)
 
     true_positive = sum(row["ground_truth_modified"] and row["predicted_modified"] for row in results)
@@ -98,8 +147,23 @@ def main() -> None:
     write_json(reproducibility_dir / "mcc_selection.json", selection)
     write_json(reproducibility_dir / "activation_audit.json", activation_audit)
     write_json(reproducibility_dir / "verification_results.json", compact_results)
-    shutil.copyfile(fingerprint_path, reproducibility_dir / "fingerprint_mcc12.json")
-    print(json.dumps(report, ensure_ascii=False, indent=2))
+    compact_fingerprint(
+        fingerprint_path,
+        reproducibility_dir / "fingerprint_mcc12.json",
+    )
+    print(
+        json.dumps(
+            {
+                "status": report["status"],
+                "metrics": metrics,
+                "total_queries": report["total_queries"],
+                "total_elapsed_seconds": report["total_elapsed_seconds"],
+                "output": str(reproducibility_dir / "FINAL_REPORT.json"),
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":
