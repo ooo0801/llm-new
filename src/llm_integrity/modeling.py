@@ -154,10 +154,20 @@ def generate_texts(
     return bundle.tokenizer.batch_decode(generated[:, input_length:], skip_special_tokens=True)
 
 
-def next_token_logits(bundle: ModelBundle, prompts: list[str], max_length: int = 512):
+def next_token_logits(
+    bundle: ModelBundle,
+    prompts: list[str],
+    max_length: int = 512,
+    system_prompt: str | None = None,
+):
     import torch
 
-    encoded = tokenize_prompts(bundle, prompts, max_length=max_length)
+    encoded = tokenize_prompts(
+        bundle,
+        prompts,
+        max_length=max_length,
+        system_prompt=system_prompt,
+    )
     with torch.inference_mode():
         outputs = bundle.model(**encoded, use_cache=False, return_dict=True)
 
