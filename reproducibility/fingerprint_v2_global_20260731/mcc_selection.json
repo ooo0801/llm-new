@@ -1,0 +1,398 @@
+{
+  "schema_version": "fingerprint_v2_global_mcc_selection_1.0",
+  "primary_objective": "global_unweighted_mcc",
+  "candidate_prompts": 16,
+  "selected_prompts": 12,
+  "selected_ids": [
+    "translation_a77d5aded0e9",
+    "safety_d136003b5900",
+    "summary_ec5a78dd8956",
+    "code_6917fde1efb7",
+    "logic_3f35493753d6",
+    "instruction_9109f3338c12",
+    "knowledge_aa81fa7ee63c",
+    "knowledge_075a65e696ce",
+    "safety_1e228e4d44b9",
+    "translation_63cd5d7a9fa7",
+    "knowledge_9edb61565cee",
+    "safety_8c6e8a477653"
+  ],
+  "selected_categories": [
+    "translation",
+    "safety",
+    "summary",
+    "code",
+    "logic",
+    "instruction",
+    "knowledge",
+    "knowledge",
+    "safety",
+    "translation",
+    "knowledge",
+    "safety"
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "prompt_id": "translation_a77d5aded0e9",
+      "marginal_gain": 4164.0,
+      "new_component_count": 4164,
+      "covered_component_count": 4164,
+      "category": "translation"
+    },
+    {
+      "step": 2,
+      "prompt_id": "safety_d136003b5900",
+      "marginal_gain": 1331.0,
+      "new_component_count": 1331,
+      "covered_component_count": 5495,
+      "category": "safety"
+    },
+    {
+      "step": 3,
+      "prompt_id": "summary_ec5a78dd8956",
+      "marginal_gain": 1012.0,
+      "new_component_count": 1012,
+      "covered_component_count": 6507,
+      "category": "summary"
+    },
+    {
+      "step": 4,
+      "prompt_id": "code_6917fde1efb7",
+      "marginal_gain": 747.0,
+      "new_component_count": 747,
+      "covered_component_count": 7254,
+      "category": "code"
+    },
+    {
+      "step": 5,
+      "prompt_id": "logic_3f35493753d6",
+      "marginal_gain": 605.0,
+      "new_component_count": 605,
+      "covered_component_count": 7859,
+      "category": "logic"
+    },
+    {
+      "step": 6,
+      "prompt_id": "instruction_9109f3338c12",
+      "marginal_gain": 565.0,
+      "new_component_count": 565,
+      "covered_component_count": 8424,
+      "category": "instruction"
+    },
+    {
+      "step": 7,
+      "prompt_id": "knowledge_aa81fa7ee63c",
+      "marginal_gain": 488.0,
+      "new_component_count": 488,
+      "covered_component_count": 8912,
+      "category": "knowledge"
+    },
+    {
+      "step": 8,
+      "prompt_id": "knowledge_075a65e696ce",
+      "marginal_gain": 238.0,
+      "new_component_count": 238,
+      "covered_component_count": 9150,
+      "category": "knowledge"
+    },
+    {
+      "step": 9,
+      "prompt_id": "safety_1e228e4d44b9",
+      "marginal_gain": 209.0,
+      "new_component_count": 209,
+      "covered_component_count": 9359,
+      "category": "safety"
+    },
+    {
+      "step": 10,
+      "prompt_id": "translation_63cd5d7a9fa7",
+      "marginal_gain": 189.0,
+      "new_component_count": 189,
+      "covered_component_count": 9548,
+      "category": "translation"
+    },
+    {
+      "step": 11,
+      "prompt_id": "knowledge_9edb61565cee",
+      "marginal_gain": 179.0,
+      "new_component_count": 179,
+      "covered_component_count": 9727,
+      "category": "knowledge"
+    },
+    {
+      "step": 12,
+      "prompt_id": "safety_8c6e8a477653",
+      "marginal_gain": 136.0,
+      "new_component_count": 136,
+      "covered_component_count": 9863,
+      "category": "safety"
+    }
+  ],
+  "coverage_metrics": {
+    "global_components": 36561,
+    "candidate_components": 13138,
+    "selected_components": 12619,
+    "candidate_global_components": 10157,
+    "selected_global_components": 9863,
+    "candidate_outside_components": 2981,
+    "selected_outside_components": 2756,
+    "candidate_reachable_coverage": 0.2778096879188206,
+    "selection_efficiency": 0.9710544452101999,
+    "final_global_coverage": 0.2697683323760291,
+    "factorization_error": 0.0
+  },
+  "per_type_coverage": {
+    "attention": {
+      "global_components": 744,
+      "candidate_global_components": 732,
+      "selected_global_components": 730,
+      "candidate_reachable_coverage": 0.9838709677419355,
+      "selection_efficiency": 0.9972677595628415,
+      "final_global_coverage": 0.9811827956989247
+    },
+    "ffn": {
+      "global_components": 35809,
+      "candidate_global_components": 9417,
+      "selected_global_components": 9125,
+      "candidate_reachable_coverage": 0.26297858080370856,
+      "selection_efficiency": 0.9689922480620154,
+      "final_global_coverage": 0.25482420620514395
+    },
+    "attention_residual": {
+      "global_components": 2,
+      "candidate_global_components": 2,
+      "selected_global_components": 2,
+      "candidate_reachable_coverage": 1.0,
+      "selection_efficiency": 1.0,
+      "final_global_coverage": 1.0
+    },
+    "mlp_residual": {
+      "global_components": 6,
+      "candidate_global_components": 6,
+      "selected_global_components": 6,
+      "candidate_reachable_coverage": 1.0,
+      "selection_efficiency": 1.0,
+      "final_global_coverage": 1.0
+    }
+  },
+  "type_macro_final_global_coverage": 0.8090017504760172,
+  "candidate_relative_coverage_v1_definition": 0.9604962703607856,
+  "global_coverage_curves": {
+    "4": {
+      "selected_ids": [
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900",
+        "summary_ec5a78dd8956",
+        "code_6917fde1efb7"
+      ],
+      "global_components_covered": 7254,
+      "final_global_coverage": 0.19840813982112088,
+      "selection_efficiency": 0.7141872600177218,
+      "unweighted_marginal_gain": 7254.0
+    },
+    "8": {
+      "selected_ids": [
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900",
+        "summary_ec5a78dd8956",
+        "code_6917fde1efb7",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "knowledge_aa81fa7ee63c",
+        "knowledge_075a65e696ce"
+      ],
+      "global_components_covered": 9150,
+      "final_global_coverage": 0.25026667760728644,
+      "selection_efficiency": 0.9008565521315349,
+      "unweighted_marginal_gain": 9150.0
+    },
+    "12": {
+      "selected_ids": [
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900",
+        "summary_ec5a78dd8956",
+        "code_6917fde1efb7",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "knowledge_aa81fa7ee63c",
+        "knowledge_075a65e696ce",
+        "safety_1e228e4d44b9",
+        "translation_63cd5d7a9fa7",
+        "knowledge_9edb61565cee",
+        "safety_8c6e8a477653"
+      ],
+      "global_components_covered": 9863,
+      "final_global_coverage": 0.2697683323760291,
+      "selection_efficiency": 0.9710544452101999,
+      "unweighted_marginal_gain": 9863.0
+    },
+    "16": {
+      "selected_ids": [
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900",
+        "summary_ec5a78dd8956",
+        "code_6917fde1efb7",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "knowledge_aa81fa7ee63c",
+        "knowledge_075a65e696ce",
+        "safety_1e228e4d44b9",
+        "translation_63cd5d7a9fa7",
+        "knowledge_9edb61565cee",
+        "safety_8c6e8a477653",
+        "instruction_43e8f0520c0e",
+        "logic_0ece81476a78",
+        "safety_54d2229faad7",
+        "safety_020dda637cac"
+      ],
+      "global_components_covered": 10157,
+      "final_global_coverage": 0.2778096879188206,
+      "selection_efficiency": 1.0,
+      "unweighted_marginal_gain": 10157.0
+    }
+  },
+  "objective_ablations": {
+    "candidate_weighted_v1": {
+      "selected_ids": [
+        "safety_1e228e4d44b9",
+        "summary_ec5a78dd8956",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "code_6917fde1efb7",
+        "knowledge_9edb61565cee",
+        "translation_63cd5d7a9fa7",
+        "knowledge_aa81fa7ee63c",
+        "knowledge_075a65e696ce",
+        "safety_8c6e8a477653",
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900"
+      ],
+      "jaccard_with_primary": 1.0,
+      "coverage_metrics": {
+        "global_components": 36561,
+        "candidate_components": 13138,
+        "selected_components": 12619,
+        "candidate_global_components": 10157,
+        "selected_global_components": 9863,
+        "candidate_outside_components": 2981,
+        "selected_outside_components": 2756,
+        "candidate_reachable_coverage": 0.2778096879188206,
+        "selection_efficiency": 0.9710544452101999,
+        "final_global_coverage": 0.2697683323760291,
+        "factorization_error": 0.0
+      }
+    },
+    "global_weighted_v1": {
+      "selected_ids": [
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900",
+        "summary_ec5a78dd8956",
+        "code_6917fde1efb7",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "knowledge_aa81fa7ee63c",
+        "knowledge_075a65e696ce",
+        "safety_1e228e4d44b9",
+        "translation_63cd5d7a9fa7",
+        "knowledge_9edb61565cee",
+        "safety_8c6e8a477653"
+      ],
+      "jaccard_with_primary": 1.0,
+      "coverage_metrics": {
+        "global_components": 36561,
+        "candidate_components": 13138,
+        "selected_components": 12619,
+        "candidate_global_components": 10157,
+        "selected_global_components": 9863,
+        "candidate_outside_components": 2981,
+        "selected_outside_components": 2756,
+        "candidate_reachable_coverage": 0.2778096879188206,
+        "selection_efficiency": 0.9710544452101999,
+        "final_global_coverage": 0.2697683323760291,
+        "factorization_error": 0.0
+      }
+    },
+    "global_unweighted_primary": {
+      "selected_ids": [
+        "translation_a77d5aded0e9",
+        "safety_d136003b5900",
+        "summary_ec5a78dd8956",
+        "code_6917fde1efb7",
+        "logic_3f35493753d6",
+        "instruction_9109f3338c12",
+        "knowledge_aa81fa7ee63c",
+        "knowledge_075a65e696ce",
+        "safety_1e228e4d44b9",
+        "translation_63cd5d7a9fa7",
+        "knowledge_9edb61565cee",
+        "safety_8c6e8a477653"
+      ],
+      "jaccard_with_primary": 1.0,
+      "coverage_metrics": {
+        "global_components": 36561,
+        "candidate_components": 13138,
+        "selected_components": 12619,
+        "candidate_global_components": 10157,
+        "selected_global_components": 9863,
+        "candidate_outside_components": 2981,
+        "selected_outside_components": 2756,
+        "candidate_reachable_coverage": 0.2778096879188206,
+        "selection_efficiency": 0.9710544452101999,
+        "final_global_coverage": 0.2697683323760291,
+        "factorization_error": 0.0
+      }
+    },
+    "global_type_balanced": {
+      "selected_ids": [
+        "knowledge_aa81fa7ee63c",
+        "summary_ec5a78dd8956",
+        "safety_d136003b5900",
+        "code_6917fde1efb7",
+        "instruction_9109f3338c12",
+        "logic_0ece81476a78",
+        "translation_a77d5aded0e9",
+        "knowledge_9edb61565cee",
+        "safety_1e228e4d44b9",
+        "knowledge_075a65e696ce",
+        "translation_63cd5d7a9fa7",
+        "instruction_43e8f0520c0e"
+      ],
+      "jaccard_with_primary": 0.7142857142857143,
+      "coverage_metrics": {
+        "global_components": 36561,
+        "candidate_components": 13138,
+        "selected_components": 12568,
+        "candidate_global_components": 10157,
+        "selected_global_components": 9840,
+        "candidate_outside_components": 2981,
+        "selected_outside_components": 2728,
+        "candidate_reachable_coverage": 0.2778096879188206,
+        "selection_efficiency": 0.9687899970463719,
+        "final_global_coverage": 0.26913924673832773,
+        "factorization_error": 0.0
+      }
+    }
+  },
+  "global_universe_sha256": "0684cf3ac8711dcd3dbe51fa135c9379e4e6778d8c0d64d0dd93e8afd91812ea",
+  "candidate_components_sha256": "baa31f6103bb766fa83c8e0a866230af6d7cea8a3d318a3858baaf2d0dbcdd93",
+  "selection_deterministic": true,
+  "factorization_passed": true,
+  "passed": true,
+  "reference_responses": 120,
+  "reference_task_pass_rate": 0.7166666666666667,
+  "reference_response_sha256": "8cf40511a32cc098c2a8306c63d7b207afdc44e2b97d4cfdcd5b9ae4626277cd",
+  "reference_seeds": [
+    815000,
+    815001,
+    815002,
+    815003,
+    815004,
+    815005,
+    815006,
+    815007,
+    815008,
+    815009
+  ],
+  "fingerprint": "results/fingerprint_v2_global_20260731/fingerprints/global_mcc_v2.json"
+}
