@@ -47,6 +47,7 @@ def main() -> None:
     release_dir = project_path(config["reproducibility_dir"])
 
     protocol = read_json(release_dir / "protocol.json")
+    expansion = read_json(release_dir / "calibration_expansion_record.json")
     strict16 = read_jsonl(release_dir / "strict16_manifest.jsonl")
     calibration_build = read_jsonl(release_dir / "calibration_build_manifest.jsonl")
     calibration_audit = read_jsonl(release_dir / "calibration_audit_manifest.jsonl")
@@ -71,19 +72,34 @@ def main() -> None:
     attack_ids = [str(row["variant_id"]) for row in attacks]
     result_ids = [str(row["variant_id"]) for row in verification]
 
-    check(protocol["schema_version"] == "fingerprint_v2_global_protocol_1.0", "unexpected V2 protocol schema")
+    expected_families = int(config["calibration"]["task_families"])
+    build_per_family = int(config["calibration"]["build_per_family"])
+    audit_per_family = int(config["calibration"]["audit_per_family"])
+    expected_build = expected_families * build_per_family
+    expected_audit = expected_families * audit_per_family
+    expected_calibration = expected_build + expected_audit
+    expected_batches = build_per_family + audit_per_family
+
+    check(protocol["schema_version"] == "fingerprint_v2_global_protocol_1.1", "unexpected V2 protocol schema")
+    check(expansion["endpoint_experiments_started_before_decision"] is False, "calibration was expanded after an endpoint experiment")
+    check(expansion["initial_observations"]["passed"] is False, "expansion record does not preserve the initial frozen-gate failure")
+    check(expansion["revision"]["build_per_family"] == build_per_family, "expansion build count differs from config")
+    check(expansion["revision"]["audit_per_family"] == audit_per_family, "expansion audit count differs from config")
+    check(expansion["revision"]["calibration_prompts"] == expected_calibration, "expansion total differs from config")
+    check(expansion["frozen_gates"]["maximum_last_batch_relative_gain"] == float(config["calibration"]["max_last_batch_relative_gain"]), "saturation threshold changed during expansion")
+    check(expansion["frozen_gates"]["maximum_audit_novelty_rate"] == float(config["calibration"]["max_audit_novelty_rate"]), "audit-novelty threshold changed during expansion")
     check(protocol["v1_parent_tag"] == "v1-fingerprint-closed-loop", "V1 parent tag is not frozen")
     check(len(strict16) == 16 and len(set(strict_ids)) == 16, "strict16 is not a unique set of 16")
-    check(len(calibration_build) == 168 and len(set(build_ids)) == 168, "calibration build split must contain 168 unique prompts")
-    check(len(calibration_audit) == 56 and len(set(audit_ids)) == 56, "calibration audit split must contain 56 unique prompts")
+    check(len(calibration_build) == expected_build and len(set(build_ids)) == expected_build, "calibration build split count differs from config")
+    check(len(calibration_audit) == expected_audit and len(set(audit_ids)) == expected_audit, "calibration audit split count differs from config")
     check(not (set(build_ids) & set(audit_ids)), "calibration build and audit IDs overlap")
     check(not (set(build_ids + audit_ids) & set(strict_ids)), "calibration and strict16 IDs overlap")
     calibration_texts = [str(row["prompt"]) for row in calibration_build + calibration_audit]
-    check(len(set(calibration_texts)) == 224, "calibration prompt texts are not unique")
-    check(len(set(row["category"] for row in calibration_build)) == 14, "build split does not cover 14 task families")
-    check(len(set(row["category"] for row in calibration_audit)) == 14, "audit split does not cover 14 task families")
-    check(max(Counter(row["category"] for row in calibration_build).values()) == 12, "build task-family allocation is not balanced")
-    check(max(Counter(row["category"] for row in calibration_audit).values()) == 4, "audit task-family allocation is not balanced")
+    check(len(set(calibration_texts)) == expected_calibration, "calibration prompt texts are not unique")
+    check(len(set(row["category"] for row in calibration_build)) == expected_families, "build split does not cover every task family")
+    check(len(set(row["category"] for row in calibration_audit)) == expected_families, "audit split does not cover every task family")
+    check(set(Counter(row["category"] for row in calibration_build).values()) == {build_per_family}, "build task-family allocation is not balanced")
+    check(set(Counter(row["category"] for row in calibration_audit).values()) == {audit_per_family}, "audit task-family allocation is not balanced")
     check(float(protocol["closest_strict16_trigram_jaccard"]["score"]) < float(protocol["near_duplicate_threshold"]), "calibration near-duplicate gate failed")
     check(canonical_sha256(strict16) == protocol["strict16_sha256"], "strict16 canonical hash is stale")
     check(canonical_sha256(calibration_build) == protocol["calibration_build_sha256"], "calibration build canonical hash is stale")
@@ -96,7 +112,7 @@ def main() -> None:
     check(activation["passed"] is True, "V2 activation gate did not pass")
     check(activation["logit_invariance"]["allclose"] is True, "V2 profiler changed model logits")
     check(activation["logit_invariance"]["same_rendered_system_prompt"] is True, "logit invariance did not use the profiling system prompt")
-    for split, prompts in (("build", 168), ("audit", 56), ("candidate", 16)):
+    for split, prompts in (("build", expected_build), ("audit", expected_audit), ("candidate", 16)):
         row = activation["splits"][split]
         check(row["prompts"] == prompts, f"{split}: activation prompt count is inconsistent")
         check(row["repetitions"] == repetitions, f"{split}: activation repetitions differ from config")
@@ -106,7 +122,7 @@ def main() -> None:
 
     components = [str(value) for value in universe["components"]]
     check(universe["component_id_schema"] == "activation_observable_v1", "global universe component schema changed")
-    check(universe["calibration_prompts"] == 224, "global universe must use all 224 frozen calibration prompts")
+    check(universe["calibration_prompts"] == expected_calibration, "global universe must use every frozen calibration prompt")
     check(len(components) == universe["component_count"], "global universe component count is inconsistent")
     check(components == sorted(set(components)), "global universe components are not sorted and unique")
     check(component_counts(components) == universe["component_counts_by_type"], "global universe per-type counts are inconsistent")
@@ -116,7 +132,7 @@ def main() -> None:
     check(gates["audit_novelty_passed"] is True, "global universe audit novelty gate failed")
     check(gates["passed"] is True, "global universe is not publishable")
     curve = universe["cumulative_coverage_curve"]
-    check(len(curve) == 16, "global universe curve must contain 16 balanced batches")
+    check(len(curve) == expected_batches, "global universe curve length differs from the frozen balanced batches")
     curve_counts = [int(row["component_count"]) for row in curve]
     check(curve_counts == sorted(curve_counts), "global universe cumulative counts are not monotonic")
     check(curve_counts[-1] == len(components), "global universe curve does not end at the published count")
@@ -212,7 +228,7 @@ def main() -> None:
             check(observed == expected, f"final metric {name} is inconsistent")
 
     check(report["status"] == "complete", "V2 final report is not complete")
-    check(report["calibration_prompts"] == 224, "V2 final report calibration count is inconsistent")
+    check(report["calibration_prompts"] == expected_calibration, "V2 final report calibration count is inconsistent")
     check(report["global_component_count"] == len(components), "V2 final report universe count is inconsistent")
     check(report["selected_ids"] == selected_ids, "V2 final report selected IDs are inconsistent")
     check(report["total_queries"] == len(attacks) * expected_queries, "V2 total query count is inconsistent")

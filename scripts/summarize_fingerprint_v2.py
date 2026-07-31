@@ -126,7 +126,7 @@ def main() -> None:
         "schema_version": "fingerprint_v2_global_final_report_1.0",
         "experiment_version": "fingerprint_v2_global_20260731",
         "status": "complete",
-        "scope": "Independent calibration224 -> empirical global observable component universe -> global unweighted MCC12 -> new reference fingerprint -> seven-state endpoint verification",
+        "scope": "Independent calibration336 -> empirical global observable component universe -> global unweighted MCC12 -> new reference fingerprint -> seven-state endpoint verification",
         "scientific_boundary": "The global universe is a finite calibration estimate under the frozen V1 component schema; each endpoint family still has one configured state and is not a population-level rate estimate.",
         "git_commit": git_commit,
         "v1_parent_tag": "v1-fingerprint-closed-loop",

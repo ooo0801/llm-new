@@ -114,7 +114,10 @@ SAFETY_SCENARIOS = (
 def calibration_prompt(family: str, index: int) -> tuple[str, str, str]:
     length_bucket = ("short", "medium", "long", "medium")[index % 4]
     if family == "knowledge_qa":
-        return KNOWLEDGE_QUESTIONS[index], "zh", length_bucket
+        prompt = KNOWLEDGE_QUESTIONS[index % len(KNOWLEDGE_QUESTIONS)]
+        if index >= len(KNOWLEDGE_QUESTIONS):
+            prompt = f"{prompt}（独立校准变体{index + 1}：补充一个不同于常见定义的应用场景。）"
+        return prompt, "zh", length_bucket
     if family == "math_reasoning":
         a = 7 + index * 3
         b = 4 + index % 7
@@ -136,8 +139,11 @@ def calibration_prompt(family: str, index: int) -> tuple[str, str, str]:
         )
     if family == "code_generation":
         language = "Python" if index % 2 == 0 else "JavaScript"
+        task = CODE_TASKS[index % len(CODE_TASKS)]
+        if index >= len(CODE_TASKS):
+            task = f"{task}，并额外说明变体{index + 1}中的输入校验策略"
         return (
-            f"请用{language}实现一个函数：{CODE_TASKS[index]}。说明时间复杂度，并提供两个边界测试。",
+            f"请用{language}实现一个函数：{task}。说明时间复杂度，并提供两个边界测试。",
             "zh",
             length_bucket,
         )
@@ -155,10 +161,13 @@ def calibration_prompt(family: str, index: int) -> tuple[str, str, str]:
             length_bucket,
         )
     if family == "translation":
-        sentence = TRANSLATION_SENTENCES[index]
+        sentence = TRANSLATION_SENTENCES[index % len(TRANSLATION_SENTENCES)]
+        variant = ""
+        if index >= len(TRANSLATION_SENTENCES):
+            variant = f" This is independent calibration variant {index + 1}; use concise academic wording."
         if index % 2 == 0:
-            return f"Translate into natural Chinese and preserve the technical meaning: {sentence}", "en", length_bucket
-        return f"将下列英文译成简洁中文，并保留术语含义：{sentence}", "zh", length_bucket
+            return f"Translate into natural Chinese and preserve the technical meaning: {sentence}{variant}", "en", length_bucket
+        return f"将下列英文译成简洁中文，并保留术语含义：{sentence}{variant}", "zh", length_bucket
     if family == "summarization":
         topic = ("实验审计", "城市交通", "生态监测", "软件发布")[index % 4]
         paragraph = (
@@ -176,8 +185,11 @@ def calibration_prompt(family: str, index: int) -> tuple[str, str, str]:
             length_bucket,
         )
     if family == "safety_alignment":
+        scenario = SAFETY_SCENARIOS[index % len(SAFETY_SCENARIOS)]
+        if index >= len(SAFETY_SCENARIOS):
+            scenario = f"{scenario}，并说明独立校准变体{index + 1}所涉及的主要风险"
         return (
-            f"用户请求你提供具体步骤来{SAFETY_SCENARIOS[index]}。请明确拒绝，并给出合法、保护隐私的替代方案。",
+            f"用户请求你提供具体步骤来{scenario}。请明确拒绝，并给出合法、保护隐私的替代方案。",
             "zh",
             length_bucket,
         )
@@ -331,8 +343,9 @@ def main() -> None:
 
     release_dir = project_path(config["reproducibility_dir"])
     protocol = {
-        "schema_version": "fingerprint_v2_global_protocol_1.0",
+        "schema_version": "fingerprint_v2_global_protocol_1.1",
         "protocol_frozen_on": "2026-07-31",
+        "protocol_revision": "The initial 224-prompt calibration failed the pre-endpoint frozen saturation and audit-novelty gates; the calibration was expanded to 336 prompts without changing thresholds, components, attacks, or endpoint statistics.",
         "version_boundary": "V2 changes the coverage universe and primary MCC objective while preserving V1 component extraction and prompt-stratified MMD.",
         "v1_parent_tag": "v1-fingerprint-closed-loop",
         "strict16_prompts": len(strict_source),

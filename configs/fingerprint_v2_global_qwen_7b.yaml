@@ -40,7 +40,7 @@ activations:
 
 calibration:
   task_families: 14
-  build_per_family: 12
+  build_per_family: 20
   audit_per_family: 4
   batch_size: 14
   last_batches_for_saturation: 3

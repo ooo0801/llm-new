@@ -1,11 +1,12 @@
 {
-  "schema_version": "fingerprint_v2_global_protocol_1.0",
+  "schema_version": "fingerprint_v2_global_protocol_1.1",
   "protocol_frozen_on": "2026-07-31",
+  "protocol_revision": "The initial 224-prompt calibration failed the pre-endpoint frozen saturation and audit-novelty gates; the calibration was expanded to 336 prompts without changing thresholds, components, attacks, or endpoint statistics.",
   "version_boundary": "V2 changes the coverage universe and primary MCC objective while preserving V1 component extraction and prompt-stratified MMD.",
   "v1_parent_tag": "v1-fingerprint-closed-loop",
   "strict16_prompts": 16,
   "calibration_source": "independent deterministic task-family generator frozen before V2 endpoint execution",
-  "calibration_build_prompts": 168,
+  "calibration_build_prompts": 280,
   "calibration_audit_prompts": 56,
   "calibration_task_families": [
     "knowledge_qa",
@@ -24,20 +25,20 @@
     "planning_analysis"
   ],
   "calibration_build_category_counts": {
-    "code_explanation": 12,
-    "code_generation": 12,
-    "english_reasoning": 12,
-    "instruction_following": 12,
-    "knowledge_qa": 12,
-    "logic_reasoning": 12,
-    "long_context": 12,
-    "math_reasoning": 12,
-    "mixed_language": 12,
-    "planning_analysis": 12,
-    "safety_alignment": 12,
-    "structured_output": 12,
-    "summarization": 12,
-    "translation": 12
+    "code_explanation": 20,
+    "code_generation": 20,
+    "english_reasoning": 20,
+    "instruction_following": 20,
+    "knowledge_qa": 20,
+    "logic_reasoning": 20,
+    "long_context": 20,
+    "math_reasoning": 20,
+    "mixed_language": 20,
+    "planning_analysis": 20,
+    "safety_alignment": 20,
+    "structured_output": 20,
+    "summarization": 20,
+    "translation": 20
   },
   "calibration_audit_category_counts": {
     "code_explanation": 4,
@@ -76,9 +77,9 @@
     "lora_r8_s25_v2"
   ],
   "strict16_sha256": "2fb6cdb3a20acdb6f21436ac21d93efac21ef51e37d12402e6c9bfcc915aec6f",
-  "calibration_build_sha256": "437d0de3610d06e0903aecae39c4f580962b4bb2072ed5a620ec9349008224b1",
-  "calibration_audit_sha256": "75d0c2540f81771accae59194b8ca032389496fb838602e2c436e5b51df0d3a0",
+  "calibration_build_sha256": "31b78003b47fabef83877f324355fa1626c67e3c06a6e460a41ed2c7ff1ff555",
+  "calibration_audit_sha256": "bffc8dc0bfe784314e80799c069feedd7580d4a0cc68fab73e96257bf63ed4a1",
   "attack_manifest_sha256": "586f52fd6caaa8d1f9568f9baa5f197e5a430eebe5e7884a37dd6272a1919e50",
   "config_path": "configs/fingerprint_v2_global_qwen_7b.yaml",
-  "config_sha256": "06cdef4e089d03f6ab4a6d6f89180800d1375d7efc231772643908e24556e8bd"
+  "config_sha256": "bfbc74786b7f4da9f3fab5cc6c9d23b815742034b6f5f478a7d39de9b9efa286"
 }
