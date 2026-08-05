@@ -1,0 +1,962 @@
+{
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "hidden_size": 5120,
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "model_type": "qwen2",
+  "num_hidden_layers": 48,
+  "passed": true,
+  "records": [
+    {
+      "category": "safety",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          18,
+          22,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "b252adf72abc18bc328c4808234506d89b8300615779de0c1bc3eee34a7e345c",
+        "text_sha256": "ae0d8e3224806c5d4056df3db0884eed213c75c4c3e6af0ed0208ee5447414d5",
+        "token_count": 57
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          18,
+          22,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "686e656d518e3a37e7b752fffc66e907796caeaa89d1b98b1cedf402b5243e83",
+        "text_sha256": "4ef076c172004b1bf96e8a21221a705172101b09a9937dd8b14926cb8f726eff",
+        "token_count": 57
+      },
+      "prompt_id": "safety_d136003b5900",
+      "technical_pass": true
+    },
+    {
+      "category": "translation",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          1573,
+          4862,
+          13,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "ea8c4187f800113425b2e9cdeee821d38d4c95db88eb83e2c6670f86a897cd7a",
+        "text_sha256": "f6eb8c666610b652b076ae96b9dd11a0e813eee7b88a4959d3abb23f519c14cc",
+        "token_count": 52
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          1573,
+          4862,
+          13,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "2461b4cd4509c5ec6fcc8603c3e2ae9c0b092cb062adee7b062cc238f4a38ac7",
+        "text_sha256": "1ee1ac2179b585f13cc977dccbc482cf2081e7c02dc24e13129901dcac64c863",
+        "token_count": 52
+      },
+      "prompt_id": "translation_a77d5aded0e9",
+      "technical_pass": true
+    },
+    {
+      "category": "knowledge",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          100148,
+          104136,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "b32ae5b0be962752d3feada9ebddecabfa78dab01f66afc34930d5671683d983",
+        "text_sha256": "4de1bdac392e253e910a7069c356692974ff376fa875a8248d26a156f9ce0dd7",
+        "token_count": 49
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          100148,
+          104136,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "3e129db125575a2ba1f5ec71fe145f408cd2326f86f2afa5e8040270977e5bf0",
+        "text_sha256": "292ed4f87a9bb38d338cc7236184360b6d006d27931e29aebe135af54b9f9100",
+        "token_count": 49
+      },
+      "prompt_id": "knowledge_9edb61565cee",
+      "technical_pass": true
+    },
+    {
+      "category": "summary",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          104363,
+          101450,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "0461d4057a8da193248eb3605f644f58b68f8ce6475542ce30b55c22b8394b8d",
+        "text_sha256": "7c4333634adee6146706d8f589f1fba906734ce86c56cff8d173f7278f778e8c",
+        "token_count": 82
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          104363,
+          101450,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "11e76c7fab69ddd1991bed29cebcd6273aca342e28b729abb7e5dbaf0cf17065",
+        "text_sha256": "d45a8032fa7a7ff9618b633b65eeabadb6975e715db95fe5198bb2f05482f744",
+        "token_count": 82
+      },
+      "prompt_id": "summary_ec5a78dd8956",
+      "technical_pass": true
+    },
+    {
+      "category": "logic",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          102104,
+          101419,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "4bffefc2507067b570afb40030e38b5651e34a253252e63327f4b1bdcabf209c",
+        "text_sha256": "262a1862b14f6c4f675c298f914e87f0c55e5d8b895e8cc37090c11ec88bc2c8",
+        "token_count": 55
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          102104,
+          101419,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "5ce35e7725fb612eaa5763d2fb10724d841fcd0ad70b4390cfc5625f9df217ae",
+        "text_sha256": "f0513afaffe95d7163db9df19837b7ca52d7c5076299ac2f4ba2d26407d83f6f",
+        "token_count": 55
+      },
+      "prompt_id": "logic_0ece81476a78",
+      "technical_pass": true
+    },
+    {
+      "category": "safety",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          72640,
+          21,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "2249ff913b6097c9d69fbee16b0bc443841dee211cde40f12f522cb9ab88f641",
+        "text_sha256": "b682e000482b1d358815106791ce594a17d17c0bd2e32b65f1a0ce46c0ad8ff4",
+        "token_count": 57
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          131545,
+          21,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "da8594b46ca8225d008836ab130c3e3a47e470076f5533be0535dfd52ad0bb8e",
+        "text_sha256": "5d3fbac8699504532bf1964dcceb91e8b224efb194a464e9fbb9d9a1ed3134f9",
+        "token_count": 57
+      },
+      "prompt_id": "safety_020dda637cac",
+      "technical_pass": true
+    },
+    {
+      "category": "instruction",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          92894,
+          87335,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "283f5606b94a7c6782216508c7039a0a6ef80d9e275a41eb12862e061ae226ec",
+        "text_sha256": "d78f25188d51096a34e8c515f2651d27d9d806f9e71dc02052d2f57bd7e71c4f",
+        "token_count": 58
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          92894,
+          102268,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "52089dc4abd5184466f70f1f55dc68ee80cf92ee261845605821f1eb8edfdbe4",
+        "text_sha256": "135c6859b4246b43d1485cfab67b780055e156abb47212db0df65c1e4a5f40b8",
+        "token_count": 58
+      },
+      "prompt_id": "instruction_43e8f0520c0e",
+      "technical_pass": true
+    },
+    {
+      "category": "safety",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          17,
+          16,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "b8526bfce72dec92b0e343bcff80882464f688d961339c51cbd7298fa9bf0d05",
+        "text_sha256": "b4397c60df45438c7cc7e7432c8094daa943069e88d276102dcf892dc1697b1d",
+        "token_count": 58
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          17,
+          16,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "f788b23c93cc2bffcc748fdb1233ad07c2fd0bc67328fe731fac5de059d89a1a",
+        "text_sha256": "c76e6e734410a7bf19296dff24c277956f86d9cced75d9caa4f53ddab1d1a1cf",
+        "token_count": 58
+      },
+      "prompt_id": "safety_8c6e8a477653",
+      "technical_pass": true
+    },
+    {
+      "category": "knowledge",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          100148,
+          104136,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "69859ffad823ac171b3376a4ba1cb8d6e5f391c0953262cfa18ed3ac0bf54e93",
+        "text_sha256": "0fdf059dd739cdc148b93492304d7869c729f4aef13f388b115497243cb41544",
+        "token_count": 42
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          104019,
+          104136,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "c62ebcfff28b6235ed2818572eae42b5fb2f2cb4ce58f90ee389261bfba928f3",
+        "text_sha256": "504da91e635d24c5ffc934ebf69e74d174938b88127ff04638b0641b87537612",
+        "token_count": 42
+      },
+      "prompt_id": "knowledge_aa81fa7ee63c",
+      "technical_pass": true
+    },
+    {
+      "category": "safety",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          72640,
+          20,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "4664450ed2842eb6a042943c68ab174ee4dee38191b7847e34e10d0b6a9ae102",
+        "text_sha256": "707b3dc0952c70fad320366c095c59bd23c864d20bee0b2d83db252911d7715a",
+        "token_count": 55
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          72640,
+          20,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "4d4d8e4b4ea85e08418a9c810b9ff4967ff2e87a1b4d3a8fef6566c1a78a9f7d",
+        "text_sha256": "1c81bd4338e463255737e46e27fccd15de2d6f9a6c1b083e4304cabdc01f71f2",
+        "token_count": 55
+      },
+      "prompt_id": "safety_1e228e4d44b9",
+      "technical_pass": true
+    },
+    {
+      "category": "translation",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          2421,
+          19556,
+          13,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "7e1303c7bc27ca18bceef996fb7d173aebfa6072e52910243f905ab111e8c33c",
+        "text_sha256": "245d7069a0e2c96bcee4df91a5d5e92ae79a200da1d63c78943699952bc86a8f",
+        "token_count": 53
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          2421,
+          19556,
+          13,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "16dcc29b4e57009b11ef9916eff003dd271ce00314daedcbae3798ee77b9f4e2",
+        "text_sha256": "3ed2fbdfd3496d8fa00138ce48d1134f42b12d6a4e03a489f8640b01ec042944",
+        "token_count": 53
+      },
+      "prompt_id": "translation_63cd5d7a9fa7",
+      "technical_pass": true
+    },
+    {
+      "category": "safety",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          18,
+          15,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "8420d430c8e513ea47b38abd10c06a27ab797059cc45c9f376d5f3df566be06c",
+        "text_sha256": "e77dbe85833797d7e083280887dec81ccb43dba9b3b2779ffe5ef8bc2d158e57",
+        "token_count": 56
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          18,
+          15,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "2e8cbc0c56c0d8075fe2456b4f2b36f967f3f52bf21bb9451e073a67ed8bac93",
+        "text_sha256": "c9c4b1f7ea842b576f391c712dd3fdeabed3bb3348ade3e0bf132d7108969d56",
+        "token_count": 56
+      },
+      "prompt_id": "safety_54d2229faad7",
+      "technical_pass": true
+    },
+    {
+      "category": "knowledge",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          66017,
+          106073,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "929b2ca38893cad1f8f8a33eb034ed41c9e6c98075ec7497e917048370101706",
+        "text_sha256": "236a047a2f7c1a9357b3f2696655874b8899c2666679865d29deeaf43c0d2f3a",
+        "token_count": 45
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          66017,
+          106073,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "e9785d35d9f61388b8855f51eb9f093c09f26e006cb0dc7905edfb6537f1640c",
+        "text_sha256": "9bad1bec3557158ad44c2abe82e8d327bc4bf7b28792938c934533c7ec9296ff",
+        "token_count": 45
+      },
+      "prompt_id": "knowledge_075a65e696ce",
+      "technical_pass": true
+    },
+    {
+      "category": "instruction",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          92894,
+          87335,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "2a28e4d7c83b3ebc5a73774b296bb684e3bb0240a54bb38d47a73644c9c5da36",
+        "text_sha256": "dd2cee00dbef7a4cca2e208b400d9c687e57a2a41968a515e209ddbfb09391e5",
+        "token_count": 58
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          92894,
+          87335,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "94b83b980f21c82fff9d90f34bb7e031f6e00080fbc60b6957e912b3647b700f",
+        "text_sha256": "ae0e01f3e38afe07ab3897daae8f34e9995d27b99f7f3a59691ba27aeaba771f",
+        "token_count": 58
+      },
+      "prompt_id": "instruction_9109f3338c12",
+      "technical_pass": true
+    },
+    {
+      "category": "code",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          66017,
+          46100,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "1251d882f28f5fec995556e67811c90d7e439a8ddb387707a9151040054dace7",
+        "text_sha256": "05b7ded35a49169bac36dc6e56962859b94b20f62f55d0e741419aaca96e7845",
+        "token_count": 54
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          66017,
+          46100,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "eb35b295bdbeada5ce4efe6717c6fdb0306e5954d9774f4014e40cdff90a40ef",
+        "text_sha256": "0f1f0ee85abe40bac81e0a31ca59a925ae1f4b8656dcc7176ee9bc9e5874210e",
+        "token_count": 54
+      },
+      "prompt_id": "code_6917fde1efb7",
+      "technical_pass": true
+    },
+    {
+      "category": "logic",
+      "initial": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          102104,
+          101419,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "63d05b278a6db55cf3bab5e15c2e043e131cb553548d112d9ff416f6ef721d5f",
+        "text_sha256": "e14796c19ce63ce014b1d203b97a7eaba3af0e9e64788a7b218dd70c9937fb1a",
+        "token_count": 55
+      },
+      "optimized": {
+        "first_token_ids": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11
+        ],
+        "fits_sensitivity_128": true,
+        "fits_task_512": true,
+        "last_token_ids": [
+          102104,
+          69177,
+          1773,
+          151645,
+          198,
+          151644,
+          77091,
+          198
+        ],
+        "rendered_sha256": "68e0fef92da29d9d253d2e374acb8931b7e806bd2ac8260fe4afd2f5380aa5a3",
+        "text_sha256": "0d0988746c8dbe2725eef0b08372d42f645e1c1693441c7f4a66a5c0a61aac41",
+        "token_count": 55
+      },
+      "prompt_id": "logic_3f35493753d6",
+      "technical_pass": true
+    }
+  ],
+  "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "schema_version": "experiment_a_tokenizer_preflight_1.0",
+  "technical_passed": 16,
+  "tokenizer_class": "Qwen2TokenizerFast",
+  "vocab_size": 151665
+}

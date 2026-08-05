@@ -1,0 +1,49 @@
+{
+  "continuity_hybrid_available": true,
+  "failed_prompt_ids": [
+    "safety_d136003b5900",
+    "translation_a77d5aded0e9",
+    "summary_ec5a78dd8956",
+    "knowledge_aa81fa7ee63c",
+    "translation_63cd5d7a9fa7",
+    "knowledge_075a65e696ce",
+    "code_6917fde1efb7",
+    "logic_3f35493753d6"
+  ],
+  "family_pass_counts": {
+    "finetuning": 13,
+    "gaussian_noise": 8,
+    "quantization": 12,
+    "structured_pruning": 12,
+    "unstructured_pruning": 8
+  },
+  "family_relative_tolerance": 0.01,
+  "h_a1_status": "refuted",
+  "legacy_retained": 8,
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "pairs": 16,
+  "positive_macro_gain": 13,
+  "positive_micro_gain": 14,
+  "protocol_clarification_commit": "4870065",
+  "protocol_commit": "03f4cd7",
+  "required_retained": 12,
+  "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "schema_version": "experiment_a_transfer_report_1.0",
+  "strict_5of5_retained": 4,
+  "strict_failed_prompt_ids": [
+    "safety_d136003b5900",
+    "translation_a77d5aded0e9",
+    "knowledge_9edb61565cee",
+    "summary_ec5a78dd8956",
+    "safety_020dda637cac",
+    "instruction_43e8f0520c0e",
+    "knowledge_aa81fa7ee63c",
+    "safety_1e228e4d44b9",
+    "translation_63cd5d7a9fa7",
+    "knowledge_075a65e696ce",
+    "code_6917fde1efb7",
+    "logic_3f35493753d6"
+  ],
+  "task_preserved": 12,
+  "technical_passed": 16
+}

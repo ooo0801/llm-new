@@ -1,0 +1,61 @@
+{
+  "schema_version": "experiment_a_reproducibility_manifest_1.0",
+  "experiment": "7B-to-14B sensitive-prompt transfer A1",
+  "completed_at": "2026-08-05",
+  "source_git_head_before_closeout": "e7a48047042533143f7553495126aeb80bbf31e4",
+  "model": {
+    "id": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "dtype": "bfloat16",
+    "snapshot_bytes": 29551698301,
+    "gpu_count": 3,
+    "cpu_or_disk_offload": false
+  },
+  "frozen_gates": {
+    "required_legacy_retained": 12,
+    "minimum_nondegraded_families": 3,
+    "strict_nondegraded_families": 5,
+    "family_relative_tolerance": 0.01,
+    "micro_probes": 4,
+    "family_seeds": [3407, 777]
+  },
+  "result": {
+    "technical_passed": 16,
+    "task_preserved": 12,
+    "positive_micro_gain": 14,
+    "positive_macro_gain": 13,
+    "legacy_retained": 8,
+    "strict_5of5_retained": 4,
+    "h_a1_status": "refuted",
+    "family_pass_counts": {
+      "finetuning": 13,
+      "gaussian_noise": 8,
+      "quantization": 12,
+      "structured_pruning": 12,
+      "unstructured_pruning": 8
+    }
+  },
+  "artifacts": [
+    {"path": "experiments/prompt-transfer-14b-a1/protocol.md", "bytes": 8868, "sha256": "526295d8e5bd5e51b3094a0392cf64049fdac66b5b60214d9d8baf3ad61b0148"},
+    {"path": "configs/experiment_a_qwen14b.yaml", "bytes": 2715, "sha256": "d4c7c6fc6ae69e0fcd98206e18938b6887e763d0cf4d16ae2db1f02fe977b2d1"},
+    {"path": "experiments/prompt-transfer-14b-a1/inputs/accepted16_pairs.jsonl", "bytes": 13843, "sha256": "006876bf45b4d774974f7bcefe6a188a47d85347a6bbae5a5647fa592f7b22cc"},
+    {"path": "experiments/prompt-transfer-14b-a1/inputs/stage_inputs_manifest.json", "bytes": 1273, "sha256": "547f560c59d349a98c2a827c07f315f9a778609cd4a50935f15441c48a6f2be9"},
+    {"path": "reproducibility/v6_20260729/test_attack_manifest.jsonl", "bytes": 2843, "sha256": "1e247b97fde08a83738099534e55f817ca768d64146af69d32527572a70cd37c"},
+    {"path": "reproducibility/v6_20260729/fixed_hybrid_calibration_v1.json", "bytes": 1132, "sha256": "cd84ef62404476465b466b5e091d98b0575739de6fdbb0b2d78a5f07e93288de"},
+    {"path": "experiments/prompt-transfer-14b-a1/results/tokenizer_preflight.json", "bytes": 23021, "sha256": "08b0fa33135025c09a1d3c21fcd252932d69089289379c6f9f1908f9beb0c8dc"},
+    {"path": "experiments/prompt-transfer-14b-a1/results/model_smoke.json", "bytes": 2256, "sha256": "c891b8d72233c94aae710d796b3b13f2f0704d368410796ca6cdc8b4b927faa3"},
+    {"path": "results/experiment_a_qwen14b_20260805/task_validation.jsonl", "bytes": 19621, "sha256": "a77671dd8b2e01ed6f06275b202434869744269adeffb2c1a560ddbce5c0c577"},
+    {"path": "results/experiment_a_qwen14b_20260805/micro_scores.jsonl", "bytes": 17588, "sha256": "ac9a6e2ed6e2015dbc1f0c047a20e00cc7cdd0b94aec9dd3ed2285b83cac969e"},
+    {"path": "results/experiment_a_qwen14b_20260805/macro/macro_records_test.jsonl", "bytes": 148561, "sha256": "652d75dc12a68c82ee5f8ac43988bdf021a0d82d21477a94a914b8eae5c5736c"},
+    {"path": "results/experiment_a_qwen14b_20260805/continuity_report.json", "bytes": 1039, "sha256": "fd36ec5ccc5e0c9252038f4999f5ff275e9d8e0220332bdbdef113c6d80a3667"},
+    {"path": "results/experiment_a_qwen14b_20260805/analysis/FINAL_REPORT.json", "bytes": 1348, "sha256": "eaff2078288da759674be73c66947b4e3ae9eaaba849185803dad62909ace19f"},
+    {"path": "results/experiment_a_qwen14b_20260805/analysis/per_prompt_transfer_results.jsonl", "bytes": 33630, "sha256": "85016d4ec72d4f56582d4ac8058602973fb0ce84a26870f205ab21a989e04066"},
+    {"path": "results/experiment_a_qwen14b_20260805/formal_adapters/training_reports_test.json", "bytes": 1979, "sha256": "ddaab520ed532b3cb1fe7d522ebef314b1e25182c416ea0d0ecc00039339309e"}
+  ],
+  "immutability": {
+    "existing_v1_v2_v6_overwritten": false,
+    "post_result_prompt_tuning": false,
+    "raw_runtime_logs_tracked": false,
+    "model_weights_tracked": false
+  }
+}

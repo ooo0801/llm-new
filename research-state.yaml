@@ -2,11 +2,11 @@
 project:
   title: "Experiment A: 7B-to-14B sensitive-prompt transfer"
   question: "Do the 16 prompts frozen on Qwen2.5-7B preserve task validity and elevated micro/macro sensitivity on Qwen2.5-14B without text optimization?"
-  status: active
+  status: complete
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/prompt-transfer-14b-a1"
-  current_stage: "all_16_confirmatory"
+  current_stage: "report_complete"
 
 literature:
   key_papers: []
@@ -18,7 +18,7 @@ literature:
 hypotheses:
   - id: H-A1
     statement: "At least 12 of the 16 frozen V6 prompts will satisfy the legacy transfer-retention gate on Qwen2.5-14B."
-    status: active
+    status: refuted
     motivation: "Twelve was the preregistered minimum accepted-set size in V6 and provides a direct same-family scale-transfer feasibility criterion."
     parent: null
     priority: high
@@ -26,9 +26,13 @@ hypotheses:
 experiments:
   proxy_metric: "legacy_retained_count out of 16; strict_5of5_count is secondary"
   baseline_value: 16
-  best_value: null
-  total_runs: 0
-  trajectory: []
+  best_value: 8
+  total_runs: 1
+  trajectory:
+    - run: "confirmatory_14b_a1"
+      legacy_retained: 8
+      strict_5of5_retained: 4
+      hypothesis_supported: false
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -46,9 +50,9 @@ execution:
   stage_4_one_prompt_task: complete
   stage_5_one_prompt_micro_macro: complete
   stage_6_one_prompt_five_family: complete
-  stage_7_all_16: in_progress
-  stage_8_report: pending
-  background_task: "full Experiment A pipeline PID 12981"
+  stage_7_all_16: complete
+  stage_8_report: complete
+  background_task: null
   last_error: null
 
 resources:
@@ -60,9 +64,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 0
-  last_direction: null
-  last_reflection: ""
+  cycle: 1
+  last_direction: "confirmatory_14b_transfer"
+  last_reflection: "All endpoints were technically valid, but only 8/16 met the frozen legacy gate and 4/16 met the strict 5/5 gate; H-A1 is refuted without post-result tuning."
 
 workspace:
   findings: "findings.md"

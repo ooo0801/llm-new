@@ -10,11 +10,21 @@ The project already contains a closed V6 prompt-construction pipeline and V1/V2 
 
 ## Key Results
 
-Pending. No 14B endpoint result existed when the protocol was frozen.
+- All 16 prompt pairs passed the technical gate on the fixed 14B revision with three-GPU layer sharding and no CPU/disk offload.
+- Original-task validity was preserved for 12/16 pairs (27/32 individual endpoints passed).
+- Micro sensitivity increased for 14/16 pairs; equal-weight five-family macro sensitivity increased for 13/16 pairs.
+- Eight prompts met the frozen legacy retention gate (task preserved, positive micro, positive macro, and at least 3/5 non-degraded families).
+- Four prompts met the strict 5/5 gate.
+- H-A1 required at least 12 legacy-retained prompts. The observed 8/16 refutes H-A1 under the preregistered protocol.
+- The fixed V6 hybrid-calibration continuity diagnostic accepted 14/16, but it cannot replace the explicit transfer gates and therefore does not change the 8/16 conclusion.
 
 ## Patterns and Insights
 
-Pending.
+- Transfer is partial rather than uniform: most prompts retain positive micro and macro direction, while task preservation and per-family consistency reduce the final retained set.
+- Family robustness is heterogeneous. Pass counts were finetuning 13/16, NF4 12/16, structured pruning 12/16, Gaussian noise 8/16, and unstructured pruning 8/16.
+- Four strict-transfer prompts survived every registered family: `logic_0ece81476a78`, `safety_8c6e8a477653`, `safety_54d2229faad7`, and `instruction_9109f3338c12`.
+- The eight legacy-retained prompts were `knowledge_9edb61565cee`, `logic_0ece81476a78`, `safety_020dda637cac`, `instruction_43e8f0520c0e`, `safety_8c6e8a477653`, `safety_1e228e4d44b9`, `safety_54d2229faad7`, and `instruction_9109f3338c12`.
+- Task failures account for four pair failures (two translation pairs, one code pair, and one logic pair). Other failures arose from negative sensitivity direction or fewer than 3/5 family passes.
 
 ## Lessons and Constraints
 
@@ -28,9 +38,9 @@ Pending.
 
 ## Open Questions
 
-- Whether the Hutchinson proxy remains tractable with a sharded 14B model.
-- Whether 50-step rank-16 LoRA training fits and completes on the three-GPU topology.
-- How many prompts retain at least 3/5 non-degraded families, and how many retain all 5/5.
+- Whether the family-specific failures persist at other model scales; answering this requires a separately preregistered experiment.
+- Whether task evaluators should treat semantically equivalent translations as valid; changing that rule is outside Experiment A and cannot alter this result retrospectively.
+- Whether a new prompt-construction procedure trained across multiple scales can improve the 8/16 legacy-retention count.
 
 ## Optimization Trajectory
 
