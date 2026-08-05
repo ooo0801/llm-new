@@ -61,8 +61,9 @@ def main() -> None:
     args = parser.parse_args()
     if torch.cuda.device_count() != 3:
         raise RuntimeError(f"expected 3 GPUs, found {torch.cuda.device_count()}")
-    for index in range(3):
-        torch.cuda.reset_peak_memory_stats(index)
+    # Each audit runs in a fresh process, so allocator peaks start at zero. Resetting
+    # unopened devices is invalid on the Torch build used by the experiment server.
+    torch.cuda.init()
 
     config = load_config(ROOT / args.config)
     output = ROOT / args.output
