@@ -39,8 +39,8 @@ experiments:
   target_dtype: "bfloat16"
 
 execution:
-  stage_0_protocol: in_progress
-  stage_1_model_download: pending
+  stage_0_protocol: complete
+  stage_1_model_download: in_progress
   stage_2_tokenizer_config: pending
   stage_3_full_load_generation: pending
   stage_4_one_prompt_task: pending
@@ -48,7 +48,7 @@ execution:
   stage_6_one_prompt_five_family: pending
   stage_7_all_16: pending
   stage_8_report: pending
-  background_task: null
+  background_task: "14B download PID 4250"
   last_error: null
 
 resources:

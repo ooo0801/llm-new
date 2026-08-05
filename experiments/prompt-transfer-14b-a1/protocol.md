@@ -2,6 +2,13 @@
 
 Status: **FROZEN BEFORE 14B MODEL DOWNLOAD OR ENDPOINT SCORING**
 
+Protocol clarification A1-P1 (2026-08-05): after the fixed-revision download
+started but before any 14B endpoint was loaded or scored, a direct code audit
+corrected two descriptive statements below. The V6 task entry point uses
+deterministic greedy generation without a system prompt, and the formal
+blockwise Hutchinson entry point covers all parameter groups. No prompt,
+threshold, family configuration, seed, or endpoint was changed.
+
 ## 1. Research question and prediction
 
 Do the 16 prompts that strictly passed the Qwen2.5-7B V6 frozen test remain task-valid and sensitive when their raw text is transferred without editing or re-optimization to Qwen2.5-14B-Instruct?
@@ -43,18 +50,18 @@ Tokenizer differences are part of the transfer condition. Record token counts an
 
 ## 5. Frozen task evaluation
 
-Use each row's original evaluator (`exact`, `contains`, `refusal`, `semantic`, `length_and_contains`, or `python_syntax`) with the existing project evaluator code. Use the existing generation contract: system prompt `你是一个严谨、简洁的助手。`, maximum 512 input tokens, maximum 128 generated tokens, seed 42, temperature 0.7, top-p 0.9, top-k 50, and sampling enabled.
+Use each row's original evaluator (`exact`, `contains`, `refusal`, `semantic`, `length_and_contains`, or `python_syntax`) with the existing V6 task-validation entry point. Its frozen generation contract is deterministic greedy generation, no system prompt, maximum 512 input tokens, and maximum 128 generated tokens.
 
 Task preservation for a pair requires both the initial and optimized text to pass. All generations and evaluator diagnostics are retained.
 
 ## 6. Frozen micro sensitivity
 
-- Existing Hutchinson Jacobian proxy.
-- Parameter name patterns: `q_proj`, `v_proj`, and `down_proj`.
-- Maximum parameter tensors: 8, selected by the existing deterministic implementation; record exact tensor names.
+- Existing formal blockwise Hutchinson Jacobian proxy.
+- Full parameter coverage through the existing deterministic `build_parameter_groups` implementation. Every group is processed sequentially with only the current group requiring gradients.
 - Four Rademacher probes, seed 42.
 - Maximum sensitivity length: 128 tokens.
 - Output position: last non-padding token; representation: next-token logits cast to float32.
+- Record every group name, component, layer index, parameter count, group estimate, total estimate, standard error, and the `complete_parameter_coverage` audit.
 
 For each pair, `micro_gain = optimized_micro - initial_micro` and relative gain uses `max(abs(initial_micro), 1e-12)`. Micro improvement requires finite values and `micro_gain > 0`.
 

@@ -23,6 +23,8 @@ Pending.
 - Three GPUs enable layer sharding, but there is no NVLink and GPU memory is not disk capacity.
 - The frozen V6 test uses two seeds for each of five families. Its quantization endpoint is NF4 only; adding INT8 would be an unregistered extension.
 - Existing V1/V2/V6 evidence and raw results remain immutable and outside Experiment A output paths.
+- The formal V6 task script overrides the general sampling config and uses deterministic greedy generation without a system prompt.
+- The formal Hutchinson script uses complete blockwise parameter coverage; the representative-tensor options in another config path do not control this entry point.
 
 ## Open Questions
 
