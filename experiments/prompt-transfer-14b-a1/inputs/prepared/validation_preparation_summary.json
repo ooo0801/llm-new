@@ -1,0 +1,9 @@
+{
+  "candidate_pairs": 32,
+  "deduplicated_evaluations_saved_per_variant": 0,
+  "exact_deduplication": true,
+  "proxy_accepted": 16,
+  "source_prompts": 16,
+  "strict_proxy_semantics_verified": true,
+  "unique_prompt_strings": 32
+}

@@ -58,6 +58,12 @@ def load_model(model_config: Mapping[str, Any]) -> ModelBundle:
         "torch_dtype": _torch_dtype(str(model_config.get("dtype", "bfloat16"))),
         "local_files_only": bool(model_config.get("local_files_only", False)),
     }
+    max_memory = model_config.get("max_memory")
+    if max_memory is not None:
+        if not isinstance(max_memory, Mapping):
+            raise TypeError("model.max_memory must be a mapping")
+        kwargs["max_memory"] = dict(max_memory)
+
     if bool(model_config.get("eager_attention", False)):
         kwargs["attn_implementation"] = "eager"
     if quantization in {"int8", "8bit"}:

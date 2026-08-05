@@ -1,0 +1,40 @@
+{
+  "accepted16_path": "experiments/prompt-transfer-14b-a1/inputs/accepted16_pairs.jsonl",
+  "accepted16_sha256": "006876bf45b4d774974f7bcefe6a188a47d85347a6bbae5a5647fa592f7b22cc",
+  "accepted_rows": 16,
+  "categories": {
+    "code": 1,
+    "instruction": 2,
+    "knowledge": 3,
+    "logic": 2,
+    "safety": 5,
+    "summary": 1,
+    "translation": 2
+  },
+  "initial_field": "optimization.initial_prompt",
+  "optimized_field": "optimization.optimized_prompt",
+  "order_rule": "source_file_order",
+  "prompt_ids": [
+    "safety_d136003b5900",
+    "translation_a77d5aded0e9",
+    "knowledge_9edb61565cee",
+    "summary_ec5a78dd8956",
+    "logic_0ece81476a78",
+    "safety_020dda637cac",
+    "instruction_43e8f0520c0e",
+    "safety_8c6e8a477653",
+    "knowledge_aa81fa7ee63c",
+    "safety_1e228e4d44b9",
+    "translation_63cd5d7a9fa7",
+    "safety_54d2229faad7",
+    "knowledge_075a65e696ce",
+    "instruction_9109f3338c12",
+    "code_6917fde1efb7",
+    "logic_3f35493753d6"
+  ],
+  "schema_version": "experiment_a_frozen_prompt_pairs_1.0",
+  "selection_rule": "optimization.accepted == true",
+  "source_path": "reproducibility/v6_20260729/final_test_validated_prompts.jsonl",
+  "source_rows": 22,
+  "source_sha256": "e6d5658ec03a4608938c4b3a0ff52f121f2cf36dc46a0720747de17ef8c96778"
+}
