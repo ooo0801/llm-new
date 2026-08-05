@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/prompt-transfer-14b-a1"
-  current_stage: "one_prompt_task_validation"
+  current_stage: "one_prompt_micro_macro"
 
 literature:
   key_papers: []
@@ -43,8 +43,8 @@ execution:
   stage_1_model_download: complete
   stage_2_tokenizer_config: complete
   stage_3_full_load_generation: complete
-  stage_4_one_prompt_task: in_progress
-  stage_5_one_prompt_micro_macro: pending
+  stage_4_one_prompt_task: complete
+  stage_5_one_prompt_micro_macro: in_progress
   stage_6_one_prompt_five_family: pending
   stage_7_all_16: pending
   stage_8_report: pending
