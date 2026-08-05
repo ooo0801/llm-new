@@ -1,0 +1,73 @@
+# Central state for Experiment A. Updated after each completed stage.
+project:
+  title: "Experiment A: 7B-to-14B sensitive-prompt transfer"
+  question: "Do the 16 prompts frozen on Qwen2.5-7B preserve task validity and elevated micro/macro sensitivity on Qwen2.5-14B without text optimization?"
+  status: active
+  started: "2026-08-05"
+  domain: "LLM integrity and cross-scale prompt transfer"
+  git_branch: "experiment/prompt-transfer-14b-a1"
+  current_stage: "protocol_freeze"
+
+literature:
+  key_papers: []
+  open_problems:
+    - "Cross-scale transfer of prompt-level model sensitivity is not established by the existing V6 evidence."
+  evidence_gaps:
+    - "The frozen prompts have only been evaluated on Qwen2.5-7B."
+
+hypotheses:
+  - id: H-A1
+    statement: "At least 12 of the 16 frozen V6 prompts will satisfy the legacy transfer-retention gate on Qwen2.5-14B."
+    status: active
+    motivation: "Twelve was the preregistered minimum accepted-set size in V6 and provides a direct same-family scale-transfer feasibility criterion."
+    parent: null
+    priority: high
+
+experiments:
+  proxy_metric: "legacy_retained_count out of 16; strict_5of5_count is secondary"
+  baseline_value: 16
+  best_value: null
+  total_runs: 0
+  trajectory: []
+  frozen_required_retained: 12
+  prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
+  prompt_filter: "optimization.accepted == true"
+  transferred_text_field: "optimization.optimized_prompt"
+  paired_baseline_field: "optimization.initial_prompt"
+  target_model: "Qwen/Qwen2.5-14B-Instruct"
+  target_revision: "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
+  target_dtype: "bfloat16"
+
+execution:
+  stage_0_protocol: in_progress
+  stage_1_model_download: pending
+  stage_2_tokenizer_config: pending
+  stage_3_full_load_generation: pending
+  stage_4_one_prompt_task: pending
+  stage_5_one_prompt_micro_macro: pending
+  stage_6_one_prompt_five_family: pending
+  stage_7_all_16: pending
+  stage_8_report: pending
+  background_task: null
+  last_error: null
+
+resources:
+  gpu_count: 3
+  gpu_model: "NVIDIA GeForce RTX 4080 SUPER"
+  gpu_memory_mib_each: 32760
+  nvlink: false
+  model_cache: "/root/autodl-tmp/huggingface"
+  python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
+
+outer_loop:
+  cycle: 0
+  last_direction: null
+  last_reflection: ""
+
+workspace:
+  findings: "findings.md"
+  log: "research-log.md"
+  literature_dir: "literature/"
+  experiments_dir: "experiments/"
+  to_human_dir: "to_human/"
+  paper_dir: "paper/"
