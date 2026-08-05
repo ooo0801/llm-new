@@ -48,7 +48,7 @@ execution:
   stage_6_one_prompt_five_family: complete
   stage_7_all_16: in_progress
   stage_8_report: pending
-  background_task: null
+  background_task: "full Experiment A pipeline PID 12981"
   last_error: null
 
 resources:
