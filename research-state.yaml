@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/prompt-transfer-14b-a1"
-  current_stage: "one_prompt_five_family"
+  current_stage: "all_16_confirmatory"
 
 literature:
   key_papers: []
@@ -45,8 +45,8 @@ execution:
   stage_3_full_load_generation: complete
   stage_4_one_prompt_task: complete
   stage_5_one_prompt_micro_macro: complete
-  stage_6_one_prompt_five_family: in_progress
-  stage_7_all_16: pending
+  stage_6_one_prompt_five_family: complete
+  stage_7_all_16: in_progress
   stage_8_report: pending
   background_task: null
   last_error: null
