@@ -1,0 +1,28 @@
+{
+  "confirmatory_lora_steps_unchanged": 50,
+  "engineering_manifest_path": "experiments/prompt-transfer-14b-a1/inputs/engineering_five_family_seed3407.jsonl",
+  "engineering_manifest_sha256": "143edfffa0341afcc552b954384c4803662b4852a7eb348aea0f574971e0e046",
+  "engineering_only": true,
+  "engineering_seed": 3407,
+  "families": [
+    "unstructured_pruning",
+    "structured_pruning",
+    "quantization",
+    "gaussian_noise",
+    "finetuning"
+  ],
+  "frozen_manifest_path": "reproducibility/v6_20260729/test_attack_manifest.jsonl",
+  "frozen_manifest_sha256": "1e247b97fde08a83738099534e55f817ca768d64146af69d32527572a70cd37c",
+  "lora_steps": 1,
+  "schema_version": "experiment_a_stage_inputs_1.0",
+  "source_variant_ids": {
+    "finetuning": "test_finetuning_4618a1ee039c",
+    "gaussian_noise": "test_gaussian_noise_cb734fe6f9ca",
+    "quantization": "test_quantization_68a351d3e18a",
+    "structured_pruning": "test_structured_pruning_7fb86bf0e94d",
+    "unstructured_pruning": "test_unstructured_pruning_2f144bfd3832"
+  },
+  "stage_one_pair_path": "experiments/prompt-transfer-14b-a1/inputs/stage_one_pair.jsonl",
+  "stage_one_pair_sha256": "5112974f9c9402d422045d3cbfe11d5f2b64f807fa4a7ebf987b8a03946b0bb4",
+  "stage_one_source_prompt_id": "safety_d136003b5900"
+}
