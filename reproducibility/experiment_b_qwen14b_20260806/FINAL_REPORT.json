@@ -1,0 +1,52 @@
+{
+  "attack_seeds": [
+    2435199792,
+    4072939906
+  ],
+  "deterministic_family_limitation": [
+    "unstructured_pruning",
+    "quantization"
+  ],
+  "family_pass_counts": {
+    "finetuning": 6,
+    "gaussian_noise": 8,
+    "quantization": 8,
+    "structured_pruning": 7,
+    "unstructured_pruning": 6
+  },
+  "h_b1": {
+    "observed": 3,
+    "required": 3,
+    "status": "supported"
+  },
+  "h_b2": {
+    "observed": 6,
+    "required": 6,
+    "status": "supported"
+  },
+  "legacy_replicated": 6,
+  "micro_seed": 1685839144,
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "pairs": 8,
+  "positive_macro_gain": 7,
+  "positive_micro_gain": 7,
+  "replicated_legacy_prompt_ids": [
+    "logic_0ece81476a78",
+    "instruction_43e8f0520c0e",
+    "safety_8c6e8a477653",
+    "safety_1e228e4d44b9",
+    "safety_54d2229faad7",
+    "instruction_9109f3338c12"
+  ],
+  "replicated_strict_prompt_ids": [
+    "instruction_43e8f0520c0e",
+    "safety_8c6e8a477653",
+    "safety_54d2229faad7",
+    "instruction_9109f3338c12"
+  ],
+  "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "schema_version": "experiment_b_replication_report_1.0",
+  "strict_replicated_all_legacy": 4,
+  "strict_source_replicated_strict": 3,
+  "task_preserved": 8
+}

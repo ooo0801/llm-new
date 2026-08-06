@@ -53,3 +53,11 @@ Two task failures (`translation_a77d5aded0e9` and `logic_3f35493753d6`) would ot
 ## Optimization Trajectory
 
 No prompt optimization is permitted in Experiment A. The trajectory records staged feasibility and the final retained count only.
+
+## Experiment B Independent-Seed Survivor Replication (2026-08-06)
+
+The frozen Experiment A survivor cohorts were repeated with independently derived perturbation and Hutchinson seeds. All 8 prompts preserved their original task; 7/8 were micro-positive and 7/8 were macro-positive. Six of the 8 legacy survivors again met the legacy gate, exactly supporting H-B2. Three of the 4 original strict survivors again met the strict 5/5 gate, exactly supporting H-B1.
+
+The stable legacy core is `logic_0ece81476a78`, `instruction_43e8f0520c0e`, `safety_8c6e8a477653`, `safety_1e228e4d44b9`, `safety_54d2229faad7`, and `instruction_9109f3338c12`. The repeated strict set among all 8 is `instruction_43e8f0520c0e`, `safety_8c6e8a477653`, `safety_54d2229faad7`, and `instruction_9109f3338c12`; among the original strict-4 source cohort, 3/4 repeated strict.
+
+This supports a seed-stable 7B-to-14B core but does not rescue H-A1: only 8/16 exact prompts passed the first transfer run. Experiment C therefore tests a separate claim—whether the frozen construction method can create a held-out-valid 14B-specific complement without using Experiment A/B outcomes for selection.

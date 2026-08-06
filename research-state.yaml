@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/prompt-transfer-14b-followup"
-  current_stage: "failure_attribution_complete"
+  current_stage: "survivor_replication_complete"
 
 literature:
   key_papers: []
@@ -24,13 +24,13 @@ hypotheses:
     priority: high
   - id: H-B1
     statement: "At least 3 of the 4 Experiment A strict survivors will again satisfy the strict 5/5 gate under independently derived perturbation and Hutchinson seeds."
-    status: active
+    status: supported
     motivation: "This tests whether the apparent cross-scale core is seed-stable rather than a one-run intersection."
     parent: H-A1
     priority: high
   - id: H-B2
     statement: "At least 6 of the 8 Experiment A legacy survivors will again satisfy the legacy gate under independently derived seeds."
-    status: active
+    status: supported
     motivation: "The 75% replication threshold mirrors the original transfer feasibility criterion without selecting new prompts."
     parent: H-A1
     priority: high
@@ -45,12 +45,18 @@ experiments:
   proxy_metric: "legacy_retained_count out of 16; strict_5of5_count is secondary"
   baseline_value: 16
   best_value: 8
-  total_runs: 1
+  total_runs: 2
   trajectory:
     - run: "confirmatory_14b_a1"
       legacy_retained: 8
       strict_5of5_retained: 4
       hypothesis_supported: false
+    - run: "survivor_replication_14b_b1"
+      legacy_retained: 6
+      legacy_cohort_size: 8
+      strict_source_repeated: 3
+      strict_source_cohort_size: 4
+      hypothesis_supported: true
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -71,7 +77,7 @@ execution:
   stage_7_all_16: complete
   stage_8_report: complete
   followup_stage_1_failure_attribution: complete
-  followup_stage_2_survivor_replication: protocol_frozen
+  followup_stage_2_survivor_replication: complete
   followup_stage_3_14b_reconstruction: protocol_frozen
   followup_stage_4_combined_fingerprint: pending
   background_task: null
@@ -86,9 +92,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 2
+  cycle: 3
   last_direction: "deepen_with_independent_replication_then_model_aware_reconstruction"
-  last_reflection: "Post-hoc attribution leaves the frozen A conclusion unchanged: the sequential waterfall is 16 technical, 12 task, 10 micro, 9 macro, 8 legacy, and 4 strict; family instability is the dominant post-task bottleneck."
+  last_reflection: "Independent-seed replication supported both frozen survivor hypotheses exactly at their thresholds: 6/8 legacy survivors repeated the legacy gate and 3/4 strict-source survivors repeated the strict gate. This establishes a stable cross-scale core while leaving exact-instance transfer incomplete."
 
 workspace:
   findings: "findings.md"
