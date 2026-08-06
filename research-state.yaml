@@ -36,7 +36,7 @@ hypotheses:
     priority: high
   - id: H-C1
     statement: "A model-aware 14B construction run can freeze a nonempty prompt complement on calibration data and retain it on an independent validation split."
-    status: pending
+    status: active
     motivation: "This separates transfer of exact prompt instances from transfer of the construction procedure."
     parent: H-A1
     priority: medium
@@ -72,7 +72,7 @@ execution:
   stage_8_report: complete
   followup_stage_1_failure_attribution: complete
   followup_stage_2_survivor_replication: protocol_frozen
-  followup_stage_3_14b_reconstruction: pending
+  followup_stage_3_14b_reconstruction: protocol_frozen
   followup_stage_4_combined_fingerprint: pending
   background_task: null
   last_error: null
