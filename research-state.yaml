@@ -24,13 +24,13 @@ hypotheses:
     priority: high
   - id: H-B1
     statement: "At least 3 of the 4 Experiment A strict survivors will again satisfy the strict 5/5 gate under independently derived perturbation and Hutchinson seeds."
-    status: preregistration_pending
+    status: active
     motivation: "This tests whether the apparent cross-scale core is seed-stable rather than a one-run intersection."
     parent: H-A1
     priority: high
   - id: H-B2
     statement: "At least 6 of the 8 Experiment A legacy survivors will again satisfy the legacy gate under independently derived seeds."
-    status: preregistration_pending
+    status: active
     motivation: "The 75% replication threshold mirrors the original transfer feasibility criterion without selecting new prompts."
     parent: H-A1
     priority: high
@@ -71,7 +71,7 @@ execution:
   stage_7_all_16: complete
   stage_8_report: complete
   followup_stage_1_failure_attribution: complete
-  followup_stage_2_survivor_replication: pending
+  followup_stage_2_survivor_replication: protocol_frozen
   followup_stage_3_14b_reconstruction: pending
   followup_stage_4_combined_fingerprint: pending
   background_task: null

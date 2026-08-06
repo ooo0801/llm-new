@@ -1,0 +1,48 @@
+{
+  "attack_seeds": [
+    2435199792,
+    4072939906
+  ],
+  "files": {
+    "attacks": {
+      "path": "experiments/prompt-transfer-14b-b1/inputs/attack_manifest_validation.jsonl",
+      "rows": 10,
+      "sha256": "e89dc01acd35142b874de666e0f6bf8f78b8f320a1e11044a49e0e0c00402b45"
+    },
+    "pairs": {
+      "path": "experiments/prompt-transfer-14b-b1/inputs/survivor_pairs.jsonl",
+      "rows": 8,
+      "sha256": "859c82d201c0f58c2fd069d8e3ad859a4b231e284bd5094748b20d70780e0fb8"
+    },
+    "prompts": {
+      "path": "experiments/prompt-transfer-14b-b1/inputs/survivor_prompts.jsonl",
+      "rows": 16,
+      "sha256": "085a867e1f44056ec7e0c5849bd7d8e51885bb9a2d7833a7a7d67b3895f55143"
+    }
+  },
+  "legacy_prompt_ids": [
+    "knowledge_9edb61565cee",
+    "logic_0ece81476a78",
+    "safety_020dda637cac",
+    "instruction_43e8f0520c0e",
+    "safety_8c6e8a477653",
+    "safety_1e228e4d44b9",
+    "safety_54d2229faad7",
+    "instruction_9109f3338c12"
+  ],
+  "micro_seed": 1685839144,
+  "schema_version": "experiment_b_frozen_inputs_1.0",
+  "seed_derivation": "first three big-endian uint32 words of SHA256(experiment-b-survivor-replication-v1)",
+  "selection_rules": {
+    "legacy": "Experiment A legacy_retained == true",
+    "strict": "Experiment A strict_5of5_retained == true"
+  },
+  "source_result": "results/experiment_a_qwen14b_20260805/analysis/per_prompt_transfer_results.jsonl",
+  "source_result_sha256": "85016d4ec72d4f56582d4ac8058602973fb0ce84a26870f205ab21a989e04066",
+  "strict_prompt_ids": [
+    "logic_0ece81476a78",
+    "safety_8c6e8a477653",
+    "safety_54d2229faad7",
+    "instruction_9109f3338c12"
+  ]
+}
