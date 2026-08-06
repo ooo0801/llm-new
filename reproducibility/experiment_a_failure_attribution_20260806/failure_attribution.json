@@ -1,0 +1,124 @@
+{
+  "schema_version": "experiment_a_failure_attribution_1.0",
+  "analysis_type": "post_hoc_descriptive_existing_outputs_only",
+  "source": "results/experiment_a_qwen14b_20260805/analysis/per_prompt_transfer_results.jsonl",
+  "prompt_count": 16,
+  "waterfall": {
+    "technical": 16,
+    "after_task": 12,
+    "after_micro": 10,
+    "after_macro": 9,
+    "after_legacy_family": 8,
+    "after_strict_family": 4
+  },
+  "independent_legacy_gate_fail_counts": {
+    "macro": 3,
+    "legacy_family": 6,
+    "task": 4,
+    "micro": 2
+  },
+  "sequential_primary_outcomes": {
+    "macro": 1,
+    "task": 4,
+    "strict_family_only": 4,
+    "micro": 2,
+    "strict_retained": 4,
+    "legacy_family": 1
+  },
+  "family_pass_counts": {
+    "unstructured_pruning": 8,
+    "structured_pruning": 12,
+    "quantization": 12,
+    "gaussian_noise": 8,
+    "finetuning": 13
+  },
+  "single_gate_bottleneck_prompt_ids": {
+    "task": [
+      "translation_a77d5aded0e9",
+      "logic_3f35493753d6"
+    ],
+    "micro": [],
+    "macro": [],
+    "legacy_family": [
+      "knowledge_075a65e696ce"
+    ]
+  },
+  "category_counts": {
+    "code": {
+      "total": 1,
+      "task": 0,
+      "micro": 1,
+      "macro": 1,
+      "legacy": 0,
+      "strict": 0
+    },
+    "instruction": {
+      "total": 2,
+      "task": 2,
+      "micro": 2,
+      "macro": 2,
+      "legacy": 2,
+      "strict": 1
+    },
+    "knowledge": {
+      "total": 3,
+      "task": 3,
+      "micro": 2,
+      "macro": 2,
+      "legacy": 1,
+      "strict": 0
+    },
+    "logic": {
+      "total": 2,
+      "task": 1,
+      "micro": 2,
+      "macro": 2,
+      "legacy": 1,
+      "strict": 1
+    },
+    "safety": {
+      "total": 5,
+      "task": 5,
+      "micro": 5,
+      "macro": 4,
+      "legacy": 4,
+      "strict": 2
+    },
+    "summary": {
+      "total": 1,
+      "task": 1,
+      "micro": 0,
+      "macro": 0,
+      "legacy": 0,
+      "strict": 0
+    },
+    "translation": {
+      "total": 2,
+      "task": 0,
+      "micro": 2,
+      "macro": 2,
+      "legacy": 0,
+      "strict": 0
+    }
+  },
+  "legacy_retained_prompt_ids": [
+    "knowledge_9edb61565cee",
+    "logic_0ece81476a78",
+    "safety_020dda637cac",
+    "instruction_43e8f0520c0e",
+    "safety_8c6e8a477653",
+    "safety_1e228e4d44b9",
+    "safety_54d2229faad7",
+    "instruction_9109f3338c12"
+  ],
+  "strict_retained_prompt_ids": [
+    "logic_0ece81476a78",
+    "safety_8c6e8a477653",
+    "safety_54d2229faad7",
+    "instruction_9109f3338c12"
+  ],
+  "interpretation": {
+    "confirmatory_status_unchanged": true,
+    "statement": "This attribution explains the frozen Experiment A result and does not alter any gate or rescore any model endpoint."
+  }
+}

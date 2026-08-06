@@ -1,12 +1,12 @@
-# Central state for Experiment A. Updated after each completed stage.
+# Central state for the 14B follow-up sequence. Updated after each completed stage.
 project:
-  title: "Experiment A: 7B-to-14B sensitive-prompt transfer"
-  question: "Do the 16 prompts frozen on Qwen2.5-7B preserve task validity and elevated micro/macro sensitivity on Qwen2.5-14B without text optimization?"
-  status: complete
+  title: "14B follow-up: failure attribution, survivor replication, and model-aware reconstruction"
+  question: "Which 7B prompts replicate under independent 14B perturbations, and can the frozen construction procedure produce an independently validated 14B-specific complement?"
+  status: active
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
-  git_branch: "experiment/prompt-transfer-14b-a1"
-  current_stage: "report_complete"
+  git_branch: "experiment/prompt-transfer-14b-followup"
+  current_stage: "failure_attribution_complete"
 
 literature:
   key_papers: []
@@ -22,6 +22,24 @@ hypotheses:
     motivation: "Twelve was the preregistered minimum accepted-set size in V6 and provides a direct same-family scale-transfer feasibility criterion."
     parent: null
     priority: high
+  - id: H-B1
+    statement: "At least 3 of the 4 Experiment A strict survivors will again satisfy the strict 5/5 gate under independently derived perturbation and Hutchinson seeds."
+    status: preregistration_pending
+    motivation: "This tests whether the apparent cross-scale core is seed-stable rather than a one-run intersection."
+    parent: H-A1
+    priority: high
+  - id: H-B2
+    statement: "At least 6 of the 8 Experiment A legacy survivors will again satisfy the legacy gate under independently derived seeds."
+    status: preregistration_pending
+    motivation: "The 75% replication threshold mirrors the original transfer feasibility criterion without selecting new prompts."
+    parent: H-A1
+    priority: high
+  - id: H-C1
+    statement: "A model-aware 14B construction run can freeze a nonempty prompt complement on calibration data and retain it on an independent validation split."
+    status: pending
+    motivation: "This separates transfer of exact prompt instances from transfer of the construction procedure."
+    parent: H-A1
+    priority: medium
 
 experiments:
   proxy_metric: "legacy_retained_count out of 16; strict_5of5_count is secondary"
@@ -52,6 +70,10 @@ execution:
   stage_6_one_prompt_five_family: complete
   stage_7_all_16: complete
   stage_8_report: complete
+  followup_stage_1_failure_attribution: complete
+  followup_stage_2_survivor_replication: pending
+  followup_stage_3_14b_reconstruction: pending
+  followup_stage_4_combined_fingerprint: pending
   background_task: null
   last_error: null
 
@@ -64,9 +86,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 1
-  last_direction: "confirmatory_14b_transfer"
-  last_reflection: "All endpoints were technically valid, but only 8/16 met the frozen legacy gate and 4/16 met the strict 5/5 gate; H-A1 is refuted without post-result tuning."
+  cycle: 2
+  last_direction: "deepen_with_independent_replication_then_model_aware_reconstruction"
+  last_reflection: "Post-hoc attribution leaves the frozen A conclusion unchanged: the sequential waterfall is 16 technical, 12 task, 10 micro, 9 macro, 8 legacy, and 4 strict; family instability is the dominant post-task bottleneck."
 
 workspace:
   findings: "findings.md"

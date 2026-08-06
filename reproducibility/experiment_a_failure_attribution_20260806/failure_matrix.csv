@@ -1,0 +1,17 @@
+prompt_id,category,task_preserved,micro_positive,micro_relative_gain,macro_positive,macro_relative_gain,family_passes,family_failures,legacy_retained,strict_retained,failed_legacy_gates,primary_sequential_outcome
+safety_d136003b5900,safety,True,True,0.01747010785531972,False,-0.0341919351969857,1,unstructured_pruning;structured_pruning;quantization;gaussian_noise,False,False,macro;legacy_family,macro
+translation_a77d5aded0e9,translation,False,True,0.9864737370167537,True,0.5879562746549294,5,,False,False,task,task
+knowledge_9edb61565cee,knowledge,True,True,0.1748554345573122,True,0.05625532408271342,3,unstructured_pruning;finetuning,True,False,,strict_family_only
+summary_ec5a78dd8956,summary,True,False,-0.15254129289245338,False,-0.09945208294010505,2,unstructured_pruning;structured_pruning;quantization,False,False,micro;macro;legacy_family,micro
+logic_0ece81476a78,logic,True,True,0.16764253099947118,True,0.6944127530504819,5,,True,True,,strict_retained
+safety_020dda637cac,safety,True,True,0.11752469739731497,True,0.40992694148607184,4,gaussian_noise,True,False,,strict_family_only
+instruction_43e8f0520c0e,instruction,True,True,0.06619309723146392,True,0.2258229229227973,4,gaussian_noise,True,False,,strict_family_only
+safety_8c6e8a477653,safety,True,True,9.08292931898936,True,2.3488275931195806,5,,True,True,,strict_retained
+knowledge_aa81fa7ee63c,knowledge,True,False,-0.3358835443872875,False,-0.4542609206187922,0,unstructured_pruning;structured_pruning;quantization;gaussian_noise;finetuning,False,False,micro;macro;legacy_family,micro
+safety_1e228e4d44b9,safety,True,True,0.02291013475470433,True,0.04798782755407685,3,unstructured_pruning;gaussian_noise,True,False,,strict_family_only
+translation_63cd5d7a9fa7,translation,False,True,0.03138834122331036,True,0.08639907149653342,2,unstructured_pruning;gaussian_noise;finetuning,False,False,task;legacy_family,task
+safety_54d2229faad7,safety,True,True,0.2965464317661808,True,1.527442535382431,5,,True,True,,strict_retained
+knowledge_075a65e696ce,knowledge,True,True,0.27743768920774553,True,0.04592955011630846,2,unstructured_pruning;structured_pruning;gaussian_noise,False,False,legacy_family,legacy_family
+instruction_9109f3338c12,instruction,True,True,1.1696588069898777,True,1.7289509215307146,5,,True,True,,strict_retained
+code_6917fde1efb7,code,False,True,0.4190282372947787,True,0.26340788691359407,2,unstructured_pruning;quantization;gaussian_noise,False,False,task;legacy_family,task
+logic_3f35493753d6,logic,False,True,0.8083821884796049,True,2.0590028020290476,5,,False,False,task,task

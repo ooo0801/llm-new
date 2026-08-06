@@ -42,6 +42,14 @@ The project already contains a closed V6 prompt-construction pipeline and V1/V2 
 - Whether task evaluators should treat semantically equivalent translations as valid; changing that rule is outside Experiment A and cannot alter this result retrospectively.
 - Whether a new prompt-construction procedure trained across multiple scales can improve the 8/16 legacy-retention count.
 
+## Experiment A Failure Attribution (2026-08-06)
+
+The frozen result decomposes as a sequential gate waterfall of 16/16 technically valid, 12/16 task-preserved, 10/16 also micro-positive, 9/16 also macro-positive, 8/16 legacy-retained, and 4/16 strict-retained. This is descriptive reuse of existing outputs; it does not change H-A1.
+
+Across prompts, independent gate failures overlap: task failed for 4, micro direction for 2, macro direction for 3, and the legacy family-count requirement for 6. The latter is the most frequent non-task bottleneck. Gaussian noise and unstructured pruning each passed only 8/16, compared with structured pruning and NF4 at 12/16 and finetuning at 13/16.
+
+Two task failures (`translation_a77d5aded0e9` and `logic_3f35493753d6`) would otherwise satisfy all legacy sensitivity gates, while `knowledge_075a65e696ce` is blocked only by the 2/5 family count. These are causal-attribution candidates, not grounds for retrospective evaluator or gate changes.
+
 ## Optimization Trajectory
 
 No prompt optimization is permitted in Experiment A. The trajectory records staged feasibility and the final retained count only.
