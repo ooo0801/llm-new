@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/prompt-transfer-14b-followup"
-  current_stage: "survivor_replication_complete"
+  current_stage: "14b_reconstruction_in_progress"
 
 literature:
   key_papers: []
@@ -78,9 +78,14 @@ execution:
   stage_8_report: complete
   followup_stage_1_failure_attribution: complete
   followup_stage_2_survivor_replication: complete
-  followup_stage_3_14b_reconstruction: protocol_frozen
+  followup_stage_3_14b_reconstruction: in_progress
   followup_stage_4_combined_fingerprint: pending
-  background_task: null
+  background_task:
+    experiment: "experiment_c_qwen14b_20260806"
+    pid: 5990
+    command: "bash scripts/run_experiment_c_construction.sh"
+    log: "results/experiment_c_qwen14b_20260806/full_pipeline.log"
+    started: "2026-08-06T10:21:40+08:00"
   last_error: null
 
 resources:
