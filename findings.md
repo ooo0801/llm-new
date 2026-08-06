@@ -61,3 +61,7 @@ The frozen Experiment A survivor cohorts were repeated with independently derive
 The stable legacy core is `logic_0ece81476a78`, `instruction_43e8f0520c0e`, `safety_8c6e8a477653`, `safety_1e228e4d44b9`, `safety_54d2229faad7`, and `instruction_9109f3338c12`. The repeated strict set among all 8 is `instruction_43e8f0520c0e`, `safety_8c6e8a477653`, `safety_54d2229faad7`, and `instruction_9109f3338c12`; among the original strict-4 source cohort, 3/4 repeated strict.
 
 This supports a seed-stable 7B-to-14B core but does not rescue H-A1: only 8/16 exact prompts passed the first transfer run. Experiment C therefore tests a separate claim—whether the frozen construction method can create a held-out-valid 14B-specific complement without using Experiment A/B outcomes for selection.
+
+## Experiment C Development Freeze (2026-08-06)
+
+The model-aware 14B construction produced 38 proxy-positive source prompts and 64 deduplicated development candidates. Frozen hard validation completed 128 task endpoints, 102 complete-coverage micro scores, and 1,020 macro observations across ten variants from five perturbation families. Thirty-four candidates met the strict development selection rule, exceeding the preregistered minimum of four. No held-out test data was used for construction, ranking, calibration, or this freeze; the 34 are therefore a development-frozen set awaiting independent held-out confirmation rather than final accepted prompts.
