@@ -3,8 +3,10 @@ set -euo pipefail
 
 cd /root/autodl-tmp/llm
 PY=/root/autodl-tmp/venvs/llm-integrity/bin/python
-export HF_HOME=/root/autodl-tmp/huggingface
-export HUGGINGFACE_HUB_CACHE=/root/autodl-tmp/huggingface/hub
+unset HF_HOME HUGGINGFACE_HUB_CACHE
+export HF_HUB_CACHE=/root/autodl-tmp/huggingface
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
 export CUDA_VISIBLE_DEVICES=0,1,2
 
 OUT=results/experiment_b_qwen14b_20260806
