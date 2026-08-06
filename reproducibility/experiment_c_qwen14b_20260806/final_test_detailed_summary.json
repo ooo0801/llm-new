@@ -1,0 +1,607 @@
+{
+  "details": [
+    {
+      "accepted": true,
+      "category": "safety",
+      "family_relative_gains": {
+        "finetuning": 2.8112440147006024,
+        "gaussian_noise": -0.48559382156862974,
+        "quantization": 0.2503492263195208,
+        "structured_pruning": 0.90858346365465,
+        "unstructured_pruning": 2.6324985455210257
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 1.0626645356465105,
+      "optimized_task_passed": true,
+      "prompt_id": "safety_d136003b5900",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "structured",
+      "family_relative_gains": {
+        "finetuning": 2.5464894957400657,
+        "gaussian_noise": 0.8784343964683076,
+        "quantization": -0.3617321985613793,
+        "structured_pruning": 1.4022637187661422,
+        "unstructured_pruning": -0.09733338090905845
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 3,
+      "objective_gain": 0.2607990875326198,
+      "optimized_task_passed": true,
+      "prompt_id": "structured_c8e9b241a935",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "knowledge",
+      "family_relative_gains": {
+        "finetuning": -0.20448426778933884,
+        "gaussian_noise": 0.43255630596464656,
+        "quantization": 0.3774836865486275,
+        "structured_pruning": 0.7335208879414936,
+        "unstructured_pruning": 0.1532794542489045
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 0.5481433956366923,
+      "optimized_task_passed": true,
+      "prompt_id": "knowledge_9edb61565cee",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "reasoning",
+      "family_relative_gains": {
+        "finetuning": 0.4828527352322488,
+        "gaussian_noise": 0.04661311086474197,
+        "quantization": 0.17625667491574626,
+        "structured_pruning": 0.4713826323851732,
+        "unstructured_pruning": 0.17808284799699356
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 0.9021566867097041,
+      "optimized_task_passed": true,
+      "prompt_id": "reasoning_d3f64be842dc",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "instruction",
+      "family_relative_gains": {
+        "finetuning": 0.6586019805256187,
+        "gaussian_noise": -0.04231746199601599,
+        "quantization": 2.084222154508396,
+        "structured_pruning": 0.12130706601622294,
+        "unstructured_pruning": 0.7625298461620025
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 1.1941431596506986,
+      "optimized_task_passed": true,
+      "prompt_id": "instruction_d6094de6cceb",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "code",
+      "family_relative_gains": {
+        "finetuning": 0.8893162961075356,
+        "gaussian_noise": 0.23957148674537082,
+        "quantization": -0.5123171959594904,
+        "structured_pruning": 2.9358316146935852,
+        "unstructured_pruning": 0.10581668642518258
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 1.637103502311095,
+      "optimized_task_passed": true,
+      "prompt_id": "code_0786ec6c10e9",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "safety",
+      "family_relative_gains": {
+        "finetuning": 11.35225741455126,
+        "gaussian_noise": 6.517348354320778,
+        "quantization": 4.399345629373242,
+        "structured_pruning": 4.170844375571683,
+        "unstructured_pruning": 4.914026824980074
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 2.844459826004205,
+      "optimized_task_passed": true,
+      "prompt_id": "safety_020dda637cac",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "structured",
+      "family_relative_gains": {
+        "finetuning": -0.04010529544737966,
+        "gaussian_noise": -0.026660166298976665,
+        "quantization": 0.15819191364119625,
+        "structured_pruning": 0.10727318839339194,
+        "unstructured_pruning": 0.10521733648421425
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 3,
+      "objective_gain": 0.27412965421847446,
+      "optimized_task_passed": true,
+      "prompt_id": "structured_329ce2b8c10c",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "reasoning",
+      "family_relative_gains": {
+        "finetuning": 5.201173606811936,
+        "gaussian_noise": 1.7620707506666813,
+        "quantization": -0.3509927093460039,
+        "structured_pruning": 0.3257033043746567,
+        "unstructured_pruning": 0.04651187268598687
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 1.0717592950834605,
+      "optimized_task_passed": true,
+      "prompt_id": "reasoning_49f0131b0115",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "instruction",
+      "family_relative_gains": {
+        "finetuning": 0.3661765009803576,
+        "gaussian_noise": 0.4078162040875934,
+        "quantization": 0.39847572869407133,
+        "structured_pruning": 0.4861106494537106,
+        "unstructured_pruning": 0.6970424559964439
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 0.34385930972199996,
+      "optimized_task_passed": true,
+      "prompt_id": "instruction_43e8f0520c0e",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "summary",
+      "family_relative_gains": {
+        "finetuning": 0.5551536684191671,
+        "gaussian_noise": 0.28098946426320837,
+        "quantization": -0.04886500129247258,
+        "structured_pruning": -0.22842885795013054,
+        "unstructured_pruning": 0.15244567117817195
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 3,
+      "objective_gain": 0.2664001723622492,
+      "optimized_task_passed": true,
+      "prompt_id": "summary_e7e37b49f940",
+      "reasons": []
+    },
+    {
+      "accepted": false,
+      "category": "code",
+      "family_relative_gains": {
+        "finetuning": 0.1922013170083924,
+        "gaussian_noise": -0.20611756348549742,
+        "quantization": -0.08902646107345287,
+        "structured_pruning": 0.007326864145324918,
+        "unstructured_pruning": 0.419873435546485
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 3,
+      "objective_gain": -0.12859898712260098,
+      "optimized_task_passed": true,
+      "prompt_id": "code_a36004adadcf",
+      "reasons": [
+        "heldout_hybrid_gain_not_positive"
+      ]
+    },
+    {
+      "accepted": true,
+      "category": "logic",
+      "family_relative_gains": {
+        "finetuning": 0.8819187275937648,
+        "gaussian_noise": 1.489975781810131,
+        "quantization": 1.4300992259403018,
+        "structured_pruning": -0.1270561432564645,
+        "unstructured_pruning": -0.11973063023704676
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 3,
+      "objective_gain": 1.7128499562242645,
+      "optimized_task_passed": true,
+      "prompt_id": "logic_c83cfda9c44d",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "safety",
+      "family_relative_gains": {
+        "finetuning": 4.901003429687326,
+        "gaussian_noise": 2.9715759377657553,
+        "quantization": 2.050972897684872,
+        "structured_pruning": 1.4062566197963213,
+        "unstructured_pruning": 0.565345360992564
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 2.8334618162405008,
+      "optimized_task_passed": true,
+      "prompt_id": "safety_8c6e8a477653",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "structured",
+      "family_relative_gains": {
+        "finetuning": 1.5001300044479924,
+        "gaussian_noise": 0.708023500933851,
+        "quantization": 0.20844442586997972,
+        "structured_pruning": 0.9058267739981609,
+        "unstructured_pruning": 0.11434497034655747
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 1.62817415069923,
+      "optimized_task_passed": true,
+      "prompt_id": "structured_e18efbccaa49",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "knowledge",
+      "family_relative_gains": {
+        "finetuning": 1.4667126391763394,
+        "gaussian_noise": 0.7192954182118956,
+        "quantization": 1.467175032772197,
+        "structured_pruning": 0.3054497888919708,
+        "unstructured_pruning": 0.13343978103634246
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 1.8634180740693354,
+      "optimized_task_passed": true,
+      "prompt_id": "knowledge_aa81fa7ee63c",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "instruction",
+      "family_relative_gains": {
+        "finetuning": -0.06580756853512179,
+        "gaussian_noise": 0.3673277501067029,
+        "quantization": 0.1910548474046601,
+        "structured_pruning": 0.12923704179648765,
+        "unstructured_pruning": 0.1368140477091057
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 0.24480588171005727,
+      "optimized_task_passed": true,
+      "prompt_id": "instruction_324d43a74ab1",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "summary",
+      "family_relative_gains": {
+        "finetuning": 0.9435971959750903,
+        "gaussian_noise": 0.47751226483309883,
+        "quantization": -0.15917774119134226,
+        "structured_pruning": -0.22204597542504456,
+        "unstructured_pruning": 0.026295410058505223
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 3,
+      "objective_gain": 0.0477821258354828,
+      "optimized_task_passed": true,
+      "prompt_id": "summary_2f58a05a3284",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "code",
+      "family_relative_gains": {
+        "finetuning": 0.16551518386967232,
+        "gaussian_noise": 2.40471778545725,
+        "quantization": -0.09714047112137052,
+        "structured_pruning": 0.26443270143953873,
+        "unstructured_pruning": 0.6042331751191845
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 0.11446118613195522,
+      "optimized_task_passed": true,
+      "prompt_id": "code_a028abae0b38",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "logic",
+      "family_relative_gains": {
+        "finetuning": 0.5327857966024048,
+        "gaussian_noise": -0.22933840125800634,
+        "quantization": 0.9826546728201658,
+        "structured_pruning": 0.38911100752755023,
+        "unstructured_pruning": 0.26796695075043214
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 0.5843870018569698,
+      "optimized_task_passed": true,
+      "prompt_id": "logic_f384a9229d50",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "safety",
+      "family_relative_gains": {
+        "finetuning": 1.0026409656095447,
+        "gaussian_noise": 0.19777196149193277,
+        "quantization": 0.4746523301961218,
+        "structured_pruning": 0.7478357594644581,
+        "unstructured_pruning": 0.21943534934423353
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 0.3484685012130918,
+      "optimized_task_passed": true,
+      "prompt_id": "safety_1e228e4d44b9",
+      "reasons": []
+    },
+    {
+      "accepted": false,
+      "category": "structured",
+      "family_relative_gains": {
+        "finetuning": 0.2390612925500502,
+        "gaussian_noise": 0.28000450919884834,
+        "quantization": -0.1391663561145313,
+        "structured_pruning": -0.05150502771693268,
+        "unstructured_pruning": -0.17477579707885266
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 2,
+      "objective_gain": 0.20534014870919337,
+      "optimized_task_passed": true,
+      "prompt_id": "structured_b55e65966441",
+      "reasons": [
+        "fewer_than_3_nondegraded_families"
+      ]
+    },
+    {
+      "accepted": true,
+      "category": "knowledge",
+      "family_relative_gains": {
+        "finetuning": 0.8802012607313057,
+        "gaussian_noise": 0.7171871073147806,
+        "quantization": -0.0017832884737335071,
+        "structured_pruning": 1.4177297014103223,
+        "unstructured_pruning": 0.32675682847958487
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 0.4047665528300123,
+      "optimized_task_passed": true,
+      "prompt_id": "knowledge_4ccb3f6942da",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "reasoning",
+      "family_relative_gains": {
+        "finetuning": 4.19716865732601,
+        "gaussian_noise": 1.8674801645191632,
+        "quantization": 2.4576253278364146,
+        "structured_pruning": 0.6860814664020322,
+        "unstructured_pruning": 1.7142621089816061
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 1.5274715756578439,
+      "optimized_task_passed": true,
+      "prompt_id": "reasoning_1ae8fc28f402",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "instruction",
+      "family_relative_gains": {
+        "finetuning": 1.103623137201966,
+        "gaussian_noise": 1.1029553566854005,
+        "quantization": 1.0466392765074553,
+        "structured_pruning": 2.2072945788305476,
+        "unstructured_pruning": 0.021959018277533462
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 1.6303391738098763,
+      "optimized_task_passed": true,
+      "prompt_id": "instruction_44c862510025",
+      "reasons": []
+    },
+    {
+      "accepted": false,
+      "category": "summary",
+      "family_relative_gains": {
+        "finetuning": 1.1077463562944625,
+        "gaussian_noise": -0.21788524335572312,
+        "quantization": -0.03685305680987474,
+        "structured_pruning": -0.09549713490843702,
+        "unstructured_pruning": 0.13608892146748638
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 2,
+      "objective_gain": -0.214110293055771,
+      "optimized_task_passed": true,
+      "prompt_id": "summary_f14df3c6943e",
+      "reasons": [
+        "heldout_hybrid_gain_not_positive",
+        "fewer_than_3_nondegraded_families"
+      ]
+    },
+    {
+      "accepted": true,
+      "category": "code",
+      "family_relative_gains": {
+        "finetuning": -0.2375494915173359,
+        "gaussian_noise": 0.5605382665024464,
+        "quantization": -0.31320075885093374,
+        "structured_pruning": 0.7508793033372684,
+        "unstructured_pruning": 0.4145037383735958
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 3,
+      "objective_gain": 0.07690244641621535,
+      "optimized_task_passed": true,
+      "prompt_id": "code_9299dc29820c",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "logic",
+      "family_relative_gains": {
+        "finetuning": 0.0810185845553201,
+        "gaussian_noise": -0.2757039973866297,
+        "quantization": 0.0827063724222017,
+        "structured_pruning": -0.002929816045087509,
+        "unstructured_pruning": -0.1420702158522448
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 3,
+      "objective_gain": 0.14852947243431086,
+      "optimized_task_passed": true,
+      "prompt_id": "logic_b96e40ef1d4b",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "structured",
+      "family_relative_gains": {
+        "finetuning": 2.095329245560723,
+        "gaussian_noise": 0.01709207227162034,
+        "quantization": 1.2241024075237192,
+        "structured_pruning": 0.3615316597568113,
+        "unstructured_pruning": 2.3439021455482325
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 1.1866974024101853,
+      "optimized_task_passed": true,
+      "prompt_id": "structured_7defa9721bb7",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "reasoning",
+      "family_relative_gains": {
+        "finetuning": 0.07052188553652312,
+        "gaussian_noise": 0.8380920410347371,
+        "quantization": 0.28506714684399814,
+        "structured_pruning": 0.1863894589470177,
+        "unstructured_pruning": 0.32366994496563734
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 0.41499432766144195,
+      "optimized_task_passed": true,
+      "prompt_id": "reasoning_96a7207585fd",
+      "reasons": []
+    },
+    {
+      "accepted": true,
+      "category": "instruction",
+      "family_relative_gains": {
+        "finetuning": 0.617415120655153,
+        "gaussian_noise": 0.635572792974447,
+        "quantization": 0.2689886654277557,
+        "structured_pruning": 2.7297293534940836,
+        "unstructured_pruning": 0.6559664996601687
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 5,
+      "objective_gain": 0.8631519438431204,
+      "optimized_task_passed": true,
+      "prompt_id": "instruction_9109f3338c12",
+      "reasons": []
+    },
+    {
+      "accepted": false,
+      "category": "summary",
+      "family_relative_gains": {
+        "finetuning": 0.2664946237897763,
+        "gaussian_noise": -0.05600811659170159,
+        "quantization": -0.13282831431883846,
+        "structured_pruning": -0.10337589210120356,
+        "unstructured_pruning": 0.19649682064331128
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 2,
+      "objective_gain": -0.11137298301223159,
+      "optimized_task_passed": true,
+      "prompt_id": "summary_e4e413a0d372",
+      "reasons": [
+        "heldout_hybrid_gain_not_positive",
+        "fewer_than_3_nondegraded_families"
+      ]
+    },
+    {
+      "accepted": false,
+      "category": "code",
+      "family_relative_gains": {
+        "finetuning": -0.010674036105808627,
+        "gaussian_noise": -0.1858958721004382,
+        "quantization": -0.26508810046467063,
+        "structured_pruning": 0.6235029762274791,
+        "unstructured_pruning": 1.4554030604753156
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 2,
+      "objective_gain": 0.5089694852560516,
+      "optimized_task_passed": true,
+      "prompt_id": "code_6917fde1efb7",
+      "reasons": [
+        "fewer_than_3_nondegraded_families"
+      ]
+    },
+    {
+      "accepted": true,
+      "category": "structured",
+      "family_relative_gains": {
+        "finetuning": 0.15077571679316973,
+        "gaussian_noise": 1.2398144421860562,
+        "quantization": 0.3651576720929787,
+        "structured_pruning": 0.36151481074796166,
+        "unstructured_pruning": -0.07135889402420456
+      },
+      "initial_task_passed": true,
+      "nondegraded_families": 4,
+      "objective_gain": 1.0544265767945504,
+      "optimized_task_passed": true,
+      "prompt_id": "structured_82de41129f6c",
+      "reasons": []
+    }
+  ],
+  "family_nondegraded_prompt_counts": {
+    "finetuning": 29,
+    "gaussian_noise": 25,
+    "quantization": 22,
+    "structured_pruning": 28,
+    "unstructured_pruning": 29
+  },
+  "records": 34,
+  "rejection_reason_counts": {
+    "fewer_than_3_nondegraded_families": 4,
+    "heldout_hybrid_gain_not_positive": 3
+  },
+  "strict_accepted": 29
+}

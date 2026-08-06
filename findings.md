@@ -65,3 +65,15 @@ This supports a seed-stable 7B-to-14B core but does not rescue H-A1: only 8/16 e
 ## Experiment C Development Freeze (2026-08-06)
 
 The model-aware 14B construction produced 38 proxy-positive source prompts and 64 deduplicated development candidates. Frozen hard validation completed 128 task endpoints, 102 complete-coverage micro scores, and 1,020 macro observations across ten variants from five perturbation families. Thirty-four candidates met the strict development selection rule, exceeding the preregistered minimum of four. No held-out test data was used for construction, ranking, calibration, or this freeze; the 34 are therefore a development-frozen set awaiting independent held-out confirmation rather than final accepted prompts.
+
+## Experiment C Independent Held-out Result (2026-08-06)
+
+All 34 development-frozen candidates completed independent held-out validation. Both task endpoints passed for every candidate; 68/68 complete-block micro scores and 680/680 observations across the five registered perturbation families were produced. Twenty-nine candidates passed the frozen held-out acceptance rule, versus the preregistered minimum of four, so H-C1 is supported. The development-to-held-out retention rate is 29/34 (85.3%).
+
+The accepted complement spans eight categories: 3 code, 5 instruction, 3 knowledge, 3 logic, 4 reasoning, 4 safety, 5 structured, and 2 summary prompts. Held-out outcomes were used only for final confirmation; they did not edit, rerank, or repair the development-frozen candidates or thresholds.
+
+## Combined Qwen2.5-14B Fingerprint (2026-08-06)
+
+The final provenance-preserving union contains 30 prompts: four independently repeated cross-model strict-core prompts from Experiments A and B, plus 26 non-overlapping 14B-specific prompts confirmed by Experiment C. Three Experiment C accepted rows (`instruction_43e8f0520c0e`, `safety_8c6e8a477653`, and `instruction_9109f3338c12`) overlapped the strict core and were deduplicated by source identity or exact prompt hash.
+
+This union preserves the evidence scope of its components. It is not evidence that all 30 prompts were jointly rerun under an additional common attack set; making that stronger claim would require a separately preregistered experiment.

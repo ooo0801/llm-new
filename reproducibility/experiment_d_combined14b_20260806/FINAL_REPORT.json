@@ -1,0 +1,12 @@
+{
+  "claim_scope": "descriptive union of independently validated components; no new joint-union endpoint was run",
+  "combined_total": 30,
+  "cross_model_strict_core": 4,
+  "excluded_source_or_text_overlaps": [
+    "instruction_43e8f0520c0e",
+    "safety_8c6e8a477653",
+    "instruction_9109f3338c12"
+  ],
+  "qwen14b_specific_complement": 26,
+  "schema_version": "experiment_d_combined_14b_fingerprint_1.0"
+}

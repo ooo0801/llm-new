@@ -1,0 +1,215 @@
+{
+  "chosen": [
+    {
+      "nondegraded_families": 3,
+      "objective_gain": 0.7694791527167291,
+      "portfolio_prompt_id": "safety_d136003b5900__portfolio_01_r3_c1",
+      "source_prompt_id": "safety_d136003b5900"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 1.80307486420279,
+      "portfolio_prompt_id": "structured_c8e9b241a935__portfolio_01_r3_c4",
+      "source_prompt_id": "structured_c8e9b241a935"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 1.3299342306973199,
+      "portfolio_prompt_id": "knowledge_9edb61565cee__portfolio_01_r2_c1",
+      "source_prompt_id": "knowledge_9edb61565cee"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 3.1457076107841564,
+      "portfolio_prompt_id": "reasoning_d3f64be842dc__portfolio_01_r2_c4",
+      "source_prompt_id": "reasoning_d3f64be842dc"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 1.1647935931908189,
+      "portfolio_prompt_id": "instruction_d6094de6cceb__portfolio_01_r2_c2",
+      "source_prompt_id": "instruction_d6094de6cceb"
+    },
+    {
+      "nondegraded_families": 3,
+      "objective_gain": 1.9844118773109036,
+      "portfolio_prompt_id": "code_0786ec6c10e9__portfolio_01_r1_c1",
+      "source_prompt_id": "code_0786ec6c10e9"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.10959217756614636,
+      "portfolio_prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "source_prompt_id": "safety_020dda637cac"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.9243525487792075,
+      "portfolio_prompt_id": "structured_329ce2b8c10c__portfolio_01_r1_c11",
+      "source_prompt_id": "structured_329ce2b8c10c"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 4.357207713547937,
+      "portfolio_prompt_id": "reasoning_49f0131b0115__portfolio_02_r1_c2",
+      "source_prompt_id": "reasoning_49f0131b0115"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.4084545210416479,
+      "portfolio_prompt_id": "instruction_43e8f0520c0e__portfolio_01_r2_c1",
+      "source_prompt_id": "instruction_43e8f0520c0e"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 0.8268647364947025,
+      "portfolio_prompt_id": "summary_e7e37b49f940__portfolio_01_r3_c3",
+      "source_prompt_id": "summary_e7e37b49f940"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.021837524204999403,
+      "portfolio_prompt_id": "code_a36004adadcf__portfolio_01_r3_c1",
+      "source_prompt_id": "code_a36004adadcf"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.6758133002841737,
+      "portfolio_prompt_id": "logic_c83cfda9c44d__portfolio_01_r2_c1",
+      "source_prompt_id": "logic_c83cfda9c44d"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 2.1036313712210166,
+      "portfolio_prompt_id": "safety_8c6e8a477653__portfolio_01_r2_c1",
+      "source_prompt_id": "safety_8c6e8a477653"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 1.8678594198463343,
+      "portfolio_prompt_id": "structured_e18efbccaa49__portfolio_01_r2_c1",
+      "source_prompt_id": "structured_e18efbccaa49"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 2.02439168412705,
+      "portfolio_prompt_id": "knowledge_aa81fa7ee63c__portfolio_01_r2_c3",
+      "source_prompt_id": "knowledge_aa81fa7ee63c"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 0.24256622369729533,
+      "portfolio_prompt_id": "instruction_324d43a74ab1__portfolio_01_r1_c1",
+      "source_prompt_id": "instruction_324d43a74ab1"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.02170218071651575,
+      "portfolio_prompt_id": "summary_2f58a05a3284__portfolio_01_r1_c1",
+      "source_prompt_id": "summary_2f58a05a3284"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.12203044751342151,
+      "portfolio_prompt_id": "code_a028abae0b38__portfolio_01_r3_c1",
+      "source_prompt_id": "code_a028abae0b38"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.8294618372381748,
+      "portfolio_prompt_id": "logic_f384a9229d50__portfolio_01_r1_c6",
+      "source_prompt_id": "logic_f384a9229d50"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.37729161854809123,
+      "portfolio_prompt_id": "safety_1e228e4d44b9__portfolio_02_r1_c2",
+      "source_prompt_id": "safety_1e228e4d44b9"
+    },
+    {
+      "nondegraded_families": 3,
+      "objective_gain": 0.2716737566301253,
+      "portfolio_prompt_id": "structured_b55e65966441__portfolio_01_r1_c2",
+      "source_prompt_id": "structured_b55e65966441"
+    },
+    {
+      "nondegraded_families": 3,
+      "objective_gain": 0.4273294867031545,
+      "portfolio_prompt_id": "knowledge_4ccb3f6942da__portfolio_02_r1_c1",
+      "source_prompt_id": "knowledge_4ccb3f6942da"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 3.070892652740845,
+      "portfolio_prompt_id": "reasoning_1ae8fc28f402__portfolio_01_r2_c2",
+      "source_prompt_id": "reasoning_1ae8fc28f402"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 1.601966730456771,
+      "portfolio_prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "source_prompt_id": "instruction_44c862510025"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.353725272668146,
+      "portfolio_prompt_id": "summary_f14df3c6943e__portfolio_02_r2_c7",
+      "source_prompt_id": "summary_f14df3c6943e"
+    },
+    {
+      "nondegraded_families": 3,
+      "objective_gain": 0.22601949603917237,
+      "portfolio_prompt_id": "code_9299dc29820c__portfolio_01_r2_c2",
+      "source_prompt_id": "code_9299dc29820c"
+    },
+    {
+      "nondegraded_families": 3,
+      "objective_gain": 0.37032194162929544,
+      "portfolio_prompt_id": "logic_b96e40ef1d4b__portfolio_02_r1_c1",
+      "source_prompt_id": "logic_b96e40ef1d4b"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 1.0310764117080609,
+      "portfolio_prompt_id": "structured_7defa9721bb7__portfolio_01_r2_c3",
+      "source_prompt_id": "structured_7defa9721bb7"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 1.5669361305375238,
+      "portfolio_prompt_id": "reasoning_96a7207585fd__portfolio_01_r3_c2",
+      "source_prompt_id": "reasoning_96a7207585fd"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 0.8066821379964095,
+      "portfolio_prompt_id": "instruction_9109f3338c12__portfolio_02_r1_c2",
+      "source_prompt_id": "instruction_9109f3338c12"
+    },
+    {
+      "nondegraded_families": 3,
+      "objective_gain": 0.31097346899808975,
+      "portfolio_prompt_id": "summary_e4e413a0d372__portfolio_01_r3_c2",
+      "source_prompt_id": "summary_e4e413a0d372"
+    },
+    {
+      "nondegraded_families": 5,
+      "objective_gain": 1.5129860251470317,
+      "portfolio_prompt_id": "code_6917fde1efb7__portfolio_01_r1_c2",
+      "source_prompt_id": "code_6917fde1efb7"
+    },
+    {
+      "nondegraded_families": 4,
+      "objective_gain": 0.9894163929341282,
+      "portfolio_prompt_id": "structured_82de41129f6c__portfolio_02_r1_c4",
+      "source_prompt_id": "structured_82de41129f6c"
+    }
+  ],
+  "development_accepted": 34,
+  "gate_passed": true,
+  "portfolio_candidates": 64,
+  "required_accepted": 4,
+  "selection_rule": "strict_accept_then_max_fixed_hybrid_gain_then_family_count",
+  "source_prompts": 60,
+  "test_data_used": false
+}

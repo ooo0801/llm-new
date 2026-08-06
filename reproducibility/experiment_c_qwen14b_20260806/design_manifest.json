@@ -1,0 +1,370 @@
+{
+  "attack_selection_policy": "all executable original train rows with original registered LoRA subset; first executable same-configuration seed replicates for validation/test; no outcomes used",
+  "attack_splits": {
+    "test": {
+      "finetuning": {
+        "configurations": [
+          {
+            "alpha": 32,
+            "data_source": "isolated_attack_training_data",
+            "dropout": 0.05,
+            "learning_rate": 1e-05,
+            "method": "lora",
+            "rank": 16,
+            "steps": 50,
+            "target_scope": "attention_ffn",
+            "type": "finetuning"
+          },
+          {
+            "alpha": 32,
+            "data_source": "isolated_attack_training_data",
+            "dropout": 0.05,
+            "learning_rate": 1e-05,
+            "method": "lora",
+            "rank": 16,
+            "steps": 50,
+            "target_scope": "attention_ffn",
+            "type": "finetuning"
+          }
+        ],
+        "seeds": [
+          3407,
+          777
+        ],
+        "variant_ids": [
+          "test_finetuning_4618a1ee039c",
+          "test_finetuning_802d5e825e92"
+        ]
+      },
+      "gaussian_noise": {
+        "configurations": [
+          {
+            "scale_rule": "parameter_tensor_std",
+            "std_ratio": 0.0005,
+            "target_scope": "ffn",
+            "type": "gaussian_noise"
+          },
+          {
+            "scale_rule": "parameter_tensor_std",
+            "std_ratio": 0.0005,
+            "target_scope": "ffn",
+            "type": "gaussian_noise"
+          }
+        ],
+        "seeds": [
+          3407,
+          777
+        ],
+        "variant_ids": [
+          "test_gaussian_noise_cb734fe6f9ca",
+          "test_gaussian_noise_d9d76c321756"
+        ]
+      },
+      "quantization": {
+        "configurations": [
+          {
+            "compute_dtype": "bfloat16",
+            "double_quant": true,
+            "method": "nf4",
+            "target_scope": "full_model",
+            "type": "quantization"
+          },
+          {
+            "compute_dtype": "bfloat16",
+            "double_quant": true,
+            "method": "nf4",
+            "target_scope": "full_model",
+            "type": "quantization"
+          }
+        ],
+        "seeds": [
+          3407,
+          777
+        ],
+        "variant_ids": [
+          "test_quantization_68a351d3e18a",
+          "test_quantization_52389a24f02a"
+        ]
+      },
+      "structured_pruning": {
+        "configurations": [
+          {
+            "implementation": "mask",
+            "layer_scope": "random_layer_subset",
+            "ratio": 0.05,
+            "selection": "random",
+            "structure": "ffn_channels",
+            "type": "structured_pruning"
+          },
+          {
+            "implementation": "mask",
+            "layer_scope": "random_layer_subset",
+            "ratio": 0.05,
+            "selection": "random",
+            "structure": "ffn_channels",
+            "type": "structured_pruning"
+          }
+        ],
+        "seeds": [
+          3407,
+          777
+        ],
+        "variant_ids": [
+          "test_structured_pruning_7fb86bf0e94d",
+          "test_structured_pruning_509aa86cd576"
+        ]
+      },
+      "unstructured_pruning": {
+        "configurations": [
+          {
+            "method": "global_magnitude",
+            "ratio": 0.3,
+            "target_scope": "attention",
+            "type": "unstructured_pruning"
+          },
+          {
+            "method": "global_magnitude",
+            "ratio": 0.3,
+            "target_scope": "attention",
+            "type": "unstructured_pruning"
+          }
+        ],
+        "seeds": [
+          3407,
+          777
+        ],
+        "variant_ids": [
+          "test_unstructured_pruning_2f144bfd3832",
+          "test_unstructured_pruning_bdcbdc88045a"
+        ]
+      }
+    },
+    "train": {
+      "finetuning": {
+        "manifest_rows": 28,
+        "registered_lora_rows": 3
+      },
+      "gaussian_noise": {
+        "manifest_rows": 24,
+        "registered_lora_rows": 0
+      },
+      "quantization": {
+        "manifest_rows": 4,
+        "registered_lora_rows": 0
+      },
+      "structured_pruning": {
+        "manifest_rows": 38,
+        "registered_lora_rows": 0
+      },
+      "unstructured_pruning": {
+        "manifest_rows": 64,
+        "registered_lora_rows": 0
+      }
+    },
+    "validation": {
+      "finetuning": {
+        "configurations": [
+          {
+            "alpha": 16,
+            "data_source": "isolated_attack_training_data",
+            "dropout": 0.05,
+            "learning_rate": 1e-05,
+            "method": "lora",
+            "rank": 8,
+            "steps": 25,
+            "target_scope": "attention_ffn",
+            "type": "finetuning"
+          },
+          {
+            "alpha": 8,
+            "data_source": "isolated_attack_training_data",
+            "dropout": 0.05,
+            "learning_rate": 1e-05,
+            "method": "lora",
+            "rank": 4,
+            "steps": 50,
+            "target_scope": "attention",
+            "type": "finetuning"
+          }
+        ],
+        "seeds": [
+          2025,
+          2025
+        ],
+        "variant_ids": [
+          "validation_finetuning_969cdcdb8529",
+          "validation_finetuning_b9bd14496c78"
+        ]
+      },
+      "gaussian_noise": {
+        "configurations": [
+          {
+            "scale_rule": "parameter_tensor_std",
+            "std_ratio": 0.0001,
+            "target_scope": "partial_layers",
+            "type": "gaussian_noise"
+          },
+          {
+            "scale_rule": "parameter_tensor_std",
+            "std_ratio": 0.0005,
+            "target_scope": "attention",
+            "type": "gaussian_noise"
+          }
+        ],
+        "seeds": [
+          2025,
+          2025
+        ],
+        "variant_ids": [
+          "validation_gaussian_noise_6dfcbc3bffb8",
+          "validation_gaussian_noise_4d3e41e32a39"
+        ]
+      },
+      "quantization": {
+        "configurations": [
+          {
+            "compute_dtype": "bfloat16",
+            "double_quant": false,
+            "method": "nf4",
+            "target_scope": "full_model",
+            "type": "quantization"
+          },
+          {
+            "compute_dtype": "bfloat16",
+            "double_quant": false,
+            "method": "fp4",
+            "target_scope": "full_model",
+            "type": "quantization"
+          }
+        ],
+        "seeds": [
+          2025,
+          2025
+        ],
+        "variant_ids": [
+          "validation_quantization_86e3da4994a3",
+          "validation_quantization_80be971cc4ae"
+        ]
+      },
+      "structured_pruning": {
+        "configurations": [
+          {
+            "implementation": "mask",
+            "layer_scope": "random_layer_subset",
+            "ratio": 0.3,
+            "selection": "random",
+            "structure": "attention_heads",
+            "type": "structured_pruning"
+          },
+          {
+            "implementation": "mask",
+            "layer_scope": "random_layer_subset",
+            "ratio": 0.3,
+            "selection": "magnitude",
+            "structure": "ffn_channels",
+            "type": "structured_pruning"
+          }
+        ],
+        "seeds": [
+          2025,
+          2025
+        ],
+        "variant_ids": [
+          "validation_structured_pruning_9180b6d85a9e",
+          "validation_structured_pruning_b7e6ee1fcb8f"
+        ]
+      },
+      "unstructured_pruning": {
+        "configurations": [
+          {
+            "method": "random",
+            "ratio": 0.05,
+            "target_scope": "ffn",
+            "type": "unstructured_pruning"
+          },
+          {
+            "method": "layerwise_magnitude",
+            "ratio": 0.05,
+            "target_scope": "attention",
+            "type": "unstructured_pruning"
+          }
+        ],
+        "seeds": [
+          2025,
+          2025
+        ],
+        "variant_ids": [
+          "validation_unstructured_pruning_c3cd2f6fc89b",
+          "validation_unstructured_pruning_1d32996e8453"
+        ]
+      }
+    }
+  },
+  "calibration_prompt_ids": [
+    "code_9a2804e4f90a",
+    "long_context_9d1b78851f92",
+    "logic_6ad0b05f0427",
+    "safety_d136003b5900",
+    "structured_c8e9b241a935",
+    "translation_a77d5aded0e9",
+    "knowledge_9edb61565cee",
+    "math_3a1a789e8220",
+    "reasoning_d3f64be842dc",
+    "instruction_d6094de6cceb",
+    "summary_ec5a78dd8956",
+    "code_0786ec6c10e9"
+  ],
+  "candidate_pool": {
+    "path": "data/candidate.jsonl",
+    "rows": 336,
+    "sha256": "5fb484ee67036b698d32baf9e021c705ba1bc90fcba8422358f984858e8ff3a3"
+  },
+  "files": {
+    "attack_manifest_test_2each.jsonl": {
+      "rows": 10,
+      "sha256": "1e247b97fde08a83738099534e55f817ca768d64146af69d32527572a70cd37c"
+    },
+    "attack_manifest_train_executable.jsonl": {
+      "rows": 158,
+      "sha256": "98c703a07729abb51ede1fd4bafbd5907e0495de95802c62d17c331984507818"
+    },
+    "attack_manifest_train_lora_registered.jsonl": {
+      "rows": 3,
+      "sha256": "739496305acddb9b5d9d19d59a78f164c5cd1a69fa073ced647dce60d0b97dbd"
+    },
+    "attack_manifest_validation_2each.jsonl": {
+      "rows": 10,
+      "sha256": "dbd245f3a38fe74c01d413ceeb499f385a4a8c1c8625cf8b838202c27e0903c3"
+    },
+    "calibration_prompts_k12.jsonl": {
+      "rows": 12,
+      "sha256": "89f64a6e10da93e34fd5e01e748c38984c4ad2c856610faf37f199da862ff269"
+    },
+    "construction_prompts_k60.jsonl": {
+      "rows": 60,
+      "sha256": "f6c55d4897e37c65e6779e24e1cbfc80e63a7d790ada15ac7a0a2b96282e7a4c"
+    }
+  },
+  "lora_variant_ids": {
+    "test": [
+      "test_finetuning_4618a1ee039c",
+      "test_finetuning_802d5e825e92"
+    ],
+    "train": [
+      "train_finetuning_4660fcc10396",
+      "train_finetuning_611c95d88a85",
+      "train_finetuning_075772a64486"
+    ],
+    "validation": [
+      "validation_finetuning_969cdcdb8529",
+      "validation_finetuning_b9bd14496c78"
+    ]
+  },
+  "prompt_sample": {
+    "rows": 60,
+    "selection": "existing V6 stratified_seeded size=60 seed=42",
+    "sha256": "f6c55d4897e37c65e6779e24e1cbfc80e63a7d790ada15ac7a0a2b96282e7a4c",
+    "source_path": "results/paper_aligned_qwen_7b/prompt_optimization/seeds_stratified_k60.jsonl"
+  },
+  "schema_version": "experiment_c_frozen_design_1.0"
+}

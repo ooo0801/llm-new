@@ -1,0 +1,63 @@
+[
+  {
+    "variant_id": "validation_finetuning_969cdcdb8529",
+    "family": "finetuning",
+    "method": "lora",
+    "base_model": "Qwen/Qwen2.5-14B-Instruct",
+    "adapter_path": "/root/autodl-tmp/llm/results/experiment_c_qwen14b_20260806/adapters/validation_finetuning_969cdcdb8529",
+    "data_path": "/root/autodl-tmp/llm/data/attack_train_lora.jsonl",
+    "data_sha256": "01184a12af6b8aaeb6774ffef0d2b4baf9332286690ea891b0fc28970c35e1aa",
+    "training_rows": 216,
+    "requested_steps": 25,
+    "completed_steps": 25,
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "learning_rate": 1e-05,
+    "target_scope": "attention_ffn",
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "seed": 2025,
+    "max_length": 256,
+    "trainable_parameters": 34406400,
+    "total_parameters": 14804440064,
+    "trainable_ratio": 0.0023240595288481153,
+    "training_loss": 2.309746513366699
+  },
+  {
+    "variant_id": "validation_finetuning_b9bd14496c78",
+    "family": "finetuning",
+    "method": "lora",
+    "base_model": "Qwen/Qwen2.5-14B-Instruct",
+    "adapter_path": "/root/autodl-tmp/llm/results/experiment_c_qwen14b_20260806/adapters/validation_finetuning_b9bd14496c78",
+    "data_path": "/root/autodl-tmp/llm/data/attack_train_lora.jsonl",
+    "data_sha256": "01184a12af6b8aaeb6774ffef0d2b4baf9332286690ea891b0fc28970c35e1aa",
+    "training_rows": 216,
+    "requested_steps": 50,
+    "completed_steps": 50,
+    "rank": 4,
+    "alpha": 8,
+    "dropout": 0.05,
+    "learning_rate": 1e-05,
+    "target_scope": "attention",
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "seed": 2025,
+    "max_length": 256,
+    "trainable_parameters": 6291456,
+    "total_parameters": 14776325120,
+    "trainable_ratio": 0.000425779478246889,
+    "training_loss": 2.6428420639038084
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "family_relative_tolerance": 0.01,
+  "hybrid_base_accepted": 31,
+  "hybrid_report": {
+    "accepted": 31,
+    "calibration_source": "provided_fixed_calibration",
+    "hybrid_beta": 1.0,
+    "macro_calibration": {
+      "center": 12.754291659794463,
+      "sample_count": 64,
+      "scale": 0.17172838679589836,
+      "scale_method": "mad",
+      "transform": "log1p"
+    },
+    "macro_metric": "macro_l2_raw",
+    "micro_calibration": {
+      "center": 24.689357293076625,
+      "sample_count": 64,
+      "scale": 0.4847711722957029,
+      "scale_method": "mad",
+      "transform": "log1p"
+    },
+    "minimum_gain": 0.0,
+    "rows": 34,
+    "weighting_mode": "adaptive"
+  },
+  "initial_task_passed": 34,
+  "method": "heldout_full_micro_plus_five_family_macro_strict_validation",
+  "minimum_nondegraded_families": 3,
+  "optimized_task_passed": 34,
+  "passed": true,
+  "proxy_accepted": 34,
+  "required_accepted": 4,
+  "rows": 34,
+  "scientific_gate_passed": true,
+  "strict_accepted": 29,
+  "technical_passed": true,
+  "version": 2
+}
