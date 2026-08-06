@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/prompt-transfer-14b-followup"
-  current_stage: "14b_reconstruction_in_progress"
+  current_stage: "14b_candidate_generation_in_progress"
 
 literature:
   key_papers: []
@@ -79,6 +79,7 @@ execution:
   followup_stage_1_failure_attribution: complete
   followup_stage_2_survivor_replication: complete
   followup_stage_3_14b_reconstruction: in_progress
+  experiment_c_substage: "full_60_candidate_generation"
   followup_stage_4_combined_fingerprint: pending
   background_task:
     experiment: "experiment_c_qwen14b_20260806"
