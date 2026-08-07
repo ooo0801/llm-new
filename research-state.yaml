@@ -2,11 +2,11 @@
 project:
   title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
   question: "Does the frozen 30-prompt union remain a usable single Qwen2.5-14B fingerprint under one new jointly applied seed set?"
-  status: complete
+  status: in_progress
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/combined-14b-final-validation"
-  current_stage: "experiment_e_complete_h_e1_refuted"
+  current_stage: "experiment_f1_protocol_frozen_pre_endpoint"
 
 literature:
   key_papers: []
@@ -46,12 +46,18 @@ hypotheses:
     motivation: "A provenance-preserving union is not yet a jointly confirmed operational fingerprint; 23/30 preserves the project's preregistered 75% feasibility convention."
     parent: H-C1
     priority: high
+  - id: H-F1
+    statement: "A 30-prompt set selected from the full 64-row Experiment C portfolio by preregistered multi-seed robust ranking will retain at least 23 prompts under independent confirmation and cover all eight categories."
+    status: testing
+    motivation: "Experiment E localized the failure to cross-seed macro robustness, especially structured pruning, while task and complete-block micro endpoints were uniformly positive."
+    parent: H-E1
+    priority: high
 
 experiments:
   proxy_metric: "legacy_retained_count under the frozen experiment-specific set; strict_5of5_count is secondary"
   baseline_value: 16
   best_value: 8
-  total_runs: 4
+  total_runs: 5
   trajectory:
     - run: "confirmatory_14b_a1"
       legacy_retained: 8
@@ -79,6 +85,14 @@ experiments:
       strict_5of5_retained: 3
       category_coverage_passed: false
       hypothesis_supported: false
+    - run: "multiseed_robust_selection_14b_f1"
+      candidate_rows: 64
+      development_variants_per_family: 3
+      frozen_target_rows: 30
+      confirmation_variants_per_family: 2
+      legacy_required: 23
+      category_coverage_required: 8
+      status: "protocol_frozen_pre_endpoint"
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -108,6 +122,10 @@ execution:
   experiment_e_stage_2_lora_and_one_pair_smoke: complete
   experiment_e_stage_3_full_joint_endpoints: complete
   experiment_e_stage_4_analysis_archive: complete
+  experiment_f1_stage_0_protocol: complete
+  experiment_f1_stage_1_development: pending
+  experiment_f1_stage_2_confirmation: pending
+  experiment_f1_stage_3_archive: pending
   background_task: null
   last_error: null
 
@@ -120,9 +138,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 5
-  last_direction: "conclude_joint_confirmation_without_post_result_tuning"
-  last_reflection: "Experiment E was technically complete but retained 19/30 prompts versus the frozen 23/30 requirement and omitted summary from the retained categories. H-E1 is therefore refuted. The 19-row operational subset and 3-row strict subset are archived descriptively; no result was used to edit the frozen union or thresholds."
+  cycle: 6
+  last_direction: "deepen_with_multiseed_robust_portfolio_selection"
+  last_reflection: "Experiment E is preserved as a No-Go. F1 broadens selection back to the full pre-development 64-row Experiment C portfolio, evaluates it under three new variants per family, prioritizes structured-pruning robustness with three-per-category quotas, and reserves two completely new variants per family for confirmation."
 
 workspace:
   findings: "findings.md"
