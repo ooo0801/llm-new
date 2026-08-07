@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_f2_confirmation_micro_running"
+  current_stage: "experiment_f2_confirmation_macro_running"
 
 literature:
   key_papers: []
@@ -191,7 +191,7 @@ execution:
   experiment_h2_stage_1_reference: conditional_pending
   experiment_h2_stage_2_model_states: conditional_pending
   experiment_h2_stage_3_analysis: conditional_pending
-  background_task: "f2_confirmation_resume_running"
+  background_task: "f2_confirmation_macro_running"
   last_error: null
 
 resources:
