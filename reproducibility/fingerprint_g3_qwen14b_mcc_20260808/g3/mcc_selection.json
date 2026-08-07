@@ -1,0 +1,382 @@
+{
+  "schema_version": "fingerprint_v2_global_mcc_selection_1.0",
+  "primary_objective": "global_unweighted_mcc",
+  "candidate_prompts": 19,
+  "selected_prompts": 12,
+  "selected_ids": [
+    "safety_020dda637cac__portfolio_02_r3_c2",
+    "summary_f2_8b3824920279__portfolio_01_r1_c1",
+    "code_0786ec6c10e9__portfolio_02_r1_c4",
+    "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+    "instruction_44c862510025__portfolio_01_r3_c4",
+    "reasoning_49f0131b0115__portfolio_01_r1_c1",
+    "structured_7defa9721bb7__portfolio_02_r1_c9",
+    "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+    "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+    "knowledge_075a65e696ce__portfolio_01_r3_c2",
+    "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+    "summary_f2_0b3fa29077bd__portfolio_02_r3_c2"
+  ],
+  "selected_categories": [
+    "safety",
+    "summary",
+    "code",
+    "logic",
+    "instruction",
+    "reasoning",
+    "structured",
+    "knowledge",
+    "logic",
+    "knowledge",
+    "logic",
+    "summary"
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "marginal_gain": 7720.0,
+      "new_component_count": 7720,
+      "covered_component_count": 7720,
+      "category": "safety"
+    },
+    {
+      "step": 2,
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "marginal_gain": 2109.0,
+      "new_component_count": 2109,
+      "covered_component_count": 9829,
+      "category": "summary"
+    },
+    {
+      "step": 3,
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "marginal_gain": 1466.0,
+      "new_component_count": 1466,
+      "covered_component_count": 11295,
+      "category": "code"
+    },
+    {
+      "step": 4,
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "marginal_gain": 1052.0,
+      "new_component_count": 1052,
+      "covered_component_count": 12347,
+      "category": "logic"
+    },
+    {
+      "step": 5,
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "marginal_gain": 894.0,
+      "new_component_count": 894,
+      "covered_component_count": 13241,
+      "category": "instruction"
+    },
+    {
+      "step": 6,
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "marginal_gain": 764.0,
+      "new_component_count": 764,
+      "covered_component_count": 14005,
+      "category": "reasoning"
+    },
+    {
+      "step": 7,
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "marginal_gain": 685.0,
+      "new_component_count": 685,
+      "covered_component_count": 14690,
+      "category": "structured"
+    },
+    {
+      "step": 8,
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "marginal_gain": 610.0,
+      "new_component_count": 610,
+      "covered_component_count": 15300,
+      "category": "knowledge"
+    },
+    {
+      "step": 9,
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "marginal_gain": 357.0,
+      "new_component_count": 357,
+      "covered_component_count": 15657,
+      "category": "logic"
+    },
+    {
+      "step": 10,
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "marginal_gain": 335.0,
+      "new_component_count": 335,
+      "covered_component_count": 15992,
+      "category": "knowledge"
+    },
+    {
+      "step": 11,
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "marginal_gain": 281.0,
+      "new_component_count": 281,
+      "covered_component_count": 16273,
+      "category": "logic"
+    },
+    {
+      "step": 12,
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "marginal_gain": 235.0,
+      "new_component_count": 235,
+      "covered_component_count": 16508,
+      "category": "summary"
+    }
+  ],
+  "coverage_metrics": {
+    "global_components": 50835,
+    "candidate_components": 22412,
+    "selected_components": 20838,
+    "candidate_global_components": 17273,
+    "selected_global_components": 16508,
+    "candidate_outside_components": 5139,
+    "selected_outside_components": 4330,
+    "candidate_reachable_coverage": 0.3397855808006295,
+    "selection_efficiency": 0.9557112256122272,
+    "final_global_coverage": 0.32473689387233207,
+    "factorization_error": 0.0
+  },
+  "per_type_coverage": {
+    "attention": {
+      "global_components": 1832,
+      "candidate_global_components": 1807,
+      "selected_global_components": 1806,
+      "candidate_reachable_coverage": 0.986353711790393,
+      "selection_efficiency": 0.9994465965688988,
+      "final_global_coverage": 0.9858078602620087
+    },
+    "ffn": {
+      "global_components": 48999,
+      "candidate_global_components": 15462,
+      "selected_global_components": 14698,
+      "candidate_reachable_coverage": 0.3155574603563338,
+      "selection_efficiency": 0.9505885396455828,
+      "final_global_coverage": 0.2999653054143962
+    },
+    "attention_residual": {
+      "global_components": 1,
+      "candidate_global_components": 1,
+      "selected_global_components": 1,
+      "candidate_reachable_coverage": 1.0,
+      "selection_efficiency": 1.0,
+      "final_global_coverage": 1.0
+    },
+    "mlp_residual": {
+      "global_components": 3,
+      "candidate_global_components": 3,
+      "selected_global_components": 3,
+      "candidate_reachable_coverage": 1.0,
+      "selection_efficiency": 1.0,
+      "final_global_coverage": 1.0
+    }
+  },
+  "type_macro_final_global_coverage": 0.8214432914191012,
+  "candidate_relative_coverage_v1_definition": 0.9297697661966804,
+  "global_coverage_curves": {
+    "4": {
+      "selected_ids": [
+        "safety_020dda637cac__portfolio_02_r3_c2",
+        "summary_f2_8b3824920279__portfolio_01_r1_c1",
+        "code_0786ec6c10e9__portfolio_02_r1_c4",
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3"
+      ],
+      "global_components_covered": 12347,
+      "final_global_coverage": 0.24288383987410248,
+      "selection_efficiency": 0.7148150292363805,
+      "unweighted_marginal_gain": 12347.0
+    },
+    "8": {
+      "selected_ids": [
+        "safety_020dda637cac__portfolio_02_r3_c2",
+        "summary_f2_8b3824920279__portfolio_01_r1_c1",
+        "code_0786ec6c10e9__portfolio_02_r1_c4",
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+        "instruction_44c862510025__portfolio_01_r3_c4",
+        "reasoning_49f0131b0115__portfolio_01_r1_c1",
+        "structured_7defa9721bb7__portfolio_02_r1_c9",
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1"
+      ],
+      "global_components_covered": 15300,
+      "final_global_coverage": 0.30097373856594867,
+      "selection_efficiency": 0.8857754877554564,
+      "unweighted_marginal_gain": 15300.0
+    },
+    "12": {
+      "selected_ids": [
+        "safety_020dda637cac__portfolio_02_r3_c2",
+        "summary_f2_8b3824920279__portfolio_01_r1_c1",
+        "code_0786ec6c10e9__portfolio_02_r1_c4",
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+        "instruction_44c862510025__portfolio_01_r3_c4",
+        "reasoning_49f0131b0115__portfolio_01_r1_c1",
+        "structured_7defa9721bb7__portfolio_02_r1_c9",
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+        "knowledge_075a65e696ce__portfolio_01_r3_c2",
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2"
+      ],
+      "global_components_covered": 16508,
+      "final_global_coverage": 0.32473689387233207,
+      "selection_efficiency": 0.9557112256122272,
+      "unweighted_marginal_gain": 16508.0
+    },
+    "16": {
+      "selected_ids": [
+        "safety_020dda637cac__portfolio_02_r3_c2",
+        "summary_f2_8b3824920279__portfolio_01_r1_c1",
+        "code_0786ec6c10e9__portfolio_02_r1_c4",
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+        "instruction_44c862510025__portfolio_01_r3_c4",
+        "reasoning_49f0131b0115__portfolio_01_r1_c1",
+        "structured_7defa9721bb7__portfolio_02_r1_c9",
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+        "knowledge_075a65e696ce__portfolio_01_r3_c2",
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+        "logic_f2_f798bdc0935c__portfolio_02_r1_c8",
+        "instruction_324d43a74ab1__portfolio_01_r1_c1",
+        "safety_8c6e8a477653__portfolio_01_r2_c1",
+        "reasoning_d3f64be842dc__portfolio_01_r2_c4"
+      ],
+      "global_components_covered": 17102,
+      "final_global_coverage": 0.33642175666371593,
+      "selection_efficiency": 0.9901001563133214,
+      "unweighted_marginal_gain": 17102.0
+    }
+  },
+  "objective_ablations": {
+    "candidate_weighted_v1": {
+      "selected_ids": [
+        "knowledge_075a65e696ce__portfolio_01_r3_c2",
+        "summary_f2_8b3824920279__portfolio_01_r1_c1",
+        "reasoning_49f0131b0115__portfolio_01_r1_c1",
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+        "code_0786ec6c10e9__portfolio_02_r1_c4",
+        "safety_8c6e8a477653__portfolio_01_r2_c1",
+        "instruction_44c862510025__portfolio_01_r3_c4",
+        "structured_7defa9721bb7__portfolio_02_r1_c9",
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+        "logic_f2_f798bdc0935c__portfolio_02_r1_c8"
+      ],
+      "jaccard_with_primary": 0.7142857142857143,
+      "coverage_metrics": {
+        "global_components": 50835,
+        "candidate_components": 22412,
+        "selected_components": 21041,
+        "candidate_global_components": 17273,
+        "selected_global_components": 16487,
+        "candidate_outside_components": 5139,
+        "selected_outside_components": 4554,
+        "candidate_reachable_coverage": 0.3397855808006295,
+        "selection_efficiency": 0.9544954553349158,
+        "final_global_coverage": 0.32432379266253564,
+        "factorization_error": 0.0
+      }
+    },
+    "global_weighted_v1": {
+      "selected_ids": [
+        "safety_020dda637cac__portfolio_02_r3_c2",
+        "summary_f2_8b3824920279__portfolio_01_r1_c1",
+        "code_0786ec6c10e9__portfolio_02_r1_c4",
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+        "instruction_44c862510025__portfolio_01_r3_c4",
+        "reasoning_49f0131b0115__portfolio_01_r1_c1",
+        "structured_7defa9721bb7__portfolio_02_r1_c9",
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+        "knowledge_075a65e696ce__portfolio_01_r3_c2",
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2"
+      ],
+      "jaccard_with_primary": 1.0,
+      "coverage_metrics": {
+        "global_components": 50835,
+        "candidate_components": 22412,
+        "selected_components": 20838,
+        "candidate_global_components": 17273,
+        "selected_global_components": 16508,
+        "candidate_outside_components": 5139,
+        "selected_outside_components": 4330,
+        "candidate_reachable_coverage": 0.3397855808006295,
+        "selection_efficiency": 0.9557112256122272,
+        "final_global_coverage": 0.32473689387233207,
+        "factorization_error": 0.0
+      }
+    },
+    "global_unweighted_primary": {
+      "selected_ids": [
+        "safety_020dda637cac__portfolio_02_r3_c2",
+        "summary_f2_8b3824920279__portfolio_01_r1_c1",
+        "code_0786ec6c10e9__portfolio_02_r1_c4",
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+        "instruction_44c862510025__portfolio_01_r3_c4",
+        "reasoning_49f0131b0115__portfolio_01_r1_c1",
+        "structured_7defa9721bb7__portfolio_02_r1_c9",
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+        "knowledge_075a65e696ce__portfolio_01_r3_c2",
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2"
+      ],
+      "jaccard_with_primary": 1.0,
+      "coverage_metrics": {
+        "global_components": 50835,
+        "candidate_components": 22412,
+        "selected_components": 20838,
+        "candidate_global_components": 17273,
+        "selected_global_components": 16508,
+        "candidate_outside_components": 5139,
+        "selected_outside_components": 4330,
+        "candidate_reachable_coverage": 0.3397855808006295,
+        "selection_efficiency": 0.9557112256122272,
+        "final_global_coverage": 0.32473689387233207,
+        "factorization_error": 0.0
+      }
+    },
+    "global_type_balanced": {
+      "selected_ids": [
+        "safety_8c6e8a477653__portfolio_01_r2_c1",
+        "summary_f2_8b3824920279__portfolio_01_r1_c1",
+        "code_0786ec6c10e9__portfolio_02_r1_c4",
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+        "instruction_44c862510025__portfolio_01_r3_c4",
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+        "reasoning_49f0131b0115__portfolio_01_r1_c1",
+        "structured_7defa9721bb7__portfolio_02_r1_c9",
+        "knowledge_075a65e696ce__portfolio_01_r3_c2",
+        "logic_f2_f798bdc0935c__portfolio_02_r1_c8",
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2"
+      ],
+      "jaccard_with_primary": 0.7142857142857143,
+      "coverage_metrics": {
+        "global_components": 50835,
+        "candidate_components": 22412,
+        "selected_components": 20835,
+        "candidate_global_components": 17273,
+        "selected_global_components": 16506,
+        "candidate_outside_components": 5139,
+        "selected_outside_components": 4329,
+        "candidate_reachable_coverage": 0.3397855808006295,
+        "selection_efficiency": 0.9555954379667689,
+        "final_global_coverage": 0.3246975508999705,
+        "factorization_error": 0.0
+      }
+    }
+  },
+  "global_universe_sha256": "07d0fde28c808e5b70dcf2aeca2edcb6e9797275583eb2f41d3ebe6217689c69",
+  "candidate_components_sha256": "25477633781b8bd3ea3d27e2f8967fb8820f5c90b4a1c7982b13eec4c2b5353a",
+  "selection_deterministic": true,
+  "factorization_passed": true,
+  "passed": true
+}

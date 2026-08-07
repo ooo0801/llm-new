@@ -1,0 +1,23 @@
+[
+  {
+    "bytes": 134510812,
+    "path": "activations/build_profiles.jsonl",
+    "rows": 560,
+    "sha256": "2466458b644c934878643a362336c1c20e1bde52a8031f39dab5a968c0e86d9c",
+    "storage": "server_and_local_external_raw_results"
+  },
+  {
+    "bytes": 26896248,
+    "path": "activations/audit_profiles.jsonl",
+    "rows": 112,
+    "sha256": "237c3b130719c58c3f6c4b87a6cccf38a8ee9e5ff8065ec239cd408381f554f6",
+    "storage": "server_and_local_external_raw_results"
+  },
+  {
+    "bytes": 9135526,
+    "path": "activations/candidate_profiles.jsonl",
+    "rows": 38,
+    "sha256": "3fa71e9c10b458f3757a7b533cfbeb994e1218d5f7217b6e3f3561659206c45a",
+    "storage": "server_and_local_external_raw_results"
+  }
+]

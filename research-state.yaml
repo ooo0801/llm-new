@@ -2,11 +2,11 @@
 project:
   title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
   question: "Can preregistered multi-seed robust selection produce an independently confirmed 14B fingerprint, and if so do frozen 7B component thresholds and prompt-stratified MMD transfer to the fixed 14B model?"
-  status: in_progress
+  status: complete_partial_g3_go_h3_no_go
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_h3_model_state_verification_running"
+  current_stage: "experiment_g3_h3_complete_h3_no_go"
 
 literature:
   key_papers: []
@@ -90,7 +90,7 @@ hypotheses:
     priority: high
   - id: H-H3
     statement: "The G3 recovery MCC12 leaves the intact state unflagged, detects at least 9 of 11 registered modified states, and covers all five modified families."
-    status: in_progress
+    status: refuted
     motivation: "A new independent MMD stage is required to validate the recovery fingerprint without reusing the unused H2 identifiers or seeds."
     parent: H-G3
     priority: high
@@ -99,7 +99,7 @@ experiments:
   proxy_metric: "legacy_retained_count under the frozen experiment-specific set; strict_5of5_count is secondary"
   baseline_value: 16
   best_value: 19
-  total_runs: 8
+  total_runs: 9
   trajectory:
     - run: "confirmatory_14b_a1"
       legacy_retained: 8
@@ -179,6 +179,21 @@ experiments:
       technical_passed: true
       hypothesis_supported: true
       status: "g3_go"
+    - run: "recovery_mcc12_stratified_mmd_14b_h3"
+      registered_states: 12
+      technically_valid_states: 12
+      intact_correct: false
+      intact_primary_statistic: 0.12206106
+      intact_primary_p_value: 0.001
+      intact_primary_effect_size: 1.6843
+      intact_pooled_ablation_statistic: -0.008305
+      intact_pooled_ablation_p_value: 1.0
+      modified_detected: 11
+      modified_total: 11
+      family_coverage_passed: true
+      technical_passed: true
+      hypothesis_supported: false
+      status: "h3_no_go_intact_false_positive"
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -236,9 +251,10 @@ execution:
   experiment_g3_stage_2_mcc: complete_go
   experiment_h3_stage_0_protocol: complete
   experiment_h3_stage_1_reference: complete_go
-  experiment_h3_stage_2_model_states: in_progress
-  experiment_h3_stage_3_analysis: conditional_pending
-  background_task: "h3_twelve_model_state_verification_running"
+  experiment_h3_stage_2_model_states: complete
+  experiment_h3_stage_3_analysis: complete_no_go
+  experiment_g3_h3_stage_4_archive: complete
+  background_task: null
   last_error: null
 
 resources:
@@ -250,9 +266,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 10
-  last_direction: "freeze_f2_legacy19_then_build_g3_mcc12_and_conditionally_verify_h3"
-  last_reflection: "F2 remains a 19/30 No-Go under its 23-prompt gate, but the exact independently retained 19-row subset exceeds the 12 prompts required for MCC. A new recovery protocol can therefore test component coverage and detection without retroactively changing F2."
+  cycle: 11
+  last_direction: "conclude_g3_construction_success_h3_detection_no_go"
+  last_reflection: "The frozen 19-prompt recovery pool supported a deterministic all-category MCC12, but the preregistered prompt-stratified MMD test flagged the intact model despite detecting all 11 modified states. G3 is supported and H3 is refuted; the pooled-MMD ablation does not retroactively repair the primary false positive."
 
 workspace:
   findings: "findings.md"

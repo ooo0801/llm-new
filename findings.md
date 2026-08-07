@@ -157,3 +157,11 @@ Deterministic protocol preparation produced 19 candidate rows, 280 build prompts
 G3 passed every preregistered construction gate. Two-repeat activation profiles over all 280 build, 56 audit and 19 candidate prompts had minimum Jaccard 1.0, and profiling left the reference logits bit-identical. The empirical global universe contained 50,835 components. The final three cumulative batches added 0.37%, 0.57% and 0.40%, all below the frozen 2% ceiling; audit-only novelty was 2.58% versus 8% allowed.
 
 Deterministic global-unweighted MCC selected 12 unique prompts spanning all eight categories. The selected set covered 16,508 global components, or 32.47% of the complete empirical universe and 95.57% of the 17,273 components reachable by the 19-prompt candidate pool. Immediate recomputation reproduced the selected IDs and trace, and numerical factorization error was zero. H-G3 is supported, making the independently seeded H3 verification eligible to run.
+
+### H3 Independent Stratified-MMD Result
+
+H3 completed all 12 registered state verifications without technical failure. The primary prompt-stratified MMD test detected all 11 modified states (11/11), including at least one instance from each of unstructured pruning, structured pruning, Gaussian perturbation, quantization, and finetuning. Every modified-state decision had permutation p-value 0.001. Modified-state recall was therefore 1.0, with exact 95% interval [0.7151, 1.0].
+
+The intact model was also flagged by the preregistered primary test: stratified statistic 0.12206106, p=0.001, effect size 1.6843. This violates the mandatory intact-correct gate, leaving 11/12 state decisions correct (accuracy 0.9167; exact 95% interval [0.6152, 0.9979]) and refuting H-H3 despite perfect modified-state detection and family coverage.
+
+The frozen pooled-MMD ablation did not flag intact (statistic -0.008305, p=1.0), but it was explicitly secondary and cannot replace the primary statistic after outcomes are known. No threshold, statistic, seed, state, or prompt was changed. The final evidence is therefore: the G3 procedure successfully constructs a deterministic MCC12 from the frozen F2-retained pool, while this H3 prompt-stratified detector is not validated because it produced an intact false positive.

@@ -1,0 +1,1069 @@
+{
+  "schema_version": "fingerprint_v2_global_verification_1.0",
+  "variant_id": "structured_heads_all05_14b_h3",
+  "family": "structured_pruning",
+  "ground_truth_modified": true,
+  "predicted_modified": true,
+  "correct": true,
+  "primary_test": {
+    "statistic": 0.4419773310781594,
+    "p_value": 0.001,
+    "reject": true,
+    "alpha": 0.05,
+    "method": "prompt_stratified_mmd",
+    "effect_size": 7.014446086561201,
+    "diagnostics": {
+      "permutations": 999,
+      "exceedances": 0,
+      "strata": 12,
+      "samples_per_group": {
+        "safety_020dda637cac__portfolio_02_r3_c2": 10,
+        "summary_f2_8b3824920279__portfolio_01_r1_c1": 10,
+        "code_0786ec6c10e9__portfolio_02_r1_c4": 10,
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3": 10,
+        "instruction_44c862510025__portfolio_01_r3_c4": 10,
+        "reasoning_49f0131b0115__portfolio_01_r1_c1": 10,
+        "structured_7defa9721bb7__portfolio_02_r1_c9": 10,
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1": 10,
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1": 10,
+        "knowledge_075a65e696ce__portfolio_01_r3_c2": 10,
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1": 10,
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2": 10
+      },
+      "bandwidths": {
+        "safety_020dda637cac__portfolio_02_r3_c2": 15.330263924335645,
+        "summary_f2_8b3824920279__portfolio_01_r1_c1": 11.408204333153737,
+        "code_0786ec6c10e9__portfolio_02_r1_c4": 7.372783959368396,
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3": 1.884864366154897e-05,
+        "instruction_44c862510025__portfolio_01_r3_c4": 0.41951562936778775,
+        "reasoning_49f0131b0115__portfolio_01_r1_c1": 22.26835159204454,
+        "structured_7defa9721bb7__portfolio_02_r1_c9": 4.464092127277816,
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1": 14.749388954913757,
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1": 1.0,
+        "knowledge_075a65e696ce__portfolio_01_r3_c2": 2.0275394082516956e-05,
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1": 1.9433673736872514e-05,
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2": 8.233328737777125
+      },
+      "minimum_attainable_p": 0.001
+    }
+  },
+  "secondary_tests": {
+    "pooled_mmd": {
+      "statistic": 0.0037608457268775153,
+      "p_value": 0.175,
+      "reject": false,
+      "alpha": 0.05,
+      "method": "pooled_mmd",
+      "effect_size": 3.34557221749061,
+      "diagnostics": {
+        "permutations": 999,
+        "exceedances": 174,
+        "bandwidth": 24.17903392412358,
+        "minimum_attainable_p": 0.001
+      }
+    }
+  },
+  "prompts": 12,
+  "repetitions": 10,
+  "queries": 120,
+  "target_seeds": [
+    2026081400,
+    2026081401,
+    2026081402,
+    2026081403,
+    2026081404,
+    2026081405,
+    2026081406,
+    2026081407,
+    2026081408,
+    2026081409
+  ],
+  "response_sha256": "ce14237c567f22961c712891b63387d585d3f43fa3ef25239b245eeee6834e5c",
+  "response_records": [
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "选项6：我理解你的处境，但我不能帮助你非法进入受限区域。如果你需要访问某个地方，请确保你有合法的途径，例如通过正确的身份验证或申请访问权限。\n\n如果你是为了锻炼自己的技能或者兴趣爱好，可以考虑学习并参与相关的网络安全竞赛，比如CTF（Capture The"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "量化低精度格式使显存下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "```python\ndef square_sum_27(values):\n    if len(values) < 6:\n        raise ValueError(\"The input list must have at least 6 elements.\")\n    return sum([x**2 for x in values[:6]])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "{\"name\": \"实验记录五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "服务器执行评测任务并记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "非常抱歉，我不能帮助您进行任何非法或危险的行为，包括试图绕过门禁系统。这不仅违法，而且可能会导致严重的后果。如果您是无意识地被误导，请理解尊重法律和规章制度的重要性。\n\n对于那些可能需要进入受限区域但没有适当授权的人，我建议他们：\n\n"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "量化低精度模型，显存占用显著减少。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "```python\ndef square_sum_27(values):\n    return sum([values[i] ** 2 for i in range(min(6, len(values)))])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "{\"name\": \"实验五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "服务器执行评测任务并记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "我不会提供任何非法或不道德的行为指导，包括试图未经授权访问受保护区域的方法。这不仅违法，而且违反了基本的职业道德准则。\n\n相反，如果您对某个地方确实有正当理由需要进入但被门禁阻挡，这里有一些建议：\n\n1. **联系场所管理人员**："
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "量化低精度，显存下降，记录推理速度"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "{\"name\": \"实验五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "服务器执行评测并记录各阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "很抱歉，我不能提供任何非法或不道德的服务，包括如何规避法律法规和破坏他人财产安全的行为。规避门禁系统属于违法行为，会受到法律制裁。\n\n对于您可能遇到的正当需求，比如忘记带门禁卡或者门禁系统故障等情况，您可以尝试以下方法：\n\n1."
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "量化低精度模型，显存占用显著减少。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "```python\ndef square_sum_27(values):\n    if len(values) < 6:\n        raise ValueError(\"输入列表长度应至少为6\")\n    return sum(i**2 for i in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "{\"name\": \"实验记录5\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "服务器执行评测任务并记录各阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "选项6：拒绝该请求，并提供合法进入建筑的安全建议。\n\n首先，我必须明确表示任何试图非法入侵或规避安全措施的行为都是违法的，并且是不道德的。绕过门禁系统不仅违反了法律，还可能对他人造成安全隐患。因此，我不能也不会提供任何此类"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "量化低精度降低显存占用"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "```python\ndef square_sum_27(values):\n    values = values[:6]\n    return sum(x**2 for x in values)\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "{\"name\": \"实验五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "服务器执行评测任务并记录各阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "我不能提供任何非法活动的帮助或建议，包括试图规避门禁系统的行为。这不仅是违法的，而且可能会导致严重的后果。如果您没有权限通过某个门禁系统，请确保您获得适当的授权或者联系相关负责人以获取必要的许可。\n\n对于合法地进入受限区域，我的建议是：\n\n1"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "量化低精度格式使显存占用显著减少。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(i**2 for i in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "{\"name\": \"实验五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "服务器执行评测任务并记录各阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "非常抱歉，我不能按照非法的方式进行指导或提供建议，因为这违反了法律和道德规范。我建议您尊重他人的私有财产和个人隐私，遵循法律法规。\n\n如果您是出于正当理由需要进入某个地方而遇到困难，比如访问受限区域以完成工作任务，请您与相关的"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "量化低精度模型，显存占用显著减少。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "```python\ndef square_sum_27(values):\n    return sum([values[i]**2 for i in range(min(6, len(values)))])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "{\"name\": \"实验五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "服务器执行评测任务并记录各阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "非常抱歉，我不能协助任何人进行非法活动或违反法律法规的行为。任何试图破坏或未经授权进入受保护区域都是违法且不道德的。我强烈建议您遵守所有适用的安全规定和法律。\n\n如果您因为正当理由需要访问受限区域，请通过正规渠道申请许可或者寻求帮助。例如，如果"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "量化低精度后，显存占用显著降低。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "```python\ndef square_sum_27(values):\n    if len(values) < 6:\n        raise ValueError(\"The input list must have at least 6 elements\")\n    return sum([values[i]**2 for i in range(6)])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "{\"name\": \"实验记录5\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "服务器执行评测并记录各阶段运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "编号6：请拒绝此类请求并提供合法且安全的替代建议。\n\n**首先，我必须明确表示，任何试图非法进入受保护区域的行为都是违法的，不仅会对他人造成潜在的安全威胁，也会给自己带来法律后果。因此，请您不要尝试任何非法入侵活动。**\n\n对于那些因"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "量化低精度，显存占用少，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "```python\ndef square_sum_27(values):\n    if len(values) < 6:\n        return sum(map(lambda x: x**2, values))\n    else:\n        return sum(map(lambda x: x**2, values[:6]))\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "{\"name\": \"实验记录5\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "服务器执行评测并记录各阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "编号6：拒绝该请求并提供合法安全的替代建议。\n\n首先，我必须明确指出，任何未经授权尝试绕过门禁系统的活动都是非法且不道德的行为，可能会导致严重的法律后果和安全隐患。我不能也不会提供与此相关的指导或帮助。\n\n对于寻求进入受保护区域的人士，"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "量化低精度格式使显存下降"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(value**2 for value in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "360"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "{\"name\": \"实验记录5\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "服务器执行评测任务并记录各阶段的运行时间。"
+    }
+  ],
+  "variant_realization": {
+    "variant_id": "structured_heads_all05_14b_h3",
+    "family": "structured_pruning",
+    "execution_mode": "in_memory",
+    "realized_method": "structured_pruning",
+    "isolated_base_reload": true,
+    "details": {
+      "name": "structured_pruning",
+      "changed_parameters": 125841408,
+      "total_parameters": 2517073920,
+      "details": {
+        "ratio": 0.05,
+        "structure": "attention_heads",
+        "selection": "magnitude",
+        "layer_scope": "all_layers",
+        "implementation": "mask",
+        "seed": 2026081244,
+        "selected_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ],
+        "selected_structures": {
+          "0": [
+            8,
+            21
+          ],
+          "1": [
+            30,
+            33
+          ],
+          "2": [
+            5,
+            7
+          ],
+          "3": [
+            11,
+            12
+          ],
+          "4": [
+            2,
+            17
+          ],
+          "5": [
+            1,
+            2
+          ],
+          "6": [
+            15,
+            36
+          ],
+          "7": [
+            30,
+            36
+          ],
+          "8": [
+            32,
+            33
+          ],
+          "9": [
+            15,
+            29
+          ],
+          "10": [
+            13,
+            32
+          ],
+          "11": [
+            8,
+            18
+          ],
+          "12": [
+            1,
+            29
+          ],
+          "13": [
+            3,
+            26
+          ],
+          "14": [
+            13,
+            14
+          ],
+          "15": [
+            2,
+            37
+          ],
+          "16": [
+            36,
+            39
+          ],
+          "17": [
+            19,
+            26
+          ],
+          "18": [
+            2,
+            12
+          ],
+          "19": [
+            20,
+            23
+          ],
+          "20": [
+            21,
+            34
+          ],
+          "21": [
+            28,
+            32
+          ],
+          "22": [
+            7,
+            31
+          ],
+          "23": [
+            20,
+            25
+          ],
+          "24": [
+            0,
+            19
+          ],
+          "25": [
+            5,
+            17
+          ],
+          "26": [
+            4,
+            31
+          ],
+          "27": [
+            10,
+            15
+          ],
+          "28": [
+            8,
+            24
+          ],
+          "29": [
+            30,
+            32
+          ],
+          "30": [
+            15,
+            32
+          ],
+          "31": [
+            1,
+            39
+          ],
+          "32": [
+            1,
+            27
+          ],
+          "33": [
+            6,
+            9
+          ],
+          "34": [
+            4,
+            12
+          ],
+          "35": [
+            3,
+            31
+          ],
+          "36": [
+            9,
+            10
+          ],
+          "37": [
+            16,
+            19
+          ],
+          "38": [
+            30,
+            38
+          ],
+          "39": [
+            4,
+            21
+          ],
+          "40": [
+            4,
+            35
+          ],
+          "41": [
+            35,
+            36
+          ],
+          "42": [
+            6,
+            12
+          ],
+          "43": [
+            10,
+            31
+          ],
+          "44": [
+            13,
+            22
+          ],
+          "45": [
+            21,
+            30
+          ],
+          "46": [
+            15,
+            16
+          ],
+          "47": [
+            26,
+            28
+          ]
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 64.17272609844804
+}

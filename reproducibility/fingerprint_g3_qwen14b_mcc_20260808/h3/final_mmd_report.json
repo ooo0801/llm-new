@@ -1,0 +1,132 @@
+{
+  "schema_version": "fingerprint_14b_h3_summary_1.0",
+  "states": 12,
+  "technical_passed": true,
+  "technical_errors": [],
+  "intact_correct": false,
+  "modified_detected": 11,
+  "modified_total": 11,
+  "required_modified_detected": 9,
+  "modified_recall_exact_95ci": {
+    "successes": 11,
+    "total": 11,
+    "estimate": 1.0,
+    "low": 0.7150858470818456,
+    "high": 1.0
+  },
+  "correct_states": 11,
+  "accuracy_exact_95ci": {
+    "successes": 11,
+    "total": 12,
+    "estimate": 0.9166666666666666,
+    "low": 0.6152038348490559,
+    "high": 0.9978924067681397
+  },
+  "family_coverage_passed": true,
+  "by_family": {
+    "unstructured_pruning": {
+      "detected": 2,
+      "total": 2,
+      "rate": 1.0,
+      "variants": [
+        {
+          "variant_id": "unstructured_global_attention30_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.38144638657163227
+        },
+        {
+          "variant_id": "unstructured_layerwise_all30_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.468280859901325
+        }
+      ]
+    },
+    "structured_pruning": {
+      "detected": 2,
+      "total": 2,
+      "rate": 1.0,
+      "variants": [
+        {
+          "variant_id": "structured_ffn_randomhalf05_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.5443403907303749
+        },
+        {
+          "variant_id": "structured_heads_all05_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.4419773310781594
+        }
+      ]
+    },
+    "gaussian_noise": {
+      "detected": 3,
+      "total": 3,
+      "rate": 1.0,
+      "variants": [
+        {
+          "variant_id": "gaussian_ffn_000025_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.1282693922429935
+        },
+        {
+          "variant_id": "gaussian_ffn_00005_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.1448025940702872
+        },
+        {
+          "variant_id": "gaussian_all_0001_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.13552878601151871
+        }
+      ]
+    },
+    "quantization": {
+      "detected": 2,
+      "total": 2,
+      "rate": 1.0,
+      "variants": [
+        {
+          "variant_id": "int8_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.1629494198122314
+        },
+        {
+          "variant_id": "nf4_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.4538302691585572
+        }
+      ]
+    },
+    "finetuning": {
+      "detected": 2,
+      "total": 2,
+      "rate": 1.0,
+      "variants": [
+        {
+          "variant_id": "lora_seed1250_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.24570899867265797
+        },
+        {
+          "variant_id": "lora_seed1251_14b_h3",
+          "predicted_modified": true,
+          "p_value": 0.001,
+          "statistic": 0.25460526063594524
+        }
+      ]
+    }
+  },
+  "hypothesis": "H-H3",
+  "hypothesis_supported": false,
+  "claim_boundary": "Fixed registered model-state instances; not a population detection-rate estimate."
+}

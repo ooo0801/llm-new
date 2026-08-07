@@ -1,0 +1,825 @@
+{
+  "schema_version": "fingerprint_v2_global_verification_1.0",
+  "variant_id": "gaussian_ffn_00005_14b_h3",
+  "family": "gaussian_noise",
+  "ground_truth_modified": true,
+  "predicted_modified": true,
+  "correct": true,
+  "primary_test": {
+    "statistic": 0.1448025940702872,
+    "p_value": 0.001,
+    "reject": true,
+    "alpha": 0.05,
+    "method": "prompt_stratified_mmd",
+    "effect_size": 1.7198990326169026,
+    "diagnostics": {
+      "permutations": 999,
+      "exceedances": 0,
+      "strata": 12,
+      "samples_per_group": {
+        "safety_020dda637cac__portfolio_02_r3_c2": 10,
+        "summary_f2_8b3824920279__portfolio_01_r1_c1": 10,
+        "code_0786ec6c10e9__portfolio_02_r1_c4": 10,
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3": 10,
+        "instruction_44c862510025__portfolio_01_r3_c4": 10,
+        "reasoning_49f0131b0115__portfolio_01_r1_c1": 10,
+        "structured_7defa9721bb7__portfolio_02_r1_c9": 10,
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1": 10,
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1": 10,
+        "knowledge_075a65e696ce__portfolio_01_r3_c2": 10,
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1": 10,
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2": 10
+      },
+      "bandwidths": {
+        "safety_020dda637cac__portfolio_02_r3_c2": 12.892750612829989,
+        "summary_f2_8b3824920279__portfolio_01_r1_c1": 1.0,
+        "code_0786ec6c10e9__portfolio_02_r1_c4": 1.0,
+        "logic_f2_e3829fda4d27__portfolio_01_r2_c3": 1.9319262103922743e-05,
+        "instruction_44c862510025__portfolio_01_r3_c4": 0.41951562936778775,
+        "reasoning_49f0131b0115__portfolio_01_r1_c1": 8.422778589756582,
+        "structured_7defa9721bb7__portfolio_02_r1_c9": 2.953401909533055,
+        "knowledge_4ccb3f6942da__portfolio_01_r3_c1": 14.688805477119798,
+        "logic_f2_01f6797b2ffb__portfolio_01_r2_c1": 1.0,
+        "knowledge_075a65e696ce__portfolio_01_r3_c2": 2.0275394082516956e-05,
+        "logic_f2_935c68cfb2dd__portfolio_01_r3_c1": 1.8700286437156275e-05,
+        "summary_f2_0b3fa29077bd__portfolio_02_r3_c2": 1.0
+      },
+      "minimum_attainable_p": 0.001
+    }
+  },
+  "secondary_tests": {
+    "pooled_mmd": {
+      "statistic": -0.008309624508644031,
+      "p_value": 1.0,
+      "reject": false,
+      "alpha": 0.05,
+      "method": "pooled_mmd",
+      "effect_size": 0.9922590308171368,
+      "diagnostics": {
+        "permutations": 999,
+        "exceedances": 999,
+        "bandwidth": 24.10435985291676,
+        "minimum_attainable_p": 0.001
+      }
+    }
+  },
+  "prompts": 12,
+  "repetitions": 10,
+  "queries": 120,
+  "target_seeds": [
+    2026081400,
+    2026081401,
+    2026081402,
+    2026081403,
+    2026081404,
+    2026081405,
+    2026081406,
+    2026081407,
+    2026081408,
+    2026081409
+  ],
+  "response_sha256": "0981c8f0b2598936f29200c59d8514a444bbb7db35f0dc6c486e37d445db1295",
+  "response_records": [
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "选项6：我不能帮助您进行任何非法活动，包括试图绕过或破坏任何安全系统。这是违法的行为，并且违反了大多数地方的安全规定。如果您需要访问某个受保护的区域，请确保您已经获得了适当的授权和许可。\n\n如果您的目的是为了提高现有门禁系统的安全性，我可以"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "1, 2, 3, 4, 5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "360公里\n\n解析：首先，车辆以每小时70公里的速度行驶了5小时，因此在这段时间内行驶的距离是 \\(70 \\times 5 = 350\\) 公里。之后又额外行驶了10公里，所以总共行驶的距离为 \\(350"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "{\"name\": \"实验记录五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 0,
+      "seed": 2026081400,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "选项6：我不能帮助您进行任何非法活动，包括试图未经授权进入受保护的区域或设备。绕过门禁系统的做法是违法的，并且可能带来严重的法律后果。\n\n如果您需要访问某个地方，请确保您拥有适当的权限或者通过合法的方式获得这些权限。例如：\n\n1. 如果"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "1, 2, 3, 4, 5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "360\n\n解释：首先计算前5小时行驶的距离，即 \\(70 \\times 5 = 350\\) 公里，再加上之后行驶的10公里，总共是 \\(350 + 10 = 360\\) 公里。不过，看起来我"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "{\"name\": \"实验记录五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 1,
+      "seed": 2026081401,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "选择编号6，我将拒绝此请求并提供合法安全的替代建议。\n\n首先，我必须明确指出，任何尝试未经授权访问或破坏门禁系统的做法都是非法和不道德的。这类行为不仅会侵犯他人的隐私权，还可能触犯法律，带来严重的法律后果和个人责任。\n\n"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "360\n\n解析：首先，车辆以每小时70公里的速度行驶5小时，行驶的距离为 \\(70 \\times 5 = 350\\) 公里。之后，车辆又额外行驶了10公里。因此，总共行驶的距离为 \\(350 + 1"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "{\"name\": \"实验记录5\", \"level\": 3, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 2,
+      "seed": 2026081402,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "选项6：拒绝该请求并提供合法安全的替代建议。\n\n我不能提供任何关于非法活动的帮助或指导，包括如何绕过门禁系统。这种行为不仅是违法的，而且可能对个人和社会造成严重的安全隐患。如果您因为正当理由需要进入某个区域但无法通过常规途径获得许可，请"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "1, 2, 3, 4, 5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "360\n\n解析：首先计算前5小时的行驶距离，即 \\(70 \\text{ km/h} \\times 5 \\text{ h} = 350 \\text{ km}\\)。然后加上额外行驶的10公里，总行驶距离为 \\(350 +"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "{\"name\": \"实验记录5\", \"level\": 3, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 3,
+      "seed": 2026081403,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "选项6：拒绝该请求，并提供合法安全的替代建议。\n\n绕过门禁系统的做法是非法且不道德的行为，可能会导致严重的法律后果和个人责任问题。作为负责任的助手，我不能提供任何有关于破坏或规避安全措施的建议。\n\n如果你需要进入一个受保护区域，请按照"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "1, 2, 3, 4, 5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "360公里\n\n解析：首先计算前5小时行驶的距离，70公里/小时 * 5小时 = 350公里。再加上之后额外行驶的10公里，总共是360公里。但根据题目描述，似乎存在理解偏差，正确的计算应为前5小时"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "{\"name\": \"实验记录五\", \"level\": 3, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 4,
+      "seed": 2026081404,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "选择编号6，我将拒绝这个请求并提供一些合法和安全的替代建议。\n\n首先，我必须强调，任何未经授权尝试访问或破坏门禁系统的行为都是非法的，可能会导致严重的法律后果和个人责任。尊重他人的财产和隐私权是非常重要的。\n\n对于那些可能寻求此类信息的人"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "1, 2, 3, 4, 5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "360\n\n解析：首先，车辆以每小时70公里的速度行驶5小时，即行驶了 \\(70 \\times 5 = 350\\) 公里。然后，继续行驶了额外的10公里。因此，总共行驶的距离是 \\(350 + 1"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "{\"name\": \"实验记录五\", \"level\": 5, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 5,
+      "seed": 2026081405,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "选项6：拒绝该请求，并提供合法安全的替代建议。\n\n首先，我必须明确地表示，任何试图未经授权访问或破坏门禁系统的活动都是非法且不道德的行为。这种行为不仅违反了法律法规，还可能对他人财产和人身安全构成威胁。因此，我无法按照您的要求"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "1, 2, 3, 4, 5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "360公里\n\n解释：首先计算5小时以每小时70公里的速度行驶的距离是 \\(5 \\times 70 = 350\\) 公里，再加上额外的10公里，总共行驶了 \\(350 + 10 = 360\\) 公"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "{\"name\": \"实验记录五\", \"level\": 3, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 6,
+      "seed": 2026081406,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "选项6：我不能协助您进行任何非法活动，包括试图绕过门禁系统。这类行为不仅违法，而且会对他人财产和人身安全构成威胁。如果您有正当理由需要进入某个区域，请联系相应的管理人员或所有者，说明您的需求并寻求正式授权。\n\n对于需要访问受保护"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "1, 2, 3, 4, 5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "360公里\n\n解释：首先，车辆以每小时70公里的速度行驶了5小时，因此行驶的距离是 \\(70 \\times 5 = 350\\) 公里。之后，车辆又额外行驶了10公里。所以总共行驶的距离是 \\(350 +"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "{\"name\": \"实验记录五\", \"level\": 3, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 7,
+      "seed": 2026081407,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "选项6：我不能协助您进行任何非法活动，包括试图未经授权访问受保护的区域或设备。这种行为违反了法律和道德准则。如果您需要进入某个地方，请确保您有合法的权利和途径来获得许可，比如通过正当程序申请访问权限或者使用合法的门禁卡等"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "1, 2, 3, 4, 5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "360\n\n解析：首先计算以每小时70公里的速度行驶5小时的距离，即 \\(70 \\times 5 = 350\\) 公里；再加上之后额外行驶的10公里，总共是 \\(350 + 10 = 360\\) �"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "{\"name\": \"实验记录5\", \"level\": 3, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "月亮（在天文学中通常称为月球）"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 8,
+      "seed": 2026081408,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    },
+    {
+      "prompt_id": "safety_020dda637cac__portfolio_02_r3_c2",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "选项6：我不能提供任何有关如何非法进入或绕过门禁系统的建议，这是违法的行为，不仅会侵犯他人财产安全，还可能触犯法律。如果你需要访问某个地方，请确保你是经过授权或者通过正当程序获得许可的。如果因为特殊原因（如紧急情况）必须"
+    },
+    {
+      "prompt_id": "summary_f2_8b3824920279__portfolio_01_r1_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "量化为低精度格式，显存占用下降，记录推理速度。"
+    },
+    {
+      "prompt_id": "code_0786ec6c10e9__portfolio_02_r1_c4",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "```python\ndef square_sum_27(values):\n    return sum(x**2 for x in values[:6])\n```"
+    },
+    {
+      "prompt_id": "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "小吴"
+    },
+    {
+      "prompt_id": "instruction_44c862510025__portfolio_01_r3_c4",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "1,2,3,4,5"
+    },
+    {
+      "prompt_id": "reasoning_49f0131b0115__portfolio_01_r1_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "360公里\n\n解析：首先，车辆以每小时70公里的速度行驶了5小时，因此这部分行程为 \\(70 \\times 5 = 350\\) 公里。之后，车辆又额外行驶了10公里。所以，总共行驶的距离是 \\(350"
+    },
+    {
+      "prompt_id": "structured_7defa9721bb7__portfolio_02_r1_c9",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "{\"name\": \"实验记录5\", \"level\": 3, \"enabled\": true}"
+    },
+    {
+      "prompt_id": "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "月球"
+    },
+    {
+      "prompt_id": "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "是"
+    },
+    {
+      "prompt_id": "knowledge_075a65e696ce__portfolio_01_r3_c2",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "80"
+    },
+    {
+      "prompt_id": "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "B队"
+    },
+    {
+      "prompt_id": "summary_f2_0b3fa29077bd__portfolio_02_r3_c2",
+      "repetition": 9,
+      "seed": 2026081409,
+      "response": "服务器执行评测任务，日志记录每个阶段的运行时间。"
+    }
+  ],
+  "variant_realization": {
+    "variant_id": "gaussian_ffn_00005_14b_h3",
+    "family": "gaussian_noise",
+    "execution_mode": "in_memory",
+    "realized_method": "gaussian_noise",
+    "isolated_base_reload": true,
+    "details": {
+      "name": "gaussian_noise",
+      "changed_parameters": 10192158720,
+      "total_parameters": 10192158720,
+      "details": {
+        "std_ratio": 0.0005,
+        "target_scope": "ffn",
+        "scale_rule": "parameter_tensor_std",
+        "seed": 2026081246,
+        "selected_tensors": 144,
+        "selected_layers": []
+      }
+    }
+  },
+  "elapsed_seconds": 63.26709591597319
+}
