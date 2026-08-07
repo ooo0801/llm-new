@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/combined-14b-final-validation"
-  current_stage: "experiment_e_lora_adapters_in_progress"
+  current_stage: "experiment_e_full_joint_micro_in_progress"
 
 literature:
   key_papers: []
@@ -95,8 +95,8 @@ execution:
   followup_stage_4_combined_fingerprint: complete
   experiment_e_stage_0_protocol: complete
   experiment_e_stage_1_tokenizer_model_smoke: complete
-  experiment_e_stage_2_lora_and_one_pair_smoke: in_progress
-  experiment_e_stage_3_full_joint_endpoints: pending
+  experiment_e_stage_2_lora_and_one_pair_smoke: complete
+  experiment_e_stage_3_full_joint_endpoints: in_progress
   experiment_e_stage_4_analysis_archive: pending
   background_task:
     experiment: "experiment_e_qwen14b_final_20260807"
