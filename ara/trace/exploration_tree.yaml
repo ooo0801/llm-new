@@ -1,0 +1,68 @@
+tree:
+  - id: N01
+    type: question
+    title: "Complete the Qwen2.5-14B integrity-fingerprint experiment chain"
+    provenance: user
+    timestamp: "2026-08-07T12:40+08:00"
+    description: >
+      Complete robust prompt selection and independent confirmation, then run stable-component/MCC
+      and prompt-stratified MMD experiments only when their registered parent gates pass.
+    children:
+      - id: N02
+        type: experiment
+        title: "Experiment E joint confirmation"
+        provenance: ai-executed
+        timestamp: "2026-08-07T12:45+08:00"
+        result: >
+          The prior frozen 30-row union retained 19/30 rather than 23 and lacked summary coverage,
+          motivating a separately preregistered robust-selection experiment.
+        evidence: [C03, "reproducibility/experiment_e_qwen14b_final_20260807/FINAL_REPORT.json"]
+        children:
+          - id: N03
+            type: pivot
+            title: "Return to the 64-row portfolio with multi-seed robust ranking"
+            provenance: ai-suggested
+            timestamp: "2026-08-07T12:50+08:00"
+            from: "Confirm the fixed 30-row union"
+            to: "Preregister F1 development selection with independent confirmation reserved"
+            trigger: "Experiment E localized the bottleneck to joint macro robustness and structured pruning."
+            children:
+              - id: N04
+                type: experiment
+                title: "F1 development endpoint matrix"
+                provenance: ai-executed
+                timestamp: "2026-08-07T14:43+08:00"
+                result: >
+                  Technical completion: task 128/128, micro 128/128 after expansion, and macro
+                  1920/1920 after expansion. Thirty-seven candidates were eligible, but the frozen
+                  selector returned 29 rows.
+                evidence: [C01, C02, "reproducibility/experiment_f_qwen14b_robust_20260807/FINAL_REPORT.json"]
+                children:
+                  - id: N05
+                    type: dead_end
+                    title: "Balanced 30-row F1 freeze fails category-source quotas"
+                    provenance: ai-executed
+                    timestamp: "2026-08-07T14:44+08:00"
+                    hypothesis: >
+                      The robustly ranked portfolio contains at least three eligible unique sources in every
+                      category and can freeze exactly 30 rows.
+                    failure_mode: >
+                      Logic supplied two eligible unique sources and summary supplied one; the selector
+                      returned 29/30 rows.
+                    lesson: >
+                      Macro robustness alone did not solve source diversity. Logic and summary construction
+                      must be expanded in a separately preregistered F2 rather than repaired post hoc.
+                    children:
+                      - id: N06
+                        type: decision
+                        title: "Stop conditional confirmation, G1, and H1 branches"
+                        provenance: ai-executed
+                        timestamp: "2026-08-07T14:45+08:00"
+                        choice: >
+                          Preserve the F1 development No-Go, do not lower quotas, and do not run downstream
+                          experiments whose parent gates were not supported.
+                        alternatives:
+                          - "Lower the per-category quota after observing results"
+                          - "Insert a post-hoc thirtieth candidate"
+                          - "Run G1/H1 without a confirmed parent fingerprint"
+                        evidence: "Frozen F1, G1, and H1 conditional protocols plus N05."

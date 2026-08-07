@@ -1,0 +1,83 @@
+session:
+  id: "2026-08-07_001"
+  timestamp: "2026-08-07T14:50+08:00"
+  summary: "Completed Qwen2.5-14B F1 multi-seed development, archived its scientific No-Go, and closed ineligible downstream branches."
+
+events_logged:
+  - type: experiment
+    id: N02
+    provenance: ai-executed
+    summary: "Carried forward Experiment E's 19/30 joint-confirmation No-Go as the motivation for F1."
+  - type: pivot
+    id: N03
+    provenance: ai-suggested
+    summary: "Returned to the 64-row portfolio with frozen multi-seed robust ranking."
+  - type: experiment
+    id: N04
+    provenance: ai-executed
+    summary: "Completed all F1 development endpoints and observed 37 eligible candidates."
+  - type: dead_end
+    id: N05
+    provenance: ai-executed
+    summary: "The unique-source category quotas yielded 29/30 rows because logic and summary were undersupplied."
+  - type: decision
+    id: N06
+    provenance: ai-executed
+    summary: "Preserved the No-Go and stopped confirmation, G1, and H1 according to their conditional protocols."
+  - type: claim
+    id: C01
+    provenance: ai-suggested
+    summary: "Balanced 30-row selection was refuted."
+  - type: claim
+    id: C02
+    provenance: ai-executed
+    summary: "F1 technical completion was supported."
+  - type: claim
+    id: C03
+    provenance: ai-suggested
+    summary: "The F1 confirmation strategy was refuted at its development gate."
+  - type: heuristic
+    id: H01
+    provenance: ai-executed
+    summary: "Archive scientific No-Go outcomes as first-class evidence."
+  - type: heuristic
+    id: H03
+    provenance: ai-executed
+    summary: "Pin line endings for hash-bound release files."
+
+ai_actions:
+  - action: "Implemented and tested F1 plus conditional G1/H1 terminal-state archivers."
+    provenance: ai-executed
+    files_changed: ["scripts/archive_experiment_f_robust.py", "scripts/archive_fingerprint_14b_followup.py"]
+  - action: "Aligned H1 generation with the frozen stochastic sampling protocol and strengthened result validation."
+    provenance: ai-executed
+    files_changed: ["configs/fingerprint_g_qwen14b_mcc.yaml", "scripts/summarize_fingerprint_14b_mmd.py"]
+  - action: "Ran F1 on the remote three-GPU server, verified endpoints, archived evidence, and pushed result commits."
+    provenance: ai-executed
+    files_changed: ["reproducibility/experiment_f_qwen14b_robust_20260807/"]
+  - action: "Updated central research state, findings, and the Chinese human report."
+    provenance: ai-executed
+    files_changed: ["research-state.yaml", "research-log.md", "findings.md", "to_human/experiment_f_qwen14b_robust_20260807/FINAL_REPORT.md"]
+
+claims_touched:
+  - id: C01
+    action: created
+    provenance: ai-suggested
+  - id: C02
+    action: created
+    provenance: ai-executed
+  - id: C03
+    action: created
+    provenance: ai-suggested
+  - id: C04
+    action: created
+    provenance: ai-suggested
+  - id: C05
+    action: created
+    provenance: ai-suggested
+
+open_threads:
+  - "A future F2 may expand independently constructed logic and summary sources under a new preregistration."
+
+ai_suggestions_pending:
+  - "Preregister F2 rather than repairing F1 if further work is desired."
