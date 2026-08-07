@@ -1,0 +1,77 @@
+{
+  "candidate_rows": 64,
+  "candidate_source": "results/experiment_c_qwen14b_20260806/03_development/portfolio_candidates.jsonl",
+  "candidate_source_sha256": "60aa87d2fbb5877acdda60e02d05d03286dd0b62e32fdac525d25a0c1777cedb",
+  "category_counts": {
+    "code": 7,
+    "instruction": 8,
+    "knowledge": 7,
+    "logic": 4,
+    "reasoning": 8,
+    "safety": 12,
+    "structured": 10,
+    "summary": 8
+  },
+  "confirmation": {
+    "attack_seeds": [
+      2026080721,
+      2026080722
+    ],
+    "bootstrap_seed": 2026080723,
+    "micro_seed": 2026080720,
+    "variants_per_family": 2
+  },
+  "confirmation_gate": {
+    "family_relative_tolerance": 0.01,
+    "minimum_nondegraded_families": 3,
+    "required_categories": [
+      "code",
+      "instruction",
+      "knowledge",
+      "logic",
+      "reasoning",
+      "safety",
+      "structured",
+      "summary"
+    ],
+    "required_legacy_retained": 23
+  },
+  "development": {
+    "attack_seeds": [
+      2026080711,
+      2026080712,
+      2026080713
+    ],
+    "bootstrap_seed": 2026080714,
+    "micro_seed": 2026080710,
+    "variants_per_family": 3
+  },
+  "inputs_sha256": {
+    "confirmation_manifest": "a5c797eabd88dc67344e63374404510e67fd7dfd9199aa18462c7343512cc02f",
+    "development_manifest": "a6cad788ad32558a19d557162566c5d1bf5401add653abc661e6ed229506e670",
+    "pairs": "dad8be3ac80471a0eb79906edeb77582c71103a63d0405abbccf2d65c48d3168"
+  },
+  "leakage_guard": "Experiment C held-out decisions and Experiment E outcomes are not inputs to F1 ranking; confirmation endpoints cannot alter selection or gates.",
+  "model": {
+    "dtype": "bfloat16",
+    "id": "Qwen/Qwen2.5-14B-Instruct",
+    "placement": "balanced_3gpu_no_cpu_disk_offload",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
+  },
+  "schema_version": "experiment_f1_design_1.0",
+  "selection": {
+    "maximum_per_source_prompt": 1,
+    "minimum_per_category": 3,
+    "ranking": [
+      "structured_nondegraded",
+      "nondegraded_family_count",
+      "worst_family_median_relative_gain",
+      "structured_median_relative_gain",
+      "macro_relative_gain",
+      "micro_relative_gain",
+      "prompt_id"
+    ],
+    "rows": 30
+  },
+  "source_prompts": 38
+}
