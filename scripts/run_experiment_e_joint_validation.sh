@@ -2,7 +2,7 @@
 set -euo pipefail
 
 cd /root/autodl-tmp/llm
-export HF_HOME=/root/autodl-tmp/huggingface
+export HF_HUB_CACHE=/root/autodl-tmp/huggingface
 export TRANSFORMERS_OFFLINE=1
 export HF_HUB_OFFLINE=1
 export TOKENIZERS_PARALLELISM=false
