@@ -1,0 +1,28 @@
+{
+  "accepted": 28,
+  "anchor_variants_per_family": 2,
+  "changed_discrete_prompts": 28,
+  "code_sha256": {
+    "calibration": "66944c94c523840938c8444c5b696138fd0f4cc8ce2e628be6ef2629d066ad0c",
+    "config": "d72f3a967ae5a27a4226b82f808d1a07164ce1ec8a1db798414cfc7bcac48127",
+    "optimizer": "9bb9ef613b13d0cf7f2b615405b1ae4b06367fa724f7e8ab2809bda78ef2fd20",
+    "runner": "655e8c71da85a15b94700c91c5b1a011c13c873c2f1bbfccb443c8cbcd210647"
+  },
+  "family_gate_aggregation": "all_anchor_variants",
+  "gradient_restarts": 1,
+  "method": "discrete_joint_hotflip_disjoint_inner_dev_rerank",
+  "micro_weight": 2.4765589026669383,
+  "output": "/root/autodl-tmp/llm/results/experiment_f2_qwen14b_targeted_20260808/00_construction/joint_results_32.jsonl",
+  "passed": true,
+  "positive_proxy_gain_prompts": 28,
+  "rejected": 4,
+  "requested_prompts": 32,
+  "required_accepted": 0,
+  "results": 32,
+  "scientific_gate_passed": true,
+  "technical_passed": true,
+  "technically_complete": 32,
+  "total_committed_rounds": 42,
+  "variants_per_family": 1,
+  "version": 4
+}

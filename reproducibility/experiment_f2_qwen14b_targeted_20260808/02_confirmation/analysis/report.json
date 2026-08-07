@@ -1,0 +1,58 @@
+{
+  "candidate_rows": 30,
+  "category_coverage_passed": true,
+  "endpoint_counts": {
+    "macro": 600,
+    "micro": 60,
+    "task": 60
+  },
+  "family_nondegeneration_counts": {
+    "finetuning": 25,
+    "gaussian_noise": 24,
+    "quantization": 25,
+    "structured_pruning": 21,
+    "unstructured_pruning": 25
+  },
+  "gate_passed": false,
+  "hypothesis": "H-F2",
+  "hypothesis_supported": false,
+  "legacy_by_category": {
+    "code": 1,
+    "instruction": 4,
+    "knowledge": 2,
+    "logic": 4,
+    "reasoning": 3,
+    "safety": 2,
+    "structured": 1,
+    "summary": 2
+  },
+  "legacy_retained": 19,
+  "macro_positive": 20,
+  "micro_positive": 30,
+  "observed_legacy_categories": [
+    "code",
+    "instruction",
+    "knowledge",
+    "logic",
+    "reasoning",
+    "safety",
+    "structured",
+    "summary"
+  ],
+  "required_categories": [
+    "code",
+    "instruction",
+    "knowledge",
+    "logic",
+    "reasoning",
+    "safety",
+    "structured",
+    "summary"
+  ],
+  "required_legacy_retained": 23,
+  "schema_version": "experiment_f2_confirmation_1.0",
+  "strict_5of5_retained": 10,
+  "task_preserved": 30,
+  "technical_errors": [],
+  "technical_passed": true
+}

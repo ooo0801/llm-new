@@ -1,0 +1,25 @@
+{
+  "assembled_candidates": 116,
+  "assembled_unique_sources": 66,
+  "base_candidates": 64,
+  "category_counts": {
+    "code": 7,
+    "instruction": 8,
+    "knowledge": 7,
+    "logic": 29,
+    "reasoning": 8,
+    "safety": 12,
+    "structured": 10,
+    "summary": 35
+  },
+  "construction_failures": [],
+  "construction_gate_passed": true,
+  "minimum_new_sources_per_category": 3,
+  "new_portfolio_candidates": 52,
+  "new_unique_sources_by_category": {
+    "logic": 13,
+    "summary": 15
+  },
+  "schema_version": "experiment_f2_pool_assembly_1.0",
+  "test_or_confirmation_data_used": false
+}

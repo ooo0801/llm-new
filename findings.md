@@ -133,3 +133,13 @@ The quota-and-unique-source selector froze exactly 30 candidates spanning all ei
 Independent confirmation task validation passed all 60 initial/optimized endpoints. The two confirmation adapters also completed before an execution interruption during complete-block micro scoring. Seven unique micro records were durably written; after connectivity returned, the recovery entry point verified the development gate, frozen-set size, confirmation task summary, and adapter registry, then resumed by prompt identity without recomputing the completed records or changing scientific inputs.
 
 The resumed confirmation micro stage subsequently completed all 60 unique prompt endpoints and expanded them to the expected 60 paired endpoints. The unchanged pipeline then advanced to the frozen two-variant-per-family confirmation macro stage; final retention is not evaluated until all 600 registered macro observations are complete.
+
+### F2 Independent Confirmation Final Result
+
+F2 completed every independent confirmation endpoint without technical failure: 60/60 deterministic task endpoints, 60/60 complete-block micro endpoints, and 600/600 finite macro observations across two held-out variants of each of the five registered attack families. All 30 candidates preserved their tasks and were micro-positive; 20 had positive equal-weight macro sensitivity.
+
+Nineteen of the frozen 30 candidates satisfied the full legacy retention rule, below the preregistered requirement of 23. The retained rows did cover all eight categories (1 code, 4 instruction, 2 knowledge, 4 logic, 3 reasoning, 2 safety, 1 structured, and 2 summary), so category coverage passed while the primary retained-count gate failed. Ten prompts met the secondary strict 5/5 rule.
+
+Family non-degeneration counts were 25/30 for finetuning, 24/30 for Gaussian noise, 25/30 for quantization, 21/30 for structured pruning, and 25/30 for unstructured pruning. Targeted expansion therefore fixed the F1 development feasibility problem but did not improve independent joint retention beyond the 19/30 result previously observed in Experiment E. H-F2 is refuted without repair. Because the F2 parent gate failed, G2 stable-component/MCC12 construction and H2 prompt-stratified MMD verification were not run.
+
+The terminal evidence archive contains 50 checksum-covered files, including frozen inputs and configs, construction/development/confirmation reports and endpoints, adapter registries and training reports, and the pipeline log. LoRA tensor weights are intentionally excluded. The archive records `confirmation_no_go` and preserves the boundary that no candidate, threshold, seed, attack, evaluator, or downstream condition was changed after observing confirmation.

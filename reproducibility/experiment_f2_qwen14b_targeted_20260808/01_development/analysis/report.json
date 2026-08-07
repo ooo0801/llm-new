@@ -1,0 +1,30 @@
+{
+  "candidate_rows": 116,
+  "development_eligible": 51,
+  "endpoint_counts": {
+    "macro": 3480,
+    "micro": 232,
+    "task": 232
+  },
+  "gate_passed": true,
+  "legacy_retained_descriptive": 47,
+  "macro_positive": 61,
+  "micro_positive": 96,
+  "schema_version": "experiment_f2_development_1.0",
+  "selected_by_category": {
+    "code": 3,
+    "instruction": 4,
+    "knowledge": 3,
+    "logic": 8,
+    "reasoning": 3,
+    "safety": 3,
+    "structured": 3,
+    "summary": 3
+  },
+  "selected_rows": 30,
+  "selection_errors": [],
+  "structured_nondegraded": 56,
+  "task_preserved": 115,
+  "technical_errors": [],
+  "technical_passed": true
+}

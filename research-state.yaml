@@ -2,11 +2,11 @@
 project:
   title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
   question: "Can preregistered multi-seed robust selection produce an independently confirmed 14B fingerprint, and if so do frozen 7B component thresholds and prompt-stratified MMD transfer to the fixed 14B model?"
-  status: in_progress
+  status: complete_negative_result
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_f2_confirmation_macro_running"
+  current_stage: "experiment_f2_complete_no_go"
 
 literature:
   key_papers: []
@@ -66,19 +66,19 @@ hypotheses:
     priority: high
   - id: H-F2
     statement: "Targeted expansion and re-optimization of logic and summary sources can freeze a 30-prompt set that independently retains at least 23 prompts and all eight categories."
-    status: in_progress
+    status: refuted
     motivation: "F1 failed at development only because logic and summary lacked enough eligible unique sources; F2 tests that localized construction remedy without changing the confirmation gate."
     parent: H-F1
     priority: high
   - id: H-G2
     statement: "The independently confirmed F2 set supports the unchanged stable-component thresholds, frozen universe gates, and deterministic global-unweighted MCC12."
-    status: conditional_not_run
+    status: not_run_parent_no_go
     motivation: "This constructs the final operational fingerprint only after F2 independent confirmation."
     parent: H-F2
     priority: high
   - id: H-H2
     statement: "The final MCC12 leaves the intact state unflagged, detects at least 9 of 11 registered modified states, and covers all five modified families."
-    status: conditional_not_run
+    status: not_run_parent_no_go
     motivation: "This is the final fixed-instance prompt-stratified MMD verification."
     parent: H-G2
     priority: high
@@ -86,8 +86,8 @@ hypotheses:
 experiments:
   proxy_metric: "legacy_retained_count under the frozen experiment-specific set; strict_5of5_count is secondary"
   baseline_value: 16
-  best_value: 8
-  total_runs: 6
+  best_value: 19
+  total_runs: 7
   trajectory:
     - run: "confirmatory_14b_a1"
       legacy_retained: 8
@@ -139,7 +139,20 @@ experiments:
       selected_by_category: {code: 3, instruction: 4, knowledge: 3, logic: 8, reasoning: 3, safety: 3, structured: 3, summary: 3}
       technical_passed: true
       gate_passed: true
-      status: "development_go_confirmation_running"
+      status: "development_go"
+    - run: "targeted_logic_summary_expansion_14b_f2_confirmation"
+      candidate_rows: 30
+      endpoint_counts: {task: 60, micro: 60, macro: 600}
+      task_preserved: 30
+      micro_positive: 30
+      macro_positive: 20
+      legacy_retained: 19
+      legacy_required: 23
+      strict_5of5_retained: 10
+      category_coverage_passed: true
+      technical_passed: true
+      hypothesis_supported: false
+      status: "confirmation_no_go"
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -183,15 +196,16 @@ execution:
   experiment_f2_stage_0_protocol: complete
   experiment_f2_stage_1_targeted_construction: complete_go
   experiment_f2_stage_2_development: complete_go
-  experiment_f2_stage_3_confirmation: in_progress
+  experiment_f2_stage_3_confirmation: complete_no_go
+  experiment_f2_stage_4_archive: complete
   experiment_g2_stage_0_protocol: complete
-  experiment_g2_stage_1_activations: conditional_pending
-  experiment_g2_stage_2_mcc: conditional_pending
+  experiment_g2_stage_1_activations: not_run_parent_no_go
+  experiment_g2_stage_2_mcc: not_run_parent_no_go
   experiment_h2_stage_0_protocol: complete
-  experiment_h2_stage_1_reference: conditional_pending
-  experiment_h2_stage_2_model_states: conditional_pending
-  experiment_h2_stage_3_analysis: conditional_pending
-  background_task: "f2_confirmation_macro_running"
+  experiment_h2_stage_1_reference: not_run_parent_no_go
+  experiment_h2_stage_2_model_states: not_run_parent_no_go
+  experiment_h2_stage_3_analysis: not_run_parent_no_go
+  background_task: null
   last_error: null
 
 resources:
@@ -203,9 +217,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 8
-  last_direction: "targeted_logic_summary_expansion_then_independent_f2_confirmation"
-  last_reflection: "F2 preserves the F1 No-Go, adds 16 clean independent sources in each deficient category, strengthens summary semantic task targets, re-optimizes only with frozen construction evidence, and re-evaluates the combined pool under new development and confirmation randomness."
+  cycle: 9
+  last_direction: "conclude_after_f2_confirmation_no_go"
+  last_reflection: "F2 solved the development source-diversity bottleneck and passed eight-category coverage, but independently retained only 19/30 versus 23 required. The unchanged macro-robustness threshold remains the limiting factor, so conditional G2 MCC construction and H2 stratified-MMD verification are not eligible to run."
 
 workspace:
   findings: "findings.md"

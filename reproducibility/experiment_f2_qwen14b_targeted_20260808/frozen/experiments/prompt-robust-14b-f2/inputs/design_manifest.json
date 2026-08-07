@@ -1,0 +1,80 @@
+{
+  "confirmation": {
+    "attack_seeds": [
+      2026080821,
+      2026080822
+    ],
+    "bootstrap_seed": 2026080823,
+    "micro_seed": 2026080820,
+    "variants_per_family": 2
+  },
+  "confirmation_gate": {
+    "all_categories_required": true,
+    "family_relative_tolerance": 0.01,
+    "minimum_nondegraded_families": 3,
+    "required_legacy_retained": 23
+  },
+  "construction": {
+    "calibration_path": "results/experiment_c_qwen14b_20260806/01_calibration/discrete_calibration_v2.json",
+    "calibration_sha256": "66944c94c523840938c8444c5b696138fd0f4cc8ce2e628be6ef2629d066ad0c",
+    "maximum_candidates_per_source": 2,
+    "method": "experiment_c_discrete_joint_hotflip_v4",
+    "minimum_nondegraded_families": 3,
+    "minimum_unique_candidate_sources_per_expanded_category": 3,
+    "rounds": 3,
+    "training_registry_path": "results/experiment_c_qwen14b_20260806/adapters/registry_train.json",
+    "training_registry_sha256": "288791e63732aa4410ee25e6f8f81c4fc1ee461c35c10964bf840a004e385f5f"
+  },
+  "development": {
+    "attack_seeds": [
+      2026080811,
+      2026080812,
+      2026080813
+    ],
+    "bootstrap_seed": 2026080814,
+    "micro_seed": 2026080810,
+    "variants_per_family": 3
+  },
+  "expansion": {
+    "category_counts": {
+      "logic": 16,
+      "summary": 16
+    },
+    "rows": 32,
+    "source": "f2_targeted_expansion_v1"
+  },
+  "inputs_sha256": {
+    "confirmation_manifest": "1d3bd1742d58aee3ba647c1638bb825c3714c02e2cd6dc7a4f4c99daf50f7abc",
+    "development_manifest": "2a04b43a24925be195e610df2c7701838adb96869cc12fd65f75db207b38f3f3",
+    "sources": "a4d44dfa0e667d4b0322f95b4767212d4dc9e4a59bf971707583b08de9334394"
+  },
+  "leakage_guard": "Construction uses only Experiment C training/calibration evidence. F2 development reranks the assembled pool. Confirmation cannot change candidates, ranking, quotas, attacks, evaluators, or gates.",
+  "model": {
+    "dtype": "bfloat16",
+    "id": "Qwen/Qwen2.5-14B-Instruct",
+    "placement": "balanced_3gpu_no_cpu_disk_offload",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
+  },
+  "pool": {
+    "assembly": "base64_plus_all_valid_new_portfolio_candidates; exact ID/text deduplication; one-source rule deferred to frozen selection",
+    "base": "experiments/prompt-robust-14b-f1/inputs/candidate_pairs64.jsonl",
+    "base_rows": 64,
+    "base_sha256": "e39f9bc338e3e181055f0e78bb90b38f88d2b338ab1bd0a705d26095eabdc0d8"
+  },
+  "schema_version": "experiment_f2_design_1.0",
+  "selection": {
+    "maximum_per_source_prompt": 1,
+    "minimum_per_category": 3,
+    "required_categories": [
+      "code",
+      "instruction",
+      "knowledge",
+      "logic",
+      "reasoning",
+      "safety",
+      "structured",
+      "summary"
+    ],
+    "rows": 30
+  }
+}

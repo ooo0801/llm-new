@@ -1,0 +1,79 @@
+{
+  "bootstrap_samples": 1000,
+  "confidence_level": 0.95,
+  "family_weights": {
+    "finetuning": 0.19999999999999998,
+    "gaussian_noise": 0.19999999999999998,
+    "quantization": 0.19999999999999998,
+    "structured_pruning": 0.19999999999999998,
+    "unstructured_pruning": 0.19999999999999998
+  },
+  "observation_count": 2730,
+  "primary_metric": "macro_l2_raw",
+  "prompt_count": 182,
+  "reference_model": "Qwen/Qwen2.5-14B-Instruct",
+  "seed": 2026080814,
+  "split": "validation",
+  "summary": {
+    "bootstrap_samples": 1000,
+    "confidence_level": 0.95,
+    "confidence_lower": 356098.5285392585,
+    "confidence_upper": 389656.3009913348,
+    "estimate": 372583.35781128996,
+    "family_summaries": [
+      {
+        "confidence_lower": 83024.2408473479,
+        "confidence_upper": 95620.3010850981,
+        "family": "finetuning",
+        "mean": 89621.1096720409,
+        "samples": 546,
+        "standard_deviation": 77720.57286209054,
+        "standard_error": 3326.133464029056,
+        "weight": 0.19999999999999998
+      },
+      {
+        "confidence_lower": 1800.8094699946516,
+        "confidence_upper": 2049.7514769229733,
+        "family": "gaussian_noise",
+        "mean": 1925.493552401771,
+        "samples": 546,
+        "standard_deviation": 1513.4431905245383,
+        "standard_error": 64.76938932041688,
+        "weight": 0.19999999999999998
+      },
+      {
+        "confidence_lower": 149558.51644901565,
+        "confidence_upper": 162690.67980236025,
+        "family": "quantization",
+        "mean": 155666.81354765865,
+        "samples": 546,
+        "standard_deviation": 78222.1346619666,
+        "standard_error": 3347.598327519018,
+        "weight": 0.19999999999999998
+      },
+      {
+        "confidence_lower": 1351402.1465918904,
+        "confidence_upper": 1514634.6281504608,
+        "family": "structured_pruning",
+        "mean": 1429433.177579941,
+        "samples": 546,
+        "standard_deviation": 976203.174683733,
+        "standard_error": 41777.63914283671,
+        "weight": 0.19999999999999998
+      },
+      {
+        "confidence_lower": 177587.92568031012,
+        "confidence_upper": 196284.90488760773,
+        "family": "unstructured_pruning",
+        "mean": 186270.1947044078,
+        "samples": 546,
+        "standard_deviation": 117847.92030262895,
+        "standard_error": 5043.42540140999,
+        "weight": 0.19999999999999998
+      }
+    ],
+    "metric": "macro_l2_raw",
+    "standard_error": 8652.76738684373
+  },
+  "variant_count": 15
+}

@@ -1,0 +1,100 @@
+{
+  "claim_boundary": "F2 confirmation uses the frozen 30-row development selection and independent endpoints. A No-Go is archived without candidate repair, threshold changes, or downstream G2/H2 execution.",
+  "confirmation": {
+    "candidate_rows": 30,
+    "category_coverage_passed": true,
+    "endpoint_counts": {
+      "macro": 600,
+      "micro": 60,
+      "task": 60
+    },
+    "family_nondegeneration_counts": {
+      "finetuning": 25,
+      "gaussian_noise": 24,
+      "quantization": 25,
+      "structured_pruning": 21,
+      "unstructured_pruning": 25
+    },
+    "gate_passed": false,
+    "hypothesis": "H-F2",
+    "hypothesis_supported": false,
+    "legacy_by_category": {
+      "code": 1,
+      "instruction": 4,
+      "knowledge": 2,
+      "logic": 4,
+      "reasoning": 3,
+      "safety": 2,
+      "structured": 1,
+      "summary": 2
+    },
+    "legacy_retained": 19,
+    "macro_positive": 20,
+    "micro_positive": 30,
+    "observed_legacy_categories": [
+      "code",
+      "instruction",
+      "knowledge",
+      "logic",
+      "reasoning",
+      "safety",
+      "structured",
+      "summary"
+    ],
+    "required_categories": [
+      "code",
+      "instruction",
+      "knowledge",
+      "logic",
+      "reasoning",
+      "safety",
+      "structured",
+      "summary"
+    ],
+    "required_legacy_retained": 23,
+    "schema_version": "experiment_f2_confirmation_1.0",
+    "strict_5of5_retained": 10,
+    "task_preserved": 30,
+    "technical_errors": [],
+    "technical_passed": true
+  },
+  "development": {
+    "candidate_rows": 116,
+    "development_eligible": 51,
+    "endpoint_counts": {
+      "macro": 3480,
+      "micro": 232,
+      "task": 232
+    },
+    "gate_passed": true,
+    "legacy_retained_descriptive": 47,
+    "macro_positive": 61,
+    "micro_positive": 96,
+    "schema_version": "experiment_f2_development_1.0",
+    "selected_by_category": {
+      "code": 3,
+      "instruction": 4,
+      "knowledge": 3,
+      "logic": 8,
+      "reasoning": 3,
+      "safety": 3,
+      "structured": 3,
+      "summary": 3
+    },
+    "selected_rows": 30,
+    "selection_errors": [],
+    "structured_nondegraded": 56,
+    "task_preserved": 115,
+    "technical_errors": [],
+    "technical_passed": true
+  },
+  "excluded_large_artifacts": [
+    "LoRA adapter weight tensors"
+  ],
+  "experiment": "Qwen2.5-14B targeted logic/summary expansion and independent confirmation",
+  "git_revision": "58bb71d5e9921325a0743f8ceb106df9ca8c0f01",
+  "hypothesis": "H-F2",
+  "hypothesis_supported": false,
+  "schema_version": "experiment_f2_archive_1.0",
+  "terminal_state": "confirmation_no_go"
+}
