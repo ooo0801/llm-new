@@ -33,7 +33,9 @@ def main() -> None:
     args = parser.parse_args()
     config = load_config(args.config)
     output_dir = project_path(config["output_dir"])
-    fingerprint = ModelFingerprint.load(output_dir / "fingerprints" / "global_mcc_v2.json")
+    artifact_name = str(config["fingerprint"].get("artifact_name", "global_mcc_v2.json"))
+    result_prefix = str(config["fingerprint"].get("verification_prefix", "global_mcc_v2"))
+    fingerprint = ModelFingerprint.load(output_dir / "fingerprints" / artifact_name)
     manifests = read_jsonl(project_path(config["data"]["attack_manifest"]))
     matches = [row for row in manifests if str(row["variant_id"]) == args.variant_id]
     if len(matches) != 1:
@@ -102,7 +104,7 @@ def main() -> None:
         "variant_realization": realization,
         "elapsed_seconds": elapsed,
     }
-    target = output_dir / "verification" / f"global_mcc_v2__{args.variant_id}.json"
+    target = output_dir / "verification" / f"{result_prefix}__{args.variant_id}.json"
     write_json(target, payload)
     print(
         json.dumps(

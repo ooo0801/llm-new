@@ -22,6 +22,12 @@ SPLIT_KEYS = {
 }
 
 
+def split_manifest_key(config: dict, split: str) -> str:
+    if split == "candidate" and "candidate_manifest" in config["data"]:
+        return "candidate_manifest"
+    return SPLIT_KEYS[split]
+
+
 def hook_count(model) -> int:
     return sum(
         len(module._forward_hooks) + len(module._forward_pre_hooks)
@@ -116,7 +122,7 @@ def main() -> None:
         max_ffn_units_per_layer=int(settings["max_ffn_units_per_layer"]),
     )
     manifests = {
-        split: read_jsonl(project_path(config["data"][SPLIT_KEYS[split]]))
+        split: read_jsonl(project_path(config["data"][split_manifest_key(config, split)]))
         for split in args.splits
     }
     if args.max_prompts is not None:

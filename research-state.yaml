@@ -52,6 +52,18 @@ hypotheses:
     motivation: "Experiment E localized the failure to cross-seed macro robustness, especially structured pruning, while task and complete-block micro endpoints were uniformly positive."
     parent: H-E1
     priority: high
+  - id: H-G1
+    statement: "The unchanged 7B stable-component thresholds yield a saturated auditable 14B empirical component universe and a deterministic global-unweighted MCC12 selection."
+    status: untested
+    motivation: "A confirmatory direct-threshold migration cleanly separates scale transfer from a later 14B-specific calibration if needed."
+    parent: H-F1
+    priority: high
+  - id: H-H1
+    statement: "Prompt-stratified MMD leaves the intact 14B state unflagged, detects at least 9 of 11 registered modified states, and detects at least one instance from every modified family."
+    status: untested
+    motivation: "Multiple registered instances per family address the single-instance limitation of the 7B descriptive detection result."
+    parent: H-G1
+    priority: high
 
 experiments:
   proxy_metric: "legacy_retained_count under the frozen experiment-specific set; strict_5of5_count is secondary"
@@ -126,6 +138,13 @@ execution:
   experiment_f1_stage_1_development: pending
   experiment_f1_stage_2_confirmation: pending
   experiment_f1_stage_3_archive: pending
+  experiment_g1_stage_0_protocol: complete
+  experiment_g1_stage_1_activations: pending
+  experiment_g1_stage_2_mcc: pending
+  experiment_h1_stage_0_protocol: complete
+  experiment_h1_stage_1_reference: pending
+  experiment_h1_stage_2_model_states: pending
+  experiment_h1_stage_3_analysis: pending
   background_task: null
   last_error: null
 

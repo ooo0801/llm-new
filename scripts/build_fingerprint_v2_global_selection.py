@@ -66,10 +66,12 @@ def main() -> None:
     output_dir = project_path(config["output_dir"])
     build_manifest = read_jsonl(project_path(config["data"]["calibration_build_manifest"]))
     audit_manifest = read_jsonl(project_path(config["data"]["calibration_audit_manifest"]))
-    strict16 = read_jsonl(project_path(config["data"]["strict16_manifest"]))
-    prompts = {str(row["id"]): row for row in strict16}
-    if len(prompts) != 16:
-        raise ValueError("V2 requires exactly 16 candidate prompts")
+    candidate_key = "candidate_manifest" if "candidate_manifest" in config["data"] else "strict16_manifest"
+    candidates = read_jsonl(project_path(config["data"][candidate_key]))
+    prompts = {str(row["id"]): row for row in candidates}
+    expected_candidates = int(config["fingerprint"].get("candidate_size", len(candidates)))
+    if len(prompts) != expected_candidates:
+        raise ValueError(f"Expected {expected_candidates} candidate prompts, received {len(prompts)}")
 
     activation_audit = json.loads((output_dir / "activation_audit.json").read_text(encoding="utf-8"))
     if not activation_audit.get("passed"):
@@ -82,7 +84,7 @@ def main() -> None:
     if set(audit_components) != {str(row["id"]) for row in audit_manifest}:
         raise ValueError("Audit activation IDs differ from the frozen manifest")
     if set(candidate_components) != set(prompts):
-        raise ValueError("Candidate activation IDs differ from strict16")
+        raise ValueError("Candidate activation IDs differ from the frozen candidate manifest")
 
     build_universe = union_components(build_components)
     audit_universe = union_components(audit_components)

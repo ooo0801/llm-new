@@ -26,7 +26,8 @@ def main() -> None:
     args = parser.parse_args()
     config = load_config(args.config)
     output_dir = project_path(config["output_dir"])
-    prompts = read_jsonl(project_path(config["data"]["strict16_manifest"]))
+    candidate_key = "candidate_manifest" if "candidate_manifest" in config["data"] else "strict16_manifest"
+    prompts = read_jsonl(project_path(config["data"][candidate_key]))
     by_id = {str(row["id"]): row for row in prompts}
     profiles = read_jsonl(output_dir / "activations" / "candidate_profiles.jsonl")
     stable = stable_prompt_components(
@@ -106,8 +107,8 @@ def main() -> None:
         generation_config=dict(config["generation"]),
         metadata={
             "created_at": datetime.now(timezone.utc).isoformat(),
-            "experiment_version": "fingerprint_v2_global_20260731",
-            "v1_parent_tag": "v1-fingerprint-closed-loop",
+            "experiment_version": str(config.get("experiment_name", "fingerprint_v2_global_20260731")),
+            "v1_parent_tag": config["fingerprint"].get("parent_tag", "v1-fingerprint-closed-loop"),
             "model": metadata,
             "reference_seeds": reference_seeds,
             "selection_trace": selection["trace"],
@@ -119,7 +120,8 @@ def main() -> None:
         },
         schema_version="2.0",
     )
-    fingerprint_path = output_dir / "fingerprints" / "global_mcc_v2.json"
+    artifact_name = str(config["fingerprint"].get("artifact_name", "global_mcc_v2.json"))
+    fingerprint_path = output_dir / "fingerprints" / artifact_name
     fingerprint.save(fingerprint_path)
     response_count = sum(len(entry.reference_responses) for entry in entries)
     selection["reference_responses"] = response_count
@@ -130,7 +132,7 @@ def main() -> None:
         "\n".join(response for values in reference_responses for response in values)
     )
     selection["reference_seeds"] = reference_seeds
-    selection["fingerprint"] = "results/fingerprint_v2_global_20260731/fingerprints/global_mcc_v2.json"
+    selection["fingerprint"] = str(fingerprint_path.relative_to(ROOT).as_posix())
     selection["passed"] = bool(selection["passed"] and response_count == expected_size * reference_repetitions)
     write_json(selection_path, selection)
     print(
