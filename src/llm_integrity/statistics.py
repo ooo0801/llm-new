@@ -267,6 +267,103 @@ def prompt_stratified_mmd_test(
     )
 
 
+def prompt_stratified_block_mmd_test(
+    x: np.ndarray,
+    y: np.ndarray,
+    strata: list[str],
+    blocks: list[str | int],
+    permutations: int = 1000,
+    alpha: float = 0.05,
+    seed: int = 42,
+) -> TestResult:
+    """Prompt-wise MMD with whole generation batches as exchangeable units.
+
+    A single generation seed can produce one response for every fingerprint
+    prompt in the same model call. Those prompt responses share a random
+    generation block and are not independently exchangeable. This test keeps
+    every prompt from a seed block together when permuting group labels.
+    """
+    _validate_test_settings(permutations, alpha)
+    x = np.asarray(x, dtype=np.float64)
+    y = np.asarray(y, dtype=np.float64)
+    strata_array = np.asarray(strata, dtype=object)
+    blocks_array = np.asarray(blocks, dtype=object)
+    if x.shape != y.shape or x.ndim != 2:
+        raise ValueError("Block-stratified MMD requires equal two-dimensional arrays")
+    if len(strata_array) != len(x) or len(blocks_array) != len(x):
+        raise ValueError("Strata and block labels must match the sample count")
+
+    prompt_labels = list(dict.fromkeys(strata_array.tolist()))
+    block_labels = list(dict.fromkeys(blocks_array.tolist()))
+    if len(block_labels) < 2:
+        raise ValueError("Block-stratified MMD requires at least two blocks per group")
+
+    def cube(values: np.ndarray) -> np.ndarray:
+        result = np.empty((len(block_labels), len(prompt_labels), values.shape[1]), dtype=np.float64)
+        for block_index, block in enumerate(block_labels):
+            for prompt_index, prompt in enumerate(prompt_labels):
+                indices = np.flatnonzero((blocks_array == block) & (strata_array == prompt))
+                if len(indices) != 1:
+                    raise ValueError("Every block must contain exactly one sample per prompt")
+                result[block_index, prompt_index] = values[indices[0]]
+        return result
+
+    x_cube = cube(x)
+    y_cube = cube(y)
+    combined = np.concatenate([x_cube, y_cube], axis=0)
+    group_blocks = len(block_labels)
+    bandwidths = [
+        median_bandwidth(x_cube[:, prompt_index], y_cube[:, prompt_index])
+        for prompt_index in range(len(prompt_labels))
+    ]
+
+    def statistic(left: np.ndarray, right: np.ndarray) -> float:
+        return float(
+            np.mean(
+                [
+                    mmd2_unbiased(
+                        left[:, prompt_index],
+                        right[:, prompt_index],
+                        bandwidths[prompt_index],
+                    )
+                    for prompt_index in range(len(prompt_labels))
+                ]
+            )
+        )
+
+    observed = statistic(x_cube, y_cube)
+    rng = np.random.default_rng(seed)
+    exceedances = 0
+    for _ in range(permutations):
+        order = rng.permutation(len(combined))
+        permuted = statistic(combined[order[:group_blocks]], combined[order[group_blocks:]])
+        exceedances += permuted >= observed
+    p_value = (exceedances + 1) / (permutations + 1)
+    prompt_effects = [
+        float(np.linalg.norm(x_cube[:, index].mean(0) - y_cube[:, index].mean(0)))
+        for index in range(len(prompt_labels))
+    ]
+    return TestResult(
+        statistic=observed,
+        p_value=p_value,
+        reject=p_value < alpha,
+        alpha=alpha,
+        method="prompt_stratified_block_mmd",
+        effect_size=float(np.mean(prompt_effects)),
+        diagnostics={
+            "permutations": permutations,
+            "exceedances": exceedances,
+            "strata": len(prompt_labels),
+            "blocks_per_group": group_blocks,
+            "exchangeable_unit": "generation_seed_block",
+            "bandwidths": {
+                str(label): float(value) for label, value in zip(prompt_labels, bandwidths)
+            },
+            "minimum_attainable_p": 1.0 / (permutations + 1),
+        },
+    )
+
+
 def paired_sign_flip_test(
     x: np.ndarray,
     y: np.ndarray,

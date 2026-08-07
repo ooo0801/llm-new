@@ -11,7 +11,10 @@ from _bootstrap import ROOT
 from llm_integrity.features import FeatureExtractor, Standardizer
 from llm_integrity.fingerprint import ModelFingerprint
 from llm_integrity.io import write_json
-from llm_integrity.statistics import prompt_stratified_mmd_test
+from llm_integrity.statistics import (
+    prompt_stratified_block_mmd_test,
+    prompt_stratified_mmd_test,
+)
 
 
 def response_payload(
@@ -173,6 +176,7 @@ def main() -> None:
         },
         "pooled_symmetric_feature_blocks": {},
         "existing_state_reanalysis": {},
+        "block_exchangeable_state_reanalysis": {},
         "null_resplits": {},
     }
     for block in ["surface", "semantic", "task"]:
@@ -202,6 +206,19 @@ def main() -> None:
                 args.seed,
             ),
         }
+        pooled_x, pooled_y = standardized(x_state, y_state, "pooled_symmetric")
+        report["block_exchangeable_state_reanalysis"][str(row["variant_id"])] = {
+            "family": row["family"],
+            "test": prompt_stratified_block_mmd_test(
+                pooled_x,
+                pooled_y,
+                strata=state_strata,
+                blocks=[index // len(fingerprint.entries) for index in range(len(state_strata))],
+                permutations=args.permutations,
+                alpha=0.05,
+                seed=args.seed,
+            ).as_dict(),
+        }
 
     for mode in ["reference_only", "pooled_symmetric"]:
         report["null_resplits"][mode] = null_resplits(
@@ -227,6 +244,13 @@ def main() -> None:
         "state_rejections_pooled_symmetric": {
             variant: value["pooled_symmetric"]["reject"]
             for variant, value in report["existing_state_reanalysis"].items()
+        },
+        "state_block_exchangeable": {
+            variant: {
+                "p_value": value["test"]["p_value"],
+                "reject": value["test"]["reject"],
+            }
+            for variant, value in report["block_exchangeable_state_reanalysis"].items()
         },
         "null_resplits": report["null_resplits"],
         "output": str(Path(args.output).as_posix()),
