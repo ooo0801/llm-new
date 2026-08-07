@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,96 @@ from llm_integrity.io import read_jsonl, write_json
 
 
 MODIFIED_FAMILIES = ["unstructured_pruning", "structured_pruning", "gaussian_noise", "quantization", "finetuning"]
+
+
+def finite_number(value: object) -> bool:
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(float(value))
+
+
+def validate_verification(row: dict[str, Any], attack: dict[str, Any], config: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    variant_id = str(attack["variant_id"])
+    family = str(attack["family"])
+    selected_size = int(config["fingerprint"]["selected_size"])
+    repetitions = int(config["statistics"]["repetitions"])
+    expected_queries = selected_size * repetitions
+    seed_base = int(config["statistics"]["target_seed_base"])
+    expected_seeds = [seed_base + index for index in range(repetitions)]
+    permutations = int(config["statistics"]["permutations"])
+    alpha = float(config["statistics"]["alpha"])
+
+    if str(row.get("variant_id")) != variant_id or str(row.get("family")) != family:
+        errors.append("identity mismatch")
+    if int(row.get("prompts", -1)) != selected_size:
+        errors.append("prompt count mismatch")
+    if int(row.get("repetitions", -1)) != repetitions:
+        errors.append("repetition count mismatch")
+    if int(row.get("queries", -1)) != expected_queries:
+        errors.append("query mismatch")
+    if row.get("target_seeds") != expected_seeds:
+        errors.append("target seed mismatch")
+
+    response_records = row.get("response_records")
+    if not isinstance(response_records, list) or len(response_records) != expected_queries:
+        errors.append("response record count mismatch")
+    else:
+        record_seeds = sorted({int(item.get("seed", -1)) for item in response_records})
+        prompt_ids = {str(item.get("prompt_id")) for item in response_records}
+        keys = {(str(item.get("prompt_id")), int(item.get("repetition", -1))) for item in response_records}
+        if record_seeds != expected_seeds:
+            errors.append("response record seed mismatch")
+        if len(prompt_ids) != selected_size or len(keys) != expected_queries:
+            errors.append("response prompt/repetition structure mismatch")
+
+    primary = row.get("primary_test")
+    if not isinstance(primary, dict):
+        errors.append("missing primary test")
+    else:
+        if primary.get("method") != "prompt_stratified_mmd":
+            errors.append("primary method mismatch")
+        if not finite_number(primary.get("statistic")):
+            errors.append("nonfinite primary statistic")
+        if not finite_number(primary.get("effect_size")):
+            errors.append("nonfinite primary effect size")
+        p_value = primary.get("p_value")
+        if not finite_number(p_value) or not 0.0 <= float(p_value) <= 1.0:
+            errors.append("invalid primary p-value")
+        if not finite_number(primary.get("alpha")) or float(primary["alpha"]) != alpha:
+            errors.append("primary alpha mismatch")
+        if bool(row.get("predicted_modified")) != bool(primary.get("reject")):
+            errors.append("prediction/rejection mismatch")
+        diagnostics = primary.get("diagnostics", {})
+        if int(diagnostics.get("permutations", -1)) != permutations:
+            errors.append("permutation mismatch")
+        if int(diagnostics.get("strata", -1)) != selected_size:
+            errors.append("strata count mismatch")
+        sample_counts = diagnostics.get("samples_per_group", {})
+        if len(sample_counts) != selected_size or any(int(value) != repetitions for value in sample_counts.values()):
+            errors.append("stratum sample count mismatch")
+        bandwidths = diagnostics.get("bandwidths", {})
+        if len(bandwidths) != selected_size or any(not finite_number(value) or float(value) <= 0.0 for value in bandwidths.values()):
+            errors.append("invalid prompt bandwidth")
+
+    pooled = row.get("secondary_tests", {}).get("pooled_mmd")
+    if not isinstance(pooled, dict) or pooled.get("method") != "pooled_mmd":
+        errors.append("missing pooled MMD ablation")
+    elif not finite_number(pooled.get("statistic")) or not finite_number(pooled.get("p_value")):
+        errors.append("nonfinite pooled MMD ablation")
+
+    realization = row.get("variant_realization")
+    if not isinstance(realization, dict):
+        errors.append("missing variant realization")
+    else:
+        if str(realization.get("variant_id")) != variant_id or str(realization.get("family")) != family:
+            errors.append("variant realization identity mismatch")
+        if realization.get("isolated_base_reload") is not True:
+            errors.append("variant was not independently reloaded")
+    expected_modified = family != "intact"
+    if bool(row.get("ground_truth_modified")) != expected_modified:
+        errors.append("ground-truth label mismatch")
+    if bool(row.get("correct")) != (bool(row.get("predicted_modified")) == expected_modified):
+        errors.append("correctness field mismatch")
+    return errors
 
 
 def proportion_interval(successes: int, total: int) -> dict[str, float | int]:
@@ -45,14 +136,7 @@ def main() -> None:
             errors.append(f"missing verification: {variant_id}")
             continue
         row = json.loads(path.read_text(encoding="utf-8"))
-        if str(row.get("variant_id")) != variant_id or str(row.get("family")) != str(attack["family"]):
-            errors.append(f"identity mismatch: {variant_id}")
-        expected_queries = int(config["fingerprint"]["selected_size"]) * int(config["statistics"]["repetitions"])
-        if int(row.get("queries", -1)) != expected_queries:
-            errors.append(f"query mismatch: {variant_id}")
-        primary = row.get("primary_test", {})
-        if int(primary.get("diagnostics", {}).get("permutations", -1)) != int(config["statistics"]["permutations"]):
-            errors.append(f"permutation mismatch: {variant_id}")
+        errors.extend(f"{variant_id}: {message}" for message in validate_verification(row, attack, config))
         rows.append(row)
 
     intact = [row for row in rows if row["family"] == "intact"]
