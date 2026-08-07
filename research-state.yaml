@@ -181,8 +181,8 @@ execution:
   experiment_h2_stage_1_reference: conditional_pending
   experiment_h2_stage_2_model_states: conditional_pending
   experiment_h2_stage_3_analysis: conditional_pending
-  background_task: "f2_development_micro_active"
-  last_error: null
+  background_task: "f2_remote_progress_pending_reconnect"
+  last_error: "SSH sessions were closed by the remote endpoint at 2026-08-08T01:03+08:00; experiment process state is unverified and no duplicate process was started."
 
 resources:
   gpu_count: 3
