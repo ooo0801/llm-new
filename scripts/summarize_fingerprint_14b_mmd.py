@@ -124,6 +124,9 @@ def main() -> None:
     parser.add_argument("--required-modified", type=int, default=9)
     args = parser.parse_args()
     config = load_config(args.config)
+    detection_label = str(
+        config.get("protocol_labels", {}).get("detection", "H1")
+    )
     output = project_path(config["output_dir"])
     prefix = str(config["fingerprint"].get("verification_prefix", "global_mcc_14b"))
     attacks = read_jsonl(project_path(config["data"]["attack_manifest"]))
@@ -162,7 +165,7 @@ def main() -> None:
     hypothesis_supported = bool(technical_passed and intact_correct and len(detected) >= args.required_modified and family_coverage)
     accuracy = sum(bool(row["correct"]) for row in rows)
     report = {
-        "schema_version": "fingerprint_14b_h1_summary_1.0",
+        "schema_version": f"fingerprint_14b_{detection_label.lower()}_summary_1.0",
         "states": len(rows),
         "technical_passed": technical_passed,
         "technical_errors": errors,
@@ -175,7 +178,7 @@ def main() -> None:
         "accuracy_exact_95ci": proportion_interval(accuracy, len(rows)),
         "family_coverage_passed": family_coverage,
         "by_family": family_report,
-        "hypothesis": "H-H1",
+        "hypothesis": f"H-{detection_label}",
         "hypothesis_supported": hypothesis_supported,
         "claim_boundary": "Fixed registered model-state instances; not a population detection-rate estimate.",
     }

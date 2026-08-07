@@ -250,6 +250,12 @@ def main() -> None:
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--family-relative-tolerance", type=float, default=0.01)
     parser.add_argument("--required-legacy", type=int, default=23)
+    parser.add_argument(
+        "--experiment-label",
+        choices=["F1", "F2"],
+        default="F1",
+        help="Report schema/hypothesis label; does not change any metric or gate.",
+    )
     args = parser.parse_args()
 
     pairs = read_jsonl(resolve(args.pairs))
@@ -280,7 +286,7 @@ def main() -> None:
         gate_passed = bool(technical_passed and not selection_errors and len(frozen) == 30)
         write_jsonl(output / "frozen30_pairs.jsonl", frozen)
         report = {
-            "schema_version": "experiment_f1_development_1.0",
+            "schema_version": f"experiment_{args.experiment_label.lower()}_development_1.0",
             "candidate_rows": len(pairs),
             "endpoint_counts": {"task": len(task_rows), "micro": len(micro_rows), "macro": len(macro_rows)},
             "technical_passed": technical_passed,
@@ -309,7 +315,7 @@ def main() -> None:
         write_jsonl(output / "confirmed_fingerprint.jsonl", [dict(pair_by_id[row["prompt_id"]], confirmation=row) for row in legacy])
         write_jsonl(output / "strict_5of5_subset.jsonl", [dict(pair_by_id[row["prompt_id"]], confirmation=row) for row in strict])
         report = {
-            "schema_version": "experiment_f1_confirmation_1.0",
+            "schema_version": f"experiment_{args.experiment_label.lower()}_confirmation_1.0",
             "candidate_rows": len(pairs),
             "endpoint_counts": {"task": len(task_rows), "micro": len(micro_rows), "macro": len(macro_rows)},
             "technical_passed": technical_passed,
@@ -325,7 +331,7 @@ def main() -> None:
             "required_categories": CATEGORIES,
             "category_coverage_passed": coverage_passed,
             "family_nondegeneration_counts": {family: sum(bool(row["families"][family]["nondegraded"]) for row in decisions) for family in FAMILIES},
-            "hypothesis": "H-F1",
+            "hypothesis": f"H-{args.experiment_label}",
             "hypothesis_supported": gate_passed,
             "gate_passed": gate_passed,
         }

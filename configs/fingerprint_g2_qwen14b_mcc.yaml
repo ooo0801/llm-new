@@ -1,0 +1,152 @@
+experiment_name: fingerprint_g2_qwen14b_mcc_20260808
+output_dir: results/fingerprint_g2_qwen14b_mcc_20260808
+reproducibility_dir: reproducibility/fingerprint_g2_qwen14b_mcc_20260808
+seed: 2026080830
+protocol_labels:
+  construction: G2
+  detection: H2
+  candidate_source: experiment_f2_independent_confirmation
+
+model:
+  name: Qwen/Qwen2.5-14B-Instruct
+  revision: cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8
+  dtype: bfloat16
+  device_map: balanced
+  max_memory: {0: 30GiB, 1: 30GiB, 2: 30GiB}
+  local_files_only: true
+  eager_attention: true
+
+data:
+  candidate_source: results/experiment_f2_qwen14b_targeted_20260808/02_confirmation/analysis/confirmed_fingerprint.jsonl
+  candidate_manifest: reproducibility/fingerprint_g2_qwen14b_mcc_20260808/candidate_manifest.jsonl
+  calibration_build_manifest: reproducibility/fingerprint_g2_qwen14b_mcc_20260808/calibration_build_manifest.jsonl
+  calibration_audit_manifest: reproducibility/fingerprint_g2_qwen14b_mcc_20260808/calibration_audit_manifest.jsonl
+  attack_manifest: reproducibility/fingerprint_g2_qwen14b_mcc_20260808/attack_manifest.jsonl
+  lora_training: data/attack_train_lora.jsonl
+
+generation:
+  max_input_tokens: 512
+  max_new_tokens: 64
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  system_prompt: null
+
+activations:
+  repetitions: 2
+  stable_component_frequency: 1.0
+  attention_entropy_fraction: 0.70
+  ffn_quantile: 0.95
+  residual_threshold: 0.50
+  max_ffn_units_per_layer: 128
+  max_length: 512
+  minimum_jaccard: 0.999
+
+calibration:
+  task_families: 14
+  build_per_family: 20
+  audit_per_family: 4
+  batch_size: 14
+  last_batches_for_saturation: 3
+  max_last_batch_relative_gain: 0.02
+  max_audit_novelty_rate: 0.08
+  report_build_audit_jaccard: true
+  near_duplicate_trigram_jaccard: 0.72
+  final_universe: build_and_audit_union
+
+fingerprint:
+  minimum_candidate_size: 23
+  selected_size: 12
+  reference_repetitions: 10
+  reference_seed_base: 2026081000
+  primary_selection: global_unweighted_mcc
+  artifact_name: global_mcc_14b_f2.json
+  verification_prefix: global_mcc_14b_f2
+  parent_tag: v14b-f2
+  ablation_weights:
+    attention: 1.2
+    ffn: 1.0
+    attention_residual: 0.8
+    mlp_residual: 0.8
+
+features:
+  surface: true
+  semantic: true
+  task: true
+  semantic_model: BAAI/bge-small-zh-v1.5
+  semantic_model_revision: 7999e1d3359715c523056ef9478215996d62a620
+  semantic_device: cpu
+  semantic_local_files_only: true
+  hashed_dimension: 128
+
+statistics:
+  method: prompt_stratified_mmd
+  report_pooled_baseline: true
+  repetitions: 10
+  target_seed_base: 2026081100
+  permutations: 999
+  alpha: 0.05
+  seed: 2026080831
+
+attacks:
+  - variant_id: intact_14b_h2
+    family: intact
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080840
+    configuration: {type: none}
+  - variant_id: unstructured_global_attention30_14b_h2
+    family: unstructured_pruning
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080841
+    configuration: {type: unstructured_pruning, ratio: 0.30, method: global_magnitude, target_scope: attention}
+  - variant_id: unstructured_layerwise_all30_14b_h2
+    family: unstructured_pruning
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080842
+    configuration: {type: unstructured_pruning, ratio: 0.30, method: layerwise_magnitude, target_scope: attention_ffn}
+  - variant_id: structured_ffn_randomhalf05_14b_h2
+    family: structured_pruning
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080843
+    configuration: {type: structured_pruning, ratio: 0.05, structure: ffn_channels, selection: magnitude, layer_scope: random_layer_subset, implementation: mask}
+  - variant_id: structured_heads_all05_14b_h2
+    family: structured_pruning
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080844
+    configuration: {type: structured_pruning, ratio: 0.05, structure: attention_heads, selection: magnitude, layer_scope: all_layers, implementation: mask}
+  - variant_id: gaussian_ffn_000025_14b_h2
+    family: gaussian_noise
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080845
+    configuration: {type: gaussian_noise, std_ratio: 0.00025, target_scope: ffn, scale_rule: parameter_tensor_std}
+  - variant_id: gaussian_ffn_00005_14b_h2
+    family: gaussian_noise
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080846
+    configuration: {type: gaussian_noise, std_ratio: 0.0005, target_scope: ffn, scale_rule: parameter_tensor_std}
+  - variant_id: gaussian_all_0001_14b_h2
+    family: gaussian_noise
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080847
+    configuration: {type: gaussian_noise, std_ratio: 0.001, target_scope: all_transformer_layers, scale_rule: parameter_tensor_std}
+  - variant_id: int8_14b_h2
+    family: quantization
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080848
+    configuration: {type: quantization, method: int8, compute_dtype: bfloat16, double_quant: false, target_scope: full_model}
+  - variant_id: nf4_14b_h2
+    family: quantization
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080849
+    configuration: {type: quantization, method: nf4, compute_dtype: bfloat16, double_quant: true, target_scope: full_model}
+  - variant_id: lora_seed850_14b_h2
+    family: finetuning
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080850
+    configuration: {type: finetuning, method: lora, rank: 16, alpha: 32, dropout: 0.05, learning_rate: 0.00001, steps: 50, target_scope: attention_ffn, data_source: isolated_attack_training_data}
+  - variant_id: lora_seed851_14b_h2
+    family: finetuning
+    split: fingerprint_14b_h2_endpoint
+    seed: 2026080851
+    configuration: {type: finetuning, method: lora, rank: 16, alpha: 32, dropout: 0.05, learning_rate: 0.00001, steps: 50, target_scope: attention_ffn, data_source: isolated_attack_training_data}

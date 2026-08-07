@@ -23,11 +23,16 @@ def main() -> None:
     args = parser.parse_args()
     config_path = resolve_config(args.config)
     config = load_config(config_path)
+    labels = config.get("protocol_labels", {})
+    construction_label = str(labels.get("construction", "G1"))
+    candidate_source_label = str(
+        labels.get("candidate_source", "experiment_f1_independent_confirmation")
+    )
     source_path = project_path(config["data"]["candidate_source"])
     source_rows = read_jsonl(source_path)
     minimum_candidates = int(config["fingerprint"].get("minimum_candidate_size", 23))
     if len(source_rows) < minimum_candidates:
-        raise ValueError(f"confirmed F1 source has {len(source_rows)} rows; at least {minimum_candidates} required")
+        raise ValueError(f"confirmed fingerprint source has {len(source_rows)} rows; at least {minimum_candidates} required")
 
     candidates = []
     for row in source_rows:
@@ -45,12 +50,12 @@ def main() -> None:
             "prompt": prompt,
             "category": str(row["category"]),
             "language": row.get("language", "unknown"),
-            "source": "experiment_f1_independent_confirmation",
+            "source": candidate_source_label,
             "prompt_sha256": observed_hash,
             "evaluator": row.get("evaluator"),
             "expected_answer": row.get("expected_answer"),
             "expected_contains": row.get("expected_contains"),
-            "f1_source_prompt_id": row.get("source_prompt_id"),
+            "parent_source_prompt_id": row.get("source_prompt_id"),
         })
     if len({row["id"] for row in candidates}) != len(candidates):
         raise ValueError("duplicate confirmed candidate IDs")
@@ -64,7 +69,10 @@ def main() -> None:
         for family in TASK_FAMILIES:
             prompt, language, length_bucket = calibration_prompt(family, index)
             split = "build" if index < build_per_family else "audit"
-            prompt_id = stable_id(f"fingerprint_14b_g1|{family}|{prompt}", f"cal14b_{family}")
+            prompt_id = stable_id(
+                f"fingerprint_14b_{construction_label.lower()}|{family}|{prompt}",
+                f"cal14b_{family}",
+            )
             calibration.append({
                 "id": prompt_id,
                 "prompt_id": prompt_id,
@@ -74,7 +82,7 @@ def main() -> None:
                 "length_bucket": length_bucket,
                 "calibration_split": split,
                 "round": index,
-                "source": "fingerprint_14b_g1_independent_calibration",
+                "source": f"fingerprint_14b_{construction_label.lower()}_independent_calibration",
                 "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
             })
 
@@ -109,9 +117,9 @@ def main() -> None:
         write_jsonl(project_path(config["data"]["attack_manifest"]), attacks)
     release_dir = project_path(config["reproducibility_dir"])
     protocol = {
-        "schema_version": "fingerprint_14b_g1_mcc_protocol_1.0",
+        "schema_version": f"fingerprint_14b_{construction_label.lower()}_mcc_protocol_1.0",
         "protocol_frozen_on": "2026-08-07",
-        "hypothesis": "H-G1",
+        "hypothesis": f"H-{construction_label}",
         "candidate_source": str(source_path.relative_to(ROOT).as_posix()),
         "candidate_rows": len(candidates),
         "candidate_categories": dict(sorted(Counter(row["category"] for row in candidates).items())),
@@ -131,7 +139,7 @@ def main() -> None:
         },
         "selection": {"method": config["fingerprint"]["primary_selection"], "selected_size": config["fingerprint"]["selected_size"]},
         "attack_manifest_sha256": canonical_sha256(attacks) if attacks else None,
-        "leakage_guard": "Thresholds and saturation/audit gates are the frozen 7B values tested without adjustment on 14B. A G1 failure requires a separately preregistered G2 calibration.",
+        "leakage_guard": "Thresholds and saturation/audit gates are the frozen 7B values tested without adjustment on 14B; a failure cannot be repaired inside this protocol.",
         "config_path": str(config_path.relative_to(ROOT).as_posix()),
         "config_sha256": file_sha256(config_path),
     }
