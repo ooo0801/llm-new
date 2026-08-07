@@ -93,3 +93,11 @@ The principal bottleneck was joint macro robustness rather than task validity or
 ## Experiment F1 Multi-Seed Robust Selection (Preregistered 2026-08-07)
 
 F1 preserves Experiment E as a refuted confirmatory result and returns to the full 64-row pre-development Experiment C portfolio. It uses three new development variants per family, including three distinct structured-pruning configurations, to rank candidates by structured-pruning non-degeneration, robust family count, worst-family median gain, and paired macro/micro gains. The frozen selection requires three unique-source candidates per category and 30 total rows. Two new variants per family and a new complete-micro seed are isolated for confirmation. H-F1 retains the unchanged primary gate of at least 23 legacy-retained prompts with all eight categories represented; confirmation outcomes cannot repair the frozen selection.
+
+## Experiment F1 Development No-Go (2026-08-07)
+
+F1 completed its entire development endpoint matrix without technical failure: 128 task records, 102 unique complete-block micro scores expanded to 128 pair endpoints, and 1,530 unique macro observations expanded to 1,920 pair observations across fifteen registered variants. Of 64 candidates, 63 preserved both tasks, 60 were micro-positive, 39 were macro-positive, 37 met the development eligibility rule, 42 were non-degraded under structured pruning, and 36 met the descriptive legacy rule.
+
+The frozen quota-and-unique-source selector nevertheless produced only 29 of the required 30 rows. It found only two eligible unique-source logic candidates and one eligible unique-source summary candidate, below the frozen quota of three in each category. The provisional 29-row distribution was code 5, instruction 5, knowledge 3, logic 2, reasoning 4, safety 6, structured 3, and summary 1. This is a scientific development No-Go rather than a technical failure.
+
+The quota was not lowered and no post-hoc candidate was inserted. Consequently the independent F1 confirmation was not run, and G1 stable-component/MCC extraction plus H1 stratified-MMD detection were not eligible to run under their conditional protocols. A future attempt would require a separately preregistered F2 that expands logic and summary construction before observing its new confirmation set.
