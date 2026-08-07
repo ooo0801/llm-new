@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/combined-14b-final-validation"
-  current_stage: "experiment_e_tokenizer_preflight_retry"
+  current_stage: "experiment_e_lora_adapters_in_progress"
 
 literature:
   key_papers: []
@@ -94,12 +94,17 @@ execution:
   experiment_c_substage: "complete"
   followup_stage_4_combined_fingerprint: complete
   experiment_e_stage_0_protocol: complete
-  experiment_e_stage_1_tokenizer_model_smoke: pending
-  experiment_e_stage_2_lora_and_one_pair_smoke: pending
+  experiment_e_stage_1_tokenizer_model_smoke: complete
+  experiment_e_stage_2_lora_and_one_pair_smoke: in_progress
   experiment_e_stage_3_full_joint_endpoints: pending
   experiment_e_stage_4_analysis_archive: pending
-  background_task: null
-  last_error: "Attempt 1 stopped before model loading: HF_HOME resolved the verified cache root through an invalid /hub level; retry switches only to HF_HUB_CACHE."
+  background_task:
+    experiment: "experiment_e_qwen14b_final_20260807"
+    pid: 3919
+    command: "bash scripts/run_experiment_e_joint_validation.sh"
+    log: "results/experiment_e_qwen14b_final_20260807/full_pipeline.log"
+    started: "2026-08-07T09:43:16+08:00"
+  last_error: null
 
 resources:
   gpu_count: 3
