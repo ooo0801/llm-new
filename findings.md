@@ -143,3 +143,11 @@ Nineteen of the frozen 30 candidates satisfied the full legacy retention rule, b
 Family non-degeneration counts were 25/30 for finetuning, 24/30 for Gaussian noise, 25/30 for quantization, 21/30 for structured pruning, and 25/30 for unstructured pruning. Targeted expansion therefore fixed the F1 development feasibility problem but did not improve independent joint retention beyond the 19/30 result previously observed in Experiment E. H-F2 is refuted without repair. Because the F2 parent gate failed, G2 stable-component/MCC12 construction and H2 prompt-stratified MMD verification were not run.
 
 The terminal evidence archive contains 50 checksum-covered files, including frozen inputs and configs, construction/development/confirmation reports and endpoints, adapter registries and training reports, and the pipeline log. LoRA tensor weights are intentionally excluded. The archive records `confirmation_no_go` and preserves the boundary that no candidate, threshold, seed, attack, evaluator, or downstream condition was changed after observing confirmation.
+
+## Experiment G3/H3 Recovery Fingerprint (Preregistered 2026-08-08)
+
+G3 preserves the F2 19/30 confirmation No-Go and treats its exact 19 legacy-retained rows as a new byte-frozen recovery pool. The source contains 19 unique prompt IDs and texts, covers all eight categories, and is locked by SHA-256 `6ecad275352bd532dd944154b569c6935ea849d5538ca7b0da2daf7ed7aa31e1`. No F2 failure is reclassified.
+
+The only intentional protocol change from conditional G2 is candidate-pool feasibility: G3 requires the exact 19 rows rather than at least 23, while still selecting 12 prompts. Component thresholds, two-repeat Jaccard, 14-family build/audit calibration, saturation and audit-novelty gates, global-unweighted MCC objective and numerical audits remain unchanged. H3 is conditional on G3 and freezes new reference, target and attack seeds before any endpoint; it retains the intact-correct, 9/11 modified-detection and five-family-coverage gates.
+
+Deterministic protocol preparation produced 19 candidate rows, 280 build prompts, 56 audit prompts and 12 registered H3 states. The nearest calibration/candidate trigram Jaccard was 0.0656 versus the frozen 0.72 ceiling. Candidate, build, audit and attack canonical hashes were frozen before model activation extraction.

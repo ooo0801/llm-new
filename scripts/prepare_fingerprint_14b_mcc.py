@@ -29,6 +29,9 @@ def main() -> None:
         labels.get("candidate_source", "experiment_f1_independent_confirmation")
     )
     source_path = project_path(config["data"]["candidate_source"])
+    expected_source_sha256 = config["data"].get("candidate_source_sha256")
+    if expected_source_sha256 and file_sha256(source_path) != str(expected_source_sha256):
+        raise ValueError("candidate source SHA-256 differs from the frozen protocol")
     source_rows = read_jsonl(source_path)
     minimum_candidates = int(config["fingerprint"].get("minimum_candidate_size", 23))
     if len(source_rows) < minimum_candidates:
@@ -118,7 +121,7 @@ def main() -> None:
     release_dir = project_path(config["reproducibility_dir"])
     protocol = {
         "schema_version": f"fingerprint_14b_{construction_label.lower()}_mcc_protocol_1.0",
-        "protocol_frozen_on": "2026-08-07",
+        "protocol_frozen_on": str(config.get("protocol_frozen_on", "2026-08-07")),
         "hypothesis": f"H-{construction_label}",
         "candidate_source": str(source_path.relative_to(ROOT).as_posix()),
         "candidate_rows": len(candidates),

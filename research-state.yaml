@@ -2,11 +2,11 @@
 project:
   title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
   question: "Can preregistered multi-seed robust selection produce an independently confirmed 14B fingerprint, and if so do frozen 7B component thresholds and prompt-stratified MMD transfer to the fixed 14B model?"
-  status: complete_negative_result
+  status: in_progress
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_f2_complete_no_go"
+  current_stage: "experiment_g3_ready_to_launch"
 
 literature:
   key_papers: []
@@ -81,6 +81,18 @@ hypotheses:
     status: not_run_parent_no_go
     motivation: "This is the final fixed-instance prompt-stratified MMD verification."
     parent: H-G2
+    priority: high
+  - id: H-G3
+    statement: "The exact frozen 19-prompt F2 legacy-retained pool supports the unchanged stable-component thresholds, frozen universe gates, and a deterministic global-unweighted MCC12."
+    status: in_progress
+    motivation: "The project goal requires a deployable 12-prompt fingerprint; 19 independently retained prompts are algorithmically sufficient, while a separate preregistration preserves F2 as a No-Go."
+    parent: H-F2
+    priority: high
+  - id: H-H3
+    statement: "The G3 recovery MCC12 leaves the intact state unflagged, detects at least 9 of 11 registered modified states, and covers all five modified families."
+    status: conditional_not_run
+    motivation: "A new independent MMD stage is required to validate the recovery fingerprint without reusing the unused H2 identifiers or seeds."
+    parent: H-G3
     priority: high
 
 experiments:
@@ -205,6 +217,13 @@ execution:
   experiment_h2_stage_1_reference: not_run_parent_no_go
   experiment_h2_stage_2_model_states: not_run_parent_no_go
   experiment_h2_stage_3_analysis: not_run_parent_no_go
+  experiment_g3_stage_0_protocol: complete
+  experiment_g3_stage_1_activations: pending
+  experiment_g3_stage_2_mcc: pending
+  experiment_h3_stage_0_protocol: complete
+  experiment_h3_stage_1_reference: conditional_pending
+  experiment_h3_stage_2_model_states: conditional_pending
+  experiment_h3_stage_3_analysis: conditional_pending
   background_task: null
   last_error: null
 
@@ -217,9 +236,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 9
-  last_direction: "conclude_after_f2_confirmation_no_go"
-  last_reflection: "F2 solved the development source-diversity bottleneck and passed eight-category coverage, but independently retained only 19/30 versus 23 required. The unchanged macro-robustness threshold remains the limiting factor, so conditional G2 MCC construction and H2 stratified-MMD verification are not eligible to run."
+  cycle: 10
+  last_direction: "freeze_f2_legacy19_then_build_g3_mcc12_and_conditionally_verify_h3"
+  last_reflection: "F2 remains a 19/30 No-Go under its 23-prompt gate, but the exact independently retained 19-row subset exceeds the 12 prompts required for MCC. A new recovery protocol can therefore test component coverage and detection without retroactively changing F2."
 
 workspace:
   findings: "findings.md"

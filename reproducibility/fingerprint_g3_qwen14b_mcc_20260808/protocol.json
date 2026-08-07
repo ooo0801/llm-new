@@ -1,0 +1,58 @@
+{
+  "schema_version": "fingerprint_14b_g3_mcc_protocol_1.0",
+  "protocol_frozen_on": "2026-08-08",
+  "hypothesis": "H-G3",
+  "candidate_source": "results/experiment_f2_qwen14b_targeted_20260808/02_confirmation/analysis/confirmed_fingerprint.jsonl",
+  "candidate_rows": 19,
+  "candidate_categories": {
+    "code": 1,
+    "instruction": 4,
+    "knowledge": 2,
+    "logic": 4,
+    "reasoning": 3,
+    "safety": 2,
+    "structured": 1,
+    "summary": 2
+  },
+  "candidate_source_sha256": "6ecad275352bd532dd944154b569c6935ea849d5538ca7b0da2daf7ed7aa31e1",
+  "candidate_manifest_sha256": "490432c7e73e3715e6f53a6a1ffd68775f7bfcb7f2ed0c5bee8e54f8a3be23c1",
+  "calibration_build_prompts": 280,
+  "calibration_audit_prompts": 56,
+  "calibration_families": [
+    "knowledge_qa",
+    "math_reasoning",
+    "logic_reasoning",
+    "code_generation",
+    "code_explanation",
+    "translation",
+    "summarization",
+    "instruction_following",
+    "safety_alignment",
+    "structured_output",
+    "long_context",
+    "english_reasoning",
+    "mixed_language",
+    "planning_analysis"
+  ],
+  "calibration_build_sha256": "071bbeaeeb1d9f85b7c18a6de353fb08070d6fd002e80c205e5269c2868c6c3e",
+  "calibration_audit_sha256": "73a1331cb4d6d28db40bf4b54348d1c247c48b3f26406e40d9c3480a418a1817",
+  "closest_candidate_trigram_jaccard": {
+    "score": 0.06557377049180328,
+    "calibration_id": "cal14b_structured_output_e34112ad1c22",
+    "candidate_id": "structured_7defa9721bb7__portfolio_02_r1_c9"
+  },
+  "component_thresholds": {
+    "attention_entropy_fraction": 0.7,
+    "ffn_quantile": 0.95,
+    "residual_threshold": 0.5,
+    "max_ffn_units_per_layer": 128
+  },
+  "selection": {
+    "method": "global_unweighted_mcc",
+    "selected_size": 12
+  },
+  "attack_manifest_sha256": "247edc7408513a0705e91e814c886f1c5124bde0a3600cfef839c1e90cde6cae",
+  "leakage_guard": "Thresholds and saturation/audit gates are the frozen 7B values tested without adjustment on 14B; a failure cannot be repaired inside this protocol.",
+  "config_path": "configs/fingerprint_g3_qwen14b_mcc.yaml",
+  "config_sha256": "712ed7d2bace13da44f3fda2e65f26dddeed9e07fd63bf7c008f41cb72173c43"
+}
