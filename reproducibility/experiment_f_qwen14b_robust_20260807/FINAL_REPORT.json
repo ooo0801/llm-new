@@ -1,0 +1,47 @@
+{
+  "claim_boundary": "The development ranking and independent confirmation use the frozen F1 protocol. A No-Go is archived without changing the preregistered gate.",
+  "confirmation": null,
+  "development": {
+    "candidate_rows": 64,
+    "development_eligible": 37,
+    "endpoint_counts": {
+      "macro": 1920,
+      "micro": 128,
+      "task": 128
+    },
+    "gate_passed": false,
+    "legacy_retained_descriptive": 36,
+    "macro_positive": 39,
+    "micro_positive": 60,
+    "schema_version": "experiment_f1_development_1.0",
+    "selected_by_category": {
+      "code": 5,
+      "instruction": 5,
+      "knowledge": 3,
+      "logic": 2,
+      "reasoning": 4,
+      "safety": 6,
+      "structured": 3,
+      "summary": 1
+    },
+    "selected_rows": 29,
+    "selection_errors": [
+      "logic: fewer than 3 eligible unique-source candidates",
+      "summary: fewer than 3 eligible unique-source candidates",
+      "selected 29 rows instead of 30"
+    ],
+    "structured_nondegraded": 42,
+    "task_preserved": 63,
+    "technical_errors": [],
+    "technical_passed": true
+  },
+  "excluded_large_artifacts": [
+    "LoRA adapter weight tensors"
+  ],
+  "experiment": "Qwen2.5-14B robust multi-seed prompt selection and independent confirmation",
+  "git_revision": "7d64a1846ee26f0d0c2b5b68fb5db44e6697de85",
+  "hypothesis": "H-F1",
+  "hypothesis_supported": false,
+  "schema_version": "experiment_f1_archive_1.0",
+  "terminal_state": "development_no_go"
+}
