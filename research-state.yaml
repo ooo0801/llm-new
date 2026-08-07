@@ -1,12 +1,12 @@
 # Central state for the 14B follow-up sequence. Updated after each completed stage.
 project:
   title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
-  question: "Does the frozen 30-prompt union remain a usable single Qwen2.5-14B fingerprint under one new jointly applied seed set?"
+  question: "Can preregistered multi-seed robust selection produce an independently confirmed 14B fingerprint, and if so do frozen 7B component thresholds and prompt-stratified MMD transfer to the fixed 14B model?"
   status: in_progress
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
-  git_branch: "experiment/combined-14b-final-validation"
-  current_stage: "experiment_f1_protocol_frozen_pre_endpoint"
+  git_branch: "experiment/robust-14b-multiseed-f1"
+  current_stage: "experiment_f1_development_micro_scoring"
 
 literature:
   key_papers: []
@@ -104,7 +104,7 @@ experiments:
       confirmation_variants_per_family: 2
       legacy_required: 23
       category_coverage_required: 8
-      status: "protocol_frozen_pre_endpoint"
+      status: "development_in_progress"
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -135,7 +135,7 @@ execution:
   experiment_e_stage_3_full_joint_endpoints: complete
   experiment_e_stage_4_analysis_archive: complete
   experiment_f1_stage_0_protocol: complete
-  experiment_f1_stage_1_development: pending
+  experiment_f1_stage_1_development: in_progress
   experiment_f1_stage_2_confirmation: pending
   experiment_f1_stage_3_archive: pending
   experiment_g1_stage_0_protocol: complete
@@ -145,7 +145,12 @@ execution:
   experiment_h1_stage_1_reference: pending
   experiment_h1_stage_2_model_states: pending
   experiment_h1_stage_3_analysis: pending
-  background_task: null
+  background_task:
+    server_pid: 11602
+    command: "bash scripts/run_experiment_f_robust_selection.sh"
+    output_root: "results/experiment_f_qwen14b_robust_20260807"
+    last_verified_stage: "development_micro_scoring"
+    last_verified_micro_rows: 57
   last_error: null
 
 resources:
