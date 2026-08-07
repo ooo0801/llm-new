@@ -1,0 +1,72 @@
+{
+  "candidate_rows": 30,
+  "category_coverage_passed": false,
+  "claim_scope": "single preregistered joint confirmation of the frozen 30-prompt union under new micro and attack seeds",
+  "endpoint_counts": {
+    "macro": 600,
+    "micro": 60,
+    "task": 60
+  },
+  "family_nondegraded_prompt_counts": {
+    "finetuning": 25,
+    "gaussian_noise": 25,
+    "quantization": 23,
+    "structured_pruning": 10,
+    "unstructured_pruning": 27
+  },
+  "family_relative_tolerance": 0.01,
+  "h_e1": {
+    "observed_legacy": 19,
+    "required_legacy": 23,
+    "requires_all_categories": true,
+    "status": "refuted"
+  },
+  "legacy_by_category": {
+    "code": 2,
+    "instruction": 4,
+    "knowledge": 1,
+    "logic": 3,
+    "reasoning": 4,
+    "safety": 1,
+    "structured": 4
+  },
+  "legacy_by_component": {
+    "cross_model_strict_core": 1,
+    "qwen14b_model_specific_complement": 18
+  },
+  "legacy_retained": 19,
+  "macro_positive": 19,
+  "micro_positive": 30,
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "observed_legacy_categories": [
+    "code",
+    "instruction",
+    "knowledge",
+    "logic",
+    "reasoning",
+    "safety",
+    "structured"
+  ],
+  "required_category_coverage": [
+    "code",
+    "instruction",
+    "knowledge",
+    "logic",
+    "reasoning",
+    "safety",
+    "structured",
+    "summary"
+  ],
+  "required_legacy_retained": 23,
+  "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "schema_version": "experiment_e_joint_confirmation_1.0",
+  "scientific_gate_passed": false,
+  "strict_5of5_retained": 3,
+  "strict_by_component": {
+    "qwen14b_model_specific_complement": 3
+  },
+  "strict_threshold": "secondary_descriptive_no_threshold",
+  "task_preserved": 30,
+  "technical_errors": [],
+  "technical_passed": true
+}

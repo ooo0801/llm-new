@@ -2,11 +2,11 @@
 project:
   title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
   question: "Does the frozen 30-prompt union remain a usable single Qwen2.5-14B fingerprint under one new jointly applied seed set?"
-  status: active
+  status: complete
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/combined-14b-final-validation"
-  current_stage: "experiment_e_full_joint_micro_in_progress"
+  current_stage: "experiment_e_complete_h_e1_refuted"
 
 literature:
   key_papers: []
@@ -42,16 +42,16 @@ hypotheses:
     priority: medium
   - id: H-E1
     statement: "At least 23 of the frozen 30-prompt union will satisfy the legacy gate under one new joint seed set, with all eight categories represented."
-    status: active
+    status: refuted
     motivation: "A provenance-preserving union is not yet a jointly confirmed operational fingerprint; 23/30 preserves the project's preregistered 75% feasibility convention."
     parent: H-C1
     priority: high
 
 experiments:
-  proxy_metric: "legacy_retained_count out of 16; strict_5of5_count is secondary"
+  proxy_metric: "legacy_retained_count under the frozen experiment-specific set; strict_5of5_count is secondary"
   baseline_value: 16
   best_value: 8
-  total_runs: 3
+  total_runs: 4
   trajectory:
     - run: "confirmatory_14b_a1"
       legacy_retained: 8
@@ -69,6 +69,16 @@ experiments:
       heldout_accepted: 29
       heldout_required: 4
       hypothesis_supported: true
+    - run: "joint_fingerprint_confirmation_14b_e1"
+      candidate_rows: 30
+      task_preserved: 30
+      micro_positive: 30
+      macro_positive: 19
+      legacy_retained: 19
+      legacy_required: 23
+      strict_5of5_retained: 3
+      category_coverage_passed: false
+      hypothesis_supported: false
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -96,14 +106,9 @@ execution:
   experiment_e_stage_0_protocol: complete
   experiment_e_stage_1_tokenizer_model_smoke: complete
   experiment_e_stage_2_lora_and_one_pair_smoke: complete
-  experiment_e_stage_3_full_joint_endpoints: in_progress
-  experiment_e_stage_4_analysis_archive: pending
-  background_task:
-    experiment: "experiment_e_qwen14b_final_20260807"
-    pid: 3919
-    command: "bash scripts/run_experiment_e_joint_validation.sh"
-    log: "results/experiment_e_qwen14b_final_20260807/full_pipeline.log"
-    started: "2026-08-07T09:43:16+08:00"
+  experiment_e_stage_3_full_joint_endpoints: complete
+  experiment_e_stage_4_analysis_archive: complete
+  background_task: null
   last_error: null
 
 resources:
@@ -116,8 +121,8 @@ resources:
 
 outer_loop:
   cycle: 5
-  last_direction: "deepen_with_single_joint_confirmation_of_frozen_union"
-  last_reflection: "The 30-prompt Experiment D union preserves component-level provenance but has not been evaluated as one set. Experiment E freezes reconstructed initial/optimized pairs, new micro and attack seeds, a 23/30 legacy gate, and eight-category coverage before running any new endpoint."
+  last_direction: "conclude_joint_confirmation_without_post_result_tuning"
+  last_reflection: "Experiment E was technically complete but retained 19/30 prompts versus the frozen 23/30 requirement and omitted summary from the retained categories. H-E1 is therefore refuted. The 19-row operational subset and 3-row strict subset are archived descriptively; no result was used to edit the frozen union or thresholds."
 
 workspace:
   findings: "findings.md"

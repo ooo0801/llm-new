@@ -1,0 +1,85 @@
+{
+  "attack_manifest": {
+    "families": [
+      "unstructured_pruning",
+      "structured_pruning",
+      "quantization",
+      "gaussian_noise",
+      "finetuning"
+    ],
+    "lora_training_data": "data/attack_train_lora.jsonl",
+    "lora_training_data_sha256": "01184a12af6b8aaeb6774ffef0d2b4baf9332286690ea891b0fc28970c35e1aa",
+    "rows": 10,
+    "sha256": "078bcfad0c810b6db3150f6ae000c2f6a6912005adcaf886e07444761f12b801",
+    "variants_per_family": 2
+  },
+  "endpoints": {
+    "macro": 600,
+    "micro": 60,
+    "task": 60
+  },
+  "frozen_candidates": {
+    "categories": [
+      "code",
+      "instruction",
+      "knowledge",
+      "logic",
+      "reasoning",
+      "safety",
+      "structured",
+      "summary"
+    ],
+    "components": {
+      "cross_model_strict_core": 4,
+      "qwen14b_model_specific_complement": 26
+    },
+    "pairs_sha256": "2ff40b29026b7424a045b8c123d2cf1e9b16195ffdac8ec83536ccdf3f666bb0",
+    "rows": 30,
+    "source": "reproducibility/experiment_d_combined14b_20260806/combined_fingerprint.jsonl",
+    "source_sha256": "1434d27af847181ae82ca7b99ce71818575e3db5861f1781c9253c4984de795a"
+  },
+  "gates": {
+    "family_relative_tolerance": 0.01,
+    "legacy_minimum_nondegraded_families": 3,
+    "macro": "optimized_equal_weight_five_family_macro_gt_initial",
+    "micro": "optimized_micro_per_parameter_gt_initial",
+    "required_category_coverage": [
+      "code",
+      "instruction",
+      "knowledge",
+      "logic",
+      "reasoning",
+      "safety",
+      "structured",
+      "summary"
+    ],
+    "required_legacy_retained": 23,
+    "strict_minimum_nondegraded_families": 5,
+    "strict_retained": "secondary_descriptive_no_threshold",
+    "task": "initial_and_optimized_pass"
+  },
+  "leakage_guard": "No Experiment E result may alter candidates, thresholds, seeds, attack configurations, or task evaluators.",
+  "model": {
+    "device_map": "balanced_3gpu_no_cpu_disk_offload",
+    "dtype": "bfloat16",
+    "id": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
+  },
+  "prior_seed_collision_check": [
+    42,
+    777,
+    3407,
+    1685839144,
+    2435199792,
+    4072939906
+  ],
+  "schema_version": "experiment_e_final_union_design_1.0",
+  "seeds": {
+    "attack": [
+      2026080702,
+      2026080703
+    ],
+    "bootstrap": 2026080704,
+    "micro": 2026080701
+  }
+}

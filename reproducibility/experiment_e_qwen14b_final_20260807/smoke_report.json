@@ -1,0 +1,16 @@
+{
+  "complete_micro_coverage": true,
+  "finite_positive_macro": true,
+  "macro_families": [
+    "finetuning",
+    "gaussian_noise",
+    "quantization",
+    "structured_pruning",
+    "unstructured_pruning"
+  ],
+  "macro_records": 20,
+  "micro_records": 2,
+  "passed": true,
+  "schema_version": "experiment_e_smoke_1.0",
+  "task_records": 2
+}

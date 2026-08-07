@@ -81,3 +81,11 @@ This union preserves the evidence scope of its components. It is not evidence th
 ## Experiment E Joint Confirmation (Preregistered 2026-08-07)
 
 Experiment E addresses the remaining claim gap without reconstructing or reranking prompts. The exact 30-row union is frozen as paired initial/optimized text and will be evaluated together with a new complete-micro seed and two new instances of every registered perturbation family. The primary gate requires at least 23 legacy-retained prompts and representation of all eight categories; the strict 5/5 subset remains a secondary endpoint. No Experiment E result may change the union, evaluators, seeds, family definitions, or thresholds.
+
+## Experiment E Final Joint Result (2026-08-07)
+
+Experiment E completed every preregistered endpoint without technical failure: 60/60 task endpoints, 60/60 complete-block micro endpoints, and 600/600 macro observations across two fixed variants of each of the five registered perturbation families. All 30 prompt pairs preserved their task and all 30 optimized prompts had positive micro sensitivity. Nineteen prompts had positive equal-weight macro sensitivity and satisfied the full legacy gate.
+
+The observed 19/30 retained count is below the frozen requirement of 23/30. The retained prompts span code, instruction, knowledge, logic, reasoning, safety, and structured categories, but no summary prompt survived; the required eight-category coverage therefore also failed. H-E1 is refuted on both primary conditions. Three prompts met the secondary strict 5/5 gate.
+
+The principal bottleneck was joint macro robustness rather than task validity or local gradient sensitivity. Family non-degeneration counts were 27/30 for unstructured pruning, 25/30 for Gaussian noise, 25/30 for finetuning, 23/30 for NF4 quantization, and 10/30 for structured pruning. The 19-row legacy-retained output is an operational subset under this single frozen seed set, not a repaired replacement for the preregistered 30-row union. No candidate, seed, evaluator, threshold, or attack definition was changed after observing results.
