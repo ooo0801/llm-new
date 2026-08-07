@@ -77,3 +77,7 @@ The accepted complement spans eight categories: 3 code, 5 instruction, 3 knowled
 The final provenance-preserving union contains 30 prompts: four independently repeated cross-model strict-core prompts from Experiments A and B, plus 26 non-overlapping 14B-specific prompts confirmed by Experiment C. Three Experiment C accepted rows (`instruction_43e8f0520c0e`, `safety_8c6e8a477653`, and `instruction_9109f3338c12`) overlapped the strict core and were deduplicated by source identity or exact prompt hash.
 
 This union preserves the evidence scope of its components. It is not evidence that all 30 prompts were jointly rerun under an additional common attack set; making that stronger claim would require a separately preregistered experiment.
+
+## Experiment E Joint Confirmation (Preregistered 2026-08-07)
+
+Experiment E addresses the remaining claim gap without reconstructing or reranking prompts. The exact 30-row union is frozen as paired initial/optimized text and will be evaluated together with a new complete-micro seed and two new instances of every registered perturbation family. The primary gate requires at least 23 legacy-retained prompts and representation of all eight categories; the strict 5/5 subset remains a secondary endpoint. No Experiment E result may change the union, evaluators, seeds, family definitions, or thresholds.

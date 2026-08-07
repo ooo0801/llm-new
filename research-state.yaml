@@ -1,12 +1,12 @@
 # Central state for the 14B follow-up sequence. Updated after each completed stage.
 project:
-  title: "14B follow-up: failure attribution, survivor replication, and model-aware reconstruction"
-  question: "Which 7B prompts replicate under independent 14B perturbations, and can the frozen construction procedure produce an independently validated 14B-specific complement?"
-  status: complete
+  title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
+  question: "Does the frozen 30-prompt union remain a usable single Qwen2.5-14B fingerprint under one new jointly applied seed set?"
+  status: active
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
-  git_branch: "experiment/prompt-transfer-14b-followup"
-  current_stage: "14b_followup_complete"
+  git_branch: "experiment/combined-14b-final-validation"
+  current_stage: "experiment_e_protocol_freeze"
 
 literature:
   key_papers: []
@@ -40,6 +40,12 @@ hypotheses:
     motivation: "This separates transfer of exact prompt instances from transfer of the construction procedure."
     parent: H-A1
     priority: medium
+  - id: H-E1
+    statement: "At least 23 of the frozen 30-prompt union will satisfy the legacy gate under one new joint seed set, with all eight categories represented."
+    status: active
+    motivation: "A provenance-preserving union is not yet a jointly confirmed operational fingerprint; 23/30 preserves the project's preregistered 75% feasibility convention."
+    parent: H-C1
+    priority: high
 
 experiments:
   proxy_metric: "legacy_retained_count out of 16; strict_5of5_count is secondary"
@@ -87,6 +93,11 @@ execution:
   followup_stage_3_14b_reconstruction: complete
   experiment_c_substage: "complete"
   followup_stage_4_combined_fingerprint: complete
+  experiment_e_stage_0_protocol: in_progress
+  experiment_e_stage_1_tokenizer_model_smoke: pending
+  experiment_e_stage_2_lora_and_one_pair_smoke: pending
+  experiment_e_stage_3_full_joint_endpoints: pending
+  experiment_e_stage_4_analysis_archive: pending
   background_task: null
   last_error: null
 
@@ -99,9 +110,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 4
-  last_direction: "close_after_independent_heldout_validation_and_provenance_preserving_union"
-  last_reflection: "Model-aware 14B construction retained 29 of 34 development-frozen candidates on the independent held-out split, supporting H-C1. The final descriptive fingerprint contains four independently repeated cross-model strict prompts plus 26 non-overlapping 14B-specific prompts; no additional joint-union endpoint is claimed."
+  cycle: 5
+  last_direction: "deepen_with_single_joint_confirmation_of_frozen_union"
+  last_reflection: "The 30-prompt Experiment D union preserves component-level provenance but has not been evaluated as one set. Experiment E freezes reconstructed initial/optimized pairs, new micro and attack seeds, a 23/30 legacy gate, and eight-category coverage before running any new endpoint."
 
 workspace:
   findings: "findings.md"
