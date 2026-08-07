@@ -47,9 +47,9 @@
     "variants_per_family": 3
   },
   "inputs_sha256": {
-    "confirmation_manifest": "a5c797eabd88dc67344e63374404510e67fd7dfd9199aa18462c7343512cc02f",
-    "development_manifest": "a6cad788ad32558a19d557162566c5d1bf5401add653abc661e6ed229506e670",
-    "pairs": "dad8be3ac80471a0eb79906edeb77582c71103a63d0405abbccf2d65c48d3168"
+    "confirmation_manifest": "ba41f1a2fef129c783511cb12da5673ded941d1103c86609f4eb4bb11b968231",
+    "development_manifest": "880509775bedab1c64d9d57c24e908a732f4e896a5fbdf8a3872642e0affe4b7",
+    "pairs": "e39f9bc338e3e181055f0e78bb90b38f88d2b338ab1bd0a705d26095eabdc0d8"
   },
   "leakage_guard": "Experiment C held-out decisions and Experiment E outcomes are not inputs to F1 ranking; confirmation endpoints cannot alter selection or gates.",
   "model": {
