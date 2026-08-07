@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_h3_lora_training_running"
+  current_stage: "experiment_h3_model_state_verification_running"
 
 literature:
   key_papers: []
@@ -238,7 +238,7 @@ execution:
   experiment_h3_stage_1_reference: complete_go
   experiment_h3_stage_2_model_states: in_progress
   experiment_h3_stage_3_analysis: conditional_pending
-  background_task: "h3_lora_and_model_state_pipeline_running"
+  background_task: "h3_twelve_model_state_verification_running"
   last_error: null
 
 resources:
