@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_f2_targeted_construction_running"
+  current_stage: "experiment_f2_development_micro_running"
 
 literature:
   key_papers: []
@@ -171,8 +171,8 @@ execution:
   experiment_h1_stage_2_model_states: not_run_parent_no_go
   experiment_h1_stage_3_analysis: not_run_parent_no_go
   experiment_f2_stage_0_protocol: complete
-  experiment_f2_stage_1_targeted_construction: in_progress
-  experiment_f2_stage_2_development: pending
+  experiment_f2_stage_1_targeted_construction: complete_go
+  experiment_f2_stage_2_development: in_progress
   experiment_f2_stage_3_confirmation: pending
   experiment_g2_stage_0_protocol: complete
   experiment_g2_stage_1_activations: conditional_pending
@@ -181,7 +181,7 @@ execution:
   experiment_h2_stage_1_reference: conditional_pending
   experiment_h2_stage_2_model_states: conditional_pending
   experiment_h2_stage_3_analysis: conditional_pending
-  background_task: "f2_targeted_construction_active"
+  background_task: "f2_development_micro_active"
   last_error: null
 
 resources:

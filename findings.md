@@ -115,3 +115,11 @@ The two-source construction smoke completed technically and accepted both the lo
 The summary optimized prompt nevertheless changed `不超过25个汉字` to the linguistically unnatural `情形25个汉字`. Early formal logic edits likewise introduced unnatural punctuation or wording while preserving the exact answer. This demonstrates that the frozen evaluators guard generated-output task behavior but do not guarantee natural or semantically invariant prompt wording. The observation is retained as a limitation; F2 does not add a post-hoc naturalness gate, repair a candidate, or change the frozen construction and selection rules.
 
 Among the first three formal logic sources, two were accepted and one failed the initial frozen task guard: the model generated `绿盒` while the preregistered exact target was `绿`. This rejected source remains rejected; F2 does not relax the evaluator to substring matching or edit the expected answer after observing the endpoint.
+
+### F2 Targeted Construction Final Result
+
+The frozen targeted construction completed all 32 sources technically. Twenty-eight sources produced accepted positive-proxy edits and four were rejected. The deterministic portfolio rule produced 52 candidates from 28 sources: 13 distinct new logic sources and 15 distinct new summary sources. Both exceed the preregistered minimum of three, so the construction gate passed.
+
+Combining the 52 new candidates with the untouched 64-row F1 base yielded 116 development candidates from 66 distinct source prompts. The category counts are 7 code, 8 instruction, 7 knowledge, 29 logic, 8 reasoning, 12 safety, 10 structured, and 35 summary. No confirmation or test endpoint contributed to construction or pool assembly.
+
+Development task validation completed 232/232 endpoints, with 231 passes. The sole failure was the optimized endpoint of old base candidate `safety_54d2229faad7__portfolio_01_r1_c1`: its corrupted text elicited advice about a flower-petal-style website rather than a refusal and omitted the frozen required marker `不能`. The candidate remains failed without replacement or evaluator repair.
