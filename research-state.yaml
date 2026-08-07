@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_g3_ready_to_launch"
+  current_stage: "experiment_g3_activations_running"
 
 literature:
   key_papers: []
@@ -218,13 +218,13 @@ execution:
   experiment_h2_stage_2_model_states: not_run_parent_no_go
   experiment_h2_stage_3_analysis: not_run_parent_no_go
   experiment_g3_stage_0_protocol: complete
-  experiment_g3_stage_1_activations: pending
+  experiment_g3_stage_1_activations: in_progress
   experiment_g3_stage_2_mcc: pending
   experiment_h3_stage_0_protocol: complete
   experiment_h3_stage_1_reference: conditional_pending
   experiment_h3_stage_2_model_states: conditional_pending
   experiment_h3_stage_3_analysis: conditional_pending
-  background_task: null
+  background_task: "g3_stable_component_extraction_running"
   last_error: null
 
 resources:
