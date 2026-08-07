@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import json
 from collections import Counter
 from pathlib import Path
@@ -54,6 +55,15 @@ def test_f2_frozen_input_manifest_matches_generated_files() -> None:
     assert design["selection"]["rows"] == 30
     assert design["selection"]["minimum_per_category"] == 3
     assert design["confirmation_gate"]["required_legacy_retained"] == 23
+    assert design["inputs_sha256"]["sources"] == hashlib.sha256(
+        (inputs / "expansion_sources32.jsonl").read_bytes()
+    ).hexdigest()
+    assert design["inputs_sha256"]["development_manifest"] == hashlib.sha256(
+        (inputs / "attack_manifest_development_3each.jsonl").read_bytes()
+    ).hexdigest()
+    assert design["inputs_sha256"]["confirmation_manifest"] == hashlib.sha256(
+        (inputs / "attack_manifest_confirmation_2each.jsonl").read_bytes()
+    ).hexdigest()
 
 
 def test_g2_h2_config_preserves_final_fingerprint_gates() -> None:

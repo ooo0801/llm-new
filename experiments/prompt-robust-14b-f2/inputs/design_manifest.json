@@ -44,9 +44,9 @@
     "source": "f2_targeted_expansion_v1"
   },
   "inputs_sha256": {
-    "confirmation_manifest": "2e56db6b543fc3b6818be3a6fc2d0a11971970fe13cb461037e6a8f3d8ef8fe4",
-    "development_manifest": "89eccbbaa828cf3e15b88027686b9c1ad8ef4e80498f2b1980cddc32ccd7c346",
-    "sources": "d365e414d4603316286a5f0d6d14d598b5a99ce81389adc1c262de11fedc26a1"
+    "confirmation_manifest": "1d3bd1742d58aee3ba647c1638bb825c3714c02e2cd6dc7a4f4c99daf50f7abc",
+    "development_manifest": "2a04b43a24925be195e610df2c7701838adb96869cc12fd65f75db207b38f3f3",
+    "sources": "a4d44dfa0e667d4b0322f95b4767212d4dc9e4a59bf971707583b08de9334394"
   },
   "leakage_guard": "Construction uses only Experiment C training/calibration evidence. F2 development reranks the assembled pool. Confirmation cannot change candidates, ranking, quotas, attacks, evaluators, or gates.",
   "model": {
