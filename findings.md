@@ -107,3 +107,9 @@ The quota was not lowered and no post-hoc candidate was inserted. Consequently t
 F2 acts only on the localized F1 source-diversity deficit. It adds 16 new clean logic sources and 16 new clean summary sources. Logic targets are exact and cover several reasoning forms; summary targets require a 25-character bound plus two content-specific keywords, preventing the weak one-keyword evaluator from accepting semantically corrupted instructions. The new sources are optimized with the frozen Experiment C construction calibration and training attacks, then all valid new candidates are combined with the untouched F1 pool and rescored under new development attacks.
 
 The development selector, 30-row size, three-per-category quota, unique-source rule, structured-first ranking, 23/30 confirmation requirement, and eight-category coverage requirement are unchanged. Independent F2 confirmation uses disjoint seeds and held-out structured-pruning configurations. G2 MCC12 construction and H2 prompt-stratified MMD verification are strictly conditional on F2 and G2 passing, respectively.
+
+### F2 Construction Smoke Observation
+
+The two-source construction smoke completed technically and accepted both the logic and summary edits with positive proxy gain and task preservation. The logic edit still generated the exact target `甲`. The summary edit generated `固定随机种子后实验重复运行三次比对结果。`, satisfying the frozen 25-character and two-keyword rule.
+
+The summary optimized prompt nevertheless changed `不超过25个汉字` to the linguistically unnatural `情形25个汉字`. This demonstrates that the strengthened evaluator guards generated-output length and topic coverage but does not guarantee natural or semantically invariant prompt wording. The observation is retained as a limitation; F2 does not add a post-hoc naturalness gate, repair the candidate, or change the frozen construction and selection rules.
