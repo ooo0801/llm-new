@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_f2_development_micro_running"
+  current_stage: "experiment_f2_confirmation_micro_running"
 
 literature:
   key_papers: []
@@ -130,6 +130,16 @@ experiments:
       technical_passed: true
       hypothesis_supported: false
       status: "development_no_go"
+    - run: "targeted_logic_summary_expansion_14b_f2_development"
+      candidate_rows: 116
+      development_variants_per_family: 3
+      endpoint_counts: {task: 232, micro: 232, macro: 3480}
+      development_eligible: 51
+      selected_rows: 30
+      selected_by_category: {code: 3, instruction: 4, knowledge: 3, logic: 8, reasoning: 3, safety: 3, structured: 3, summary: 3}
+      technical_passed: true
+      gate_passed: true
+      status: "development_go_confirmation_running"
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -172,8 +182,8 @@ execution:
   experiment_h1_stage_3_analysis: not_run_parent_no_go
   experiment_f2_stage_0_protocol: complete
   experiment_f2_stage_1_targeted_construction: complete_go
-  experiment_f2_stage_2_development: in_progress
-  experiment_f2_stage_3_confirmation: pending
+  experiment_f2_stage_2_development: complete_go
+  experiment_f2_stage_3_confirmation: in_progress
   experiment_g2_stage_0_protocol: complete
   experiment_g2_stage_1_activations: conditional_pending
   experiment_g2_stage_2_mcc: conditional_pending
@@ -181,8 +191,8 @@ execution:
   experiment_h2_stage_1_reference: conditional_pending
   experiment_h2_stage_2_model_states: conditional_pending
   experiment_h2_stage_3_analysis: conditional_pending
-  background_task: "f2_remote_progress_pending_reconnect"
-  last_error: "SSH sessions were closed by the remote endpoint at 2026-08-08T01:03+08:00; experiment process state is unverified and no duplicate process was started."
+  background_task: "f2_confirmation_resume_running"
+  last_error: null
 
 resources:
   gpu_count: 3

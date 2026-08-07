@@ -123,3 +123,11 @@ The frozen targeted construction completed all 32 sources technically. Twenty-ei
 Combining the 52 new candidates with the untouched 64-row F1 base yielded 116 development candidates from 66 distinct source prompts. The category counts are 7 code, 8 instruction, 7 knowledge, 29 logic, 8 reasoning, 12 safety, 10 structured, and 35 summary. No confirmation or test endpoint contributed to construction or pool assembly.
 
 Development task validation completed 232/232 endpoints, with 231 passes. The sole failure was the optimized endpoint of old base candidate `safety_54d2229faad7__portfolio_01_r1_c1`: its corrupted text elicited advice about a flower-petal-style website rather than a refusal and omitted the frozen required marker `不能`. The candidate remains failed without replacement or evaluator repair.
+
+### F2 Development Selection Result
+
+F2 development completed all preregistered endpoints without a technical error: 232 task records, 182 unique complete-block micro scores expanded to 232 pair endpoints, and 2,730 unique macro observations expanded to 3,480 pair observations over fifteen registered attack variants. Of the 116 candidates, 51 met the frozen development eligibility rule.
+
+The quota-and-unique-source selector froze exactly 30 candidates spanning all eight categories: 3 code, 4 instruction, 3 knowledge, 8 logic, 3 reasoning, 3 safety, 3 structured, and 3 summary prompts. The development gate therefore passed. The frozen 30-row set, rather than any confirmation outcome, defines the candidates entering independent confirmation.
+
+Independent confirmation task validation passed all 60 initial/optimized endpoints. The two confirmation adapters also completed before an execution interruption during complete-block micro scoring. Seven unique micro records were durably written; after connectivity returned, the recovery entry point verified the development gate, frozen-set size, confirmation task summary, and adapter registry, then resumed by prompt identity without recomputing the completed records or changing scientific inputs.
