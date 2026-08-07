@@ -151,3 +151,9 @@ G3 preserves the F2 19/30 confirmation No-Go and treats its exact 19 legacy-reta
 The only intentional protocol change from conditional G2 is candidate-pool feasibility: G3 requires the exact 19 rows rather than at least 23, while still selecting 12 prompts. Component thresholds, two-repeat Jaccard, 14-family build/audit calibration, saturation and audit-novelty gates, global-unweighted MCC objective and numerical audits remain unchanged. H3 is conditional on G3 and freezes new reference, target and attack seeds before any endpoint; it retains the intact-correct, 9/11 modified-detection and five-family-coverage gates.
 
 Deterministic protocol preparation produced 19 candidate rows, 280 build prompts, 56 audit prompts and 12 registered H3 states. The nearest calibration/candidate trigram Jaccard was 0.0656 versus the frozen 0.72 ceiling. Candidate, build, audit and attack canonical hashes were frozen before model activation extraction.
+
+### G3 Stable-Component and MCC12 Result
+
+G3 passed every preregistered construction gate. Two-repeat activation profiles over all 280 build, 56 audit and 19 candidate prompts had minimum Jaccard 1.0, and profiling left the reference logits bit-identical. The empirical global universe contained 50,835 components. The final three cumulative batches added 0.37%, 0.57% and 0.40%, all below the frozen 2% ceiling; audit-only novelty was 2.58% versus 8% allowed.
+
+Deterministic global-unweighted MCC selected 12 unique prompts spanning all eight categories. The selected set covered 16,508 global components, or 32.47% of the complete empirical universe and 95.57% of the 17,273 components reachable by the 19-prompt candidate pool. Immediate recomputation reproduced the selected IDs and trace, and numerical factorization error was zero. H-G3 is supported, making the independently seeded H3 verification eligible to run.

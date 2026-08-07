@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_g3_activations_running"
+  current_stage: "experiment_h3_ready_to_launch"
 
 literature:
   key_papers: []
@@ -84,13 +84,13 @@ hypotheses:
     priority: high
   - id: H-G3
     statement: "The exact frozen 19-prompt F2 legacy-retained pool supports the unchanged stable-component thresholds, frozen universe gates, and a deterministic global-unweighted MCC12."
-    status: in_progress
+    status: supported
     motivation: "The project goal requires a deployable 12-prompt fingerprint; 19 independently retained prompts are algorithmically sufficient, while a separate preregistration preserves F2 as a No-Go."
     parent: H-F2
     priority: high
   - id: H-H3
     statement: "The G3 recovery MCC12 leaves the intact state unflagged, detects at least 9 of 11 registered modified states, and covers all five modified families."
-    status: conditional_not_run
+    status: in_progress
     motivation: "A new independent MMD stage is required to validate the recovery fingerprint without reusing the unused H2 identifiers or seeds."
     parent: H-G3
     priority: high
@@ -99,7 +99,7 @@ experiments:
   proxy_metric: "legacy_retained_count under the frozen experiment-specific set; strict_5of5_count is secondary"
   baseline_value: 16
   best_value: 19
-  total_runs: 7
+  total_runs: 8
   trajectory:
     - run: "confirmatory_14b_a1"
       legacy_retained: 8
@@ -165,6 +165,20 @@ experiments:
       technical_passed: true
       hypothesis_supported: false
       status: "confirmation_no_go"
+    - run: "frozen19_recovery_mcc12_14b_g3"
+      candidate_prompts: 19
+      selected_prompts: 12
+      global_components: 50835
+      candidate_global_components: 17273
+      selected_global_components: 16508
+      selection_efficiency: 0.9557112256122272
+      final_global_coverage: 0.32473689387233207
+      audit_novelty_rate: 0.025758586195398465
+      activation_minimum_jaccard: 1.0
+      selection_deterministic: true
+      technical_passed: true
+      hypothesis_supported: true
+      status: "g3_go"
   frozen_required_retained: 12
   prompt_source: "reproducibility/v6_20260729/final_test_validated_prompts.jsonl"
   prompt_filter: "optimization.accepted == true"
@@ -218,13 +232,13 @@ execution:
   experiment_h2_stage_2_model_states: not_run_parent_no_go
   experiment_h2_stage_3_analysis: not_run_parent_no_go
   experiment_g3_stage_0_protocol: complete
-  experiment_g3_stage_1_activations: in_progress
-  experiment_g3_stage_2_mcc: pending
+  experiment_g3_stage_1_activations: complete_go
+  experiment_g3_stage_2_mcc: complete_go
   experiment_h3_stage_0_protocol: complete
   experiment_h3_stage_1_reference: conditional_pending
   experiment_h3_stage_2_model_states: conditional_pending
   experiment_h3_stage_3_analysis: conditional_pending
-  background_task: "g3_stable_component_extraction_running"
+  background_task: null
   last_error: null
 
 resources:
