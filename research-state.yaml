@@ -289,8 +289,8 @@ execution:
   experiment_h4_stage_5_archive: complete
   experiment_h5_stage_0_h4_development_analysis: complete
   experiment_h5_stage_1_protocol: complete
-  experiment_h5_stage_2_reference: in_progress
-  experiment_h5_stage_3_model_states: pending
+  experiment_h5_stage_2_reference: complete_go
+  experiment_h5_stage_3_model_states: in_progress
   experiment_h5_stage_4_analysis: pending
   experiment_h5_stage_5_archive: pending
   background_task: "h5_paired_mismatch_reference_and_state_pipeline_running"
