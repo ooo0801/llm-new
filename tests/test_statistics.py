@@ -3,6 +3,7 @@ import numpy as np
 from llm_integrity.statistics import (
     mmd2_unbiased,
     mmd_permutation_test,
+    paired_block_mismatch_binomial_test,
     paired_sign_flip_test,
     paired_block_sign_flip_test,
     prompt_stratified_block_mmd_test,
@@ -104,3 +105,37 @@ def test_paired_block_sign_flip_does_not_flag_exact_replay():
     result = paired_block_sign_flip_test(x, x.copy(), labels, exact=True)
     assert not result.reject
     assert result.p_value == 1.0
+
+
+def test_paired_block_mismatch_binomial_detects_four_of_ten_blocks():
+    reference = ["same"] * 30
+    target = reference.copy()
+    labels = [block for block in range(10) for _ in range(3)]
+    for block in range(4):
+        target[block * 3] = "changed"
+    result = paired_block_mismatch_binomial_test(
+        reference,
+        target,
+        labels,
+        null_block_rate=0.1,
+        alpha=0.05 / 3,
+    )
+    assert result.reject
+    assert result.statistic == 4
+    assert np.isclose(result.p_value, 0.0127951984)
+    assert result.diagnostics["minimum_reject_blocks"] == 4
+
+
+def test_paired_block_mismatch_binomial_keeps_exact_replay_intact():
+    reference = [f"response-{index}" for index in range(30)]
+    labels = [block for block in range(10) for _ in range(3)]
+    result = paired_block_mismatch_binomial_test(
+        reference,
+        reference.copy(),
+        labels,
+        null_block_rate=0.1,
+        alpha=0.05 / 3,
+    )
+    assert not result.reject
+    assert result.p_value == 1.0
+    assert result.diagnostics["mismatch_responses"] == 0

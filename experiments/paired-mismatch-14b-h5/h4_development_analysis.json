@@ -1,0 +1,38 @@
+{
+  "schema_version": "h4_response_mismatch_development_1.0",
+  "role": "exploratory_method_development_only",
+  "source": "reproducibility/fingerprint_h4_qwen14b_paired_20260808",
+  "response_pairs_per_state": 120,
+  "seed_blocks_per_state": 10,
+  "intact": {
+    "states": 3,
+    "mismatch_responses": 0,
+    "response_pairs": 360,
+    "positive_seed_blocks": 0,
+    "seed_blocks": 30
+  },
+  "gaussian_noise": {
+    "states": 3,
+    "mismatch_responses": 44,
+    "response_pairs": 360,
+    "positive_seed_blocks": 27,
+    "seed_blocks": 30,
+    "per_state": [
+      {"variant_id": "gaussian_ffn_000025_14b_h4", "mismatch_responses": 11, "positive_seed_blocks": 7},
+      {"variant_id": "gaussian_ffn_00005_14b_h4", "mismatch_responses": 15, "positive_seed_blocks": 10},
+      {"variant_id": "gaussian_all_0001_14b_h4", "mismatch_responses": 18, "positive_seed_blocks": 10}
+    ]
+  },
+  "other_modified": {
+    "states": 8,
+    "all_states_positive_seed_blocks": 10,
+    "minimum_mismatch_responses_per_state": 28
+  },
+  "preregistered_h5_boundary": {
+    "null_block_mismatch_rate": 0.1,
+    "alpha": 0.016666666666666666,
+    "minimum_reject_blocks_of_10": 4,
+    "weakest_h4_gaussian_margin_blocks": 3
+  },
+  "leakage_guard": "This H4 analysis selected the H5 method and threshold before any H5 response was generated. H5 uses new reference, target, attack and LoRA seeds."
+}

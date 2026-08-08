@@ -11,6 +11,7 @@ from .modeling import ModelBundle, generate_texts
 from .statistics import (
     TestResult,
     mmd_permutation_test,
+    paired_block_mismatch_binomial_test,
     paired_block_sign_flip_test,
     paired_sign_flip_test,
     prompt_stratified_mmd_test,
@@ -177,6 +178,15 @@ def verify_model(
             blocks=blocks,
             exact=bool(statistics_config.get("exact_sign_flips", True)),
             **common,
+        )
+
+    elif method == "paired_block_mismatch_binomial":
+        test = paired_block_mismatch_binomial_test(
+            reference_texts,
+            target_texts,
+            blocks=blocks,
+            null_block_rate=float(statistics_config.get("null_block_mismatch_rate", 0.1)),
+            alpha=common["alpha"],
         )
 
     else:

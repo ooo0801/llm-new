@@ -15,6 +15,7 @@ assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
 CONFIG = yaml.safe_load((ROOT / "configs/fingerprint_g_qwen14b_mcc.yaml").read_text(encoding="utf-8"))
+H5_CONFIG = yaml.safe_load((ROOT / "configs/fingerprint_h5_qwen14b_mismatch.yaml").read_text(encoding="utf-8"))
 
 
 def valid_row() -> tuple[dict, dict]:
@@ -83,3 +84,50 @@ def test_missing_response_and_realization_structure_are_rejected() -> None:
     errors = MODULE.validate_verification(row, attack, CONFIG)
     assert "response record count mismatch" in errors
     assert "variant was not independently reloaded" in errors
+
+
+def test_h5_paired_mismatch_diagnostics_pass_validation() -> None:
+    attack = H5_CONFIG["attacks"][0]
+    prompts = [f"p{index}" for index in range(12)]
+    seeds = list(range(2026081700, 2026081710))
+    records = [
+        {"prompt_id": prompt_id, "repetition": repetition, "seed": seeds[repetition], "response": "same"}
+        for repetition in range(10)
+        for prompt_id in prompts
+    ]
+    row = {
+        "variant_id": attack["variant_id"],
+        "family": "intact",
+        "ground_truth_modified": False,
+        "predicted_modified": False,
+        "correct": True,
+        "primary_test": {
+            "statistic": 0.0,
+            "p_value": 1.0,
+            "reject": False,
+            "alpha": 0.05 / 3,
+            "method": "paired_block_mismatch_binomial",
+            "effect_size": 0.0,
+            "diagnostics": {
+                "blocks": 10,
+                "samples_per_block": 12,
+                "exchangeable_unit": "generation_seed_block",
+                "null_block_mismatch_rate": 0.1,
+                "mismatch_blocks": 0,
+                "mismatch_responses": 0,
+                "comparison": "utf8_response_byte_exact",
+            },
+        },
+        "secondary_tests": {"pooled_mmd": {"method": "pooled_mmd", "statistic": 0.0, "p_value": 1.0}},
+        "prompts": 12,
+        "repetitions": 10,
+        "queries": 120,
+        "target_seeds": seeds,
+        "response_records": records,
+        "variant_realization": {
+            "variant_id": attack["variant_id"],
+            "family": "intact",
+            "isolated_base_reload": True,
+        },
+    }
+    assert MODULE.validate_verification(row, attack, H5_CONFIG) == []

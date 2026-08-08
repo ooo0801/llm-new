@@ -94,6 +94,24 @@ def validate_verification(row: dict[str, Any], attack: dict[str, Any], config: d
             expected_patterns = 1 << repetitions
             if bool(config["statistics"].get("exact_sign_flips", True)) and int(diagnostics.get("evaluated_sign_patterns", -1)) != expected_patterns:
                 errors.append("exact sign-pattern count mismatch")
+        elif expected_method == "paired_block_mismatch_binomial":
+            if int(diagnostics.get("blocks", -1)) != repetitions:
+                errors.append("paired mismatch block count mismatch")
+            if int(diagnostics.get("samples_per_block", -1)) != selected_size:
+                errors.append("paired mismatch block size mismatch")
+            if diagnostics.get("exchangeable_unit") != "generation_seed_block":
+                errors.append("paired mismatch exchangeable unit mismatch")
+            if diagnostics.get("comparison") != "utf8_response_byte_exact":
+                errors.append("paired mismatch comparison mismatch")
+            expected_null = float(config["statistics"].get("null_block_mismatch_rate", 0.1))
+            if not finite_number(diagnostics.get("null_block_mismatch_rate")) or float(diagnostics["null_block_mismatch_rate"]) != expected_null:
+                errors.append("paired mismatch null rate mismatch")
+            mismatch_blocks = diagnostics.get("mismatch_blocks")
+            mismatch_responses = diagnostics.get("mismatch_responses")
+            if not isinstance(mismatch_blocks, int) or not 0 <= mismatch_blocks <= repetitions:
+                errors.append("invalid paired mismatch block count")
+            if not isinstance(mismatch_responses, int) or not 0 <= mismatch_responses <= expected_queries:
+                errors.append("invalid paired mismatch response count")
 
     pooled = row.get("secondary_tests", {}).get("pooled_mmd")
     if not isinstance(pooled, dict) or pooled.get("method") != "pooled_mmd":
@@ -181,7 +199,20 @@ def main() -> None:
     )
     intact_correct = bool(len(intact) == expected_intact and all(not row["predicted_modified"] for row in intact))
     family_coverage = bool(all(family_detected[family] >= 1 for family in MODIFIED_FAMILIES))
-    hypothesis_supported = bool(technical_passed and intact_correct and len(detected) >= args.required_modified and family_coverage)
+    required_family_detected = {
+        str(family): int(value)
+        for family, value in config["statistics"].get("required_family_detected", {}).items()
+    }
+    family_minimums_passed = bool(
+        all(family_detected[family] >= required for family, required in required_family_detected.items())
+    )
+    hypothesis_supported = bool(
+        technical_passed
+        and intact_correct
+        and len(detected) >= args.required_modified
+        and family_coverage
+        and family_minimums_passed
+    )
     accuracy = sum(bool(row["correct"]) for row in rows)
     report = {
         "schema_version": f"fingerprint_14b_{detection_label.lower()}_summary_1.0",
@@ -196,6 +227,8 @@ def main() -> None:
         "correct_states": accuracy,
         "accuracy_exact_95ci": proportion_interval(accuracy, len(rows)),
         "family_coverage_passed": family_coverage,
+        "required_family_detected": required_family_detected,
+        "family_minimums_passed": family_minimums_passed,
         "by_family": family_report,
         "hypothesis": f"H-{detection_label}",
         "hypothesis_supported": hypothesis_supported,

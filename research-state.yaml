@@ -2,11 +2,11 @@
 project:
   title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
   question: "Can preregistered multi-seed robust selection produce an independently confirmed 14B fingerprint, and if so do frozen 7B component thresholds and prompt-stratified MMD transfer to the fixed 14B model?"
-  status: complete_g3_go_h3_no_go_h4_no_go
+  status: in_progress_h5_gaussian_sensitivity_remediation
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_h4_complete_no_go"
+  current_stage: "experiment_h5_protocol_ready"
 
 literature:
   key_papers: []
@@ -98,6 +98,12 @@ hypotheses:
     statement: "Common-random-number paired verification leaves all three intact reloads unflagged, detects at least 9 of 11 newly instantiated modified states, and covers all five modified families."
     status: refuted
     motivation: "H3 response replay was exact, showing that independent reference/target sampling rather than model drift confounded the two-sample detector; pairing the same generation seeds isolates model-state differences."
+    parent: H-G3
+    priority: high
+  - id: H-H5
+    statement: "A common-seed, seed-block exact-response mismatch detector leaves all three intact reloads unflagged, detects at least 9 of 11 newly instantiated modified states, covers all five modified families, and detects all three Gaussian states."
+    status: in_progress
+    motivation: "H4 restored intact specificity but its signed feature effects cancelled for Gaussian perturbations even though 7-10 of 10 H4 seed blocks contained byte-different outputs; H5 tests that non-directional paired evidence on independent endpoints."
     parent: H-G3
     priority: high
 
@@ -281,6 +287,12 @@ execution:
   experiment_h4_stage_3_model_states: complete
   experiment_h4_stage_4_analysis: complete_no_go
   experiment_h4_stage_5_archive: complete
+  experiment_h5_stage_0_h4_development_analysis: complete
+  experiment_h5_stage_1_protocol: complete
+  experiment_h5_stage_2_reference: pending
+  experiment_h5_stage_3_model_states: pending
+  experiment_h5_stage_4_analysis: pending
+  experiment_h5_stage_5_archive: pending
   background_task: null
   last_error: null
 
@@ -293,9 +305,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 13
-  last_direction: "conclude_h4_specificity_fix_with_gaussian_sensitivity_no_go"
-  last_reflection: "Common-random-number pairing removed the H3 intact false positive in all three independent reloads, confirming the independent-seed sampling confound. The exact paired seed-block test detected all pruning, quantization and LoRA states but none of the three Gaussian perturbations, yielding 8/11 rather than the frozen 9/11 and failing family coverage. H4 is therefore a specificity success but an overall No-Go; no endpoint-driven repair was made."
+  cycle: 14
+  last_direction: "deepen_with_h5_nondirectional_seed_block_mismatch"
+  last_reflection: "H4's three intact reloads had zero byte mismatches across 30 seed blocks, while its three Gaussian states changed outputs in 7, 10 and 10 of their 10 blocks despite failing the signed feature test. H5 therefore preregisters a non-directional exact-response block statistic with new endpoints, a tolerated intact block mismatch rate of 0.10, Bonferroni alpha 0.05/3, and a four-of-ten rejection boundary."
 
 workspace:
   findings: "findings.md"

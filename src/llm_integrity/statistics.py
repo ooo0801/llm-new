@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from math import comb
 from typing import Any
 
 import numpy as np
@@ -459,6 +460,83 @@ def paired_block_sign_flip_test(
             "samples_per_block": next(iter(sizes)),
             "exchangeable_unit": "generation_seed_block",
             "minimum_attainable_p": 1.0 / evaluated,
+        },
+    )
+
+
+def paired_block_mismatch_binomial_test(
+    reference_texts: list[str],
+    target_texts: list[str],
+    blocks: list[str | int],
+    null_block_rate: float = 0.1,
+    alpha: float = 0.05,
+) -> TestResult:
+    """Detect paired output changes using seed blocks and an operational null.
+
+    A block is positive when at least one prompt response differs byte-for-byte
+    from the response generated with the same prompt and random seed.  The
+    one-sided exact binomial tail tests the number of positive seed blocks
+    against a preregistered tolerated intact block-mismatch rate.
+    """
+    if not 0.0 < alpha < 1.0:
+        raise ValueError("alpha must be between zero and one")
+    if not 0.0 < null_block_rate < 1.0:
+        raise ValueError("null_block_rate must be between zero and one")
+    if len(reference_texts) != len(target_texts):
+        raise ValueError("Paired mismatch test requires equal response counts")
+    block_array = np.asarray(blocks, dtype=object)
+    if len(block_array) != len(reference_texts):
+        raise ValueError("Block labels must match the number of paired responses")
+    labels = list(dict.fromkeys(block_array.tolist()))
+    if len(labels) < 2:
+        raise ValueError("Paired mismatch test requires at least two seed blocks")
+    groups = [np.flatnonzero(block_array == label) for label in labels]
+    sizes = {len(indices) for indices in groups}
+    if len(sizes) != 1:
+        raise ValueError("Every paired mismatch block must contain the same number of responses")
+
+    mismatches = np.asarray(
+        [left != right for left, right in zip(reference_texts, target_texts)],
+        dtype=bool,
+    )
+    positive_by_block = [bool(mismatches[indices].any()) for indices in groups]
+    positive_blocks = sum(positive_by_block)
+    block_count = len(groups)
+
+    def upper_tail(successes: int) -> float:
+        return min(1.0, float(
+            sum(
+                comb(block_count, value)
+                * null_block_rate**value
+                * (1.0 - null_block_rate) ** (block_count - value)
+                for value in range(successes, block_count + 1)
+            )
+        ))
+
+    p_value = upper_tail(positive_blocks)
+    minimum_reject_blocks = next(
+        (value for value in range(block_count + 1) if upper_tail(value) < alpha),
+        block_count + 1,
+    )
+    mismatch_count = int(mismatches.sum())
+    return TestResult(
+        statistic=float(positive_blocks),
+        p_value=p_value,
+        reject=p_value < alpha,
+        alpha=alpha,
+        method="paired_block_mismatch_binomial",
+        effect_size=mismatch_count / len(mismatches) if len(mismatches) else 0.0,
+        diagnostics={
+            "blocks": block_count,
+            "samples_per_block": next(iter(sizes)),
+            "exchangeable_unit": "generation_seed_block",
+            "null_block_mismatch_rate": null_block_rate,
+            "mismatch_blocks": positive_blocks,
+            "mismatch_responses": mismatch_count,
+            "total_responses": len(mismatches),
+            "minimum_reject_blocks": minimum_reject_blocks,
+            "positive_by_block": positive_by_block,
+            "comparison": "utf8_response_byte_exact",
         },
     )
 

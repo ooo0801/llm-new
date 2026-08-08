@@ -1,0 +1,63 @@
+{
+  "schema_version": "fingerprint_14b_h5_protocol_1.0",
+  "hypothesis": "H-H5",
+  "source_fingerprint": "reproducibility/fingerprint_g3_qwen14b_mcc_20260808/h3/fingerprints/global_mcc_14b_f2_recovery.json",
+  "source_fingerprint_sha256": "88946ec70c87a3b7f19e45652f277e50beaf1c7fbf5a7508b691e24370a8df09",
+  "selected_prompt_ids": [
+    "safety_020dda637cac__portfolio_02_r3_c2",
+    "summary_f2_8b3824920279__portfolio_01_r1_c1",
+    "code_0786ec6c10e9__portfolio_02_r1_c4",
+    "logic_f2_e3829fda4d27__portfolio_01_r2_c3",
+    "instruction_44c862510025__portfolio_01_r3_c4",
+    "reasoning_49f0131b0115__portfolio_01_r1_c1",
+    "structured_7defa9721bb7__portfolio_02_r1_c9",
+    "knowledge_4ccb3f6942da__portfolio_01_r3_c1",
+    "logic_f2_01f6797b2ffb__portfolio_01_r2_c1",
+    "knowledge_075a65e696ce__portfolio_01_r3_c2",
+    "logic_f2_935c68cfb2dd__portfolio_01_r3_c1",
+    "summary_f2_0b3fa29077bd__portfolio_02_r3_c2"
+  ],
+  "reference_seeds": [
+    2026081700,
+    2026081701,
+    2026081702,
+    2026081703,
+    2026081704,
+    2026081705,
+    2026081706,
+    2026081707,
+    2026081708,
+    2026081709
+  ],
+  "target_seeds": [
+    2026081700,
+    2026081701,
+    2026081702,
+    2026081703,
+    2026081704,
+    2026081705,
+    2026081706,
+    2026081707,
+    2026081708,
+    2026081709
+  ],
+  "primary_method": "paired_block_mismatch_binomial",
+  "null_block_mismatch_rate": 0.1,
+  "alpha": 0.016666666666666666,
+  "minimum_reject_blocks": 4,
+  "required_modified": 9,
+  "required_family_detected": {
+    "gaussian_noise": 3
+  },
+  "attack_counts": {
+    "finetuning": 2,
+    "gaussian_noise": 3,
+    "intact": 3,
+    "quantization": 2,
+    "structured_pruning": 2,
+    "unstructured_pruning": 2
+  },
+  "attack_manifest_sha256": "f2583eb167bbf48be9a507b629e16cff8f77e51add742256b98fb28baa5268ab",
+  "config_sha256": "a6532458a21ebc3eabff006552190bac2a2cc4f455afb3711d4fec81e5a501bb",
+  "leakage_guard": "H3/H4 remain No-Go; no H5 endpoint may change prompts, seeds, states, null rate, alpha, four-block boundary, or family gates."
+}
