@@ -1,0 +1,76 @@
+experiment_name: fingerprint_h4_qwen14b_paired_20260808
+output_dir: results/fingerprint_h4_qwen14b_paired_20260808
+reproducibility_dir: reproducibility/fingerprint_h4_qwen14b_paired_20260808
+protocol_frozen_on: "2026-08-08"
+protocol_labels: {detection: H4}
+
+model:
+  name: Qwen/Qwen2.5-14B-Instruct
+  revision: cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8
+  dtype: bfloat16
+  device_map: balanced
+  max_memory: {0: 30GiB, 1: 30GiB, 2: 30GiB}
+  local_files_only: true
+  eager_attention: true
+
+data:
+  source_fingerprint: reproducibility/fingerprint_g3_qwen14b_mcc_20260808/h3/fingerprints/global_mcc_14b_f2_recovery.json
+  source_fingerprint_sha256: 88946ec70c87a3b7f19e45652f277e50beaf1c7fbf5a7508b691e24370a8df09
+  attack_manifest: reproducibility/fingerprint_h4_qwen14b_paired_20260808/attack_manifest.jsonl
+  lora_training: data/attack_train_lora.jsonl
+
+generation:
+  max_input_tokens: 512
+  max_new_tokens: 64
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  system_prompt: null
+
+fingerprint:
+  selected_size: 12
+  reference_repetitions: 10
+  reference_seed_base: 2026081600
+  artifact_name: global_mcc_14b_f2_recovery_h4.json
+  verification_prefix: global_mcc_14b_f2_recovery_h4
+
+features:
+  surface: true
+  semantic: true
+  task: true
+  semantic_model: BAAI/bge-small-zh-v1.5
+  semantic_model_revision: 7999e1d3359715c523056ef9478215996d62a620
+  semantic_device: cpu
+  semantic_local_files_only: true
+  hashed_dimension: 128
+
+statistics:
+  method: paired_block_sign_flip
+  standardization: pooled_symmetric
+  exact_sign_flips: true
+  report_pooled_baseline: true
+  report_stratified_ablation: true
+  repetitions: 10
+  target_seed_base: 2026081600
+  permutations: 999
+  alpha: 0.05
+  seed: 2026081610
+  expected_intact_states: 3
+  expected_modified_states: 11
+
+attacks:
+  - {variant_id: intact_reload01_14b_h4, family: intact, split: fingerprint_14b_h4_endpoint, seed: 2026081620, configuration: {type: none}}
+  - {variant_id: intact_reload02_14b_h4, family: intact, split: fingerprint_14b_h4_endpoint, seed: 2026081621, configuration: {type: none}}
+  - {variant_id: intact_reload03_14b_h4, family: intact, split: fingerprint_14b_h4_endpoint, seed: 2026081622, configuration: {type: none}}
+  - {variant_id: unstructured_global_attention30_14b_h4, family: unstructured_pruning, split: fingerprint_14b_h4_endpoint, seed: 2026081623, configuration: {type: unstructured_pruning, ratio: 0.30, method: global_magnitude, target_scope: attention}}
+  - {variant_id: unstructured_layerwise_all30_14b_h4, family: unstructured_pruning, split: fingerprint_14b_h4_endpoint, seed: 2026081624, configuration: {type: unstructured_pruning, ratio: 0.30, method: layerwise_magnitude, target_scope: attention_ffn}}
+  - {variant_id: structured_ffn_randomhalf05_14b_h4, family: structured_pruning, split: fingerprint_14b_h4_endpoint, seed: 2026081625, configuration: {type: structured_pruning, ratio: 0.05, structure: ffn_channels, selection: magnitude, layer_scope: random_layer_subset, implementation: mask}}
+  - {variant_id: structured_heads_all05_14b_h4, family: structured_pruning, split: fingerprint_14b_h4_endpoint, seed: 2026081626, configuration: {type: structured_pruning, ratio: 0.05, structure: attention_heads, selection: magnitude, layer_scope: all_layers, implementation: mask}}
+  - {variant_id: gaussian_ffn_000025_14b_h4, family: gaussian_noise, split: fingerprint_14b_h4_endpoint, seed: 2026081627, configuration: {type: gaussian_noise, std_ratio: 0.00025, target_scope: ffn, scale_rule: parameter_tensor_std}}
+  - {variant_id: gaussian_ffn_00005_14b_h4, family: gaussian_noise, split: fingerprint_14b_h4_endpoint, seed: 2026081628, configuration: {type: gaussian_noise, std_ratio: 0.0005, target_scope: ffn, scale_rule: parameter_tensor_std}}
+  - {variant_id: gaussian_all_0001_14b_h4, family: gaussian_noise, split: fingerprint_14b_h4_endpoint, seed: 2026081629, configuration: {type: gaussian_noise, std_ratio: 0.001, target_scope: all_transformer_layers, scale_rule: parameter_tensor_std}}
+  - {variant_id: int8_14b_h4, family: quantization, split: fingerprint_14b_h4_endpoint, seed: 2026081630, configuration: {type: quantization, method: int8, compute_dtype: bfloat16, double_quant: false, target_scope: full_model}}
+  - {variant_id: nf4_14b_h4, family: quantization, split: fingerprint_14b_h4_endpoint, seed: 2026081631, configuration: {type: quantization, method: nf4, compute_dtype: bfloat16, double_quant: true, target_scope: full_model}}
+  - {variant_id: lora_seed1632_14b_h4, family: finetuning, split: fingerprint_14b_h4_endpoint, seed: 2026081632, configuration: {type: finetuning, method: lora, rank: 16, alpha: 32, dropout: 0.05, learning_rate: 0.00001, steps: 50, target_scope: attention_ffn, data_source: isolated_attack_training_data}}
+  - {variant_id: lora_seed1633_14b_h4, family: finetuning, split: fingerprint_14b_h4_endpoint, seed: 2026081633, configuration: {type: finetuning, method: lora, rank: 16, alpha: 32, dropout: 0.05, learning_rate: 0.00001, steps: 50, target_scope: attention_ffn, data_source: isolated_attack_training_data}}

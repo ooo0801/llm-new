@@ -1,0 +1,4 @@
+{
+  "lora_seed1632_14b_h4": "/root/autodl-tmp/llm/results/fingerprint_h4_qwen14b_paired_20260808/finetuning_adapters/lora_seed1632_14b_h4",
+  "lora_seed1633_14b_h4": "/root/autodl-tmp/llm/results/fingerprint_h4_qwen14b_paired_20260808/finetuning_adapters/lora_seed1633_14b_h4"
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "fingerprint_14b_h4_reference_1.0",
+  "fingerprint": "results/fingerprint_h4_qwen14b_paired_20260808/fingerprints/global_mcc_14b_f2_recovery_h4.json",
+  "responses": 120,
+  "task_pass_rate": 0.9583333333333334,
+  "reference_seeds": [
+    2026081600,
+    2026081601,
+    2026081602,
+    2026081603,
+    2026081604,
+    2026081605,
+    2026081606,
+    2026081607,
+    2026081608,
+    2026081609
+  ],
+  "source_fingerprint_sha256": "88946ec70c87a3b7f19e45652f277e50beaf1c7fbf5a7508b691e24370a8df09"
+}
