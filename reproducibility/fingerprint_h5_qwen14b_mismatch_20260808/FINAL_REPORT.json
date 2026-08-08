@@ -1,0 +1,154 @@
+{
+  "claim_boundary": "Fixed revision/runtime/prompts/seeds and registered state instances; not a population detection-rate estimate.",
+  "excluded_large_artifacts": [
+    "LoRA adapter weight tensors",
+    "runtime model caches"
+  ],
+  "git_revision": "323fe94503949933141296169f9df8b97ace25c6",
+  "h5": {
+    "family_coverage_gate_passed": true,
+    "gaussian_gate_passed": true,
+    "hypothesis_supported": true,
+    "report": {
+      "accuracy_exact_95ci": {
+        "estimate": 1.0,
+        "high": 1.0,
+        "low": 0.7683642383498834,
+        "successes": 14,
+        "total": 14
+      },
+      "by_family": {
+        "finetuning": {
+          "detected": 2,
+          "rate": 1.0,
+          "total": 2,
+          "variants": [
+            {
+              "p_value": 1.0000000000000006e-10,
+              "predicted_modified": true,
+              "statistic": 10.0,
+              "variant_id": "lora_seed1732_14b_h5"
+            },
+            {
+              "p_value": 1.0000000000000006e-10,
+              "predicted_modified": true,
+              "statistic": 10.0,
+              "variant_id": "lora_seed1733_14b_h5"
+            }
+          ]
+        },
+        "gaussian_noise": {
+          "detected": 3,
+          "rate": 1.0,
+          "total": 3,
+          "variants": [
+            {
+              "p_value": 9.100000000000004e-09,
+              "predicted_modified": true,
+              "statistic": 9.0,
+              "variant_id": "gaussian_ffn_000025_14b_h5"
+            },
+            {
+              "p_value": 9.100000000000004e-09,
+              "predicted_modified": true,
+              "statistic": 9.0,
+              "variant_id": "gaussian_ffn_00005_14b_h5"
+            },
+            {
+              "p_value": 9.100000000000004e-09,
+              "predicted_modified": true,
+              "statistic": 9.0,
+              "variant_id": "gaussian_all_0001_14b_h5"
+            }
+          ]
+        },
+        "quantization": {
+          "detected": 2,
+          "rate": 1.0,
+          "total": 2,
+          "variants": [
+            {
+              "p_value": 1.0000000000000006e-10,
+              "predicted_modified": true,
+              "statistic": 10.0,
+              "variant_id": "int8_14b_h5"
+            },
+            {
+              "p_value": 1.0000000000000006e-10,
+              "predicted_modified": true,
+              "statistic": 10.0,
+              "variant_id": "nf4_14b_h5"
+            }
+          ]
+        },
+        "structured_pruning": {
+          "detected": 2,
+          "rate": 1.0,
+          "total": 2,
+          "variants": [
+            {
+              "p_value": 1.0000000000000006e-10,
+              "predicted_modified": true,
+              "statistic": 10.0,
+              "variant_id": "structured_ffn_randomhalf05_14b_h5"
+            },
+            {
+              "p_value": 1.0000000000000006e-10,
+              "predicted_modified": true,
+              "statistic": 10.0,
+              "variant_id": "structured_heads_all05_14b_h5"
+            }
+          ]
+        },
+        "unstructured_pruning": {
+          "detected": 2,
+          "rate": 1.0,
+          "total": 2,
+          "variants": [
+            {
+              "p_value": 1.0000000000000006e-10,
+              "predicted_modified": true,
+              "statistic": 10.0,
+              "variant_id": "unstructured_global_attention30_14b_h5"
+            },
+            {
+              "p_value": 1.0000000000000006e-10,
+              "predicted_modified": true,
+              "statistic": 10.0,
+              "variant_id": "unstructured_layerwise_all30_14b_h5"
+            }
+          ]
+        }
+      },
+      "claim_boundary": "Fixed registered model-state instances; not a population detection-rate estimate.",
+      "correct_states": 14,
+      "family_coverage_passed": true,
+      "family_minimums_passed": true,
+      "hypothesis": "H-H5",
+      "hypothesis_supported": true,
+      "intact_correct": true,
+      "modified_detected": 11,
+      "modified_recall_exact_95ci": {
+        "estimate": 1.0,
+        "high": 1.0,
+        "low": 0.7150858470818456,
+        "successes": 11,
+        "total": 11
+      },
+      "modified_total": 11,
+      "required_family_detected": {
+        "gaussian_noise": 3
+      },
+      "required_modified_detected": 9,
+      "schema_version": "fingerprint_14b_h5_summary_1.0",
+      "states": 14,
+      "technical_errors": [],
+      "technical_passed": true
+    },
+    "sensitivity_count_gate_passed": true,
+    "specificity_gate_passed": true,
+    "terminal_state": "h5_go"
+  },
+  "parent_fingerprint_sha256": "88946ec70c87a3b7f19e45652f277e50beaf1c7fbf5a7508b691e24370a8df09",
+  "schema_version": "fingerprint_h5_archive_1.0"
+}
