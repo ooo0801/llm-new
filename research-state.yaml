@@ -262,10 +262,10 @@ execution:
   experiment_g3_h3_stage_4_archive: complete
   experiment_h4_stage_0_diagnosis: complete
   experiment_h4_stage_1_protocol: complete
-  experiment_h4_stage_2_reference: pending
+  experiment_h4_stage_2_reference: in_progress
   experiment_h4_stage_3_model_states: pending
   experiment_h4_stage_4_analysis: pending
-  background_task: null
+  background_task: "h4_paired_reference_and_state_pipeline_running"
   last_error: null
 
 resources:
