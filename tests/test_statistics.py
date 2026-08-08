@@ -4,6 +4,7 @@ from llm_integrity.statistics import (
     mmd2_unbiased,
     mmd_permutation_test,
     paired_sign_flip_test,
+    paired_block_sign_flip_test,
     prompt_stratified_block_mmd_test,
     prompt_stratified_mmd_test,
 )
@@ -81,3 +82,25 @@ def test_prompt_stratified_block_mmd_requires_rectangular_blocks():
             [0, 0, 1, 1],
             permutations=9,
         )
+
+
+def test_paired_block_sign_flip_uses_exact_seed_blocks():
+    blocks = 10
+    prompts = 3
+    x = np.zeros((blocks * prompts, 2))
+    y = np.ones_like(x)
+    labels = [block for block in range(blocks) for _ in range(prompts)]
+    result = paired_block_sign_flip_test(x, y, labels, exact=True)
+    assert result.reject
+    assert result.p_value == 2 / (1 << blocks)
+    assert result.diagnostics["evaluated_sign_patterns"] == 1 << blocks
+    assert result.diagnostics["samples_per_block"] == prompts
+
+
+def test_paired_block_sign_flip_does_not_flag_exact_replay():
+    rng = np.random.default_rng(41)
+    x = rng.normal(size=(30, 5))
+    labels = [block for block in range(10) for _ in range(3)]
+    result = paired_block_sign_flip_test(x, x.copy(), labels, exact=True)
+    assert not result.reject
+    assert result.p_value == 1.0

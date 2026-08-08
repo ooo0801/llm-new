@@ -391,6 +391,78 @@ def paired_sign_flip_test(
     return TestResult(observed, p_value, p_value < alpha, alpha, "paired_sign_flip", effect)
 
 
+def paired_block_sign_flip_test(
+    x: np.ndarray,
+    y: np.ndarray,
+    blocks: list[str | int],
+    permutations: int = 1000,
+    alpha: float = 0.05,
+    seed: int = 42,
+    exact: bool = True,
+) -> TestResult:
+    """Paired feature test that flips every prompt in a seed block together."""
+    _validate_test_settings(permutations, alpha)
+    x = np.asarray(x, dtype=np.float64)
+    y = np.asarray(y, dtype=np.float64)
+    block_array = np.asarray(blocks, dtype=object)
+    if x.shape != y.shape or x.ndim != 2:
+        raise ValueError("Paired block test requires equal two-dimensional arrays")
+    if len(block_array) != len(x):
+        raise ValueError("Block labels must match the number of paired samples")
+    labels = list(dict.fromkeys(block_array.tolist()))
+    if len(labels) < 2:
+        raise ValueError("Paired block test requires at least two blocks")
+    groups = [np.flatnonzero(block_array == label) for label in labels]
+    sizes = {len(indices) for indices in groups}
+    if len(sizes) != 1:
+        raise ValueError("Every paired block must contain the same number of samples")
+    differences = y - x
+    observed = float(np.linalg.norm(differences.mean(axis=0)))
+
+    evaluated = 0
+    exceedances = 0
+    if exact and len(labels) <= 20:
+        for mask in range(1 << len(labels)):
+            signed = differences.copy()
+            for index, indices in enumerate(groups):
+                if not (mask >> index) & 1:
+                    signed[indices] *= -1.0
+            exceedances += float(np.linalg.norm(signed.mean(axis=0))) >= observed
+            evaluated += 1
+        p_value = exceedances / evaluated
+        mode = "exact"
+    else:
+        rng = np.random.default_rng(seed)
+        for _ in range(permutations):
+            signed = differences.copy()
+            signs = rng.choice(np.asarray([-1.0, 1.0]), size=len(groups))
+            for sign, indices in zip(signs, groups):
+                signed[indices] *= sign
+            exceedances += float(np.linalg.norm(signed.mean(axis=0))) >= observed
+        evaluated = permutations
+        p_value = (exceedances + 1) / (permutations + 1)
+        mode = "monte_carlo"
+    within_scale = float(np.sqrt(np.mean(np.sum(differences**2, axis=1))))
+    effect = observed / max(within_scale, 1e-12)
+    return TestResult(
+        observed,
+        p_value,
+        p_value < alpha,
+        alpha,
+        "paired_block_sign_flip",
+        effect,
+        {
+            "mode": mode,
+            "evaluated_sign_patterns": evaluated,
+            "exceedances": exceedances,
+            "blocks": len(labels),
+            "samples_per_block": next(iter(sizes)),
+            "exchangeable_unit": "generation_seed_block",
+            "minimum_attainable_p": 1.0 / evaluated,
+        },
+    )
+
+
 def normal_power(k: int, delta: float, sigma: float, alpha: float = 0.05) -> float:
     from scipy.stats import norm
 

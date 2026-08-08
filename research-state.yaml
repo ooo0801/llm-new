@@ -2,11 +2,11 @@
 project:
   title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
   question: "Can preregistered multi-seed robust selection produce an independently confirmed 14B fingerprint, and if so do frozen 7B component thresholds and prompt-stratified MMD transfer to the fixed 14B model?"
-  status: complete_partial_g3_go_h3_no_go
+  status: in_progress_h4_false_positive_remediation
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_g3_h3_complete_h3_no_go"
+  current_stage: "experiment_h4_protocol_ready"
 
 literature:
   key_papers: []
@@ -92,6 +92,12 @@ hypotheses:
     statement: "The G3 recovery MCC12 leaves the intact state unflagged, detects at least 9 of 11 registered modified states, and covers all five modified families."
     status: refuted
     motivation: "A new independent MMD stage is required to validate the recovery fingerprint without reusing the unused H2 identifiers or seeds."
+    parent: H-G3
+    priority: high
+  - id: H-H4
+    statement: "Common-random-number paired verification leaves all three intact reloads unflagged, detects at least 9 of 11 newly instantiated modified states, and covers all five modified families."
+    status: in_progress
+    motivation: "H3 response replay was exact, showing that independent reference/target sampling rather than model drift confounded the two-sample detector; pairing the same generation seeds isolates model-state differences."
     parent: H-G3
     priority: high
 
@@ -254,6 +260,11 @@ execution:
   experiment_h3_stage_2_model_states: complete
   experiment_h3_stage_3_analysis: complete_no_go
   experiment_g3_h3_stage_4_archive: complete
+  experiment_h4_stage_0_diagnosis: complete
+  experiment_h4_stage_1_protocol: complete
+  experiment_h4_stage_2_reference: pending
+  experiment_h4_stage_3_model_states: pending
+  experiment_h4_stage_4_analysis: pending
   background_task: null
   last_error: null
 
@@ -266,9 +277,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 11
-  last_direction: "conclude_g3_construction_success_h3_detection_no_go"
-  last_reflection: "The frozen 19-prompt recovery pool supported a deterministic all-category MCC12, but the preregistered prompt-stratified MMD test flagged the intact model despite detecting all 11 modified states. G3 is supported and H3 is refuted; the pooled-MMD ablation does not retroactively repair the primary false positive."
+  cycle: 12
+  last_direction: "deepen_with_h4_common_random_number_paired_verification"
+  last_reflection: "All 240 H3 intact responses replayed byte-exactly in a fresh process. Reference-only scaling, pooled-symmetric scaling and whole-seed-block MMD all retained the H3 false positive, localizing the confound to comparing two small independent random-seed banks. H4 preserves H3 as No-Go and preregisters same-seed paired block sign flips with three intact reloads."
 
 workspace:
   findings: "findings.md"

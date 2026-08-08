@@ -3,12 +3,15 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Mapping
 
+import numpy as np
+
 from .features import FeatureExtractor, Standardizer
 from .fingerprint import ModelFingerprint
 from .modeling import ModelBundle, generate_texts
 from .statistics import (
     TestResult,
     mmd_permutation_test,
+    paired_block_sign_flip_test,
     paired_sign_flip_test,
     prompt_stratified_mmd_test,
 )
@@ -42,6 +45,7 @@ def verify_model(
     target_texts: list[str] = []
     expanded_rows: list[dict[str, Any]] = []
     strata: list[str] = []
+    blocks: list[int] = []
     response_records: list[dict[str, Any]] = []
     if target_seeds is None:
         seed_base = int(statistics_config.get("target_seed_base", 52000))
@@ -62,6 +66,7 @@ def verify_model(
             str(entry.prompt_id)
             for entry in fingerprint.entries
         )
+        blocks.extend([repetition] * len(fingerprint.entries))
 
 
         for entry in fingerprint.entries:
@@ -103,7 +108,15 @@ def verify_model(
         bool(feature_config.get("semantic", True)),
         bool(feature_config.get("task", True)),
     )
-    standardizer = Standardizer().fit(reference_features)
+    standardization = str(statistics_config.get("standardization", "reference_only"))
+    if standardization == "reference_only":
+        standardizer = Standardizer().fit(reference_features)
+    elif standardization == "pooled_symmetric":
+        standardizer = Standardizer().fit(
+            np.concatenate([reference_features, target_features], axis=0)
+        )
+    else:
+        raise ValueError(f"Unknown standardization mode: {standardization}")
     x = standardizer.transform(reference_features)
     y = standardizer.transform(target_features)
 
@@ -157,12 +170,25 @@ def verify_model(
             **common,
         )
 
+    elif method == "paired_block_sign_flip":
+        test = paired_block_sign_flip_test(
+            x,
+            y,
+            blocks=blocks,
+            exact=bool(statistics_config.get("exact_sign_flips", True)),
+            **common,
+        )
+
     else:
         raise ValueError(
             f"Unknown verification method: {method}"
         )
 
     secondary_tests: dict[str, TestResult] = {}
+    if bool(statistics_config.get("report_stratified_ablation", False)) and method != "prompt_stratified_mmd":
+        secondary_tests["prompt_stratified_mmd"] = prompt_stratified_mmd_test(
+            x, y, strata=strata, **common
+        )
     if bool(statistics_config.get("report_pooled_baseline", True)) and method != "paper_mmd":
         secondary_tests["pooled_mmd"] = mmd_permutation_test(x, y, **common)
 

@@ -58,7 +58,8 @@ def validate_verification(row: dict[str, Any], attack: dict[str, Any], config: d
     if not isinstance(primary, dict):
         errors.append("missing primary test")
     else:
-        if primary.get("method") != "prompt_stratified_mmd":
+        expected_method = str(config["statistics"].get("method", "prompt_stratified_mmd"))
+        if primary.get("method") != expected_method:
             errors.append("primary method mismatch")
         if not finite_number(primary.get("statistic")):
             errors.append("nonfinite primary statistic")
@@ -72,16 +73,27 @@ def validate_verification(row: dict[str, Any], attack: dict[str, Any], config: d
         if bool(row.get("predicted_modified")) != bool(primary.get("reject")):
             errors.append("prediction/rejection mismatch")
         diagnostics = primary.get("diagnostics", {})
-        if int(diagnostics.get("permutations", -1)) != permutations:
-            errors.append("permutation mismatch")
-        if int(diagnostics.get("strata", -1)) != selected_size:
-            errors.append("strata count mismatch")
-        sample_counts = diagnostics.get("samples_per_group", {})
-        if len(sample_counts) != selected_size or any(int(value) != repetitions for value in sample_counts.values()):
-            errors.append("stratum sample count mismatch")
-        bandwidths = diagnostics.get("bandwidths", {})
-        if len(bandwidths) != selected_size or any(not finite_number(value) or float(value) <= 0.0 for value in bandwidths.values()):
-            errors.append("invalid prompt bandwidth")
+        if expected_method == "prompt_stratified_mmd":
+            if int(diagnostics.get("permutations", -1)) != permutations:
+                errors.append("permutation mismatch")
+            if int(diagnostics.get("strata", -1)) != selected_size:
+                errors.append("strata count mismatch")
+            sample_counts = diagnostics.get("samples_per_group", {})
+            if len(sample_counts) != selected_size or any(int(value) != repetitions for value in sample_counts.values()):
+                errors.append("stratum sample count mismatch")
+            bandwidths = diagnostics.get("bandwidths", {})
+            if len(bandwidths) != selected_size or any(not finite_number(value) or float(value) <= 0.0 for value in bandwidths.values()):
+                errors.append("invalid prompt bandwidth")
+        elif expected_method == "paired_block_sign_flip":
+            if int(diagnostics.get("blocks", -1)) != repetitions:
+                errors.append("paired block count mismatch")
+            if int(diagnostics.get("samples_per_block", -1)) != selected_size:
+                errors.append("paired block size mismatch")
+            if diagnostics.get("exchangeable_unit") != "generation_seed_block":
+                errors.append("paired exchangeable unit mismatch")
+            expected_patterns = 1 << repetitions
+            if bool(config["statistics"].get("exact_sign_flips", True)) and int(diagnostics.get("evaluated_sign_patterns", -1)) != expected_patterns:
+                errors.append("exact sign-pattern count mismatch")
 
     pooled = row.get("secondary_tests", {}).get("pooled_mmd")
     if not isinstance(pooled, dict) or pooled.get("method") != "pooled_mmd":
@@ -159,8 +171,15 @@ def main() -> None:
         }
         for family in MODIFIED_FAMILIES
     }
-    technical_passed = bool(not errors and len(rows) == len(attacks) == 12 and len(intact) == 1 and len(modified) == 11)
-    intact_correct = bool(len(intact) == 1 and not intact[0]["predicted_modified"])
+    expected_intact = int(config["statistics"].get("expected_intact_states", 1))
+    expected_modified = int(config["statistics"].get("expected_modified_states", 11))
+    technical_passed = bool(
+        not errors
+        and len(rows) == len(attacks) == expected_intact + expected_modified
+        and len(intact) == expected_intact
+        and len(modified) == expected_modified
+    )
+    intact_correct = bool(len(intact) == expected_intact and all(not row["predicted_modified"] for row in intact))
     family_coverage = bool(all(family_detected[family] >= 1 for family in MODIFIED_FAMILIES))
     hypothesis_supported = bool(technical_passed and intact_correct and len(detected) >= args.required_modified and family_coverage)
     accuracy = sum(bool(row["correct"]) for row in rows)
