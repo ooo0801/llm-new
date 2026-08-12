@@ -84,3 +84,12 @@ def test_h6_runner_stops_before_verification() -> None:
     assert "build_fingerprint_h6_artifact.py" in runner
     assert "run_fingerprint_v2_verification.py" not in runner
     assert "summarize_fingerprint" not in runner
+
+
+def test_h6_resume_chain_preserves_parent_gates() -> None:
+    runner = (ROOT / "scripts/resume_h6_after_download.sh").read_text(encoding="utf-8")
+    assert 'r.get("status") == "complete"' in runner
+    assert 'len(r.get("weight_shards", [])) == 17' in runner
+    assert "run_h6_preflight.sh" in runner
+    assert 'r.get("passed") is True' in runner
+    assert "run_experiment_h6_qwen32b.sh" in runner
