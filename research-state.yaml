@@ -330,8 +330,8 @@ execution:
   experiment_h6_stage_4_development: not_started
   experiment_h6_stage_5_confirmation: not_started
   experiment_h6_stage_6_components_mcc12: not_started
-  background_task: "resume_pid_1873_formal_runner_pid_3768"
-  last_error: null
+  background_task: "formal_runner_pid_5997_isolated_lora_pid_6003"
+  last_error: "recovered_engineering_oom_between_sequential_lora_variants"
 
 resources:
   gpu_count: 3
