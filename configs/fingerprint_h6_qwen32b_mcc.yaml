@@ -1,0 +1,85 @@
+experiment_name: fingerprint_h6_qwen32b_mcc_20260812
+output_dir: results/fingerprint_h6_qwen32b_mcc_20260812
+reproducibility_dir: reproducibility/fingerprint_h6_qwen32b_mcc_20260812
+protocol_frozen_on: "2026-08-12"
+seed: 2026082040
+protocol_labels:
+  construction: H6G
+  candidate_source: experiment_h6_independent_confirmation
+
+model:
+  name: Qwen/Qwen2.5-32B-Instruct
+  revision: 5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd
+  dtype: bfloat16
+  device_map: balanced
+  max_memory: {0: 30GiB, 1: 30GiB, 2: 30GiB}
+  local_files_only: true
+  eager_attention: true
+
+data:
+  candidate_source: results/experiment_h6_qwen32b_reconstruction_20260812/04_confirmation/confirmed_prompt_pool.jsonl
+  candidate_manifest: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/candidate_manifest.jsonl
+  calibration_build_manifest: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/calibration_build_manifest.jsonl
+  calibration_audit_manifest: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/calibration_audit_manifest.jsonl
+
+generation:
+  max_input_tokens: 512
+  max_new_tokens: 64
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  system_prompt: null
+
+activations:
+  repetitions: 2
+  stable_component_frequency: 1.0
+  attention_entropy_fraction: 0.70
+  ffn_quantile: 0.95
+  residual_threshold: 0.50
+  max_ffn_units_per_layer: 128
+  max_length: 512
+  minimum_jaccard: 0.999
+
+calibration:
+  task_families: 14
+  build_per_family: 20
+  audit_per_family: 4
+  batch_size: 14
+  last_batches_for_saturation: 3
+  max_last_batch_relative_gain: 0.02
+  max_audit_novelty_rate: 0.08
+  report_build_audit_jaccard: true
+  near_duplicate_trigram_jaccard: 0.72
+  final_universe: build_and_audit_union
+
+fingerprint:
+  minimum_candidate_size: 19
+  selected_size: 12
+  required_categories: [code, instruction, knowledge, logic, reasoning, safety, structured, summary]
+  reference_repetitions: 0
+  reference_seed_base: 2026082050
+  primary_selection: global_unweighted_mcc
+  artifact_name: global_mcc_32b_h6.json
+  parent_tag: h6-32b-reconstruction
+  ablation_weights:
+    attention: 1.2
+    ffn: 1.0
+    attention_residual: 0.8
+    mlp_residual: 0.8
+
+features:
+  surface: true
+  semantic: true
+  task: true
+  semantic_model: BAAI/bge-small-zh-v1.5
+  semantic_model_revision: 7999e1d3359715c523056ef9478215996d62a620
+  semantic_device: cpu
+  semantic_local_files_only: true
+  hashed_dimension: 128
+
+statistics:
+  method: not_run_in_h6_construction
+  repetitions: 0
+  alpha: 0.05
+  seed: 2026082051

@@ -1,0 +1,47 @@
+experiment_name: experiment_h6_qwen32b_reconstruction_20260812
+seed: 2026082010
+model:
+  name: Qwen/Qwen2.5-32B-Instruct
+  revision: 5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd
+  dtype: bfloat16
+  device_map: balanced
+  max_memory: {0: 30GiB, 1: 30GiB, 2: 30GiB}
+  local_files_only: true
+  eager_attention: true
+generation: {system_prompt: null}
+discrete_joint_inner:
+  version: 4
+  prompt_pool: experiments/prompt-reconstruction-32b-h6/inputs/construction_prompts_k60.jsonl
+  training_manifest: experiments/prompt-reconstruction-32b-h6/inputs/attack_manifest_train_executable.jsonl
+  validation_manifest: experiments/prompt-reconstruction-32b-h6/inputs/attack_manifest_development_2each.jsonl
+  training_adapter_registry: results/experiment_h6_qwen32b_reconstruction_20260812/adapters/registry_train.json
+  validation_adapter_registry: results/experiment_h6_qwen32b_reconstruction_20260812/adapters/registry_development.json
+  max_input_tokens: 64
+  formal_max_input_tokens: 128
+  rounds: 3
+  probes_inner: 1
+  block_types: [q_proj, v_proj, down_proj]
+  representative_layer_count: 4
+  candidate_positions: 4
+  candidates_per_position: 24
+  rerank_candidates: 12
+  minimum_proxy_gain: 0.0
+  variants_per_family: 1
+  anchor_variants_per_family: 2
+  gradient_restarts: 1
+  family_aggregation: mean
+  family_gate_aggregation: all_anchor_variants
+  minimum_nondegraded_families: 3
+  family_relative_tolerance: 0.01
+  task_guard: {enabled: true, max_input_tokens: 512, max_new_tokens: 128}
+  macro:
+    families: {unstructured_pruning: 0.2, structured_pruning: 0.2, quantization: 0.2, gaussian_noise: 0.2, finetuning: 0.2}
+    distance: squared_l2_next_token_logits
+    normalization: family_specific
+  micro: {normalization: block_specific, calibration_probes: 2}
+  macro_weight: 1.0
+  ppl_ratio_limit: 2.0
+  max_edit_ratio: 0.25
+  protect_digit_tokens: true
+  acceptance: {require_discrete_change: true, require_positive_proxy_gain: true, require_hard_validation: true}
+h6_protocol_version: 1

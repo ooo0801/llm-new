@@ -1,12 +1,12 @@
 # Central state for the 14B follow-up sequence. Updated after each completed stage.
 project:
-  title: "Qwen2.5-14B fingerprint: transfer, reconstruction, and final joint confirmation"
-  question: "Can preregistered multi-seed robust selection produce an independently confirmed 14B fingerprint, and if so do frozen 7B component thresholds and prompt-stratified MMD transfer to the fixed 14B model?"
-  status: complete_h5_go
+  title: "Qwen2.5 integrity fingerprint: completed 14B validation and 32B model-specific reconstruction"
+  question: "Can the validated construction method rebuild an independently confirmed sensitive-prompt pool and deterministic MCC12 on fixed-revision Qwen2.5-32B without reusing 14B model endpoints or component identities?"
+  status: experiment_h6_preregistering
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
-  git_branch: "experiment/f2-targeted-expansion-14b"
-  current_stage: "experiment_h5_complete_go"
+  git_branch: "experiment/h6-qwen2.5-32b-reconstruction"
+  current_stage: "experiment_h6_qwen32b_protocol_and_environment"
 
 literature:
   key_papers: []
@@ -105,6 +105,18 @@ hypotheses:
     status: supported
     motivation: "H4 restored intact specificity but its signed feature effects cancelled for Gaussian perturbations even though 7-10 of 10 H4 seed blocks contained byte-different outputs; H5 tests that non-directional paired evidence on independent endpoints."
     parent: H-G3
+    priority: high
+  - id: H6-P
+    statement: "Fixed-revision Qwen2.5-32B model-aware reconstruction independently confirms at least 19 sensitive prompts with all eight core categories represented."
+    status: preregistered_not_run
+    motivation: "H5 established a fixed 14B closed loop but did not establish 32B model-specific prompt reconstruction."
+    parent: H-H5
+    priority: high
+  - id: H6-G
+    statement: "The independently confirmed H6-P pool supports stable 32B component extraction and deterministic global-unweighted MCC12 under the frozen direct-threshold-transfer gates."
+    status: preregistered_not_run
+    motivation: "A 32B-specific fingerprint must be rebuilt from 32B activations rather than reusing 14B component identities."
+    parent: H6-P
     priority: high
 
 experiments:
@@ -311,6 +323,13 @@ execution:
   experiment_h5_intact_specificity: complete_go_3of3
   experiment_h5_stage_4_analysis: complete_go
   experiment_h5_stage_5_archive: complete
+  experiment_h6_stage_0_protocol: in_progress
+  experiment_h6_stage_1_model_download: not_started
+  experiment_h6_stage_2_engineering_gate: not_started
+  experiment_h6_stage_3_prompt_construction: not_started
+  experiment_h6_stage_4_development: not_started
+  experiment_h6_stage_5_confirmation: not_started
+  experiment_h6_stage_6_components_mcc12: not_started
   background_task: null
   last_error: null
 
@@ -323,9 +342,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
 
 outer_loop:
-  cycle: 15
-  last_direction: "conclude_h5_operational_go"
-  last_reflection: "H5 independently passed every frozen gate: all three intact reloads had zero positive blocks, all eleven modified states were detected, all five families were covered, and all three Gaussian states had nine of ten positive seed blocks. The non-directional paired response-block detector resolves the H3/H4 specificity-sensitivity tradeoff for the fixed revision/runtime and registered instances."
+  cycle: 16
+  last_direction: "broaden_to_qwen32b_model_specific_reconstruction"
+  last_reflection: "H5 remains a fixed 14B Go. H6 now tests a separate 32B reconstruction claim: shared clean task texts are retokenized, while calibration, gradients, attacks, adapters, confirmation endpoints, activations and component identities are regenerated on the frozen 32B revision."
 
 workspace:
   findings: "findings.md"

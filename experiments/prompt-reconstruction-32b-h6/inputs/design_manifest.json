@@ -1,0 +1,67 @@
+{
+  "component_gate": {
+    "maximum_audit_novelty_rate": 0.08,
+    "maximum_last_batch_relative_gain": 0.02,
+    "minimum_jaccard": 0.999,
+    "selected_size": 12
+  },
+  "confirmation_gate": {
+    "all_core_categories_required": true,
+    "minimum_confirmed": 19
+  },
+  "construction": {
+    "family_relative_tolerance": 0.01,
+    "maximum_candidates_per_source": 2,
+    "minimum_nondegraded_families": 3,
+    "rounds": 3
+  },
+  "development_gate": {
+    "all_core_categories_required": true,
+    "maximum_per_source": 1,
+    "minimum_frozen": 30
+  },
+  "input_sha256": {
+    "attack_manifest_confirmation_2each.jsonl": "3a40cced7be9480f1b3b3066519ae173be79e61e479b3b9aa03e7d1e0a0b435c",
+    "attack_manifest_development_2each.jsonl": "4e2f4cd646f1f31c15cf34c78dd400afe6702b3e107ea43086066c785ceaf56a",
+    "attack_manifest_train_executable.jsonl": "fda69f41d71e5319c2c0ae603b0d939e18dd5b6d92c3d8a4f2496b6c4c1d0c0a",
+    "attack_manifest_train_lora_registered.jsonl": "a894540b5deb088a9a245ed27d25e75b4937982211d5fd17dc7a9cada359d380",
+    "calibration_prompts_k12.jsonl": "2db54df9eec3c2aab8f9ae70148e8394ffdb1f7f784393ab3a822eaf2d27ac5c",
+    "construction_prompts_k60.jsonl": "4ccff222ab0d0991e1db1fee83ae8072cf281462273c135863e57ae87c3896be"
+  },
+  "leakage_guard": "H6 uses shared clean texts only; all 32B tokenization, calibration, gradients, attacks, adapters, confirmation endpoints, activations and components are newly generated.",
+  "model": {
+    "dtype": "bfloat16",
+    "id": "Qwen/Qwen2.5-32B-Instruct",
+    "placement": "balanced_3gpu_no_cpu_disk_offload",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
+  },
+  "schema_version": "experiment_h6_design_1.0",
+  "source": {
+    "category_counts": {
+      "code": 6,
+      "instruction": 5,
+      "knowledge": 5,
+      "logic": 6,
+      "long_context": 6,
+      "math": 5,
+      "reasoning": 5,
+      "safety": 6,
+      "structured": 6,
+      "summary": 5,
+      "translation": 5
+    },
+    "core_categories": [
+      "code",
+      "instruction",
+      "knowledge",
+      "logic",
+      "reasoning",
+      "safety",
+      "structured",
+      "summary"
+    ],
+    "parent_path": "experiments/prompt-construction-14b-c1/inputs/construction_prompts_k60.jsonl",
+    "parent_sha256": "f6c55d4897e37c65e6779e24e1cbfc80e63a7d790ada15ac7a0a2b96282e7a4c",
+    "rows": 60
+  }
+}

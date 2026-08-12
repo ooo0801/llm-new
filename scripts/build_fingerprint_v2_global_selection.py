@@ -187,6 +187,17 @@ def main() -> None:
         }
     metrics = coverage_metrics(candidate_components, primary.selected_ids, global_universe)
     typed = per_type_coverage(candidate_components, primary.selected_ids, global_universe)
+    selected_categories = [
+        prompts[prompt_id].get("category")
+        for prompt_id in primary.selected_ids
+    ]
+    required_categories = {
+        str(value)
+        for value in config["fingerprint"].get("required_categories", [])
+    }
+    missing_required_categories = sorted(
+        required_categories - set(map(str, selected_categories))
+    )
     nonempty_type_coverage = [
         float(row["final_global_coverage"])
         for row in typed.values()
@@ -199,6 +210,7 @@ def main() -> None:
         and len(set(primary.selected_ids)) == k
         and metrics.selected_global_components > 0
         and factorization_passed
+        and not missing_required_categories
         and all(
             0.0 <= float(curves[str(value)]["final_global_coverage"]) <= 1.0
             for value in (4, 8, 12, 16)
@@ -215,7 +227,9 @@ def main() -> None:
         "candidate_prompts": len(candidate_components),
         "selected_prompts": len(primary.selected_ids),
         "selected_ids": primary.selected_ids,
-        "selected_categories": [prompts[prompt_id].get("category") for prompt_id in primary.selected_ids],
+        "selected_categories": selected_categories,
+        "required_categories": sorted(required_categories),
+        "missing_required_categories": missing_required_categories,
         "trace": primary.trace,
         "coverage_metrics": metrics.as_dict(),
         "per_type_coverage": typed,
