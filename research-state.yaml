@@ -326,7 +326,7 @@ execution:
   experiment_h6_stage_0_protocol: complete
   experiment_h6_stage_1_model_download: complete_17of17
   experiment_h6_stage_2_engineering_gate: complete_go
-  experiment_h6_stage_3_prompt_construction: "formal_generation_10of60_9accepted_0technical_failures"
+  experiment_h6_stage_3_prompt_construction: "formal_generation_20of60_17accepted_0technical_failures"
   experiment_h6_stage_4_development: not_started
   experiment_h6_stage_5_confirmation: not_started
   experiment_h6_stage_6_components_mcc12: not_started
@@ -341,7 +341,7 @@ resources:
   model_cache: "/root/autodl-tmp/huggingface"
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
   last_known_ssh: "root@connect.cqa1.seetacloud.com:40195"
-  last_known_server_commit: "3341d64f3c5cf82add37a579050478f2b0b090a4"
+  last_known_server_commit: "2821b62adf6febeee4a9b8c3df59337594b6d3d5"
   partial_32b_cache_gb: null
   model_weight_bytes: 65527841856
   engineering_gate_peak_gpu_bytes: 29842219520
