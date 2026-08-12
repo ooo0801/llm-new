@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/h6-qwen2.5-32b-reconstruction"
-  current_stage: "experiment_h6_qwen32b_download_resumed"
+  current_stage: "experiment_h6_qwen32b_formal_adapter_training"
 
 literature:
   key_papers: []
@@ -324,13 +324,13 @@ execution:
   experiment_h5_stage_4_analysis: complete_go
   experiment_h5_stage_5_archive: complete
   experiment_h6_stage_0_protocol: complete
-  experiment_h6_stage_1_model_download: running_resumed_partial_cache
-  experiment_h6_stage_2_engineering_gate: not_started
-  experiment_h6_stage_3_prompt_construction: not_started
+  experiment_h6_stage_1_model_download: complete_17of17
+  experiment_h6_stage_2_engineering_gate: complete_go
+  experiment_h6_stage_3_prompt_construction: running_prerequisite_adapter_training
   experiment_h6_stage_4_development: not_started
   experiment_h6_stage_5_confirmation: not_started
   experiment_h6_stage_6_components_mcc12: not_started
-  background_task: "download_pid_1872_resume_pid_1873"
+  background_task: "resume_pid_1873_formal_runner_pid_3768"
   last_error: null
 
 resources:
@@ -342,7 +342,9 @@ resources:
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
   last_known_ssh: "root@connect.cqa1.seetacloud.com:40195"
   last_known_server_commit: "c1d9275d170e7e54897fa8f89613be80f6f56b0a"
-  partial_32b_cache_gb: 19
+  partial_32b_cache_gb: null
+  model_weight_bytes: 65527841856
+  engineering_gate_peak_gpu_bytes: 29842219520
   github_transport_note: "SSH authentication succeeds; use ssh.github.com:443 for repository transfer if github.com:22 times out."
   resume_requirements:
     - "Rediscover and authenticate the current SSH endpoint; do not assume port 40195 is unchanged."
