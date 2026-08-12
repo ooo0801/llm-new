@@ -130,3 +130,14 @@ def test_h6_resume_chain_preserves_parent_gates() -> None:
     assert "run_h6_preflight.sh" in runner
     assert 'r.get("passed") is True' in runner
     assert "run_experiment_h6_qwen32b.sh" in runner
+
+
+def test_h6_post_construction_resume_is_guarded() -> None:
+    runner = (
+        ROOT / "scripts/resume_h6_after_construction.sh"
+    ).read_text(encoding="utf-8")
+    assert 'r.get("requested_prompts") == 60' in runner
+    assert 'r.get("technically_complete") == 60' in runner
+    assert 'r.get("technical_passed") is True' in runner
+    assert "summarize_discrete_results.py" in runner
+    assert "run_experiment_h6_qwen32b.sh" in runner

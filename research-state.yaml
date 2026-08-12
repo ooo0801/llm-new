@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/h6-qwen2.5-32b-reconstruction"
-  current_stage: "experiment_h6_qwen32b_preconstruction_execution_recovery"
+  current_stage: "experiment_h6_qwen32b_formal_candidate_generation"
 
 literature:
   key_papers: []
@@ -326,12 +326,12 @@ execution:
   experiment_h6_stage_0_protocol: complete
   experiment_h6_stage_1_model_download: complete_17of17
   experiment_h6_stage_2_engineering_gate: complete_go
-  experiment_h6_stage_3_prompt_construction: "calibration_complete_120of120_records_preconstruction_smoke_pending"
+  experiment_h6_stage_3_prompt_construction: "preconstruction_smoke_go_formal_60_running"
   experiment_h6_stage_4_development: not_started
   experiment_h6_stage_5_confirmation: not_started
   experiment_h6_stage_6_components_mcc12: not_started
-  background_task: "none_server_restart_after_calibration"
-  last_error: "pre_endpoint_inner_partition_config_requested_3_disjoint_variants_from_frozen_2_each"
+  background_task: "formal_candidate_generation_pid_2999"
+  last_error: "none_pre_endpoint_partition_and_model_lifetime_repairs_validated_by_smoke"
 
 resources:
   gpu_count: 3
@@ -341,7 +341,7 @@ resources:
   model_cache: "/root/autodl-tmp/huggingface"
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
   last_known_ssh: "root@connect.cqa1.seetacloud.com:40195"
-  last_known_server_commit: "70ac4c1bfe386af538cea27fc09a044627e3c8cc"
+  last_known_server_commit: "8033a0fe503418c8ac931bd77be25c741e45503e"
   partial_32b_cache_gb: null
   model_weight_bytes: 65527841856
   engineering_gate_peak_gpu_bytes: 29842219520
