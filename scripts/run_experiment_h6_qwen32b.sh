@@ -24,11 +24,29 @@ CONFIRM="$OUT/04_confirmation"
 ADAPTERS="$OUT/adapters"
 mkdir -p "$ENV" "$CAL" "$GEN" "$DEV" "$CONFIRM" "$ADAPTERS"
 
+train_lora_variant() {
+  local manifest="$1"
+  local split="$2"
+  local output_root="$3"
+  local registry="$4"
+  local variant_id="$5"
+  "$PY" scripts/train_paper_lora_registry.py \
+    --config "$INNER" \
+    --manifest "$manifest" \
+    --split "$split" \
+    --data data/attack_train_lora.jsonl \
+    --output-root "$output_root" \
+    --registry-output "$registry" \
+    --variant-id "$variant_id"
+}
+
 "$PY" -c 'import json; from pathlib import Path; p=Path("results/experiment_h6_qwen32b_reconstruction_20260812/00_environment/engineering_smoke.json"); r=json.loads(p.read_text()); assert r.get("passed") is True and r.get("status") == "complete_go"'
 
 printf '[H6_STAGE] train_and_development_adapters_start %s\n' "$(date --iso-8601=seconds)"
-"$PY" scripts/train_paper_lora_registry.py --config "$INNER" --manifest "$INPUT/attack_manifest_train_lora_registered.jsonl" --split train --data data/attack_train_lora.jsonl --output-root "$ADAPTERS/train" --registry-output "$ADAPTERS/registry_train.json"
-"$PY" scripts/train_paper_lora_registry.py --config "$INNER" --manifest "$INPUT/attack_manifest_development_2each.jsonl" --split validation --data data/attack_train_lora.jsonl --output-root "$ADAPTERS/development" --registry-output "$ADAPTERS/registry_development.json"
+train_lora_variant "$INPUT/attack_manifest_train_lora_registered.jsonl" train "$ADAPTERS/train" "$ADAPTERS/registry_train.json" h6_train_finetuning_6a35e421e2bd
+train_lora_variant "$INPUT/attack_manifest_train_lora_registered.jsonl" train "$ADAPTERS/train" "$ADAPTERS/registry_train.json" h6_train_finetuning_98965877bebd
+train_lora_variant "$INPUT/attack_manifest_development_2each.jsonl" validation "$ADAPTERS/development" "$ADAPTERS/registry_development.json" h6_validation_finetuning_c0a68aedce5f
+train_lora_variant "$INPUT/attack_manifest_development_2each.jsonl" validation "$ADAPTERS/development" "$ADAPTERS/registry_development.json" h6_validation_finetuning_c8ad5995aa5e
 printf '[H6_STAGE] train_and_development_adapters_complete %s\n' "$(date --iso-8601=seconds)"
 
 printf '[H6_STAGE] inner_calibration_start %s\n' "$(date --iso-8601=seconds)"
@@ -69,7 +87,8 @@ printf 'DEVELOPMENT_GO\n' > "$DEV/gate_status.txt"
 printf '[H6_STAGE] development_complete %s\n' "$(date --iso-8601=seconds)"
 
 printf '[H6_STAGE] confirmation_adapters_start %s\n' "$(date --iso-8601=seconds)"
-"$PY" scripts/train_paper_lora_registry.py --config "$INNER" --manifest "$INPUT/attack_manifest_confirmation_2each.jsonl" --split test --data data/attack_train_lora.jsonl --output-root "$ADAPTERS/confirmation" --registry-output "$ADAPTERS/registry_confirmation.json"
+train_lora_variant "$INPUT/attack_manifest_confirmation_2each.jsonl" test "$ADAPTERS/confirmation" "$ADAPTERS/registry_confirmation.json" h6_test_finetuning_d4d9c8a29d07
+train_lora_variant "$INPUT/attack_manifest_confirmation_2each.jsonl" test "$ADAPTERS/confirmation" "$ADAPTERS/registry_confirmation.json" h6_test_finetuning_cd2bbaed31af
 printf '[H6_STAGE] confirmation_start %s\n' "$(date --iso-8601=seconds)"
 "$PY" scripts/prepare_discrete_hard_validation.py --input "$DEV/frozen_selected_accepted.jsonl" --output-dir "$CONFIRM/outer"
 "$PY" scripts/run_discrete_task_validation.py --config "$CONFIRM_CONFIG" --prompts "$CONFIRM/outer/validation_candidates.jsonl" --output "$CONFIRM/outer/task_validation.jsonl" --max-input-tokens 512 --max-new-tokens 128 --resume

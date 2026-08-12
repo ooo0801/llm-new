@@ -286,6 +286,22 @@ def main() -> None:
             registry[variant_id] = str(expected_adapter)
             save_registry(registry_path, registry)
 
+            existing_variant_report = (
+                expected_adapter / "training_report.json"
+            )
+            if existing_variant_report.exists():
+                payload = json.loads(
+                    existing_variant_report.read_text(
+                        encoding="utf-8"
+                    )
+                )
+                if str(payload.get("variant_id")) != variant_id:
+                    raise ValueError(
+                        "Reused adapter report variant mismatch: "
+                        f"{existing_variant_report}"
+                    )
+                reports.append(dict(payload))
+
             print(
                 json.dumps(
                     {

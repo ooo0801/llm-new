@@ -86,6 +86,21 @@ def test_h6_runner_stops_before_verification() -> None:
     assert "summarize_fingerprint" not in runner
 
 
+def test_h6_lora_variants_are_process_isolated() -> None:
+    runner = (ROOT / "scripts/run_experiment_h6_qwen32b.sh").read_text(encoding="utf-8")
+    assert "train_lora_variant()" in runner
+    assert '--variant-id "$variant_id"' in runner
+    expected = {
+        "h6_train_finetuning_6a35e421e2bd",
+        "h6_train_finetuning_98965877bebd",
+        "h6_validation_finetuning_c0a68aedce5f",
+        "h6_validation_finetuning_c8ad5995aa5e",
+        "h6_test_finetuning_d4d9c8a29d07",
+        "h6_test_finetuning_cd2bbaed31af",
+    }
+    assert all(runner.count(variant_id) == 1 for variant_id in expected)
+
+
 def test_h6_resume_chain_preserves_parent_gates() -> None:
     runner = (ROOT / "scripts/resume_h6_after_download.sh").read_text(encoding="utf-8")
     assert 'r.get("status") == "complete"' in runner
