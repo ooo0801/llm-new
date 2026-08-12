@@ -207,3 +207,9 @@ H6 reuses the byte-frozen 60 clean task texts as common task inputs so that scal
 The 3x32 GiB host is expected to fit 32B BF16 inference by layer sharding, but full blockwise Hutchinson backward remains an explicit engineering risk. H6 therefore makes complete parameter coverage a pre-endpoint engineering gate and forbids CPU/disk offload or a quantized reference as a hidden repair. If the gradient gate fails for memory, the same frozen protocol can move to a larger GPU host without changing scientific inputs.
 
 H6-P requires at least 30 development-frozen prompts and at least 19 independently confirmed prompts covering code, instruction, knowledge, logic, reasoning, safety, structured and summary. H6-G is conditional on H6-P and freezes the prior component thresholds as a direct-transfer test, while rebuilding the empirical universe and all component identities on 32B. The final MCC12 must also cover all eight core categories.
+
+### H6 Operational Pause (2026-08-12)
+
+The preregistration and recovery-capable runner were committed and pushed before any 32B model endpoint. The obsolete 14B model cache was removed after verifying that H5 code and non-weight evidence remained preserved. The frozen 32B revision download then reached approximately 17 GB through the revision-matching mirror before the user requested a temporary server shutdown.
+
+The downloader and its automatic continuation process were terminated cleanly at 12:11 CST. No engineering-gate or scientific endpoint had started, all three GPUs were idle, and the partial Hugging Face cache was retained for resumable download. The last known server worktree was clean on commit `615a1d7ef81e9f2b12906e189e7280d24753881d`, branch `experiment/h6-qwen2.5-32b-reconstruction`, with the GitHub SSH remote configured. Recovery must rediscover the possibly changed SSH endpoint, validate project/GitHub access, and inspect retained cache before resuming the same fixed revision.
