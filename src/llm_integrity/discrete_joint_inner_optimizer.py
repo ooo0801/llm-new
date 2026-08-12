@@ -10,7 +10,9 @@ from typing import Any, Iterable
 import torch
 
 from .inner_micro_proxy import (
+    discover_micro_blocks,
     differentiable_block_micro_proxy,
+    representative_layers,
     score_block_micro_proxy,
     select_micro_block,
 )
@@ -20,8 +22,9 @@ from .inner_variant_sampler import (
     VariantSample,
 )
 from .joint_inner_optimizer import JointInnerOptimizer
-from .modeling import ModelBundle, generate_texts
+from .modeling import ModelBundle, generate_texts, load_model
 from .paper_variant_executor import load_manifest_variant
+from .sequential_macro import squared_l2_logit_vjp
 from .task_validation import evaluate_task
 
 
@@ -438,6 +441,7 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
         require_task_preservation: bool = False,
         task_max_input_tokens: int = 512,
         task_max_new_tokens: int = 128,
+        sequential_model_execution: bool = False,
     ) -> None:
         super().__init__(
             reference=reference,
@@ -538,12 +542,27 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
         self.require_task_preservation = bool(
             require_task_preservation
         )
+        self.sequential_model_execution = bool(
+            sequential_model_execution
+        )
         self.task_generation = {
             "max_input_tokens": int(task_max_input_tokens),
             "max_new_tokens": int(task_max_new_tokens),
             "do_sample": False,
             "system_prompt": None,
         }
+
+    def _release_reference(self) -> None:
+        self.reference.close()
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+    def _reload_reference(self) -> None:
+        self.reference = load_model(self.model_config)
+        self._freeze(self.reference)
+        self.blocks = discover_micro_blocks(self.reference.model)
+        self.layers = representative_layers(self.blocks, 4)
 
     def _task_validation(
         self,
@@ -731,6 +750,14 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
         list[VariantSample],
         list[VariantSample],
     ]:
+        if self.sequential_model_execution:
+            return self._macro_gradient_sequential(
+                prompt_id=prompt_id,
+                round_index=round_index,
+                prefix_ids=prefix_ids,
+                suffix_ids=suffix_ids,
+                current_embeddings=current_embeddings,
+            )
         accumulated = torch.zeros_like(current_embeddings)
         objective = 0.0
         traces: list[dict[str, Any]] = []
@@ -867,6 +894,212 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
             samples,
             anchor_samples,
         )
+
+    def _macro_gradient_sequential(
+        self,
+        *,
+        prompt_id: str,
+        round_index: int,
+        prefix_ids: list[int],
+        suffix_ids: list[int],
+        current_embeddings: torch.Tensor,
+    ) -> tuple[
+        torch.Tensor,
+        float,
+        list[dict[str, Any]],
+        list[VariantSample],
+        list[VariantSample],
+    ]:
+        """Evaluate the exact macro gradient with one 32B model resident.
+
+        The squared-distance gradient is split into variant and reference
+        VJPs.  The two terms are algebraically identical to differentiating
+        with both model graphs live, but never require both weight sets in
+        GPU memory at once.
+        """
+        samples: list[VariantSample] = []
+        anchor_samples: list[VariantSample] = []
+        for family in FAMILIES:
+            if self.anchor_variants_per_family:
+                family_samples, family_anchors = (
+                    self.sampler.sample_disjoint_family_variants(
+                        prompt_id,
+                        family,
+                        search_count=self.variants_per_family,
+                        anchor_count=self.anchor_variants_per_family,
+                        cycle=round_index,
+                    )
+                )
+                anchor_samples.extend(family_anchors)
+            else:
+                family_samples = self.sampler.sample_family_variants(
+                    prompt_id,
+                    family,
+                    count=self.variants_per_family,
+                    cycle=round_index,
+                )
+            samples.extend(family_samples)
+        if not anchor_samples:
+            anchor_samples = list(samples)
+
+        full, mask, user_slice = self._compose(
+            prefix_ids,
+            current_embeddings,
+            suffix_ids,
+        )
+        with torch.inference_mode():
+            reference_logits_cpu = self._next_logits(
+                self.reference,
+                full.detach(),
+                mask,
+            ).detach().cpu()
+        full_cpu = full.detach().cpu()
+        mask_cpu = mask.detach().cpu()
+        del full, mask
+
+        variant_terms: list[dict[str, Any]] = []
+        self._release_reference()
+        try:
+            for sample in samples:
+                loaded = None
+                try:
+                    loaded = load_manifest_variant(
+                        self.model_config,
+                        sample.manifest,
+                        adapter_path=sample.adapter_path,
+                    )
+                    self._freeze(loaded.bundle)
+                    variant_full = (
+                        full_cpu.to(loaded.bundle.device)
+                        .detach()
+                        .requires_grad_(True)
+                    )
+                    variant_mask = mask_cpu.to(loaded.bundle.device)
+                    variant_logits = self._next_logits(
+                        loaded.bundle,
+                        variant_full,
+                        variant_mask,
+                    )
+                    delta = (
+                        variant_logits.detach()
+                        - reference_logits_cpu.to(variant_logits.device)
+                    )
+                    raw_score = float(delta.square().sum().item())
+                    delta_cpu = delta.cpu()
+                    variant_gradient_cpu = squared_l2_logit_vjp(
+                        variant_logits,
+                        variant_full,
+                        delta_cpu,
+                        sign=1.0,
+                    ).detach().float().cpu()
+                    variant_terms.append(
+                        {
+                            "sample": sample,
+                            "delta": delta_cpu,
+                            "raw_score": raw_score,
+                            "variant_gradient": variant_gradient_cpu,
+                            "attack_effect": {
+                                "execution_mode": (
+                                    loaded.report.execution_mode
+                                ),
+                                "realized_method": (
+                                    loaded.report.realized_method
+                                ),
+                                "changed_parameters": (
+                                    loaded.report.details.get(
+                                        "changed_parameters"
+                                    )
+                                ),
+                                "total_parameters": (
+                                    loaded.report.details.get(
+                                        "total_parameters"
+                                    )
+                                ),
+                            },
+                        }
+                    )
+                    del variant_full, variant_mask, variant_logits, delta
+                finally:
+                    if loaded is not None:
+                        loaded.close()
+                    gc.collect()
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()
+        finally:
+            self._reload_reference()
+
+        accumulated = torch.zeros_like(current_embeddings)
+        objective = 0.0
+        traces: list[dict[str, Any]] = []
+        for term in variant_terms:
+            sample = term["sample"]
+            family = sample.family
+            reference_full = (
+                full_cpu.to(self.reference.device)
+                .detach()
+                .requires_grad_(True)
+            )
+            reference_mask = mask_cpu.to(self.reference.device)
+            reference_logits = self._next_logits(
+                self.reference,
+                reference_full,
+                reference_mask,
+            )
+            reference_gradient_cpu = squared_l2_logit_vjp(
+                reference_logits,
+                reference_full,
+                term["delta"],
+                sign=-1.0,
+            ).detach().float().cpu()
+            full_gradient_cpu = (
+                term["variant_gradient"] + reference_gradient_cpu
+            )
+            scale = self.macro_scales[family]
+            normalized = (
+                full_gradient_cpu[0, user_slice, :]
+                / scale
+                * sample.importance_correction
+            ).to(accumulated.device)
+            normalized, norm_before, clip = self._clip_component(
+                normalized,
+                self.macro_component_clips.get(family),
+            )
+            family_weight = self.sampler.family_weights[family]
+            within_family_weight = 1.0 / self.variants_per_family
+            effective_weight = family_weight * within_family_weight
+            accumulated += effective_weight * normalized
+            normalized_score = (
+                float(term["raw_score"])
+                / scale
+                * sample.importance_correction
+            )
+            objective += effective_weight * normalized_score
+            traces.append(
+                {
+                    **sample.trace(),
+                    "macro_score_raw": float(term["raw_score"]),
+                    "macro_score_normalized": normalized_score,
+                    "macro_gradient_norm_normalized": norm_before,
+                    "macro_clip_coefficient": clip,
+                    "family_weight": family_weight,
+                    "within_family_weight": within_family_weight,
+                    "effective_weight": effective_weight,
+                    "attack_effect": term["attack_effect"],
+                    "gradient_execution": "sequential_exact_vjp",
+                }
+            )
+            del (
+                reference_full,
+                reference_mask,
+                reference_logits,
+                reference_gradient_cpu,
+                full_gradient_cpu,
+                normalized,
+            )
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        return accumulated, objective, traces, samples, anchor_samples
 
     def _candidate_pool(
         self,
@@ -1072,6 +1305,7 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
             *candidate_embeddings,
         ]
         reference_logits: list[torch.Tensor] = []
+        evaluation_inputs: list[tuple[torch.Tensor, torch.Tensor]] = []
         for embeddings in evaluation_embeddings:
             full, mask, _ = self._compose(
                 prefix_ids,
@@ -1079,12 +1313,19 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
                 suffix_ids,
             )
             with torch.inference_mode():
-                reference_logits.append(
-                    self._next_logits(
+                logits = self._next_logits(
                         self.reference,
                         full.detach(),
                         mask,
                     ).detach()
+                reference_logits.append(
+                    logits.cpu()
+                    if self.sequential_model_execution
+                    else logits
+                )
+            if self.sequential_model_execution:
+                evaluation_inputs.append(
+                    (full.detach().cpu(), mask.detach().cpu())
                 )
             del full, mask
 
@@ -1094,62 +1335,75 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
         ] = {
             family: [] for family in FAMILIES
         }
-        for sample in samples:
-            family = sample.family
-            loaded = None
-            try:
-                loaded = load_manifest_variant(
-                    self.model_config,
-                    sample.manifest,
-                    adapter_path=sample.adapter_path,
-                )
-                self._freeze(loaded.bundle)
-                for index, embeddings in enumerate(evaluation_embeddings):
-                    full, mask, _ = self._compose(
-                        prefix_ids,
-                        embeddings,
-                        suffix_ids,
+        if self.sequential_model_execution:
+            self._release_reference()
+        try:
+            for sample in samples:
+                family = sample.family
+                loaded = None
+                try:
+                    loaded = load_manifest_variant(
+                        self.model_config,
+                        sample.manifest,
+                        adapter_path=sample.adapter_path,
                     )
-                    with torch.inference_mode():
-                        variant_logits = self._next_logits(
-                            loaded.bundle,
-                            full.detach(),
-                            mask,
-                        )
-                        raw_score = float(
-                            (
-                                variant_logits
-                                - reference_logits[index]
-                            )
-                            .square()
-                            .sum()
-                            .item()
-                        )
-                        normalized = (
-                            raw_score
-                            / self.macro_scales[family]
-                            * sample.importance_correction
-                        )
-                        score = {
-                            "raw": raw_score,
-                            "normalized": normalized,
-                            "variant_id": sample.variant_id,
-                        }
-                        if index == 0:
-                            baseline_macro_variant_scores[family].append(
-                                score
-                            )
+                    self._freeze(loaded.bundle)
+                    for index, embeddings in enumerate(evaluation_embeddings):
+                        if self.sequential_model_execution:
+                            cached_full, cached_mask = evaluation_inputs[index]
+                            full = cached_full.to(loaded.bundle.device)
+                            mask = cached_mask.to(loaded.bundle.device)
                         else:
-                            selected[index - 1][
-                                "macro_variant_scores"
-                            ][family].append(score)
-                    del full, mask, variant_logits
-            finally:
-                if loaded is not None:
-                    loaded.close()
-                gc.collect()
-                if torch.cuda.is_available():
-                    torch.cuda.empty_cache()
+                            full, mask, _ = self._compose(
+                                prefix_ids,
+                                embeddings,
+                                suffix_ids,
+                            )
+                        with torch.inference_mode():
+                            variant_logits = self._next_logits(
+                                loaded.bundle,
+                                full.detach(),
+                                mask,
+                            )
+                            raw_score = float(
+                                (
+                                    variant_logits
+                                    - reference_logits[index].to(
+                                        variant_logits.device
+                                    )
+                                )
+                                .square()
+                                .sum()
+                                .item()
+                            )
+                            normalized = (
+                                raw_score
+                                / self.macro_scales[family]
+                                * sample.importance_correction
+                            )
+                            score = {
+                                "raw": raw_score,
+                                "normalized": normalized,
+                                "variant_id": sample.variant_id,
+                            }
+                            if index == 0:
+                                baseline_macro_variant_scores[family].append(
+                                    score
+                                )
+                            else:
+                                selected[index - 1][
+                                    "macro_variant_scores"
+                                ][family].append(score)
+                        del full, mask, variant_logits
+                finally:
+                    if loaded is not None:
+                        loaded.close()
+                    gc.collect()
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()
+        finally:
+            if self.sequential_model_execution:
+                self._reload_reference()
 
         baseline_macro_scores: dict[str, dict[str, Any]] = {}
         baseline_objective = (
@@ -1277,7 +1531,12 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
             key=lambda item: float(item["proxy_gain"]),
             reverse=True,
         )
-        del reference_logits, candidate_embeddings, evaluation_embeddings
+        del (
+            reference_logits,
+            candidate_embeddings,
+            evaluation_embeddings,
+            evaluation_inputs,
+        )
         gc.collect()
         if torch.cuda.is_available():
             torch.cuda.empty_cache()

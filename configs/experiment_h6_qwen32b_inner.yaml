@@ -27,8 +27,9 @@ discrete_joint_inner:
   rerank_candidates: 12
   minimum_proxy_gain: 0.0
   variants_per_family: 1
-  anchor_variants_per_family: 2
+  anchor_variants_per_family: 1
   gradient_restarts: 1
+  sequential_model_execution: true
   family_aggregation: mean
   family_gate_aggregation: all_anchor_variants
   minimum_nondegraded_families: 3

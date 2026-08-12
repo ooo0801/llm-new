@@ -75,6 +75,28 @@ def test_h6_inputs_are_32b_specific_and_split_isolated() -> None:
         all_seeds |= seeds
 
 
+def test_h6_inner_partition_fits_frozen_training_variants() -> None:
+    config = yaml.safe_load(
+        (ROOT / "configs/experiment_h6_qwen32b_inner.yaml").read_text(
+            encoding="utf-8"
+        )
+    )
+    settings = config["discrete_joint_inner"]
+    train = read_jsonl(
+        ROOT
+        / "experiments/prompt-reconstruction-32b-h6/inputs/"
+        "attack_manifest_train_executable.jsonl"
+    )
+    counts = Counter(row["family"] for row in train)
+    required = (
+        int(settings["variants_per_family"])
+        + int(settings["anchor_variants_per_family"])
+    )
+    assert required == 2
+    assert all(count == required for count in counts.values())
+    assert settings["sequential_model_execution"] is True
+
+
 def test_h6_runner_stops_before_verification() -> None:
     runner = (ROOT / "scripts/run_experiment_h6_qwen32b.sh").read_text(encoding="utf-8")
     assert "run_h6_engineering_smoke.py" not in runner

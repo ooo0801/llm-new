@@ -63,6 +63,22 @@ directions, 12 exact reranks, PPL ratio at most 2, edit ratio at most 0.25,
 digit protection, task preservation, positive proxy gain, equal five-family
 weighting, and at least 3/5 non-degraded families within 1%.
 
+### Pre-construction execution errata (2026-08-12)
+
+Before any optimized-prompt endpoint was produced, the one-prompt smoke test
+rejected the configuration because the frozen H6 training manifest contains
+two executable variants per family while the copied 14B setting requested one
+gradient variant plus two disjoint reranking anchors. H6 therefore uses one
+gradient variant plus the other one disjoint anchor per family. This is the
+only feasible disjoint partition of the already frozen two-variant training
+pool; it does not borrow development or confirmation variants, add attacks,
+or change seeds, family weights, thresholds, or scientific gates.
+
+The 32B runtime also evaluates squared-logit macro gradients and reranking
+scores with one model resident at a time. For gradients it sums the exact
+variant and reference VJPs of the same squared L2 objective. This changes only
+model lifetime and peak memory, not the objective or endpoint definitions.
+
 Development freezes at most one candidate per source. It must freeze at least
 30 candidates and include at least one prompt from every core category before
 confirmation begins. Confirmation uses disjoint attack seeds and may not edit,

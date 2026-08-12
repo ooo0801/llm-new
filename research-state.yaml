@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/h6-qwen2.5-32b-reconstruction"
-  current_stage: "experiment_h6_qwen32b_formal_adapter_training"
+  current_stage: "experiment_h6_qwen32b_preconstruction_execution_recovery"
 
 literature:
   key_papers: []
@@ -326,12 +326,12 @@ execution:
   experiment_h6_stage_0_protocol: complete
   experiment_h6_stage_1_model_download: complete_17of17
   experiment_h6_stage_2_engineering_gate: complete_go
-  experiment_h6_stage_3_prompt_construction: running_development_adapter_training_1of2
+  experiment_h6_stage_3_prompt_construction: "calibration_complete_120of120_records_preconstruction_smoke_pending"
   experiment_h6_stage_4_development: not_started
   experiment_h6_stage_5_confirmation: not_started
   experiment_h6_stage_6_components_mcc12: not_started
-  background_task: "formal_runner_pid_5997_development_lora_pid_6482"
-  last_error: "recovered_engineering_oom_between_sequential_lora_variants"
+  background_task: "none_server_restart_after_calibration"
+  last_error: "pre_endpoint_inner_partition_config_requested_3_disjoint_variants_from_frozen_2_each"
 
 resources:
   gpu_count: 3
@@ -341,7 +341,7 @@ resources:
   model_cache: "/root/autodl-tmp/huggingface"
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
   last_known_ssh: "root@connect.cqa1.seetacloud.com:40195"
-  last_known_server_commit: "b09dd815f4821a1f9ea5747c5c220b3164be9849"
+  last_known_server_commit: "70ac4c1bfe386af538cea27fc09a044627e3c8cc"
   partial_32b_cache_gb: null
   model_weight_bytes: 65527841856
   engineering_gate_peak_gpu_bytes: 29842219520

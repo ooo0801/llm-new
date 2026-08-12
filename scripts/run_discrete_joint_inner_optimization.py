@@ -120,6 +120,7 @@ def main() -> None:
     )
     completed = {str(row["prompt_id"]) for row in results}
     reference = load_model(config["model"])
+    optimizer = None
     try:
         optimizer = DiscreteJointInnerOptimizer(
             reference=reference,
@@ -203,6 +204,9 @@ def main() -> None:
                     128,
                 )
             ),
+            sequential_model_execution=bool(
+                settings.get("sequential_model_execution", False)
+            ),
         )
         for index, row in enumerate(prompts, start=1):
             prompt_id = str(row.get("id", row.get("prompt_id")))
@@ -240,7 +244,10 @@ def main() -> None:
                 flush=True,
             )
     finally:
-        reference.close()
+        if optimizer is not None:
+            optimizer.reference.close()
+        else:
+            reference.close()
 
     accepted = [row for row in results if row.get("accepted")]
     complete = [
