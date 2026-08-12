@@ -23,6 +23,7 @@ from llm_integrity.inner_variant_sampler import (
 from llm_integrity.io import write_jsonl
 from llm_integrity.modeling import load_model, render_prompt
 from llm_integrity.paper_variant_executor import load_manifest_variant
+from llm_integrity.sequential_macro import squared_l2_logit_vjp
 
 
 def freeze(bundle) -> None:
@@ -142,103 +143,185 @@ def main() -> None:
     reference = load_model(config["model"])
     freeze(reference)
     try:
-        for sample in samples:
-            loaded = None
-            try:
-                loaded = load_manifest_variant(
-                    config["model"],
-                    sample.manifest,
-                    adapter_path=sample.adapter_path,
+        cached_inputs: list[dict[str, Any]] = []
+        for prompt_index, row in enumerate(prompts):
+            embeddings, mask = prepare_embeddings(
+                reference,
+                str(row["prompt"]),
+                args.max_length,
+                config.get("generation", {}).get("system_prompt"),
+            )
+            with torch.no_grad():
+                reference_logits = next_logits(
+                    reference,
+                    embeddings.detach(),
+                    mask,
                 )
-                freeze(loaded.bundle)
-                for prompt_index, row in enumerate(prompts):
-                    started = time.time()
-                    record: dict[str, Any] = {
-                        **sample.trace(),
-                        "prompt_id": str(row.get("id", row.get("prompt_id"))),
-                        "category": row.get("category", "unknown"),
-                        "prompt_index": prompt_index,
-                        "valid": False,
-                        "status": "started",
-                    }
-                    try:
-                        if torch.cuda.is_available():
-                            torch.cuda.reset_peak_memory_stats()
-                        embeddings, mask = prepare_embeddings(
-                            reference,
-                            str(row["prompt"]),
-                            args.max_length,
-                            config.get("generation", {}).get("system_prompt"),
-                        )
-                        reference_logits = next_logits(reference, embeddings, mask)
-                        variant_logits = next_logits(loaded.bundle, embeddings, mask)
-                        score = (variant_logits - reference_logits).square().sum()
-                        gradient = torch.autograd.grad(score, embeddings)[0].detach().float()
-                        record.update(
-                            {
-                                "actual_token_length": int(embeddings.shape[1]),
-                                "raw_macro_score": float(score.detach().item()),
-                                "raw_embedding_gradient_norm": float(gradient.norm().item()),
-                                "maximum_token_gradient_norm": float(
-                                    gradient.squeeze(0).norm(dim=-1).max().item()
-                                ),
-                                "gradient_finite": bool(
-                                    torch.isfinite(gradient).all().item()
-                                ),
-                                "gradient_nonzero": bool(gradient.norm().item() > 0),
-                                "valid": bool(
-                                    torch.isfinite(gradient).all().item()
-                                    and gradient.norm().item() > 0
-                                    and math.isfinite(float(score.detach().item()))
-                                ),
-                            }
-                        )
-                        record["status"] = "passed" if record["valid"] else "invalid_gradient"
-                        del embeddings, mask, reference_logits, variant_logits, score, gradient
-                    except torch.OutOfMemoryError as exc:
-                        record.update(
-                            {
-                                "status": "cuda_out_of_memory",
-                                "error_type": type(exc).__name__,
-                                "error": str(exc),
-                            }
-                        )
-                    except Exception as exc:
-                        record.update(
-                            {
-                                "status": "error",
-                                "error_type": type(exc).__name__,
-                                "error": str(exc),
-                                "traceback": traceback.format_exc(),
-                            }
-                        )
-                    finally:
-                        gc.collect()
-                        if torch.cuda.is_available():
-                            torch.cuda.empty_cache()
-                        record["memory"] = memory_snapshot()
-                        record["elapsed_seconds"] = time.time() - started
-                        records.append(record)
-                        write_jsonl(output, records)
-                        print(
-                            json.dumps(
-                                {
-                                    "family": sample.family,
-                                    "prompt_id": record["prompt_id"],
-                                    "status": record["status"],
-                                },
-                                ensure_ascii=False,
-                            ),
-                            flush=True,
-                        )
-            finally:
-                if loaded is not None:
-                    loaded.close()
-                gc.collect()
-                if torch.cuda.is_available():
-                    torch.cuda.empty_cache()
+            cached_inputs.append(
+                {
+                    "prompt_index": prompt_index,
+                    "row": row,
+                    "embeddings": embeddings.detach().cpu(),
+                    "mask": mask.detach().cpu(),
+                    "reference_logits": reference_logits.detach().cpu(),
+                }
+            )
+            del embeddings, mask, reference_logits
     finally:
         reference.close()
+    del reference
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+    for sample in samples:
+        variant_results: list[dict[str, Any]] = []
+        loaded = load_manifest_variant(
+            config["model"],
+            sample.manifest,
+            adapter_path=sample.adapter_path,
+        )
+        freeze(loaded.bundle)
+        execution_report = loaded.report
+        try:
+            for cached in cached_inputs:
+                embeddings = (
+                    cached["embeddings"]
+                    .to(loaded.bundle.device)
+                    .detach()
+                    .requires_grad_(True)
+                )
+                mask = cached["mask"].to(loaded.bundle.device)
+                variant_logits = next_logits(loaded.bundle, embeddings, mask)
+                delta = variant_logits - cached["reference_logits"].to(
+                    variant_logits.device
+                )
+                score = delta.square().sum()
+                variant_gradient = squared_l2_logit_vjp(
+                    variant_logits,
+                    embeddings,
+                    delta.detach(),
+                    sign=1.0,
+                )
+                variant_results.append(
+                    {
+                        "delta": delta.detach().cpu(),
+                        "variant_gradient": variant_gradient.detach().float().cpu(),
+                        "score": float(score.detach().item()),
+                    }
+                )
+                del embeddings, mask, variant_logits, delta, score, variant_gradient
+        finally:
+            loaded.close()
+        del loaded
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+        reference = load_model(config["model"])
+        freeze(reference)
+        try:
+            for cached, variant_result in zip(
+                cached_inputs,
+                variant_results,
+                strict=True,
+            ):
+                started = time.time()
+                row = cached["row"]
+                record: dict[str, Any] = {
+                    **sample.trace(),
+                    "prompt_id": str(row.get("id", row.get("prompt_id"))),
+                    "category": row.get("category", "unknown"),
+                    "prompt_index": cached["prompt_index"],
+                    "valid": False,
+                    "status": "started",
+                    "execution_mode": execution_report.execution_mode,
+                    "realized_method": execution_report.realized_method,
+                    "gradient_execution": "sequential_exact_vjp",
+                }
+                try:
+                    if torch.cuda.is_available():
+                        torch.cuda.reset_peak_memory_stats()
+                    embeddings = (
+                        cached["embeddings"]
+                        .to(reference.device)
+                        .detach()
+                        .requires_grad_(True)
+                    )
+                    mask = cached["mask"].to(reference.device)
+                    reference_logits = next_logits(reference, embeddings, mask)
+                    reference_gradient = squared_l2_logit_vjp(
+                        reference_logits,
+                        embeddings,
+                        variant_result["delta"],
+                        sign=-1.0,
+                    )
+                    gradient = (
+                        variant_result["variant_gradient"]
+                        + reference_gradient.detach().float().cpu()
+                    )
+                    score_value = float(variant_result["score"])
+                    record.update(
+                        {
+                            "actual_token_length": int(embeddings.shape[1]),
+                            "raw_macro_score": score_value,
+                            "raw_embedding_gradient_norm": float(gradient.norm().item()),
+                            "maximum_token_gradient_norm": float(
+                                gradient.squeeze(0).norm(dim=-1).max().item()
+                            ),
+                            "gradient_finite": bool(torch.isfinite(gradient).all().item()),
+                            "gradient_nonzero": bool(gradient.norm().item() > 0),
+                            "valid": bool(
+                                torch.isfinite(gradient).all().item()
+                                and gradient.norm().item() > 0
+                                and math.isfinite(score_value)
+                            ),
+                        }
+                    )
+                    record["status"] = "passed" if record["valid"] else "invalid_gradient"
+                    del embeddings, mask, reference_logits, reference_gradient, gradient
+                except torch.OutOfMemoryError as exc:
+                    record.update(
+                        {
+                            "status": "cuda_out_of_memory",
+                            "error_type": type(exc).__name__,
+                            "error": str(exc),
+                        }
+                    )
+                except Exception as exc:
+                    record.update(
+                        {
+                            "status": "error",
+                            "error_type": type(exc).__name__,
+                            "error": str(exc),
+                            "traceback": traceback.format_exc(),
+                        }
+                    )
+                finally:
+                    gc.collect()
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()
+                    record["memory"] = memory_snapshot()
+                    record["elapsed_seconds"] = time.time() - started
+                    records.append(record)
+                    write_jsonl(output, records)
+                    print(
+                        json.dumps(
+                            {
+                                "family": sample.family,
+                                "prompt_id": record["prompt_id"],
+                                "status": record["status"],
+                            },
+                            ensure_ascii=False,
+                        ),
+                        flush=True,
+                    )
+        finally:
+            reference.close()
+        del reference, variant_results
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
     valid = [record for record in records if record.get("valid")]
     scores = [float(record["raw_macro_score"]) for record in valid]
