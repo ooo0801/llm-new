@@ -330,8 +330,8 @@ execution:
   experiment_h6_stage_4_development: not_started
   experiment_h6_stage_5_confirmation: not_started
   experiment_h6_stage_6_components_mcc12: not_started
-  background_task: "formal_candidate_generation_recovery_pid_1537_guard_pid_1539"
-  last_error: "unexplained_process_termination_after_43_durable_rows_no_logged_exception_checkpoint_validated_and_resumed"
+  background_task: "tmux_h6_pipeline_pid_2122_optimizer_pid_2128_resumed_from_43of60"
+  last_error: "two_external_process_terminations_after_43_durable_rows_no_logged_exception_no_cgroup_oom_or_gpu_xid_tmux_recovery_active"
 
 resources:
   gpu_count: 3
@@ -341,7 +341,7 @@ resources:
   model_cache: "/root/autodl-tmp/huggingface"
   python: "/root/autodl-tmp/venvs/llm-integrity/bin/python"
   last_known_ssh: "root@connect.cqa1.seetacloud.com:40195"
-  last_known_server_commit: "4026344aecafd608f5c7b1bf722e0ab7bcf466e0"
+  last_known_server_commit: "18b54b9c46f81d6b6e1431cc00387d4de1222311"
   partial_32b_cache_gb: null
   model_weight_bytes: 65527841856
   engineering_gate_peak_gpu_bytes: 29842219520
