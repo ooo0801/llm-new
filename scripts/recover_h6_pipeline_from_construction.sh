@@ -41,14 +41,31 @@ path = Path(
     "results/experiment_h6_qwen32b_reconstruction_20260812/"
     "02_candidate_generation/joint_results_60.jsonl"
 )
+prompt_path = Path(
+    "experiments/prompt-reconstruction-32b-h6/inputs/"
+    "construction_prompts_k60.jsonl"
+)
 rows = [
     json.loads(line)
     for line in path.read_text(encoding="utf-8").splitlines()
     if line.strip()
 ]
+prompts = [
+    json.loads(line)
+    for line in prompt_path.read_text(encoding="utf-8").splitlines()
+    if line.strip()
+]
 prompt_ids = [str(row["prompt_id"]) for row in rows]
-assert len(rows) == 43, len(rows)
+expected_ids = [
+    str(row.get("id", row.get("prompt_id")))
+    for row in prompts
+]
+assert len(prompts) == 60, len(prompts)
+assert 1 <= len(rows) <= len(prompts), len(rows)
 assert len(prompt_ids) == len(set(prompt_ids)), "duplicate prompt_id"
+assert prompt_ids == expected_ids[: len(rows)], (
+    "checkpoint prompt IDs are not the frozen input prefix"
+)
 assert all(row.get("failure") is None for row in rows), (
     "technical failure in checkpoint"
 )
