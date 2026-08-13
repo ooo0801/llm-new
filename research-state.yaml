@@ -330,8 +330,8 @@ execution:
   experiment_h6_stage_4_development: not_started
   experiment_h6_stage_5_confirmation: not_started
   experiment_h6_stage_6_components_mcc12: not_started
-  background_task: "tmux_h6_pipeline_pid_2122_optimizer_pid_2128_disconnect_safe_at_57of60"
-  last_error: "two_external_process_terminations_after_43_durable_rows_no_logged_exception_no_cgroup_oom_or_gpu_xid_tmux_recovery_active"
+  background_task: "tmux_h6_pipeline_pid_1356_optimizer_pid_1362_resumed_from_57of60_after_server_reconnect"
+  last_error: "planned_server_disconnect_ended_prior_tmux_latest_57row_prefix_validated_and_recovery_active"
 
 resources:
   gpu_count: 3
