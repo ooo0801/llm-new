@@ -253,3 +253,13 @@ Row 48 was accepted in the safety category with two committed rounds and proxy g
 Row 49 was accepted in the structured category with two committed rounds and proxy gain 6.9736. Formal generation reached 49/60 with 40 accepted, nine normal rejections, and zero technical failures after 99 minutes of persistent execution; row 50 was running.
 
 At the 50/60 natural milestone, the translation row was accepted with two committed rounds and proxy gain 3.2737. The formal prefix contained 41 accepted edits, nine normal rejections, zero technical failures, and accepted examples in every required core category. The persistent pipeline continued directly to row 51; this remains construction evidence rather than an early development-gate decision.
+
+Rows 51 and 52 advanced the durable output to 52/60. The knowledge row was accepted with two committed edits and proxy gain 12.9657, while the math row was a normal no-edit rejection. Cumulative counts were 42 accepted, ten normal rejections, and zero technical failures after 139 minutes under `tmux`; row 53 was running.
+
+Row 53 was accepted in the reasoning category with two committed rounds and proxy gain 9.0324. Formal generation reached 53/60 with 43 accepted, ten normal rejections, and zero technical failures after 159 minutes of persistent execution; row 54 was running.
+
+Row 54 was accepted in the instruction category with two committed edits and proxy gain 45.3375. Formal generation reached 54/60 with 44 accepted, ten normal rejections, and zero technical failures after three hours under `tmux`; row 55 was running.
+
+Row 55 was accepted in the summary category with three committed edits and proxy gain 1.8917. Formal generation reached 55/60 with 45 accepted, ten normal rejections, and zero technical failures after 199 minutes under `tmux`; five rows remained before the complete construction summary and automatic development handoff.
+
+Before a planned user disconnect, row 56 code was accepted with two committed edits and proxy gain 25.1984, while row 57 long-context was a normal no-edit rejection. The durable checkpoint is therefore 57/60 with 46 accepted, eleven normal rejections, and zero technical failures. Ordinary VS Code or SSH disconnection does not affect the active `tmux` pipeline. For a full server shutdown or instance restart, commit `af96ae6` generalizes the recovery entry point: it accepts any 1-60-row checkpoint only after verifying valid JSON, unique IDs, exact prefix identity against the frozen 60-prompt input, and absence of technical failures, then invokes the unchanged `--resume` optimizer and original downstream runner. At most the one in-progress, not-yet-written row can be recomputed after a shutdown; durable rows are skipped by prompt ID.
