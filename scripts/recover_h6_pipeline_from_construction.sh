@@ -10,12 +10,34 @@ export CUDA_VISIBLE_DEVICES=0,1,2
 
 PY=/root/autodl-tmp/venvs/llm-integrity/bin/python
 INNER=configs/experiment_h6_qwen32b_inner.yaml
+DEV_CONFIG=configs/experiment_h6_qwen32b_development.yaml
+CONFIRM_CONFIG=configs/experiment_h6_qwen32b_confirmation.yaml
+MCC_CONFIG=configs/fingerprint_h6_qwen32b_mcc.yaml
 INPUT=experiments/prompt-reconstruction-32b-h6/inputs
 OUT=results/experiment_h6_qwen32b_reconstruction_20260812
 ENV="$OUT/00_environment"
 CAL="$OUT/01_calibration"
 GEN="$OUT/02_candidate_generation"
+DEV="$OUT/03_development"
+CONFIRM="$OUT/04_confirmation"
+ADAPTERS="$OUT/adapters"
 LOG="$ENV/pipeline_tmux_recovery.log"
+
+train_lora_variant() {
+  local manifest="$1"
+  local split="$2"
+  local output_root="$3"
+  local registry="$4"
+  local variant_id="$5"
+  "$PY" scripts/train_paper_lora_registry.py \
+    --config "$INNER" \
+    --manifest "$manifest" \
+    --split "$split" \
+    --data data/attack_train_lora.jsonl \
+    --output-root "$output_root" \
+    --registry-output "$registry" \
+    --variant-id "$variant_id"
+}
 
 exec >> "$LOG" 2>&1
 

@@ -141,3 +141,19 @@ def test_h6_post_construction_resume_is_guarded() -> None:
     assert 'r.get("technical_passed") is True' in runner
     assert "summarize_discrete_results.py" in runner
     assert "run_experiment_h6_qwen32b.sh" in runner
+
+
+def test_h6_construction_recovery_defines_post_optimizer_context() -> None:
+    runner = (
+        ROOT / "scripts/recover_h6_pipeline_from_construction.sh"
+    ).read_text(encoding="utf-8")
+    for variable in (
+        "DEV_CONFIG",
+        "CONFIRM_CONFIG",
+        "MCC_CONFIG",
+        "DEV",
+        "CONFIRM",
+        "ADAPTERS",
+    ):
+        assert f"{variable}=" in runner
+    assert "train_lora_variant()" in runner
