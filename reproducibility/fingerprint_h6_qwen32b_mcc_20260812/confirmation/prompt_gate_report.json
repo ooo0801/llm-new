@@ -1,0 +1,33 @@
+{
+  "candidate_source_sha256": "1af87c482c22416ac7081b698a74dc68a3e38c723bf1ddcd77c4410538ce53fb",
+  "confirmed_by_category": {
+    "code": 5,
+    "instruction": 5,
+    "knowledge": 5,
+    "logic": 4,
+    "math": 3,
+    "reasoning": 5,
+    "safety": 3,
+    "structured": 3,
+    "summary": 4,
+    "translation": 2
+  },
+  "confirmed_rows": 39,
+  "hypothesis": "H6-P",
+  "hypothesis_supported": true,
+  "input_rows": 43,
+  "minimum_confirmed": 19,
+  "missing_core_categories": [],
+  "required_core_categories": [
+    "code",
+    "instruction",
+    "knowledge",
+    "logic",
+    "reasoning",
+    "safety",
+    "structured",
+    "summary"
+  ],
+  "schema_version": "experiment_h6_prompt_gate_1.0",
+  "technical_errors": []
+}

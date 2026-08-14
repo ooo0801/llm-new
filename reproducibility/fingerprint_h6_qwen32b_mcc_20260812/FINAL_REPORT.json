@@ -1,0 +1,126 @@
+{
+  "archive_git_revision": "dbf4969201cccb01103ce548acf54c47a554b34c",
+  "artifacts": {
+    "activation_audit": {
+      "bytes": 20952,
+      "path": "components/activation_audit.json",
+      "sha256": "3e30553876a5ab7bc8a62c4802166c3b6d05c0a4ad2956b7789ae2997d317c7d"
+    },
+    "calibration_audit_manifest": {
+      "bytes": 34973,
+      "path": "calibration_audit_manifest.jsonl",
+      "sha256": "a6d71fcaedbbd66cfbfe39970e6c4e07cf8f034b144cb64871ae86aa0cb57eaa"
+    },
+    "calibration_build_manifest": {
+      "bytes": 170697,
+      "path": "calibration_build_manifest.jsonl",
+      "sha256": "60ae15bb822646385f6d9e48704f057ba57453c4af03b77ad9698c40fb7045da"
+    },
+    "candidate_manifest": {
+      "bytes": 19869,
+      "path": "candidate_manifest.jsonl",
+      "sha256": "fd7af871f67c8f2f4ff2032914562b30ec592966ab074eafea8aedcca3dab4ed"
+    },
+    "confirmed_prompt_pool": {
+      "bytes": 122149,
+      "path": "confirmation/confirmed_prompt_pool.jsonl",
+      "sha256": "1af87c482c22416ac7081b698a74dc68a3e38c723bf1ddcd77c4410538ce53fb"
+    },
+    "final_test_report": {
+      "bytes": 1035,
+      "path": "confirmation/final_test_report.json",
+      "sha256": "5fb41d22a5c2f43ce5614b99c71e9dbb398826cebf57a915e6ae9eb0db38221d"
+    },
+    "fingerprint": {
+      "bytes": 3071476,
+      "path": "components/fingerprints/global_mcc_32b_h6.json",
+      "sha256": "cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0"
+    },
+    "frozen_config": {
+      "bytes": 2480,
+      "path": "frozen/configs/fingerprint_h6_qwen32b_mcc.yaml",
+      "sha256": "408152de95136f749b40d9c32713f7790f3bdf7b20c9353a075821b3fb7c4f7b"
+    },
+    "frozen_protocol": {
+      "bytes": 6644,
+      "path": "frozen/experiments/prompt-reconstruction-32b-h6/protocol.md",
+      "sha256": "ddcafdb50c6af1f387ac84b78dc3ae295274b014cf6d56707087854e33b9e51b"
+    },
+    "global_component_universe": {
+      "bytes": 1615254,
+      "path": "components/global_component_universe.json",
+      "sha256": "f0a3679591eac50a47d3dbec8efcde859ff63dcd94e2781f58edb20360403030"
+    },
+    "mcc_selection": {
+      "bytes": 12319,
+      "path": "components/mcc_selection.json",
+      "sha256": "185fa8dba3db26f08a83a973a9cea2992f818deb5a943ed0b3515b6a9afc4c97"
+    },
+    "prompt_gate_report": {
+      "bytes": 719,
+      "path": "confirmation/prompt_gate_report.json",
+      "sha256": "ae7e764611aaf0d444d458bb0a9eb87c5cd55041f125fe00bf97dbc00f433534"
+    },
+    "protocol": {
+      "bytes": 1805,
+      "path": "protocol.json",
+      "sha256": "edc99e69a668da41236c068ba90e98a2f8f0ad2fe1d08cb8c40edd61c183b85d"
+    }
+  },
+  "claim_boundary": "H6 reconstructs a model-specific Qwen2.5-32B prompt pool and MCC12. It does not reuse 14B endpoints or component identities, and downstream modified-state detection verification remains a separate preregistered experiment.",
+  "excluded_large_artifacts": [
+    "raw activation profiles (audited summaries and component universe retained)",
+    "activation checkpoints",
+    "LoRA adapter weight tensors",
+    "model weight shards"
+  ],
+  "hypotheses": {
+    "H6-MCC12": {
+      "activation_audit_passed": true,
+      "coverage_metrics": {
+        "candidate_components": 38464,
+        "candidate_global_components": 27043,
+        "candidate_outside_components": 11421,
+        "candidate_reachable_coverage": 0.33075671775051674,
+        "factorization_error": 5.551115123125783e-17,
+        "final_global_coverage": 0.2852827142525165,
+        "global_components": 81761,
+        "selected_components": 29862,
+        "selected_global_components": 23325,
+        "selected_outside_components": 6537,
+        "selection_efficiency": 0.8625152534851902
+      },
+      "factorization_passed": true,
+      "global_component_gates_passed": true,
+      "selected_prompts": 12,
+      "selection_deterministic": true,
+      "supported": true
+    },
+    "H6-P": {
+      "confirmed_by_category": {
+        "code": 5,
+        "instruction": 5,
+        "knowledge": 5,
+        "logic": 4,
+        "math": 3,
+        "reasoning": 5,
+        "safety": 3,
+        "structured": 3,
+        "summary": 4,
+        "translation": 2
+      },
+      "confirmed_rows": 39,
+      "input_rows": 43,
+      "minimum_confirmed": 19,
+      "missing_core_categories": [],
+      "supported": true
+    }
+  },
+  "model": {
+    "name": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
+  },
+  "schema_version": "fingerprint_h6_qwen32b_archive_1.0",
+  "source_server_revision": "0aa98a46d1ae50e4f9de401882e37d008605560d",
+  "terminal_state": "h6_go_mcc12_complete"
+}

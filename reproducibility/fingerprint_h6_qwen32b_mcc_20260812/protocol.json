@@ -1,0 +1,49 @@
+{
+  "schema_version": "fingerprint_h6_qwen32b_mcc_protocol_1.0",
+  "hypothesis": "H6-G",
+  "model": {
+    "name": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
+  },
+  "candidate_source": "results/experiment_h6_qwen32b_reconstruction_20260812/04_confirmation/confirmed_prompt_pool.jsonl",
+  "candidate_source_sha256": "1af87c482c22416ac7081b698a74dc68a3e38c723bf1ddcd77c4410538ce53fb",
+  "candidate_rows": 39,
+  "candidate_categories": {
+    "code": 5,
+    "instruction": 5,
+    "knowledge": 5,
+    "logic": 4,
+    "math": 3,
+    "reasoning": 5,
+    "safety": 3,
+    "structured": 3,
+    "summary": 4,
+    "translation": 2
+  },
+  "candidate_manifest_sha256": "f814a9bd70f62dcee6c5364799f793f2e41625a878b0c97b85ebebe5f93b1ac0",
+  "calibration_build_prompts": 280,
+  "calibration_audit_prompts": 56,
+  "calibration_build_sha256": "b6b896fd8a2e0288c863e6b150ec041e135d9ba20a1bfa207696c00899e5bad4",
+  "calibration_audit_sha256": "f130366ccf64a8556e348ce9af24009b551e01f7cf70df817d224529fb8945d3",
+  "closest_candidate_trigram_jaccard": {
+    "score": 0.06802721088435375,
+    "calibration_id": "cal32b_translation_ed179e7ce6a0",
+    "candidate_id": "translation_h6_b4350069c5e3"
+  },
+  "component_thresholds": {
+    "repetitions": 2,
+    "stable_component_frequency": 1.0,
+    "attention_entropy_fraction": 0.7,
+    "ffn_quantile": 0.95,
+    "residual_threshold": 0.5,
+    "max_ffn_units_per_layer": 128,
+    "max_length": 512,
+    "minimum_jaccard": 0.999
+  },
+  "selection": {
+    "method": "global_unweighted_mcc",
+    "selected_size": 12
+  },
+  "config_sha256": "408152de95136f749b40d9c32713f7790f3bdf7b20c9353a075821b3fb7c4f7b",
+  "leakage_guard": "H6-G uses only the independently confirmed H6-P pool; 14B components and confirmation outcomes are not reused."
+}

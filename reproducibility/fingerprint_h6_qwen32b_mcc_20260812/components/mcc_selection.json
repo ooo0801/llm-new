@@ -1,0 +1,393 @@
+{
+  "schema_version": "fingerprint_v2_global_mcc_selection_1.0",
+  "primary_objective": "global_unweighted_mcc",
+  "candidate_prompts": 39,
+  "selected_prompts": 12,
+  "selected_ids": [
+    "safety_h6_1fd4b8c5ab0f",
+    "summary_h6_7d9e623ea06c",
+    "code_h6_d6a14ae22e39",
+    "translation_h6_b4350069c5e3",
+    "reasoning_h6_6632df1da98c",
+    "structured_h6_ab6cbbad91f4",
+    "instruction_h6_b147b35b8b1f",
+    "logic_h6_b219e132deed",
+    "knowledge_h6_18abd6c1f9da",
+    "safety_h6_18df26a2aede",
+    "math_h6_508530e3d71e",
+    "knowledge_h6_821f773c1efa"
+  ],
+  "selected_categories": [
+    "safety",
+    "summary",
+    "code",
+    "translation",
+    "reasoning",
+    "structured",
+    "instruction",
+    "logic",
+    "knowledge",
+    "safety",
+    "math",
+    "knowledge"
+  ],
+  "required_categories": [
+    "code",
+    "instruction",
+    "knowledge",
+    "logic",
+    "reasoning",
+    "safety",
+    "structured",
+    "summary"
+  ],
+  "missing_required_categories": [],
+  "trace": [
+    {
+      "step": 1,
+      "prompt_id": "safety_h6_1fd4b8c5ab0f",
+      "marginal_gain": 10303.0,
+      "new_component_count": 10303,
+      "covered_component_count": 10303,
+      "category": "safety"
+    },
+    {
+      "step": 2,
+      "prompt_id": "summary_h6_7d9e623ea06c",
+      "marginal_gain": 3145.0,
+      "new_component_count": 3145,
+      "covered_component_count": 13448,
+      "category": "summary"
+    },
+    {
+      "step": 3,
+      "prompt_id": "code_h6_d6a14ae22e39",
+      "marginal_gain": 1934.0,
+      "new_component_count": 1934,
+      "covered_component_count": 15382,
+      "category": "code"
+    },
+    {
+      "step": 4,
+      "prompt_id": "translation_h6_b4350069c5e3",
+      "marginal_gain": 1494.0,
+      "new_component_count": 1494,
+      "covered_component_count": 16876,
+      "category": "translation"
+    },
+    {
+      "step": 5,
+      "prompt_id": "reasoning_h6_6632df1da98c",
+      "marginal_gain": 1229.0,
+      "new_component_count": 1229,
+      "covered_component_count": 18105,
+      "category": "reasoning"
+    },
+    {
+      "step": 6,
+      "prompt_id": "structured_h6_ab6cbbad91f4",
+      "marginal_gain": 1149.0,
+      "new_component_count": 1149,
+      "covered_component_count": 19254,
+      "category": "structured"
+    },
+    {
+      "step": 7,
+      "prompt_id": "instruction_h6_b147b35b8b1f",
+      "marginal_gain": 967.0,
+      "new_component_count": 967,
+      "covered_component_count": 20221,
+      "category": "instruction"
+    },
+    {
+      "step": 8,
+      "prompt_id": "logic_h6_b219e132deed",
+      "marginal_gain": 896.0,
+      "new_component_count": 896,
+      "covered_component_count": 21117,
+      "category": "logic"
+    },
+    {
+      "step": 9,
+      "prompt_id": "knowledge_h6_18abd6c1f9da",
+      "marginal_gain": 754.0,
+      "new_component_count": 754,
+      "covered_component_count": 21871,
+      "category": "knowledge"
+    },
+    {
+      "step": 10,
+      "prompt_id": "safety_h6_18df26a2aede",
+      "marginal_gain": 612.0,
+      "new_component_count": 612,
+      "covered_component_count": 22483,
+      "category": "safety"
+    },
+    {
+      "step": 11,
+      "prompt_id": "math_h6_508530e3d71e",
+      "marginal_gain": 506.0,
+      "new_component_count": 506,
+      "covered_component_count": 22989,
+      "category": "math"
+    },
+    {
+      "step": 12,
+      "prompt_id": "knowledge_h6_821f773c1efa",
+      "marginal_gain": 336.0,
+      "new_component_count": 336,
+      "covered_component_count": 23325,
+      "category": "knowledge"
+    }
+  ],
+  "coverage_metrics": {
+    "global_components": 81761,
+    "candidate_components": 38464,
+    "selected_components": 29862,
+    "candidate_global_components": 27043,
+    "selected_global_components": 23325,
+    "candidate_outside_components": 11421,
+    "selected_outside_components": 6537,
+    "candidate_reachable_coverage": 0.33075671775051674,
+    "selection_efficiency": 0.8625152534851902,
+    "final_global_coverage": 0.2852827142525165,
+    "factorization_error": 5.551115123125783e-17
+  },
+  "per_type_coverage": {
+    "attention": {
+      "global_components": 2466,
+      "candidate_global_components": 2440,
+      "selected_global_components": 2438,
+      "candidate_reachable_coverage": 0.9894566098945661,
+      "selection_efficiency": 0.9991803278688525,
+      "final_global_coverage": 0.9886455798864558
+    },
+    "ffn": {
+      "global_components": 79289,
+      "candidate_global_components": 24597,
+      "selected_global_components": 20881,
+      "candidate_reachable_coverage": 0.3102195764860195,
+      "selection_efficiency": 0.8489246656096272,
+      "final_global_coverage": 0.2633530502339543
+    },
+    "attention_residual": {
+      "global_components": 1,
+      "candidate_global_components": 1,
+      "selected_global_components": 1,
+      "candidate_reachable_coverage": 1.0,
+      "selection_efficiency": 1.0,
+      "final_global_coverage": 1.0
+    },
+    "mlp_residual": {
+      "global_components": 5,
+      "candidate_global_components": 5,
+      "selected_global_components": 5,
+      "candidate_reachable_coverage": 1.0,
+      "selection_efficiency": 1.0,
+      "final_global_coverage": 1.0
+    }
+  },
+  "type_macro_final_global_coverage": 0.8129996575301025,
+  "candidate_relative_coverage_v1_definition": 0.77636231281198,
+  "global_coverage_curves": {
+    "4": {
+      "selected_ids": [
+        "safety_h6_1fd4b8c5ab0f",
+        "summary_h6_7d9e623ea06c",
+        "code_h6_d6a14ae22e39",
+        "translation_h6_b4350069c5e3"
+      ],
+      "global_components_covered": 16876,
+      "final_global_coverage": 0.2064064774158829,
+      "selection_efficiency": 0.6240431904744296,
+      "unweighted_marginal_gain": 16876.0
+    },
+    "8": {
+      "selected_ids": [
+        "safety_h6_1fd4b8c5ab0f",
+        "summary_h6_7d9e623ea06c",
+        "code_h6_d6a14ae22e39",
+        "translation_h6_b4350069c5e3",
+        "reasoning_h6_6632df1da98c",
+        "structured_h6_ab6cbbad91f4",
+        "instruction_h6_b147b35b8b1f",
+        "logic_h6_b219e132deed"
+      ],
+      "global_components_covered": 21117,
+      "final_global_coverage": 0.25827717371362874,
+      "selection_efficiency": 0.7808675073031838,
+      "unweighted_marginal_gain": 21117.0
+    },
+    "12": {
+      "selected_ids": [
+        "safety_h6_1fd4b8c5ab0f",
+        "summary_h6_7d9e623ea06c",
+        "code_h6_d6a14ae22e39",
+        "translation_h6_b4350069c5e3",
+        "reasoning_h6_6632df1da98c",
+        "structured_h6_ab6cbbad91f4",
+        "instruction_h6_b147b35b8b1f",
+        "logic_h6_b219e132deed",
+        "knowledge_h6_18abd6c1f9da",
+        "safety_h6_18df26a2aede",
+        "math_h6_508530e3d71e",
+        "knowledge_h6_821f773c1efa"
+      ],
+      "global_components_covered": 23325,
+      "final_global_coverage": 0.2852827142525165,
+      "selection_efficiency": 0.8625152534851902,
+      "unweighted_marginal_gain": 23325.0
+    },
+    "16": {
+      "selected_ids": [
+        "safety_h6_1fd4b8c5ab0f",
+        "summary_h6_7d9e623ea06c",
+        "code_h6_d6a14ae22e39",
+        "translation_h6_b4350069c5e3",
+        "reasoning_h6_6632df1da98c",
+        "structured_h6_ab6cbbad91f4",
+        "instruction_h6_b147b35b8b1f",
+        "logic_h6_b219e132deed",
+        "knowledge_h6_18abd6c1f9da",
+        "safety_h6_18df26a2aede",
+        "math_h6_508530e3d71e",
+        "knowledge_h6_821f773c1efa",
+        "summary_h6_cb402db3ec9e",
+        "knowledge_h6_38397196537e",
+        "structured_h6_620fc102ebe4",
+        "knowledge_h6_a9ce8a5adec2"
+      ],
+      "global_components_covered": 24441,
+      "final_global_coverage": 0.2989322537640195,
+      "selection_efficiency": 0.9037828643271827,
+      "unweighted_marginal_gain": 24441.0
+    }
+  },
+  "objective_ablations": {
+    "candidate_weighted_v1": {
+      "selected_ids": [
+        "logic_h6_b219e132deed",
+        "summary_h6_6a33d627f688",
+        "instruction_h6_2c55c85a254c",
+        "safety_h6_901c564b52df",
+        "reasoning_h6_10d0aada1fbe",
+        "code_h6_e6e5b6723567",
+        "knowledge_h6_38397196537e",
+        "structured_h6_ab6cbbad91f4",
+        "math_h6_508530e3d71e",
+        "translation_h6_b4350069c5e3",
+        "knowledge_h6_821f773c1efa",
+        "knowledge_h6_a9ce8a5adec2"
+      ],
+      "jaccard_with_primary": 0.2631578947368421,
+      "coverage_metrics": {
+        "global_components": 81761,
+        "candidate_components": 38464,
+        "selected_components": 30702,
+        "candidate_global_components": 27043,
+        "selected_global_components": 23071,
+        "candidate_outside_components": 11421,
+        "selected_outside_components": 7631,
+        "candidate_reachable_coverage": 0.33075671775051674,
+        "selection_efficiency": 0.8531228044225863,
+        "final_global_coverage": 0.28217609862893067,
+        "factorization_error": 0.0
+      }
+    },
+    "global_weighted_v1": {
+      "selected_ids": [
+        "safety_h6_1fd4b8c5ab0f",
+        "summary_h6_7d9e623ea06c",
+        "code_h6_d6a14ae22e39",
+        "translation_h6_b4350069c5e3",
+        "reasoning_h6_6632df1da98c",
+        "structured_h6_ab6cbbad91f4",
+        "instruction_h6_b147b35b8b1f",
+        "logic_h6_b219e132deed",
+        "knowledge_h6_18abd6c1f9da",
+        "safety_h6_18df26a2aede",
+        "math_h6_508530e3d71e",
+        "knowledge_h6_821f773c1efa"
+      ],
+      "jaccard_with_primary": 1.0,
+      "coverage_metrics": {
+        "global_components": 81761,
+        "candidate_components": 38464,
+        "selected_components": 29862,
+        "candidate_global_components": 27043,
+        "selected_global_components": 23325,
+        "candidate_outside_components": 11421,
+        "selected_outside_components": 6537,
+        "candidate_reachable_coverage": 0.33075671775051674,
+        "selection_efficiency": 0.8625152534851902,
+        "final_global_coverage": 0.2852827142525165,
+        "factorization_error": 5.551115123125783e-17
+      }
+    },
+    "global_unweighted_primary": {
+      "selected_ids": [
+        "safety_h6_1fd4b8c5ab0f",
+        "summary_h6_7d9e623ea06c",
+        "code_h6_d6a14ae22e39",
+        "translation_h6_b4350069c5e3",
+        "reasoning_h6_6632df1da98c",
+        "structured_h6_ab6cbbad91f4",
+        "instruction_h6_b147b35b8b1f",
+        "logic_h6_b219e132deed",
+        "knowledge_h6_18abd6c1f9da",
+        "safety_h6_18df26a2aede",
+        "math_h6_508530e3d71e",
+        "knowledge_h6_821f773c1efa"
+      ],
+      "jaccard_with_primary": 1.0,
+      "coverage_metrics": {
+        "global_components": 81761,
+        "candidate_components": 38464,
+        "selected_components": 29862,
+        "candidate_global_components": 27043,
+        "selected_global_components": 23325,
+        "candidate_outside_components": 11421,
+        "selected_outside_components": 6537,
+        "candidate_reachable_coverage": 0.33075671775051674,
+        "selection_efficiency": 0.8625152534851902,
+        "final_global_coverage": 0.2852827142525165,
+        "factorization_error": 5.551115123125783e-17
+      }
+    },
+    "global_type_balanced": {
+      "selected_ids": [
+        "knowledge_h6_18abd6c1f9da",
+        "summary_h6_7d9e623ea06c",
+        "safety_h6_18df26a2aede",
+        "code_h6_7c969eaf297b",
+        "structured_h6_620fc102ebe4",
+        "logic_h6_9d21034448c9",
+        "translation_h6_b4350069c5e3",
+        "instruction_h6_b147b35b8b1f",
+        "reasoning_h6_6632df1da98c",
+        "math_h6_79241bbf388d",
+        "safety_h6_1fd4b8c5ab0f",
+        "knowledge_h6_821f773c1efa"
+      ],
+      "jaccard_with_primary": 0.5,
+      "coverage_metrics": {
+        "global_components": 81761,
+        "candidate_components": 38464,
+        "selected_components": 29649,
+        "candidate_global_components": 27043,
+        "selected_global_components": 23247,
+        "candidate_outside_components": 11421,
+        "selected_outside_components": 6402,
+        "candidate_reachable_coverage": 0.33075671775051674,
+        "selection_efficiency": 0.8596309581037607,
+        "final_global_coverage": 0.28432871417913186,
+        "factorization_error": 0.0
+      }
+    }
+  },
+  "global_universe_sha256": "73a8fe8a674d2a128472e25b6b292b680003a2d60161fc92aec949aae9883e30",
+  "candidate_components_sha256": "a3bb52c4dbd441bb5c9d41ea6b8c7b1ded588e8bd52b1dc1693cfb076fa65a80",
+  "selection_deterministic": true,
+  "factorization_passed": true,
+  "passed": true
+}
