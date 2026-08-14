@@ -6,7 +6,7 @@ project:
   started: "2026-08-05"
   domain: "LLM integrity and cross-scale prompt transfer"
   git_branch: "experiment/h6-qwen2.5-32b-reconstruction"
-  current_stage: "experiment_h6_qwen32b_confirmation_micro_scoring"
+  current_stage: "experiment_h6_qwen32b_confirmation_macro_scoring"
 
 literature:
   key_papers: []
@@ -328,9 +328,9 @@ execution:
   experiment_h6_stage_2_engineering_gate: complete_go
   experiment_h6_stage_3_prompt_construction: "complete_go_60of60_48accepted_0technical_failures"
   experiment_h6_stage_4_development: "complete_go_43selected_all8core_categories"
-  experiment_h6_stage_5_confirmation: "micro_72of86_complete_row73_running_task_validation_complete_86of86"
+  experiment_h6_stage_5_confirmation: "micro_complete_86of86_macro_variant_10of10_running_task_validation_complete_86of86"
   experiment_h6_stage_6_components_mcc12: not_started
-  background_task: "tmux_h6_pipeline_pid_1589_confirmation_micro_pid_2809"
+  background_task: "tmux_h6_pipeline_pid_1589_confirmation_macro_pid_4835"
   last_error: null
 
 resources:
