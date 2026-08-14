@@ -328,7 +328,7 @@ execution:
   experiment_h6_stage_2_engineering_gate: complete_go
   experiment_h6_stage_3_prompt_construction: "complete_go_60of60_48accepted_0technical_failures"
   experiment_h6_stage_4_development: "complete_go_43selected_all8core_categories"
-  experiment_h6_stage_5_confirmation: "task_validation_complete_86of86_86passed_micro_20of86_running"
+  experiment_h6_stage_5_confirmation: "task_validation_complete_86of86_86passed_micro_44of86_running"
   experiment_h6_stage_6_components_mcc12: not_started
   background_task: "tmux_h6_pipeline_pid_1683_confirmation_micro_pid_2978"
   last_error: null
