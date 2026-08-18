@@ -36,8 +36,8 @@ smoke:
   data_role: smoke_only_not_calibration
   responses_per_prompt: 2
   hard_response_limit: 24
-  seed_base: 202608810000
-  output_dir: results/h8_qwen32b_mmd_precalibration/smoke_only
+  seed_base: 2026088200
+  output_dir: results/h8_qwen32b_mmd_precalibration/smoke_only_run2
 
 calibration:
   data_role: mmd_precalibration_fit_only
@@ -94,4 +94,3 @@ artifacts:
   feature_schema: results/h8_qwen32b_mmd_precalibration/precalibration/feature_schema.json
   scaler_directory: results/h8_qwen32b_mmd_precalibration/precalibration/scalers
   bandwidth_directory: results/h8_qwen32b_mmd_precalibration/precalibration/bandwidths
-

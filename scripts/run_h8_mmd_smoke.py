@@ -332,9 +332,27 @@ def parent(config_path: Path, output_dir: Path) -> int:
         str(output_dir),
     ]
     completed = subprocess.run(command, cwd=ROOT, check=False)
-    if completed.returncode != 0:
-        raise RuntimeError(f"H8 smoke worker failed with exit code {completed.returncode}")
     gpu_cleanup = gpu_compute_processes()
+    if completed.returncode != 0:
+        failure_report = {
+            "experiment": "H8 Qwen2.5-32B MMD pre-sampling smoke",
+            "protocol_version": config["protocol_version"],
+            "status": "FAIL",
+            "scope": "smoke_only; zero authorized mmd_precalibration_fit_only responses",
+            "formal_calibration_started": False,
+            "formal_calibration_response_count": 0,
+            "worker_exit_code": completed.returncode,
+            "same_seed_retry_contract": retry_contract,
+            "gpu_cleanup_after_worker_exit": gpu_cleanup,
+            "created_at_utc": datetime.now(timezone.utc).isoformat(),
+            "next_gate": "FIX_PREFLIGHT_AND_REPEAT_SMOKE_WITH_NEW_VERSIONED_OUTPUT",
+        }
+        output_dir.mkdir(parents=True, exist_ok=True)
+        (output_dir / REPORT_NAME).write_text(
+            json.dumps(failure_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        print(json.dumps({"status": "FAIL", "report": str(output_dir / REPORT_NAME)}))
+        return 2
     worker_report = json.loads((output_dir / "worker_report.json").read_text(encoding="utf-8"))
     status = "PASS" if worker_report["status"] == "PASS" and gpu_cleanup["status"] == "PASS" else "FAIL"
     report = {

@@ -40,6 +40,19 @@ def test_smoke_plan_is_exactly_24_batch1_unique_seeds() -> None:
     assert all(request.response_id.startswith("h8-smoke-") for request in plan)
 
 
+@pytest.mark.parametrize("seed_base", [-1, 2**32])
+def test_smoke_plan_rejects_generation_seed_outside_uint32(seed_base: int) -> None:
+    with pytest.raises(ValueError, match="uint32"):
+        build_smoke_plan(
+            entries(),
+            seed_base,
+            mode="smoke_only",
+            data_role="smoke_only_not_calibration",
+            batch_size=1,
+            formal_calibration_authorized=False,
+        )
+
+
 @pytest.mark.parametrize(
     "overrides",
     [
@@ -105,4 +118,3 @@ def test_retry_exhaustion_never_changes_seed() -> None:
     with pytest.raises(RuntimeError, match="same-seed attempts"):
         run_with_same_seed_retry(attempt, 77, max_attempts=2)
     assert calls == [77, 77]
-

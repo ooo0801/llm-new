@@ -100,6 +100,8 @@ def build_smoke_plan(
     seeds = [request.seed for request in requests]
     if len(set(seeds)) != len(seeds):
         raise ValueError("Every smoke response must have a globally unique seed")
+    if any(seed < 0 or seed > 2**32 - 1 for seed in seeds):
+        raise ValueError("Every generation seed must fit NumPy legacy RNG uint32 range")
     return requests
 
 
