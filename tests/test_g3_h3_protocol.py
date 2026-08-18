@@ -14,6 +14,11 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_g3_freezes_exact_f2_legacy_pool_and_mcc12() -> None:
     config = yaml.safe_load((ROOT / "configs/fingerprint_g3_qwen14b_mcc.yaml").read_text(encoding="utf-8"))
     source = ROOT / config["data"]["candidate_source"]
+    if not source.is_file():
+        relative = Path(config["data"]["candidate_source"])
+        if not relative.parts or relative.parts[0] != "results":
+            raise AssertionError(f"missing non-results candidate source: {source}")
+        source = ROOT / "reproducibility" / Path(*relative.parts[1:])
     rows = [json.loads(line) for line in source.read_text(encoding="utf-8").splitlines() if line.strip()]
     assert config["protocol_labels"] == {
         "construction": "G3",

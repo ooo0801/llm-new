@@ -1,0 +1,97 @@
+experiment_name: h8_qwen32b_mmd_precalibration
+protocol_version: h8-mmd-precalibration-1.0
+protocol_status: pre_sampling_review
+formal_calibration_authorized: false
+
+model:
+  name: Qwen/Qwen2.5-32B-Instruct
+  revision: 5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd
+  dtype: bfloat16
+  device_map: balanced
+  max_memory: {0: 30GiB, 1: 30GiB, 2: 30GiB}
+  local_files_only: true
+  eager_attention: true
+
+fingerprint:
+  source: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  source_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  expected_schema_version: h6-32b-construction-1.0
+  expected_prompt_count: 12
+
+generation:
+  batch_size: 1
+  response_level_unique_seed: true
+  max_input_tokens: 512
+  max_new_tokens: 64
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  system_prompt: null
+  eos_token_ids: [151645, 151643]
+  max_attempts_same_seed: 2
+
+smoke:
+  mode: smoke_only
+  data_role: smoke_only_not_calibration
+  responses_per_prompt: 2
+  hard_response_limit: 24
+  seed_base: 202608810000
+  output_dir: results/h8_qwen32b_mmd_precalibration/smoke_only
+
+calibration:
+  data_role: mmd_precalibration_fit_only
+  responses_per_prompt: 100
+  planned_total_responses: 1200
+  may_enter_reference: false
+  may_enter_heldout: false
+  may_enter_attack_evaluation: false
+  sampling_authorized: false
+
+features:
+  surface: true
+  semantic: true
+  task: true
+  semantic_model: BAAI/bge-small-zh-v1.5
+  semantic_model_revision: 7999e1d3359715c523056ef9478215996d62a620
+  semantic_device: cpu
+  semantic_local_files_only: true
+  expected_semantic_dimension: 512
+  expected_total_dimension: 528
+  dtype: float64
+  ddof: 0
+  primary_scaling: per_prompt_standard_then_family_balanced
+  family_balance: divide_each_family_by_sqrt_family_dimension
+  constant_dimension_policy:
+    binary_or_bounded: unit_range_scale_1
+    continuous: pooled_mmd_precalibration_fit_only_std_ddof0
+    pooled_continuous_still_constant: fail
+
+mmd:
+  kernel: rbf
+  bandwidth_convention: median_positive_pairwise_euclidean_distance
+  legacy_h4_bandwidth_forbidden: true
+  primary_estimator: generalized_unequal_size_unbiased_mmd2
+  negative_unbiased_values_allowed: true
+  sensitivity_estimator: biased_mmd2
+  dtype: float64
+  epsilon: 1.0e-8
+
+bandwidth_stability:
+  repetitions: 100
+  subsample_fraction: 0.80
+  seed: 2026088101
+  tests: [fixed_full_scaler, refit_subsample_scaler]
+  pass_q05_q95: [0.80, 1.20]
+  warn_q05_q95: [0.70, 1.30]
+  fail_outside_warn: true
+  confidence_interval_claim: false
+
+artifacts:
+  canonical_json: utf8_sorted_keys_compact_no_nan
+  hash: sha256
+  fail_closed_loading: true
+  feature_schema: results/h8_qwen32b_mmd_precalibration/precalibration/feature_schema.json
+  scaler_directory: results/h8_qwen32b_mmd_precalibration/precalibration/scalers
+  bandwidth_directory: results/h8_qwen32b_mmd_precalibration/precalibration/bandwidths
+
