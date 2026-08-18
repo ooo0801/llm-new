@@ -363,10 +363,47 @@ def parent(config_path: Path, output_dir: Path) -> int:
     return 0 if status == "PASS" else 2
 
 
+def preflight_only(config_path: Path) -> int:
+    config = read_config(config_path)
+    fingerprint, fingerprint_path = load_fingerprint(config)
+    smoke = config["smoke"]
+    plan = build_smoke_plan(
+        fingerprint["entries"],
+        int(smoke["seed_base"]),
+        mode=str(smoke["mode"]),
+        data_role=str(smoke["data_role"]),
+        batch_size=int(config["generation"]["batch_size"]),
+        formal_calibration_authorized=bool(config["formal_calibration_authorized"]),
+    )
+    snapshot = cached_snapshot_provenance(config["model"]["name"], config["model"]["revision"])
+    snapshot_path = Path(snapshot["resolved_snapshot"]) if snapshot.get("resolved_snapshot") else None
+    weight_shards = sorted(snapshot_path.glob("model-*.safetensors")) if snapshot_path else []
+    report = {
+        "status": "PASS" if snapshot_path and len(weight_shards) == 17 else "FAIL",
+        "mode": smoke["mode"],
+        "data_role": smoke["data_role"],
+        "formal_calibration_authorized": config["formal_calibration_authorized"],
+        "formal_calibration_sampling_authorized": config["calibration"]["sampling_authorized"],
+        "fingerprint_path": str(fingerprint_path),
+        "prompt_count": len(fingerprint["entries"]),
+        "request_count": len(plan),
+        "unique_seed_count": len({request.seed for request in plan}),
+        "seed_min": min(request.seed for request in plan),
+        "seed_max": max(request.seed for request in plan),
+        "model_snapshot": snapshot,
+        "weight_shard_count": len(weight_shards),
+        "eos_token_ids": config["generation"]["eos_token_ids"],
+        "batch_size": config["generation"]["batch_size"],
+    }
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0 if report["status"] == "PASS" else 2
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Hard-limited H8 24-response smoke runner")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--worker", action="store_true", help=argparse.SUPPRESS)
     return parser.parse_args()
 
@@ -375,6 +412,8 @@ def main() -> int:
     args = parse_args()
     config_path = args.config.resolve()
     config = read_config(config_path)
+    if args.preflight_only:
+        return preflight_only(config_path)
     output_dir = (
         args.output_dir.resolve()
         if args.output_dir
