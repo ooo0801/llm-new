@@ -1,0 +1,112 @@
+{
+  "schema_version": "h8-m0f-calibration-sampling-archive-1.0",
+  "artifact_type": "h8_m0f_calibration_sampling_archive",
+  "status": "PASS",
+  "phase": "H8_M0F_CALIBRATION_SAMPLING_ONLY",
+  "execution_basis": {
+    "preflight_base_commit": "919b445f38a9ddf5e13423d5c1fb3aad6eebea19",
+    "sampling_code_commit": "b5bbde8009d681b096eedcb31e02811930f889d3",
+    "protocol_sha256": "08fd8b6f3359039249ff3976f4297bf6115e6490a238c2ea1d58e9117e747316",
+    "h8_config_sha256": "a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c",
+    "feature_schema_sha256": "4929ee88394ea6335e957024e16f51b4ad6b16cac96d2867d4135254438e9a8a",
+    "preflight_archive_sha256": "8af9ff264cd868f0081e4700a4fad771ad3d066e362f0328f037ad05ab0ac5d8",
+    "preflight_report_sha256": "50358a9595ac285ec9959e169175cf593915312ff9118bef907277773378486e"
+  },
+  "frozen_model_identity": {
+    "model_name": "Qwen/Qwen2.5-32B-Instruct",
+    "model_revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "source_fingerprint_sha256": "cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0",
+    "model_snapshot_listing_sha256": "479e0ec6fb0f48987e88a8becedab6034e27ef992c8acff07fac83596ae4386b",
+    "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+    "generation_config_sha256": "495fa5dea56fc233c51673d244c40a454b4bb9aec4ab0a2f2661df5f84afe739",
+    "eos_token_ids": [151645, 151643]
+  },
+  "seed_and_schedule": {
+    "manifest_file_sha256": "c9881ead8fd96bb8ceb621abcfb7857abff1b943bb4546cab4b1eae5824014ae",
+    "manifest_payload_sha256": "bb79bf96429dc7afc79be341e3cfcad5b4198ae195f49ead11a25a2a45ab0dc5",
+    "manifest_audit_file_sha256": "074395b7c3b8f2819abb94a234b9faf2d812446af264a4d540b79ac1d5939e2f",
+    "seed_set_sha256": "966d3194a46051af933392e90f92e14d4ee0ba1614c17a99f26a98b3901a7dcf",
+    "schedule_sha256": "2b757697a43e95187f30fd17ae1354f094064bd1eb7485df5d8954f3b75e1b82",
+    "seed_algorithm": "sha256_domain_separated_uint32_rejection_v1",
+    "order_algorithm": "sha256_per_replicate_prompt_sort_v1",
+    "replicate_rounds": 100,
+    "fingerprints_per_round": 12,
+    "batch_size": 1,
+    "unique_seed_count": 1200,
+    "seed_min_uint32": 3179346,
+    "seed_max_uint32": 4288433886,
+    "smoke_seed_overlap_count": 0,
+    "repository_seed_overlap_count": 0,
+    "schedule_mismatch_count": 0
+  },
+  "response_counts": {
+    "mmd_precalibration_fit_only_responses": 1200,
+    "formal_reference_responses": 0,
+    "attack_responses": 0,
+    "heldout_responses": 0,
+    "unique_response_id_count": 1200,
+    "missing_required_field_count": 0,
+    "data_role_or_eligibility_mismatch_count": 0,
+    "per_prompt_count": 100,
+    "prompt_count": 12
+  },
+  "generation_audit": {
+    "attempt_events_total": 1200,
+    "attempt_events_success": 1200,
+    "technical_failure_count": 0,
+    "responses_with_retry": 0,
+    "retry_seed_changed_count": 0,
+    "stop_reason_counts": {
+      "eos": 947,
+      "length": 253
+    },
+    "empty_response_count": 0,
+    "legal_first_token_eos_count": 0,
+    "input_token_count": {
+      "min": 42.0,
+      "q05": 42.0,
+      "median": 55.0,
+      "mean": 55.75,
+      "q95": 82.0,
+      "max": 82.0
+    },
+    "generated_token_count_including_eos": {
+      "min": 2.0,
+      "q05": 2.0,
+      "median": 12.0,
+      "mean": 22.343333333333334,
+      "q95": 64.0,
+      "max": 64.0
+    }
+  },
+  "result_files": {
+    "report_logical_path": "results/h8_qwen32b_mmd_precalibration/m0f_sampling/H8_M0F_CALIBRATION_SAMPLING_REPORT.json",
+    "report_sha256": "25cbbc9252c12f7e45104590c6efae1e232510844a8663633de26b9e1f1754a6",
+    "responses_logical_path": "results/h8_qwen32b_mmd_precalibration/m0f_sampling/calibration_responses.jsonl",
+    "responses_sha256": "16e53f499b71a52089d801e3cd89ceee556a4b98d911590a42a871339ce830f5",
+    "attempt_events_logical_path": "results/h8_qwen32b_mmd_precalibration/m0f_sampling/calibration_attempt_events.jsonl",
+    "attempt_events_sha256": "a647fc9f1bbebad7664a5b689c1103111cc4d355eaf3f68290eb5bad6526bbcc",
+    "sampling_progress_logical_path": "results/h8_qwen32b_mmd_precalibration/m0f_sampling/sampling_progress.json",
+    "sampling_progress_sha256": "196c3c8e08df8676b87d6b42dbc31e38f13f83f272fe5499e39f0aeed80ef686"
+  },
+  "runtime_release_audit": {
+    "gpu_cleanup_status": "PASS",
+    "gpu_memory_used_mib_after_exit": [1, 1, 1],
+    "remaining_compute_process_count": 0,
+    "server_worktree_clean_after_sampling": true
+  },
+  "forbidden_follow_on_actions": {
+    "feature_scaler_fit_performed": false,
+    "family_balanced_transform_performed": false,
+    "sigma_estimation_performed": false,
+    "bandwidth_estimation_performed": false,
+    "bandwidth_stability_performed": false,
+    "mmd_pseudo_trials_performed": false,
+    "formal_reference_generation_performed": false,
+    "attack_generation_performed": false,
+    "heldout_generation_performed": false,
+    "top_r_or_global_test_performed": false
+  },
+  "created_at_utc": "2026-08-18T14:19:20.300688+00:00",
+  "next_gate": "STOP_AND_WAIT_FOR_EXPLICIT_FEATURE_SCALER_OR_BANDWIDTH_APPROVAL"
+}
