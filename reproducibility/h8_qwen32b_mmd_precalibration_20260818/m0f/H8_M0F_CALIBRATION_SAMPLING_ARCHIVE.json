@@ -5,7 +5,9 @@
   "phase": "H8_M0F_CALIBRATION_SAMPLING_ONLY",
   "execution_basis": {
     "preflight_base_commit": "919b445f38a9ddf5e13423d5c1fb3aad6eebea19",
-    "sampling_code_commit": "b5bbde8009d681b096eedcb31e02811930f889d3",
+    "sampling_code_commit": "0360e70700f9d36d6334ce82ec58c1617e43789b",
+    "sampling_execution_commit": "b5bbde8009d681b096eedcb31e02811930f889d3",
+    "sampling_archive_commit": "c67fa0662dfdc03a1d19649d794eb6f32880cff9",
     "protocol_sha256": "08fd8b6f3359039249ff3976f4297bf6115e6490a238c2ea1d58e9117e747316",
     "h8_config_sha256": "a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c",
     "feature_schema_sha256": "4929ee88394ea6335e957024e16f51b4ad6b16cac96d2867d4135254438e9a8a",
@@ -87,7 +89,10 @@
     "attempt_events_logical_path": "results/h8_qwen32b_mmd_precalibration/m0f_sampling/calibration_attempt_events.jsonl",
     "attempt_events_sha256": "a647fc9f1bbebad7664a5b689c1103111cc4d355eaf3f68290eb5bad6526bbcc",
     "sampling_progress_logical_path": "results/h8_qwen32b_mmd_precalibration/m0f_sampling/sampling_progress.json",
-    "sampling_progress_sha256": "196c3c8e08df8676b87d6b42dbc31e38f13f83f272fe5499e39f0aeed80ef686"
+    "sampling_progress_sha256": "196c3c8e08df8676b87d6b42dbc31e38f13f83f272fe5499e39f0aeed80ef686",
+    "sampling_progress_classification": "transient_snapshot",
+    "sampling_progress_status_is_final": false,
+    "final_completion_authority": "H8_M0F_CALIBRATION_SAMPLING_REPORT.json plus this versioned archive"
   },
   "runtime_release_audit": {
     "gpu_cleanup_status": "PASS",

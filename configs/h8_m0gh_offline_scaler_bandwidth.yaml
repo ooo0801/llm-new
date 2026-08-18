@@ -1,0 +1,84 @@
+phase: H8_M0G_H_OFFLINE_FEATURE_SCALER_BANDWIDTH
+authorization_status: user_approved
+authorization_date: "2026-08-18"
+model_sampling_authorized: false
+candidate_artifacts_only: true
+
+provenance:
+  preflight_base_commit: 919b445f38a9ddf5e13423d5c1fb3aad6eebea19
+  sampling_code_commit: 0360e70700f9d36d6334ce82ec58c1617e43789b
+  sampling_execution_commit: b5bbde8009d681b096eedcb31e02811930f889d3
+  sampling_archive_commit: c67fa0662dfdc03a1d19649d794eb6f32880cff9
+  h8_protocol: docs/H8_Qwen32B_M0GH_Offline_Protocol.md
+  h8_protocol_sha256: 2b3723396cd8a6bb6481a3651c514a7b767bf66f27cb072bf9786e12dac9d7a7
+  h8_config: configs/h8_qwen32b_mmd_precalibration.yaml
+  h8_config_sha256: a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c
+
+input:
+  responses: results/h8_qwen32b_mmd_precalibration/m0f_sampling/calibration_responses.jsonl
+  responses_sha256: 16e53f499b71a52089d801e3cd89ceee556a4b98d911590a42a871339ce830f5
+  sampling_report: results/h8_qwen32b_mmd_precalibration/m0f_sampling/H8_M0F_CALIBRATION_SAMPLING_REPORT.json
+  sampling_report_sha256: 25cbbc9252c12f7e45104590c6efae1e232510844a8663633de26b9e1f1754a6
+  calibration_manifest: reproducibility/h8_qwen32b_mmd_precalibration_20260818/m0f/calibration_seed_manifest.json
+  calibration_manifest_sha256: c9881ead8fd96bb8ceb621abcfb7857abff1b943bb4546cab4b1eae5824014ae
+  calibration_manifest_payload_sha256: bb79bf96429dc7afc79be341e3cfcad5b4198ae195f49ead11a25a2a45ab0dc5
+  required_data_role: mmd_precalibration_fit_only
+  required_response_count: 1200
+  required_prompt_count: 12
+  required_responses_per_prompt: 100
+  require_reference_eligibility_false: true
+  require_heldout_eligibility_false: true
+  require_attack_eligibility_false: true
+
+features:
+  semantic_model: BAAI/bge-small-zh-v1.5
+  semantic_model_revision: 7999e1d3359715c523056ef9478215996d62a620
+  semantic_device: cpu
+  semantic_local_files_only: true
+  semantic_dimension: 512
+  expected_surface_dimension: 11
+  expected_task_dimension: 5
+  expected_total_dimension: 528
+  expected_feature_schema_sha256: 4929ee88394ea6335e957024e16f51b4ad6b16cac96d2867d4135254438e9a8a
+  dtype: float64
+  ddof: 0
+  near_zero_scale_threshold: 1.0e-8
+  deterministic_torch_algorithms: true
+  torch_num_threads: 8
+  primary_scaling: per_prompt_standard_then_family_balanced_active_dimensions
+  pooled_continuous_degenerate_policy: global_exclusion_mask
+
+bandwidth:
+  prompt_specific_method: median_positive_pairwise_euclidean_distance
+  global_degenerate_method: median_all_positive_within_prompt_distances_non_degenerate_prompts_only
+  cross_prompt_distances_forbidden: true
+  prompt_specific_stability_fail_may_fallback: false
+  repetitions: 100
+  subsample_fraction: 0.80
+  seed: 2026088101
+  pass_q05_q95: [0.80, 1.20]
+  warn_q05_q95: [0.70, 1.30]
+
+output:
+  directory: results/h8_qwen32b_mmd_precalibration/m0gh
+  feature_matrix: feature_matrix_float64.npy
+  feature_row_index: feature_row_index.jsonl
+  feature_schema: feature_schema_candidate.json
+  feature_qa: feature_qa_report.json
+  exclusion_mask: global_exclusion_mask_candidate.json
+  scaler_directory: scaler_candidates
+  bandwidth_directory: bandwidth_candidates
+  global_bandwidth: global_bandwidth_candidate.json
+  stability_report: bandwidth_stability_report.json
+  report: H8_M0GH_SCALER_BANDWIDTH_REPORT.json
+  artifact_hashes: ARTIFACT_SHA256SUMS.json
+
+forbidden_operations:
+  model_sampling: true
+  formal_reference_read_or_generation: true
+  heldout_read_or_generation: true
+  attack_read_or_generation: true
+  mmd_pseudo_trials: true
+  d_to_s_fit: true
+  top_r_selection: true
+  global_test: true

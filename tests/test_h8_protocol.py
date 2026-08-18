@@ -49,4 +49,3 @@ def test_h6_fingerprint_hash_and_revision_match() -> None:
     assert hashlib.sha256(FINGERPRINT.read_bytes()).hexdigest() == config["fingerprint"]["source_sha256"]
     assert config["model"]["revision"] == "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
     assert config["generation"]["eos_token_ids"] == [151645, 151643]
-

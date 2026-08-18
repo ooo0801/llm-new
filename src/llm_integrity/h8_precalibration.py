@@ -15,6 +15,9 @@ H8_DTYPE = "float64"
 H8_DDOF = 0
 H8_EPSILON = 1e-8
 H8_BANDWIDTH_CONVENTION = "median_positive_pairwise_euclidean_distance"
+H8_GLOBAL_BANDWIDTH_CONVENTION = (
+    "median_all_positive_within_prompt_distances_non_degenerate_prompts_only"
+)
 H8_DATA_ROLE = "mmd_precalibration_fit_only"
 
 
@@ -149,6 +152,7 @@ class FamilyBalancedScaler:
     scale: np.ndarray
     scale_source: tuple[str, ...]
     constant_in_prompt: tuple[bool, ...]
+    global_exclusion_mask: tuple[bool, ...]
     family_weights: Mapping[str, float]
     data_role: str = H8_DATA_ROLE
     dtype: str = H8_DTYPE
@@ -163,6 +167,7 @@ class FamilyBalancedScaler:
         if not np.isfinite(array).all():
             raise ValueError("Feature matrix contains NaN or infinity")
         transformed = (array - self.mean) / self.scale
+        transformed[:, np.asarray(self.global_exclusion_mask, dtype=bool)] = 0.0
         for family, (start, stop) in schema.family_slices.items():
             transformed[:, start:stop] *= self.family_weights[family]
         if not np.isfinite(transformed).all():
@@ -181,6 +186,10 @@ class FamilyBalancedScaler:
             "scale": self.scale.tolist(),
             "scale_source": list(self.scale_source),
             "constant_in_prompt": list(self.constant_in_prompt),
+            "global_exclusion_mask": list(self.global_exclusion_mask),
+            "active_dimensions": [
+                index for index, excluded in enumerate(self.global_exclusion_mask) if not excluded
+            ],
             "family_weights": dict(self.family_weights),
         }
 
@@ -199,8 +208,24 @@ class FamilyBalancedScaler:
             scale=np.asarray(value["scale"], dtype=np.float64),
             scale_source=tuple(str(item) for item in value["scale_source"]),
             constant_in_prompt=tuple(bool(item) for item in value["constant_in_prompt"]),
+            global_exclusion_mask=tuple(
+                bool(item) for item in value["global_exclusion_mask"]
+            ),
             family_weights={str(key): float(item) for key, item in value["family_weights"].items()},
         )
+
+
+def global_continuous_exclusion_mask(
+    pooled_fit_only_values: np.ndarray,
+    schema: FeatureSchema,
+    epsilon: float = H8_EPSILON,
+) -> tuple[bool, ...]:
+    pooled = _as_feature_matrix(pooled_fit_only_values, schema)
+    pooled_scale = pooled.std(axis=0, ddof=H8_DDOF, dtype=np.float64)
+    return tuple(
+        bool(feature.feature_type == "continuous" and pooled_scale[feature.index] < epsilon)
+        for feature in schema.features
+    )
 
 
 def fit_family_balanced_scaler(
@@ -209,6 +234,7 @@ def fit_family_balanced_scaler(
     pooled_fit_only_values: np.ndarray,
     schema: FeatureSchema,
     epsilon: float = H8_EPSILON,
+    exclusion_mask: Sequence[bool] | None = None,
 ) -> FamilyBalancedScaler:
     if not prompt_id:
         raise ValueError("prompt_id must be non-empty")
@@ -217,6 +243,16 @@ def fit_family_balanced_scaler(
     mean = array.mean(axis=0, dtype=np.float64)
     prompt_scale = array.std(axis=0, ddof=H8_DDOF, dtype=np.float64)
     pooled_scale = pooled.std(axis=0, ddof=H8_DDOF, dtype=np.float64)
+    excluded = (
+        global_continuous_exclusion_mask(pooled, schema, epsilon)
+        if exclusion_mask is None
+        else tuple(bool(item) for item in exclusion_mask)
+    )
+    if len(excluded) != schema.dimension:
+        raise ValueError("Global exclusion mask dimension mismatch")
+    for feature, is_excluded in zip(schema.features, excluded):
+        if is_excluded and feature.feature_type != "continuous":
+            raise ValueError("Only continuous features may enter the global exclusion mask")
     scale = prompt_scale.copy()
     sources: list[str] = []
     constants: list[bool] = []
@@ -224,6 +260,10 @@ def fit_family_balanced_scaler(
         index = feature.index
         is_constant = bool(prompt_scale[index] < epsilon)
         constants.append(is_constant)
+        if excluded[index]:
+            scale[index] = 1.0
+            sources.append("global_excluded_pooled_degenerate")
+            continue
         if not is_constant:
             sources.append("prompt_std_ddof0")
             continue
@@ -234,17 +274,17 @@ def fit_family_balanced_scaler(
         if feature.feature_type != "continuous":
             raise ValueError(f"Unsupported feature type: {feature.feature_type}")
         if pooled_scale[index] < epsilon:
-            raise ValueError(
-                f"Continuous feature {feature.name!r} is constant both per-prompt and pooled"
-            )
+            raise ValueError(f"Continuous feature {feature.name!r} must be globally excluded")
         scale[index] = pooled_scale[index]
         sources.append("pooled_fit_only_std_ddof0")
     if not np.isfinite(scale).all() or np.any(scale <= 0):
         raise ValueError("Scaler contains a non-finite or non-positive scale")
-    family_weights = {
-        family: 1.0 / math.sqrt(stop - start)
-        for family, (start, stop) in schema.family_slices.items()
-    }
+    family_weights: dict[str, float] = {}
+    for family, (start, stop) in schema.family_slices.items():
+        active_count = sum(not excluded[index] for index in range(start, stop))
+        if active_count <= 0:
+            raise ValueError(f"Feature family {family!r} has no active dimensions")
+        family_weights[family] = 1.0 / math.sqrt(active_count)
     return FamilyBalancedScaler(
         prompt_id=prompt_id,
         feature_schema_sha256=schema.sha256,
@@ -252,6 +292,7 @@ def fit_family_balanced_scaler(
         scale=scale,
         scale_source=tuple(sources),
         constant_in_prompt=tuple(constants),
+        global_exclusion_mask=excluded,
         family_weights=family_weights,
     )
 
@@ -263,19 +304,55 @@ def _squared_distances(x: np.ndarray, y: np.ndarray) -> np.ndarray:
     return np.maximum(distances, 0.0)
 
 
-def h8_median_positive_pairwise_distance(values: np.ndarray) -> float:
+def h8_within_prompt_pairwise_distances(values: np.ndarray) -> np.ndarray:
     array = np.asarray(values, dtype=np.float64)
     if array.ndim != 2 or len(array) < 2 or not np.isfinite(array).all():
         raise ValueError("Bandwidth fit requires a finite 2D matrix with at least two rows")
     squared = _squared_distances(array, array)
-    distances = np.sqrt(squared[np.triu_indices(len(array), k=1)])
-    positive = distances[distances > 0.0]
+    return np.sqrt(squared[np.triu_indices(len(array), k=1)]).astype(np.float64)
+
+
+def h8_positive_within_prompt_distances(values: np.ndarray) -> np.ndarray:
+    distances = h8_within_prompt_pairwise_distances(values)
+    return distances[distances > 0.0]
+
+
+def h8_median_positive_pairwise_distance(values: np.ndarray) -> float:
+    positive = h8_positive_within_prompt_distances(values)
     if positive.size == 0:
         raise ValueError("No positive pairwise distance; H8 bandwidth is undefined")
     bandwidth = float(np.median(positive))
     if not math.isfinite(bandwidth) or bandwidth <= H8_EPSILON:
         raise ValueError("H8 bandwidth is non-finite or at/below the protocol floor")
     return bandwidth
+
+
+def h8_global_degenerate_bandwidth(
+    transformed_by_prompt: Mapping[str, np.ndarray],
+) -> dict[str, Any]:
+    positive_by_prompt = {
+        prompt_id: h8_positive_within_prompt_distances(values)
+        for prompt_id, values in transformed_by_prompt.items()
+    }
+    non_degenerate = sorted(
+        prompt_id for prompt_id, distances in positive_by_prompt.items() if len(distances) > 0
+    )
+    if not non_degenerate:
+        raise ValueError("All fingerprints are feature-degenerate; sigma_global is undefined")
+    pooled_positive = np.concatenate([positive_by_prompt[prompt_id] for prompt_id in non_degenerate])
+    sigma = float(np.median(pooled_positive))
+    if not math.isfinite(sigma) or sigma <= H8_EPSILON:
+        raise ValueError("sigma_global is non-finite or at/below the protocol floor")
+    return {
+        "sigma": sigma,
+        "method": H8_GLOBAL_BANDWIDTH_CONVENTION,
+        "non_degenerate_prompt_ids": non_degenerate,
+        "excluded_degenerate_prompt_ids": sorted(
+            prompt_id for prompt_id, distances in positive_by_prompt.items() if len(distances) == 0
+        ),
+        "positive_within_prompt_distance_count": int(len(pooled_positive)),
+        "cross_prompt_distances_used": False,
+    }
 
 
 def h8_rbf_kernel(x: np.ndarray, y: np.ndarray, bandwidth: float) -> np.ndarray:
@@ -320,8 +397,11 @@ def h8_mmd2_biased(x: np.ndarray, y: np.ndarray, bandwidth: float) -> float:
     return 0.0 if -1e-12 < value < 0.0 else value
 
 
-def _stability_gate(ratios: Sequence[float]) -> dict[str, Any]:
-    array = np.asarray(ratios, dtype=np.float64)
+def _stability_gate(ratios: Sequence[float | None]) -> dict[str, Any]:
+    array = np.asarray(
+        [float("nan") if value is None else float(value) for value in ratios],
+        dtype=np.float64,
+    )
     if array.ndim != 1 or len(array) == 0 or not np.isfinite(array).all():
         return {"status": "FAIL", "reason": "non_finite_or_empty"}
     q05, q50, q95 = np.quantile(array, [0.05, 0.50, 0.95])
@@ -340,6 +420,33 @@ def _stability_gate(ratios: Sequence[float]) -> dict[str, Any]:
         "q95": float(q95),
         "relative_mad": mad / max(abs(float(q50)), H8_EPSILON),
         "coefficient_of_variation": float(array.std(ddof=0)) / max(abs(mean), H8_EPSILON),
+    }
+
+
+def h8_numeric_summary(values: np.ndarray) -> dict[str, float | int | None]:
+    array = np.asarray(values, dtype=np.float64)
+    if array.ndim != 1:
+        raise ValueError("Numeric summary requires a one-dimensional array")
+    if len(array) == 0:
+        return {
+            "count": 0,
+            "min": None,
+            "q05": None,
+            "median": None,
+            "mean": None,
+            "q95": None,
+            "max": None,
+        }
+    if not np.isfinite(array).all():
+        raise ValueError("Numeric summary contains NaN or infinity")
+    return {
+        "count": int(len(array)),
+        "min": float(array.min()),
+        "q05": float(np.quantile(array, 0.05)),
+        "median": float(np.median(array)),
+        "mean": float(array.mean(dtype=np.float64)),
+        "q95": float(np.quantile(array, 0.95)),
+        "max": float(array.max()),
     }
 
 
@@ -405,24 +512,207 @@ def h8_bandwidth_stability(
     }
 
 
+def h8_bandwidth_candidate_stability_suite(
+    values_by_prompt: Mapping[str, np.ndarray],
+    full_scalers: Mapping[str, FamilyBalancedScaler],
+    schema: FeatureSchema,
+    repetitions: int = 100,
+    fraction: float = 0.80,
+    seed: int = 2026088101,
+) -> dict[str, Any]:
+    """Fit prompt/global bandwidth candidates without any cross-prompt distances.
+
+    The same deterministic subsample is used for every prompt in each repetition.
+    A prompt with at least one positive full-data distance remains prompt-specific even
+    if its stability fails. Only a structurally all-zero prompt may use sigma_global.
+    """
+    if repetitions <= 0 or not 0.0 < fraction < 1.0:
+        raise ValueError("Invalid bandwidth stability settings")
+    prompt_ids = sorted(values_by_prompt)
+    if prompt_ids != sorted(full_scalers):
+        raise ValueError("values_by_prompt/full_scalers prompt sets differ")
+    matrices = {
+        prompt_id: _as_feature_matrix(values_by_prompt[prompt_id], schema)
+        for prompt_id in prompt_ids
+    }
+    full_transformed = {
+        prompt_id: full_scalers[prompt_id].transform(matrices[prompt_id], schema)
+        for prompt_id in prompt_ids
+    }
+    full_positive = {
+        prompt_id: h8_positive_within_prompt_distances(full_transformed[prompt_id])
+        for prompt_id in prompt_ids
+    }
+    non_degenerate = [prompt_id for prompt_id in prompt_ids if len(full_positive[prompt_id]) > 0]
+    degenerate = [prompt_id for prompt_id in prompt_ids if len(full_positive[prompt_id]) == 0]
+    global_candidate = h8_global_degenerate_bandwidth(full_transformed)
+    full_prompt_sigma = {
+        prompt_id: float(np.median(full_positive[prompt_id])) for prompt_id in non_degenerate
+    }
+
+    fixed_ratios: dict[str, list[float | None]] = {
+        prompt_id: [] for prompt_id in non_degenerate
+    }
+    refit_ratios: dict[str, list[float | None]] = {
+        prompt_id: [] for prompt_id in non_degenerate
+    }
+    global_fixed_ratios: list[float | None] = []
+    global_refit_ratios: list[float | None] = []
+    rng = np.random.Generator(np.random.PCG64(seed))
+    for _ in range(repetitions):
+        subsets: dict[str, np.ndarray] = {}
+        for prompt_id in prompt_ids:
+            matrix = matrices[prompt_id]
+            subset_size = max(2, int(math.floor(len(matrix) * fraction)))
+            indices = rng.choice(len(matrix), size=subset_size, replace=False)
+            subsets[prompt_id] = matrix[indices]
+
+        fixed_positive: dict[str, np.ndarray] = {}
+        for prompt_id in prompt_ids:
+            transformed = full_scalers[prompt_id].transform(subsets[prompt_id], schema)
+            fixed_positive[prompt_id] = h8_positive_within_prompt_distances(transformed)
+        fixed_global_parts = [fixed_positive[prompt_id] for prompt_id in non_degenerate if len(fixed_positive[prompt_id])]
+        if fixed_global_parts:
+            fixed_global = float(np.median(np.concatenate(fixed_global_parts)))
+            global_fixed_ratios.append(fixed_global / global_candidate["sigma"])
+        else:
+            global_fixed_ratios.append(None)
+
+        pooled_subset = np.concatenate([subsets[prompt_id] for prompt_id in prompt_ids], axis=0)
+        refit_mask = global_continuous_exclusion_mask(pooled_subset, schema)
+        refit_positive: dict[str, np.ndarray] = {}
+        for prompt_id in prompt_ids:
+            refit_scaler = fit_family_balanced_scaler(
+                prompt_id,
+                subsets[prompt_id],
+                pooled_subset,
+                schema,
+                exclusion_mask=refit_mask,
+            )
+            transformed = refit_scaler.transform(subsets[prompt_id], schema)
+            refit_positive[prompt_id] = h8_positive_within_prompt_distances(transformed)
+        refit_global_parts = [refit_positive[prompt_id] for prompt_id in non_degenerate if len(refit_positive[prompt_id])]
+        if refit_global_parts:
+            refit_global = float(np.median(np.concatenate(refit_global_parts)))
+            global_refit_ratios.append(refit_global / global_candidate["sigma"])
+        else:
+            global_refit_ratios.append(None)
+
+        for prompt_id in non_degenerate:
+            fixed = fixed_positive[prompt_id]
+            refit = refit_positive[prompt_id]
+            fixed_ratios[prompt_id].append(
+                float(np.median(fixed)) / full_prompt_sigma[prompt_id]
+                if len(fixed)
+                else None
+            )
+            refit_ratios[prompt_id].append(
+                float(np.median(refit)) / full_prompt_sigma[prompt_id]
+                if len(refit)
+                else None
+            )
+
+    order = {"PASS": 0, "WARN": 1, "FAIL": 2}
+    global_fixed_gate = _stability_gate(global_fixed_ratios)
+    global_refit_gate = _stability_gate(global_refit_ratios)
+    global_status = max(
+        (global_fixed_gate["status"], global_refit_gate["status"]), key=order.__getitem__
+    )
+    global_stability = {
+        **global_candidate,
+        "fixed_full_scaler": {**global_fixed_gate, "ratios": global_fixed_ratios},
+        "refit_subsample_scaler": {**global_refit_gate, "ratios": global_refit_ratios},
+        "overall_status": global_status,
+    }
+
+    prompt_results: dict[str, dict[str, Any]] = {}
+    for prompt_id in prompt_ids:
+        distances = h8_within_prompt_pairwise_distances(full_transformed[prompt_id])
+        positives = full_positive[prompt_id]
+        if prompt_id in non_degenerate:
+            fixed_gate = _stability_gate(fixed_ratios[prompt_id])
+            refit_gate = _stability_gate(refit_ratios[prompt_id])
+            status = max(
+                (fixed_gate["status"], refit_gate["status"]), key=order.__getitem__
+            )
+            sigma = full_prompt_sigma[prompt_id]
+            source = "prompt_specific"
+            stability = {
+                "fixed_full_scaler": {**fixed_gate, "ratios": fixed_ratios[prompt_id]},
+                "refit_subsample_scaler": {**refit_gate, "ratios": refit_ratios[prompt_id]},
+            }
+        else:
+            status = global_status
+            sigma = float(global_candidate["sigma"])
+            source = "global_degenerate_fallback"
+            stability = {
+                "fixed_full_scaler": global_stability["fixed_full_scaler"],
+                "refit_subsample_scaler": global_stability["refit_subsample_scaler"],
+            }
+        prompt_results[prompt_id] = {
+            "prompt_id": prompt_id,
+            "bandwidth_source": source,
+            "sigma": sigma,
+            "pairwise_distance_count": int(len(distances)),
+            "positive_distance_count": int(len(positives)),
+            "positive_distance_fraction": float(len(positives) / len(distances)),
+            "pairwise_distance_distribution": h8_numeric_summary(distances),
+            "positive_distance_distribution": h8_numeric_summary(positives),
+            "feature_degenerate": bool(len(positives) == 0),
+            "fixed_full_scaler": stability["fixed_full_scaler"],
+            "refit_subsample_scaler": stability["refit_subsample_scaler"],
+            "overall_status": status,
+            "prompt_specific_failure_fell_back_to_global": False,
+        }
+
+    overall = max(
+        [global_status, *(result["overall_status"] for result in prompt_results.values())],
+        key=order.__getitem__,
+    )
+    return {
+        "schema_version": H8_SCHEMA_VERSION,
+        "bandwidth_convention": H8_BANDWIDTH_CONVENTION,
+        "global_bandwidth_convention": H8_GLOBAL_BANDWIDTH_CONVENTION,
+        "repetitions": repetitions,
+        "fraction": fraction,
+        "seed": seed,
+        "prompt_results": prompt_results,
+        "global_fallback": global_stability,
+        "overall_status": overall,
+        "cross_prompt_distances_used": False,
+        "prompt_specific_stability_fail_may_fallback": False,
+        "strict_statistical_confidence_interval": False,
+    }
+
+
 def make_bandwidth_payload(
     prompt_id: str,
     bandwidth: float,
     scaler_payload_sha256: str,
     calibration_manifest_sha256: str,
     feature_schema_sha256: str,
+    bandwidth_source: str = "prompt_specific",
+    global_exclusion_mask_sha256: str | None = None,
+    global_bandwidth_payload_sha256: str | None = None,
 ) -> dict[str, Any]:
     if not math.isfinite(bandwidth) or bandwidth <= H8_EPSILON:
         raise ValueError("Cannot freeze an invalid H8 bandwidth")
+    if bandwidth_source not in {"prompt_specific", "global_degenerate_fallback"}:
+        raise ValueError("Invalid H8 bandwidth source")
+    if bandwidth_source == "global_degenerate_fallback" and not global_bandwidth_payload_sha256:
+        raise ValueError("Global fallback bandwidth must bind the global bandwidth payload")
     return {
         "schema_version": H8_SCHEMA_VERSION,
         "prompt_id": prompt_id,
         "sigma": float(bandwidth),
         "method": H8_BANDWIDTH_CONVENTION,
+        "bandwidth_source": bandwidth_source,
         "dtype": H8_DTYPE,
         "scaler_payload_sha256": scaler_payload_sha256,
         "calibration_manifest_sha256": calibration_manifest_sha256,
         "feature_schema_sha256": feature_schema_sha256,
+        "global_exclusion_mask_sha256": global_exclusion_mask_sha256,
+        "global_bandwidth_payload_sha256": global_bandwidth_payload_sha256,
         "data_role": H8_DATA_ROLE,
     }
 
@@ -493,6 +783,13 @@ def load_frozen_scaler_and_bandwidth(
         raise ValueError("Bandwidth feature schema mismatch")
     if bandwidth_payload.get("prompt_id") != scaler.prompt_id:
         raise ValueError("Scaler/bandwidth prompt mismatch")
+    source = bandwidth_payload.get("bandwidth_source")
+    if source not in {"prompt_specific", "global_degenerate_fallback"}:
+        raise ValueError("Frozen H8 bandwidth source is invalid")
+    if source == "global_degenerate_fallback" and not bandwidth_payload.get(
+        "global_bandwidth_payload_sha256"
+    ):
+        raise ValueError("Frozen global fallback bandwidth is unbound")
     bandwidth = float(bandwidth_payload["sigma"])
     if not math.isfinite(bandwidth) or bandwidth <= H8_EPSILON:
         raise ValueError("Frozen H8 bandwidth is invalid")

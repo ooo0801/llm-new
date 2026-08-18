@@ -638,6 +638,21 @@ def parent(auth_path: Path) -> int:
         "next_gate": "STOP_AND_WAIT_FOR_EXPLICIT_FEATURE_SCALER_OR_BANDWIDTH_APPROVAL",
     }
     atomic_json(report_path, report)
+    atomic_json(
+        output_dir / "sampling_progress.json",
+        {
+            "status": "completed",
+            "completed_responses": len(records),
+            "completed_replicate_rounds": len(records) // 12,
+            "last_response_id": records[-1]["response_id"] if records else None,
+            "updated_at_utc": now(),
+            "formal_reference_responses": 0,
+            "attack_responses": 0,
+            "heldout_responses": 0,
+            "final_report_status": status,
+            "final_report_path": auth["artifacts"]["report"],
+        },
+    )
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if status == "PASS" else 2
 
