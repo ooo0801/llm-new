@@ -8,7 +8,7 @@ import numpy as np
 import yaml
 
 from llm_integrity.h8_precalibration import build_h8_feature_schema
-from run_h8_m0gh_scaler_bandwidth import feature_qa
+from run_h8_m0gh_scaler_bandwidth import deterministic_feature_extract, feature_qa
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -79,6 +79,40 @@ def test_feature_qa_reports_required_per_prompt_diagnostics() -> None:
         assert prompt["inf_value_count"] == 0
         assert prompt["eos_stop_fraction"] == 0.5
         assert prompt["length_stop_fraction"] == 0.5
+
+
+def test_deterministic_feature_extract_encodes_each_unique_text_once() -> None:
+    class FakeExtractor:
+        def __init__(self) -> None:
+            self.semantic_calls: list[list[str]] = []
+
+        def transform(
+            self,
+            texts,
+            rows=None,
+            include_surface=True,
+            include_semantic=True,
+            include_task=True,
+        ):
+            text_list = list(texts)
+            if include_semantic:
+                self.semantic_calls.append(text_list)
+                return np.asarray(
+                    [[len(text), len(text) + 0.5] for text in text_list], dtype=np.float64
+                )
+            return np.asarray(
+                [[float(index % 2)] for index, _ in enumerate(text_list)], dtype=np.float64
+            )
+
+    records = [
+        {"raw_response": "same", "task_metadata": {}, "category": "x"},
+        {"raw_response": "other", "task_metadata": {}, "category": "x"},
+        {"raw_response": "same", "task_metadata": {}, "category": "x"},
+    ]
+    extractor = FakeExtractor()
+    matrix = deterministic_feature_extract(extractor, records)
+    assert extractor.semantic_calls == [["other", "same"]]
+    assert np.array_equal(matrix[0, :2], matrix[2, :2])
 
 
 def test_protocol_freezes_degeneracy_fallback_boundaries() -> None:

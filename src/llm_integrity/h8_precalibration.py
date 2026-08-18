@@ -308,8 +308,15 @@ def h8_within_prompt_pairwise_distances(values: np.ndarray) -> np.ndarray:
     array = np.asarray(values, dtype=np.float64)
     if array.ndim != 2 or len(array) < 2 or not np.isfinite(array).all():
         raise ValueError("Bandwidth fit requires a finite 2D matrix with at least two rows")
-    squared = _squared_distances(array, array)
-    return np.sqrt(squared[np.triu_indices(len(array), k=1)]).astype(np.float64)
+    # Direct subtraction is deliberate: the Gram expansion can create tiny
+    # positive cancellation artifacts for two bit-identical feature vectors.
+    distances = np.empty(len(array) * (len(array) - 1) // 2, dtype=np.float64)
+    cursor = 0
+    for index in range(len(array) - 1):
+        block = np.linalg.norm(array[index + 1 :] - array[index], axis=1)
+        distances[cursor : cursor + len(block)] = block
+        cursor += len(block)
+    return distances
 
 
 def h8_positive_within_prompt_distances(values: np.ndarray) -> np.ndarray:

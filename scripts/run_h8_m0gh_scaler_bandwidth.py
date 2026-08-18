@@ -186,6 +186,39 @@ def task_rows(records: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
     return result
 
 
+def deterministic_feature_extract(
+    extractor: FeatureExtractor,
+    records: list[dict[str, Any]],
+) -> np.ndarray:
+    texts = [str(record["raw_response"]) for record in records]
+    unique_texts = sorted(set(texts))
+    surface_semantic_unique = np.asarray(
+        extractor.transform(
+            unique_texts,
+            rows=None,
+            include_surface=True,
+            include_semantic=True,
+            include_task=False,
+        ),
+        dtype=np.float64,
+    )
+    lookup = {
+        text: surface_semantic_unique[index] for index, text in enumerate(unique_texts)
+    }
+    surface_semantic = np.stack([lookup[text] for text in texts]).astype(np.float64)
+    task = np.asarray(
+        extractor.transform(
+            texts,
+            rows=task_rows(records),
+            include_surface=False,
+            include_semantic=False,
+            include_task=True,
+        ),
+        dtype=np.float64,
+    )
+    return np.concatenate([surface_semantic, task], axis=1).astype(np.float64)
+
+
 def little_endian_row_sha256(row: np.ndarray) -> str:
     array = np.ascontiguousarray(np.asarray(row, dtype="<f8"))
     return hashlib.sha256(array.tobytes(order="C")).hexdigest()
@@ -329,10 +362,9 @@ def main(config_path: Path) -> int:
         semantic_device=feature_config["semantic_device"],
         semantic_local_files_only=bool(feature_config["semantic_local_files_only"]),
     )
-    texts = [str(record["raw_response"]) for record in records]
-    features = np.asarray(
-        extractor.transform(texts, task_rows(records), True, True, True), dtype=np.float64
-    )
+    if not bool(feature_config["deduplicate_text_before_semantic_encoding"]):
+        raise ValueError("H8 M0-G/H requires unique-text semantic encoding")
+    features = deterministic_feature_extract(extractor, records)
     if features.shape != (len(records), schema.dimension) or not np.isfinite(features).all():
         raise ValueError("Deterministic feature extraction produced invalid features")
 
@@ -355,6 +387,7 @@ def main(config_path: Path) -> int:
         "feature_extraction_runtime": version_info(extractor),
         "semantic_model": feature_config["semantic_model"],
         "semantic_model_revision": feature_config["semantic_model_revision"],
+        "unique_text_semantic_encoding": True,
         "m0gh_config_sha256": file_sha256(config_path),
         "analysis_git_commit": analysis_git_commit,
     }

@@ -110,6 +110,15 @@ def test_h8_bandwidth_is_median_positive_euclidean_not_h4() -> None:
         h8_median_positive_pairwise_distance(np.zeros((3, 2)))
 
 
+def test_identical_high_dimensional_rows_have_exact_zero_distance() -> None:
+    from llm_integrity.h8_precalibration import h8_within_prompt_pairwise_distances
+
+    row = np.linspace(-1.0, 1.0, 528, dtype=np.float64)
+    values = np.repeat(row[None, :], 100, axis=0)
+    distances = h8_within_prompt_pairwise_distances(values)
+    assert np.array_equal(distances, np.zeros_like(distances))
+
+
 def test_global_degenerate_bandwidth_uses_only_within_prompt_positive_distances() -> None:
     transformed = {
         "a": np.asarray([[0.0], [1.0], [3.0]]),  # 1, 3, 2

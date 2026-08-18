@@ -45,6 +45,7 @@ features:
   near_zero_scale_threshold: 1.0e-8
   deterministic_torch_algorithms: true
   torch_num_threads: 8
+  deduplicate_text_before_semantic_encoding: true
   primary_scaling: per_prompt_standard_then_family_balanced_active_dimensions
   pooled_continuous_degenerate_policy: global_exclusion_mask
 
