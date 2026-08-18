@@ -1,0 +1,40 @@
+{
+  "created_at_utc": "2026-08-18T13:30:16.669753+00:00",
+  "forbidden_seed_count": 260,
+  "generation_started": false,
+  "manifest": {
+    "file_sha256": "c9881ead8fd96bb8ceb621abcfb7857abff1b943bb4546cab4b1eae5824014ae",
+    "path": "/root/autodl-tmp/llm/reproducibility/h8_qwen32b_mmd_precalibration_20260818/m0f/calibration_seed_manifest.json",
+    "payload_sha256": "bb79bf96429dc7afc79be341e3cfcad5b4198ae195f49ead11a25a2a45ab0dc5"
+  },
+  "per_prompt_counts": {
+    "code_h6_d6a14ae22e39": 100,
+    "instruction_h6_b147b35b8b1f": 100,
+    "knowledge_h6_18abd6c1f9da": 100,
+    "knowledge_h6_821f773c1efa": 100,
+    "logic_h6_b219e132deed": 100,
+    "math_h6_508530e3d71e": 100,
+    "reasoning_h6_6632df1da98c": 100,
+    "safety_h6_18df26a2aede": 100,
+    "safety_h6_1fd4b8c5ab0f": 100,
+    "structured_h6_ab6cbbad91f4": 100,
+    "summary_h6_7d9e623ea06c": 100,
+    "translation_h6_b4350069c5e3": 100
+  },
+  "prompt_count": 12,
+  "replicate_rounds": 100,
+  "repository_overlap_count": 0,
+  "repository_seed_source_file_count": 195,
+  "schedule_positions_contiguous": true,
+  "schedule_sha256": "2b757697a43e95187f30fd17ae1354f094064bd1eb7485df5d8954f3b75e1b82",
+  "schema_version": "h8-m0f-calibration-seed-manifest-audit-1.0",
+  "seed_max": 4288433886,
+  "seed_min": 3179346,
+  "seed_set_sha256": "966d3194a46051af933392e90f92e14d4ee0ba1614c17a99f26a98b3901a7dcf",
+  "smoke_overlap_count": 0,
+  "status": "PASS",
+  "total_responses": 1200,
+  "uint32_range_pass": true,
+  "unique_response_id_count": 1200,
+  "unique_seed_count": 1200
+}
