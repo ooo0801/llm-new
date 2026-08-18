@@ -109,12 +109,15 @@ def cached_snapshot_provenance(model_name: str, revision: str) -> dict[str, Any]
                 )
                 result["snapshot_listing_sha256"] = canonical_json_sha256(
                     sorted(
-                        {
+                        (
+                            {
                             "name": item.name,
                             "size": item.stat().st_size,
-                        }
-                        for item in snapshot_path.iterdir()
-                        if item.is_file()
+                            }
+                            for item in snapshot_path.iterdir()
+                            if item.is_file()
+                        ),
+                        key=lambda row: row["name"],
                     )
                 )
                 return result
@@ -379,7 +382,11 @@ def preflight_only(config_path: Path) -> int:
     snapshot_path = Path(snapshot["resolved_snapshot"]) if snapshot.get("resolved_snapshot") else None
     weight_shards = sorted(snapshot_path.glob("model-*.safetensors")) if snapshot_path else []
     report = {
-        "status": "PASS" if snapshot_path and len(weight_shards) == 17 else "FAIL",
+        "status": (
+            "PASS"
+            if snapshot_path and len(weight_shards) == 17 and not snapshot.get("resolution_error")
+            else "FAIL"
+        ),
         "mode": smoke["mode"],
         "data_role": smoke["data_role"],
         "formal_calibration_authorized": config["formal_calibration_authorized"],
