@@ -1,0 +1,96 @@
+{
+  "schema_version": "h8_mmd_precalibration_preflight_archive_1.0",
+  "status": "PASS",
+  "protocol_version": "h8-mmd-precalibration-1.0",
+  "git_commit_used_for_successful_smoke": "a5092c7580f682644a25bfcd74a4feb174dd43b8",
+  "scope": {
+    "smoke_only_responses": 24,
+    "mmd_precalibration_fit_only_responses": 0,
+    "formal_calibration_started": false,
+    "attacks_started": false,
+    "heldout_started": false,
+    "next_gate": "STOP_AND_WAIT_FOR_EXPLICIT_1200_CALIBRATION_APPROVAL"
+  },
+  "model": {
+    "name": "Qwen/Qwen2.5-32B-Instruct",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+    "dtype": "torch.bfloat16",
+    "attention": "eager",
+    "hidden_layers": 64,
+    "attention_heads": 40,
+    "hidden_size": 5120,
+    "weight_shards": 17,
+    "snapshot_listing_sha256": "479e0ec6fb0f48987e88a8becedab6034e27ef992c8acff07fac83596ae4386b"
+  },
+  "sampling": {
+    "prompt_count": 12,
+    "responses_per_prompt": 2,
+    "batch_size": 1,
+    "unique_seed_count": 24,
+    "seed_min": 2026088200,
+    "seed_max": 2026088223,
+    "input_token_count_min": 42,
+    "input_token_count_max": 82,
+    "completion_token_count_min_including_eos": 2,
+    "completion_token_count_max_including_eos": 64,
+    "stop_reason_counts": {
+      "eos": 18,
+      "length": 6
+    },
+    "legal_first_token_eos_observed": 0,
+    "missing_required_metadata_fields": 0,
+    "actual_attempt_count_values": [1],
+    "retry_seed_changed_values": [false],
+    "data_role": "smoke_only_not_calibration"
+  },
+  "contracts": {
+    "first_token_eos_empty_response_preservation_cpu_test": "PASS",
+    "same_seed_retry_synthetic_test": "PASS",
+    "same_seed_retry_observed_seeds": [998877, 998877],
+    "formal_calibration_guard": "PASS",
+    "legacy_h4_bandwidth_rejection": "PASS",
+    "scaler_and_bandwidth_fail_closed_loading": "PASS",
+    "generalized_unequal_size_unbiased_mmd2": "PASS",
+    "negative_unbiased_mmd2_allowed": "PASS"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "torch": "2.12.1+cu126",
+    "transformers": "4.57.6",
+    "cuda_runtime": "12.6",
+    "cudnn": 91002,
+    "gpus": [
+      "NVIDIA GeForce RTX 4080 SUPER",
+      "NVIDIA GeForce RTX 4080 SUPER",
+      "NVIDIA GeForce RTX 4080 SUPER"
+    ]
+  },
+  "post_run_gpu_cleanup": {
+    "status": "PASS",
+    "compute_processes": [],
+    "memory_used_mib_per_gpu": [1, 1, 1]
+  },
+  "tests": {
+    "local_full_cpu_suite": "155 passed",
+    "server_full_cpu_suite_before_smoke_runner_followup_fixes": "153 passed",
+    "server_h8_gate_suite_after_final_seed_fix": "15 passed",
+    "compileall": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "artifacts": {
+    "full_preflight_report_sha256": "50358a9595ac285ec9959e169175cf593915312ff9118bef907277773378486e",
+    "smoke_responses_sha256": "50d568dcfc8fa0271b76e3fca377bde2aaef06752ad4f630cbd89286750ad8dc",
+    "smoke_response_text_archived_in_git": false,
+    "server_full_report": "results/h8_qwen32b_mmd_precalibration/smoke_only_run2/H8_M0_PREFLIGHT_REPORT.json",
+    "server_smoke_jsonl": "results/h8_qwen32b_mmd_precalibration/smoke_only_run2/smoke_responses.jsonl"
+  },
+  "pre_generation_failure_history": {
+    "preserved": true,
+    "responses_generated": 0,
+    "reason": "original smoke seed base exceeded NumPy legacy RNG uint32 range",
+    "original_empty_jsonl": "results/h8_qwen32b_mmd_precalibration/smoke_only/smoke_responses.jsonl",
+    "original_empty_jsonl_size_bytes": 0,
+    "remediation": "added a pre-load uint32 seed gate, versioned a new output directory, and used seeds 2026088200 through 2026088223"
+  }
+}
