@@ -118,6 +118,19 @@ def test_m0ij_config_forbids_sampling_and_selection() -> None:
     assert all(config["forbidden_operations"].values())
 
 
+def test_candidate_global_mask_is_bound_to_every_scaler() -> None:
+    candidate = ROOT / "results" / "h8_qwen32b_mmd_precalibration" / "m0gh"
+    mask = load_h8_artifact(
+        candidate / "global_exclusion_mask_candidate.json",
+        "h8_global_exclusion_mask_candidate",
+        "d3537537f4ff92609c008a58cecf4fc5ba5788ccc66d3d0c3aff44d9088dd464",
+    )["mask"]
+    assert len(mask) == 528
+    for path in (candidate / "scaler_candidates").glob("*.json"):
+        scaler = load_h8_artifact(path, "h8_family_balanced_scaler_candidate")
+        assert scaler["global_exclusion_mask"] == mask
+
+
 def test_runner_has_no_model_generation_or_refit_entrypoint() -> None:
     source = (ROOT / "scripts" / "run_h8_m0ij_validation.py").read_text(encoding="utf-8")
     assert "load_model(" not in source

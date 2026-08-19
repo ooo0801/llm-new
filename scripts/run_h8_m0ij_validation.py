@@ -201,7 +201,7 @@ def load_candidates(config: Mapping[str, Any]) -> dict[str, Any]:
                 raise ValueError("Global fallback hash binding mismatch")
         scalers[prompt_id] = scaler
         bandwidths[prompt_id] = bandwidth_payload
-    if tuple(mask_payload["global_exclusion_mask"]) != scalers[next(iter(scalers))].global_exclusion_mask:
+    if tuple(mask_payload["mask"]) != scalers[next(iter(scalers))].global_exclusion_mask:
         raise ValueError("Global exclusion mask/scaler mismatch")
     return {
         "directory": directory,
