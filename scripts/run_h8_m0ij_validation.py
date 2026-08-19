@@ -127,7 +127,10 @@ def load_candidates(config: Mapping[str, Any]) -> dict[str, Any]:
         ("global_bandwidth", "global bandwidth"),
         ("bandwidth_stability", "bandwidth stability"),
     ):
-        expected = item.get(f"{key}_sha256") or item.get(f"{key}_file_sha256")
+        # Some artifacts expose both a byte-level file digest and a semantic
+        # schema/payload digest.  File verification must prefer the explicit
+        # byte-level field; the semantic digest is checked separately below.
+        expected = item.get(f"{key}_file_sha256") or item.get(f"{key}_sha256")
         require_hash(directory / item[key], expected, label)
 
     report = json.loads((directory / item["report"]).read_text(encoding="utf-8"))

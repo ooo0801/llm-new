@@ -125,3 +125,4 @@ def test_runner_has_no_model_generation_or_refit_entrypoint() -> None:
     assert "fit_family_balanced_scaler" not in source
     assert "h8_median_positive_pairwise_distance" not in source
     assert "sample_size_selection_performed\": False" in source
+    assert 'item.get(f"{key}_file_sha256") or item.get(f"{key}_sha256")' in source
