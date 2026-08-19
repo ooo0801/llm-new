@@ -1,0 +1,48 @@
+phase: H8_D1A_SCORE_CALIBRATION_PREFLIGHT
+authorization_status: user_approved
+model_sampling_authorized: false
+formal_reference_access_authorized: false
+heldout_access_authorized: false
+attack_access_authorized: false
+
+provenance:
+  protocol: docs/H8_Qwen32B_D1A_Score_Calibration_Preflight_Protocol.md
+  protocol_sha256: b8d27f7baaec9b4e85fc06b99884916e2b016774b843a2f29ac06f1cefac322a
+
+frozen_measurement:
+  archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  manifest: MMD_FROZEN_MANIFEST.json
+  manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  measurement_layer_status: frozen
+  detector_status: not_frozen
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+
+score_calibration:
+  sample_structures: [r40_q10, r40_q20, r60_q10, r60_q20]
+  robust_mad_multiplier: 1.4826
+  numerical_zero_threshold: 1.0e-12
+  primary_score: one_sided_robust_standardized_unbiased_mmd2
+  clamp_raw_unbiased_mmd2: false
+  one_sided_clamp_at_score_layer_only: true
+  sample_size_selection_performed: false
+  top_r_selection_performed: false
+  final_parameter_fit_performed: false
+
+development_dry_run:
+  allowed: true
+  input: results/h8_qwen32b_mmd_precalibration/m0ij/intact_pseudo_mmd_trials.jsonl
+  required_label: development_dry_run
+  eligible_to_freeze: false
+
+output:
+  report: reproducibility/h8_qwen32b_score_calibration_20260819/d1a/H8_D1A_SCORE_CALIBRATION_PREFLIGHT_REPORT.json
+
+forbidden_operations:
+  new_model_sampling: true
+  formal_reference_read_or_generation: true
+  heldout_read_or_generation: true
+  attack_read_or_generation: true
+  frozen_mmd_mutation: true
+  final_score_parameter_freeze: true
+  sample_size_selection: true
+  top_r_max_energy: true
