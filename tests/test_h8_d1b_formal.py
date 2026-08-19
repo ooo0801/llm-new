@@ -22,6 +22,7 @@ from run_h8_d1b1_formal_sampling import run_attempts
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_SHA = "e6db0eda9d373c7d62f2a2efeacf4ca127476a0ab91d104665bcaa7354577002"
 PROVENANCE_SHA = "a" * 64
+AUTH_PATH = ROOT / "configs" / "h8_d1b1_formal_score_calibration_sampling.yaml"
 
 
 def entries() -> list[dict]:
@@ -219,3 +220,28 @@ def test_d1b0_preflight_authorization_remains_false() -> None:
     d1b0 = yaml.safe_load((ROOT / "configs" / "h8_d1b0_score_calibration_sampling.yaml").read_text(encoding="utf-8"))
     assert d1b0["formal_sampling_authorized"] is False
     assert d1b0["authorization_status"] == "user_approved_preflight_only"
+
+
+def test_d1b1_authorization_is_independent_and_binds_only_final_pass() -> None:
+    import hashlib
+    import yaml
+
+    auth = yaml.safe_load(AUTH_PATH.read_text(encoding="utf-8"))
+    assert auth["phase"] == "H8_D1B1_FORMAL_SCORE_CALIBRATION_SAMPLING"
+    assert auth["formal_sampling_authorized"] is True
+    assert auth["sampling_code_commit"] == "19b3e447a73b0e933ddefeac1ccba7b77f8c4bfc"
+    assert "failed_before_generation" not in auth["frozen_inputs"]["d1b0_pass_report"]
+    assert auth["frozen_inputs"]["formal_manifest_sha256"] == MANIFEST_SHA
+    assert auth["sampling"]["resume_policy"] == "exact_validated_schedule_prefix_only"
+    assert auth["sampling"]["success_record_policy"] == "immutable_never_regenerate"
+    for path_key, hash_key in (
+        ("d1b0_pass_report", "d1b0_pass_report_sha256"),
+        ("formal_manifest", "formal_manifest_sha256"),
+        ("d1a_report", "d1a_report_sha256"),
+        ("h8_config", "h8_config_sha256"),
+        ("fingerprint", "fingerprint_sha256"),
+        ("protocol", "protocol_sha256"),
+    ):
+        path = ROOT / auth["frozen_inputs"][path_key]
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == auth["frozen_inputs"][hash_key]
+    assert all(auth["forbidden_operations"].values())

@@ -1,0 +1,79 @@
+phase: H8_D1B1_FORMAL_SCORE_CALIBRATION_SAMPLING
+authorization_status: user_approved
+authorization_date: "2026-08-19"
+formal_sampling_authorized: true
+sampling_code_commit: 19b3e447a73b0e933ddefeac1ccba7b77f8c4bfc
+
+implementation:
+  runner: scripts/run_h8_d1b1_formal_sampling.py
+  runner_sha256: fbace9904a315671ed1f9a3e712f995371f6cd87a838a45537383de5fb7ff795
+  formal_module: src/llm_integrity/h8_d1b_formal.py
+  formal_module_sha256: 491a797da9115713561e9191f66ea509996f3ed595f116f3dbc1ce4a0f4bafab
+
+frozen_inputs:
+  d1b0_pass_report: reproducibility/h8_qwen32b_score_calibration_20260819/d1b0/H8_D1B0_SCORE_CALIBRATION_SAMPLING_PREFLIGHT_REPORT.json
+  d1b0_pass_report_sha256: 84b9afa6eaf2986b55400c3648daffeb294f10b12f460a012161a8b51ae1afa2
+  d1b0_config: configs/h8_d1b0_score_calibration_sampling.yaml
+  d1b0_config_sha256: c32d1b3114f1fa0a64c5cda048af4acd36ad8d6cf133af1741dd5dee586672af
+  formal_manifest: reproducibility/h8_qwen32b_score_calibration_20260819/d1b0/score_calibration_generation_manifest.json
+  formal_manifest_sha256: e6db0eda9d373c7d62f2a2efeacf4ca127476a0ab91d104665bcaa7354577002
+  formal_manifest_audit: reproducibility/h8_qwen32b_score_calibration_20260819/d1b0/score_calibration_generation_manifest_audit.json
+  formal_manifest_audit_sha256: 9b043317d4bc6731c9b4489873b7a4269639e44aea46a6832cdf50faee6840b5
+  smoke_manifest: reproducibility/h8_qwen32b_score_calibration_20260819/d1b0/score_calibration_smoke_manifest.json
+  smoke_manifest_sha256: c4c1d582c81ed8042fedc15f8597adf0ee2e1b941dd5917261178d085ba60c60
+  mmd_archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  mmd_manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+  d1a_report: reproducibility/h8_qwen32b_score_calibration_20260819/d1a/H8_D1A_SCORE_CALIBRATION_PREFLIGHT_REPORT.json
+  d1a_report_sha256: 7d20622a429e50e4658039961090079078dc75f6a00448ae543994221e1618e1
+  score_schema_sha256: 502589bb4abb3dbf38bd10e9aeab37a1f97d1621d2bd8ca28eda94848b5b7000
+  h8_config: configs/h8_qwen32b_mmd_precalibration.yaml
+  h8_config_sha256: a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c
+  runtime_authorization: configs/h8_m0f_calibration_sampling.yaml
+  runtime_authorization_sha256: 52c52171844e997312f5ac9ebba03352e5df56d3e4e803a1d3200e4c148f0807
+  fingerprint: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  protocol: docs/H8_Qwen32B_D1B1_Formal_Score_Calibration_Sampling_Protocol.md
+  protocol_sha256: cff50038086c12419c6883e63b10d3f6c4424e00e6fc96987ba279b50921fe47
+
+runtime_execution:
+  strict_offline: true
+  hf_hub_cache: /root/autodl-tmp/huggingface
+
+sampling:
+  batch_size: 1
+  rounds: 200
+  prompt_count: 12
+  total_responses: 2400
+  fit_responses: 1200
+  audit_responses: 1200
+  fit_per_prompt: 100
+  audit_per_prompt: 100
+  even_round_role: score_calibration_fit_only
+  odd_round_role: score_calibration_stability_audit_only
+  max_attempts_same_seed: 2
+  strict_offline: true
+  resume_policy: exact_validated_schedule_prefix_only
+  success_record_policy: immutable_never_regenerate
+  technical_retry_policy: same_seed_only
+
+artifacts:
+  output_dir: results/h8_qwen32b_score_calibration/d1b_sampling
+  responses: score_calibration_responses.jsonl
+  attempt_events: score_calibration_attempt_events.jsonl
+  sampling_provenance: frozen_sampling_provenance.json
+  progress: sampling_progress.json
+  incomplete_report: H8_D1B_SCORE_CALIBRATION_SAMPLING_INCOMPLETE_REPORT.json
+  report: H8_D1B_SCORE_CALIBRATION_SAMPLING_REPORT.json
+  archive_dir: reproducibility/h8_qwen32b_score_calibration_20260819/d1b1
+
+forbidden_operations:
+  score_parameter_fit: true
+  sample_size_selection: true
+  top_r_selection: true
+  max_or_energy_selection: true
+  formal_reference_generation: true
+  heldout_generation: true
+  target_generation: true
+  attack_generation: true
+  d1c_execution: true
