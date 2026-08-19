@@ -1,0 +1,70 @@
+phase: H8_D1B0_SCORE_CALIBRATION_SAMPLING_PREFLIGHT
+authorization_status: user_approved_preflight_only
+formal_sampling_authorized: false
+smoke_sampling_authorized: true
+preflight_base_commit: e5ccc612bc6e5191c95dc83fb0f9e6d7674f5839
+
+frozen_inputs:
+  mmd_archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  mmd_manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+  d1a_report: reproducibility/h8_qwen32b_score_calibration_20260819/d1a/H8_D1A_SCORE_CALIBRATION_PREFLIGHT_REPORT.json
+  d1a_report_sha256: 7d20622a429e50e4658039961090079078dc75f6a00448ae543994221e1618e1
+  score_schema_sha256: 502589bb4abb3dbf38bd10e9aeab37a1f97d1621d2bd8ca28eda94848b5b7000
+  h8_config: configs/h8_qwen32b_mmd_precalibration.yaml
+  h8_config_sha256: a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c
+  m0f_runtime_authorization: configs/h8_m0f_calibration_sampling.yaml
+  m0f_runtime_authorization_sha256: 52c52171844e997312f5ac9ebba03352e5df56d3e4e803a1d3200e4c148f0807
+  fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  protocol: docs/H8_Qwen32B_D1B0_Score_Calibration_Sampling_Protocol.md
+  protocol_sha256: 426384808e1df8da14acc4831f1bb364a0927d1fdf034c78e3d4df3e36e7accf
+
+generation:
+  batch_size: 1
+  prompt_count: 12
+  formal_rounds: 200
+  formal_responses_per_prompt: 200
+  formal_fit_per_prompt: 100
+  formal_audit_per_prompt: 100
+  formal_total_responses: 2400
+  formal_generation_root_seed: 2026081903
+  smoke_generation_root_seed: 2026081904
+  cpu_resampling_root_seed_reserved: 2026081905
+  seed_algorithm: sha256_domain_separated_uint32_rejection_v1
+  order_algorithm: sha256_per_round_prompt_sort_v1
+  max_attempts_same_seed: 2
+  even_round_role: score_calibration_fit_only
+  odd_round_role: score_calibration_stability_audit_only
+
+roles:
+  fit: score_calibration_fit_only
+  audit: score_calibration_stability_audit_only
+  smoke: score_calibration_smoke_only
+  eligibility:
+    formal_reference: false
+    heldout: false
+    target: false
+    attack: false
+
+artifacts:
+  directory: reproducibility/h8_qwen32b_score_calibration_20260819/d1b0
+  formal_manifest: score_calibration_generation_manifest.json
+  formal_manifest_audit: score_calibration_generation_manifest_audit.json
+  smoke_manifest: score_calibration_smoke_manifest.json
+  smoke_manifest_audit: score_calibration_smoke_manifest_audit.json
+  smoke_output_dir: results/h8_qwen32b_score_calibration/d1b0_smoke
+  smoke_responses: score_calibration_smoke_responses.jsonl
+  smoke_attempt_events: score_calibration_smoke_attempt_events.jsonl
+  preflight_report: H8_D1B0_SCORE_CALIBRATION_SAMPLING_PREFLIGHT_REPORT.json
+  future_formal_output_dir: results/h8_qwen32b_score_calibration/d1b_sampling
+
+forbidden_operations:
+  formal_2400_sampling: true
+  score_parameter_fit: true
+  stability_parameter_fit: true
+  sample_size_selection: true
+  top_r_max_energy: true
+  formal_reference_generation: true
+  heldout_generation: true
+  target_generation: true
+  attack_generation: true
