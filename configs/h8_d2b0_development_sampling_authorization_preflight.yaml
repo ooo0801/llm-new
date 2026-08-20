@@ -7,7 +7,7 @@ implementation_commit: 07afbd7678746793520b79c30ac97a7fa5396090
 
 implementation:
   runner: scripts/run_h8_d2b0_attack_smoke.py
-  runner_sha256: 25be5a13435b9949fe8f2fd89d08602e36839a2afd341a4abe60627cb34d6949
+  runner_sha256: 473d9be11fca51497386171e3191f9416139a8a82353882578c2d8b583172435
   module: src/llm_integrity/h8_d2b0.py
   module_sha256: b77f8224a1008ce2993338846bf6199d9e1321198944960681ee7395ca0bc788
 

@@ -633,6 +633,12 @@ def parent(auth_path: Path) -> int:
 def preflight_only(auth_path: Path) -> int:
     auth, h8_config, instances, requests = load_context(auth_path)
     runtime_auth = yaml.safe_load(resolve(auth["frozen_inputs"]["runtime_authorization"]).read_text(encoding="utf-8"))
+    os.environ["HF_HUB_CACHE"] = str(auth["runtime_execution"]["hf_hub_cache"])
+    os.environ["HF_HUB_OFFLINE"] = "1"
+    os.environ["TRANSFORMERS_OFFLINE"] = "1"
+    snapshot = cached_snapshot_provenance(h8_config["model"]["name"], h8_config["model"]["revision"])
+    if snapshot.get("resolved_snapshot") is None or snapshot.get("resolution_error"):
+        raise RuntimeError("Exact offline Qwen2.5-32B snapshot provenance could not be resolved")
     output = {
         "status": "PASS",
         "formal_development_sampling_authorized": False,
@@ -643,7 +649,7 @@ def preflight_only(auth_path: Path) -> int:
         "model": h8_config["model"]["name"],
         "revision": h8_config["model"]["revision"],
         "runtime": verify_runtime(runtime_auth),
-        "snapshot": cached_snapshot_provenance(h8_config["model"]["name"], h8_config["model"]["revision"]),
+        "snapshot": snapshot,
         "formal_development_responses": 0,
     }
     print(json.dumps(output, ensure_ascii=False, indent=2))
