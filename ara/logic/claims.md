@@ -53,3 +53,13 @@
 - **Proof**: [`reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/SCORE_CALIBRATION_STABILITY_AUDIT_REPORT.json`, `reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/d1c_raw_unbiased_mmd2_float64.npy`, N08]
 - **Dependencies**: []
 - **Tags**: H8, Qwen2.5-32B, score calibration, independent audit, MMD
+
+## C07: H8 D2-A detector-development inputs are reproducibly frozen without evaluation leakage
+- **Statement**: Given the frozen H8 MMD and score manifests, D2-A deterministically constructs exactly twelve Top-r development configurations, nested sample memberships, role-restricted development interfaces, global-permutation streams, and proposed response schedules without reading final held-out/final-attack data or generating model responses.
+- **Status**: supported
+- **Provenance**: ai-suggested
+- **Falsification criteria**: Any frozen dependency or payload hash can be altered without rejection; the candidate set differs from four structures times Top-2/3/4; R40 is not a subset of R60 or Q10 is not a subset of Q20; final-heldout/final-attack roles enter development selection; a proposed generation seed is duplicated or overlaps an available frozen repository seed; or rerunning with the same manifests changes global-permutation output.
+- **Proof**: [`reproducibility/h8_qwen32b_detector_development_20260820/d2a/H8_D2A_DETECTOR_DEVELOPMENT_PREFLIGHT_REPORT.json`, `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_ARTIFACT_SHA256_INDEX.json`, `tests/test_h8_d2a.py`, N10]
+- **Dependencies**: [C06]
+- **Scope note**: This is a reproducibility and leakage-control claim, not evidence that any detector configuration has adequate power or specificity.
+- **Tags**: H8, Qwen2.5-32B, detector development, global permutation, preregistration

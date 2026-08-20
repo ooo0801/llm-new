@@ -1,0 +1,42 @@
+session:
+  id: "2026-08-20_002"
+  timestamp: "2026-08-20T17:20+08:00"
+  summary: "Completed H8 D2-A detector-development preflight with zero sampling; manifests frozen and detector still unfrozen."
+
+events_logged:
+  - type: decision
+    id: N09
+    provenance: user
+    summary: "Authorized a no-sampling D2-A preflight with four structures, Top-2/3/4, global permutation, nested subsets, and a fixed selection rule."
+  - type: experiment
+    id: N10
+    provenance: ai-executed
+    summary: "D2-A passed all implementation, manifest, hash, leakage, and CPU preflight gates without generating responses."
+  - type: claim
+    id: C07
+    provenance: ai-suggested
+    summary: "The D2-A detector-development framework and proposed inputs are reproducibly frozen and role-restricted."
+  - type: heuristic
+    id: H05
+    provenance: ai-executed
+    summary: "Nested memberships allow fair sample-size comparison from one maximal response bank."
+
+ai_actions:
+  - action: "Implemented Top-r aggregation, prompt-wise global permutation, development selection, canonical manifests, nested subsets, fail-closed loaders, and CPU tests."
+    provenance: ai-executed
+    files_changed: ["src/llm_integrity/h8_d2a.py", "scripts/run_h8_d2a_detector_preflight.py", "tests/test_h8_d2a.py", "configs/h8_d2a_detector_development_preflight.yaml", "docs/H8_Qwen32B_D2A_Detector_Development_Preflight_Protocol.md"]
+  - action: "Generated and archived the zero-response D2-A preflight report and proposed development manifests, then verified the dedicated test suite locally and on the server."
+    provenance: ai-executed
+    files_changed: ["reproducibility/h8_qwen32b_detector_development_20260820/d2a/"]
+
+claims_touched:
+  - id: C07
+    action: created
+    provenance: ai-suggested
+
+open_threads:
+  - "Development response sampling has not been authorized or performed; all 3,840 response entries remain proposed only."
+  - "No sample structure or Top-r aggregation has been selected, and detector effectiveness remains untested."
+  - "Formal Reference, final held-out, and final attack/confirmation data remain untouched."
+
+ai_suggestions_pending: []

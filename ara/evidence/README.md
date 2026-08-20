@@ -13,3 +13,9 @@
 - H8 independent stability audit: `reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/SCORE_CALIBRATION_STABILITY_AUDIT_REPORT.json`
 - H8 signed raw null tensor: `reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/d1c_raw_unbiased_mmd2_float64.npy`
 - H8 score-layer integrity manifest: `reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/SCORE_CALIBRATION_FROZEN_MANIFEST.json`
+- H8 D2-A terminal preflight report: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/H8_D2A_DETECTOR_DEVELOPMENT_PREFLIGHT_REPORT.json`
+- H8 D2-A artifact hash index: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_ARTIFACT_SHA256_INDEX.json`
+- H8 D2-A twelve-configuration manifest: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_CONFIGURATION_MANIFEST.json`
+- H8 D2-A nested subset manifest: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_NESTED_SUBSET_MANIFEST.json`
+- H8 D2-A global permutation seed manifest: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_GLOBAL_PERMUTATION_SEED_MANIFEST.json`
+- H8 D2-A proposed development response manifests: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_REFERENCE_GENERATION_MANIFEST.json`, `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_INTACT_TARGET_GENERATION_MANIFEST.json`, and `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_ATTACK_GENERATION_MANIFEST.json`

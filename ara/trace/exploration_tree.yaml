@@ -95,3 +95,35 @@ tree:
           All 24 degenerate gates had raw MMD and score exactly zero. No sample size or aggregation
           was selected, and the detector remains not frozen.
         evidence: [C06, "reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/H8_D1C_SCORE_PARAMETER_FIT_AUDIT_REPORT.json", "reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/SCORE_CALIBRATION_FROZEN_MANIFEST.json"]
+
+  - id: N09
+    type: decision
+    title: "Freeze the H8 D2-A detector-development design before any new sampling"
+    provenance: user
+    timestamp: "2026-08-20T16:20+08:00"
+    choice: >
+      Retain all four sample structures and only Top-2, Top-3, and Top-4 aggregation;
+      use prompt-wise global permutation with B_dev=999; freeze nested R40/R60 and
+      Q10/Q20 memberships; and select among twelve development configurations by the
+      preregistered worst-family, mean-family, query-cost, reference-cost, then r tie-break.
+    alternatives:
+      - "Use local per-prompt p-values as aggregation inputs"
+      - "Include Max or Energy in configuration selection"
+      - "Choose Top-3 from Gaussian performance alone"
+      - "Begin development response sampling before manifests and gates are frozen"
+    evidence: "Explicit H8 D2-A authorization and versioned preflight protocol."
+    children:
+      - id: N10
+        type: experiment
+        title: "H8 D2-A detector-development framework and manifest preflight"
+        provenance: ai-executed
+        timestamp: "2026-08-20T17:10+08:00"
+        result: >
+          PASS with zero new model responses. The framework freezes exactly 12 candidate
+          configurations, deterministic global permutation, nested sample memberships,
+          role-restricted development evaluation, eight fresh attack instance identifiers,
+          3,840 proposed generation seeds with no available repository overlap, and 52
+          permutation streams yielding 623,376 unique prompt-level permutation seeds.
+          Eleven dedicated CPU tests passed locally and on the server. The MMD and score
+          layers remain frozen, while sample size, aggregation, and detector remain unselected.
+        evidence: [C07, "reproducibility/h8_qwen32b_detector_development_20260820/d2a/H8_D2A_DETECTOR_DEVELOPMENT_PREFLIGHT_REPORT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_ARTIFACT_SHA256_INDEX.json"]

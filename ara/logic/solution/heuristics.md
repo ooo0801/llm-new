@@ -23,3 +23,9 @@
 - **Provenance**: ai-executed
 - **Sensitivity**: high
 - **Code ref**: [`src/llm_integrity/h8_d1c.py`, `reproducibility/h8_qwen32b_score_calibration_20260820/d1c/D1C_CPU_SPLIT_MANIFEST.json`]
+
+## H05: Freeze one maximal response bank and compare sample sizes through nested memberships
+- **Rationale**: Precommitting R40 within R60 and Q10 within Q20 lets all four sample structures share the same future 60-reference and 20-target banks, isolates the effect of sample size from independent generation noise, and prevents output-dependent subset selection.
+- **Provenance**: ai-executed
+- **Sensitivity**: high
+- **Code ref**: [`src/llm_integrity/h8_d2a.py`, `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_NESTED_SUBSET_MANIFEST.json`]

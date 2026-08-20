@@ -7,3 +7,7 @@ sessions:
     file: "2026-08-20_001.yaml"
     timestamp: "2026-08-20T10:10+08:00"
     summary: "Completed H8 D1-C score fit and independent Audit; score layer frozen with detector still unfrozen."
+  - id: "2026-08-20_002"
+    file: "2026-08-20_002.yaml"
+    timestamp: "2026-08-20T17:20+08:00"
+    summary: "Completed H8 D2-A detector-development preflight with zero sampling; manifests frozen and detector still unfrozen."
