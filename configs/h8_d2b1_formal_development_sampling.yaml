@@ -1,0 +1,91 @@
+phase: H8_D2B1_FORMAL_DEVELOPMENT_SAMPLING
+authorization_status: user_approved
+authorization_date: "2026-08-20"
+formal_development_sampling_authorized: true
+implementation_commit: d7f42165cf38359bffd2d9f8345eb8bee3bd1b6e
+d2b0_github_archive_commit: b1ff7fb864d0f89e63093fd0bcdcd8e2cc3610ce
+
+implementation:
+  runner: scripts/run_h8_d2b1_formal_sampling.py
+  runner_sha256: 815635da8656cb56985cd4fd062e35db2271236a31f1d12e6620d89fe64d8588
+  module: src/llm_integrity/h8_d2b1.py
+  module_sha256: 4dfc1da78396cad94462f2f2756da73259fdbc430b7cc44751942994536d238c
+
+frozen_inputs:
+  mmd_archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  mmd_manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+  score_archive: reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1
+  score_manifest_sha256: b57d9d5062b13e9e02624e69bbcf4eb585e716084acf73ab96cf00a733802028
+  score_schema_sha256: 502589bb4abb3dbf38bd10e9aeab37a1f97d1621d2bd8ca28eda94848b5b7000
+  h8_config: configs/h8_qwen32b_mmd_precalibration.yaml
+  h8_config_sha256: a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c
+  runtime_authorization: configs/h8_m0f_calibration_sampling.yaml
+  runtime_authorization_sha256: 52c52171844e997312f5ac9ebba03352e5df56d3e4e803a1d3200e4c148f0807
+  fingerprint: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  d2a_directory: reproducibility/h8_qwen32b_detector_development_20260820/d2a
+  d2a_artifact_index: reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_ARTIFACT_SHA256_INDEX.json
+  d2a_artifact_index_sha256: 337de2b59b0b08ba7d0b7d09d9d59d3320cc26bd9b0e05f61a3b4ffbaeb647b7
+  d2a_report: reproducibility/h8_qwen32b_detector_development_20260820/d2a/H8_D2A_DETECTOR_DEVELOPMENT_PREFLIGHT_REPORT.json
+  d2a_report_sha256: 5693a498453c86675cd5345bb60fa358a05413d3979d103c3332a476d16aea7a
+  generation_manifest_set_sha256: 52c8c0d43674bb95f82305a460f54a3a5f70cab6af8941a84a26846bc064b79d
+  nested_subset_manifest_sha256: d082b3c7aadfafbbe55d2387d1c9620f373b9a470da0a95f4b025baf5e96a852
+  d2b0_authorization_config: configs/h8_d2b0_development_sampling_authorization_preflight.yaml
+  d2b0_authorization_config_sha256: a9a9f24de653a952ab979379db37db5f614923b087cfa19e8502e9c4e0614d25
+  d2b0_pre_index: reproducibility/h8_qwen32b_detector_development_20260820/d2b0_authorization/D2B0_PRE_SMOKE_SHA256_INDEX.json
+  d2b0_pre_index_sha256: c41e9c128888e14927f41b0eeb9850867bd77aabe449458fa067890a3cc8bbb5
+  configuration_selection_rule_sha256: 197b6caa14f298a483d07f4512cd2ff3292bd4f97dd3732eab4d716c2b9ad58b
+  d2b0_final_index: reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FINAL_SHA256_INDEX.json
+  d2b0_final_index_sha256: 19d298db711f7a62fb7011e408f1666e68f0b76de03604aad51198b353b683ae
+  d2b0_final_report: reproducibility/h8_qwen32b_detector_development_20260820/d2b0/H8_D2B0_DEVELOPMENT_SAMPLING_AUTHORIZATION_PREFLIGHT_REPORT.json
+  d2b0_final_report_sha256: 162389e50fa2bc4342a2d56d6ee6e1fca54d7a8043405c0701eaec03b6d0823e
+  d2b0_materialization_audit: reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FRESHNESS_MATERIALIZATION_AUDIT.json
+  d2b0_materialization_audit_sha256: 1a0d9fbebe8a1cdc54bdef1d32faace7e6c4c6d586d836ab4ea1900df117c8f0
+  protocol: docs/H8_Qwen32B_D2B1_Formal_Development_Sampling_Protocol.md
+  protocol_sha256: 76ef78e29521e8bca038b37c9f8fa70ee7b06f14e7f9801ebc2644fc4d3f15e2
+
+runtime_execution:
+  strict_offline: true
+  hf_hub_cache: /root/autodl-tmp/huggingface
+
+sampling:
+  batch_size: 1
+  total_responses: 3840
+  reference_responses: 720
+  intact_target_responses: 1200
+  attack_responses: 1920
+  reference_per_prompt: 60
+  intact_target_per_prompt: 100
+  attack_per_endpoint_prompt: 20
+  attack_endpoint_count: 8
+  strict_offline: true
+  max_attempts_same_seed: 2
+  resume_policy: exact_validated_global_schedule_prefix_only
+  success_record_policy: immutable_never_regenerate
+  technical_retry_policy: same_seed_only
+  legal_first_token_eos_policy: retain_as_valid_response
+
+artifacts:
+  output_dir: results/h8_qwen32b_detector_development/d2b1_formal_sampling
+  responses: development_responses.jsonl
+  attempt_events: development_attempt_events.jsonl
+  sampling_provenance: D2B1_FROZEN_SAMPLING_PROVENANCE.json
+  progress: D2B1_SAMPLING_PROGRESS.json
+  incomplete_report: H8_D2B1_INCOMPLETE_REPORT.json
+  report: H8_D2B1_FORMAL_DEVELOPMENT_SAMPLING_REPORT.json
+  runner_log: D2B1_RUNNER.log
+  archive_dir: reproducibility/h8_qwen32b_detector_development_20260820/d2b1
+  final_hash_index: D2B1_FINAL_SHA256_INDEX.json
+
+forbidden_operations:
+  development_configuration_comparison: true
+  detector_statistics: true
+  global_permutation: true
+  sample_size_selection: true
+  aggregation_selection: true
+  detector_freeze: true
+  mmd_or_score_refit: true
+  future_formal_reference_generation: true
+  final_heldout_generation_or_read: true
+  final_attack_or_confirmation_generation_or_read: true

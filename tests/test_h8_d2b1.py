@@ -262,3 +262,35 @@ def test_protocol_keeps_detector_unfrozen() -> None:
     assert "exactly 3,840" in protocol
     assert "detector=not_frozen" in protocol
     assert "must not compute MMD" in protocol
+
+
+def test_d2b1_authorization_is_independent_and_hash_bound() -> None:
+    import hashlib
+
+    import yaml
+
+    path = ROOT / "configs/h8_d2b1_formal_development_sampling.yaml"
+    auth = yaml.safe_load(path.read_text(encoding="utf-8"))
+    assert auth["phase"] == "H8_D2B1_FORMAL_DEVELOPMENT_SAMPLING"
+    assert auth["authorization_status"] == "user_approved"
+    assert auth["formal_development_sampling_authorized"] is True
+    assert auth["implementation_commit"] == "d7f42165cf38359bffd2d9f8345eb8bee3bd1b6e"
+    assert auth["d2b0_github_archive_commit"] == "b1ff7fb864d0f89e63093fd0bcdcd8e2cc3610ce"
+    assert auth["sampling"]["resume_policy"] == "exact_validated_global_schedule_prefix_only"
+    assert auth["sampling"]["success_record_policy"] == "immutable_never_regenerate"
+    assert all(auth["forbidden_operations"].values())
+    for path_key, hash_key in (
+        ("h8_config", "h8_config_sha256"),
+        ("runtime_authorization", "runtime_authorization_sha256"),
+        ("fingerprint", "fingerprint_sha256"),
+        ("d2a_artifact_index", "d2a_artifact_index_sha256"),
+        ("d2b0_final_index", "d2b0_final_index_sha256"),
+        ("d2b0_final_report", "d2b0_final_report_sha256"),
+        ("d2b0_materialization_audit", "d2b0_materialization_audit_sha256"),
+        ("protocol", "protocol_sha256"),
+    ):
+        frozen_path = ROOT / auth["frozen_inputs"][path_key]
+        assert hashlib.sha256(frozen_path.read_bytes()).hexdigest() == auth["frozen_inputs"][hash_key]
+    for path_key, hash_key in (("runner", "runner_sha256"), ("module", "module_sha256")):
+        implementation_path = ROOT / auth["implementation"][path_key]
+        assert hashlib.sha256(implementation_path.read_bytes()).hexdigest() == auth["implementation"][hash_key]
