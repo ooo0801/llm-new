@@ -1,0 +1,110 @@
+phase: H8_D2A_DETECTOR_DEVELOPMENT_PREFLIGHT
+authorization_status: user_approved_preflight_only
+authorization_date: "2026-08-20"
+model_sampling_authorized: false
+development_comparison_authorized: false
+
+frozen_inputs:
+  mmd_archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  mmd_manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+  score_archive: reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1
+  score_manifest_sha256: b57d9d5062b13e9e02624e69bbcf4eb585e716084acf73ab96cf00a733802028
+  score_schema_sha256: 502589bb4abb3dbf38bd10e9aeab37a1f97d1621d2bd8ca28eda94848b5b7000
+  score_parameter_payload_sha256: 964b190ea8c69e7441697ceee28a07425a753afce3c5d80301e1b3f9e44bdc20
+  fingerprint: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  h6_archive: reproducibility/fingerprint_h6_qwen32b_mcc_20260812
+  h8_generation_config: configs/h8_qwen32b_mmd_precalibration.yaml
+  h8_generation_config_sha256: a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c
+  protocol: docs/H8_Qwen32B_D2A_Detector_Development_Preflight_Protocol.md
+  protocol_sha256: c26df9a893bcd419b602e8a4858f4e7242b033dd06cd293666ce993509a71a73
+
+detector:
+  sample_structures: [r40_q10, r40_q20, r60_q10, r60_q20]
+  primary_top_r: [2, 3, 4]
+  configuration_count: 12
+  development_permutations: 999
+  alpha: 0.05
+  local_p_aggregation_forbidden: true
+  max_diagnostic_only: true
+  energy_implemented: false
+  permutation_refit_forbidden: true
+  fixed_top_r_tie_break_order: [2, 3, 4]
+
+future_development_design:
+  reference_responses_per_prompt: 60
+  intact_target_responses_per_prompt: 100
+  attack_responses_per_endpoint_prompt: 20
+  attack_families: [gaussian, pruning, lora, quantization]
+  endpoints_per_family: 2
+  reference_total: 720
+  intact_target_total: 1200
+  attack_total: 1920
+  proposed_total: 3840
+  nested_reference: R40_subset_R60
+  nested_target: Q10_subset_Q20
+
+seed_roots:
+  reference_generation_uint32: 2026082101
+  intact_target_generation_uint32: 2026082102
+  attack_generation_uint32: 2026082103
+  nested_subset_uint64: 2026082104000001
+  global_permutation_uint64: 2026082105000001
+
+fresh_attack_instances:
+  - attack_instance_id: h8d2_dev_gaussian_ffn_000035_seed2111
+    family: gaussian
+    materialization_seed: 2026082111
+    configuration: {type: gaussian_noise, std_ratio: 0.00035, target_scope: ffn, scale_rule: parameter_tensor_std}
+  - attack_instance_id: h8d2_dev_gaussian_all_000075_seed2112
+    family: gaussian
+    materialization_seed: 2026082112
+    configuration: {type: gaussian_noise, std_ratio: 0.00075, target_scope: all_transformer_layers, scale_rule: parameter_tensor_std}
+  - attack_instance_id: h8d2_dev_pruning_attention_global22_seed2121
+    family: pruning
+    materialization_seed: 2026082121
+    configuration: {type: unstructured_pruning, ratio: 0.22, method: global_magnitude, target_scope: attention}
+  - attack_instance_id: h8d2_dev_pruning_ffn_structured08_seed2122
+    family: pruning
+    materialization_seed: 2026082122
+    configuration: {type: structured_pruning, ratio: 0.08, structure: ffn_channels, selection: magnitude, layer_scope: random_layer_subset, implementation: mask}
+  - attack_instance_id: h8d2_dev_lora_r8_a16_s40_seed2131
+    family: lora
+    materialization_seed: 2026082131
+    configuration: {type: finetuning, method: lora, rank: 8, alpha: 16, dropout: 0.03, learning_rate: 0.00002, steps: 40, target_scope: attention_ffn, data_source: h8_d2_fresh_isolated_attack_training_data_v1}
+  - attack_instance_id: h8d2_dev_lora_r24_a48_s60_seed2132
+    family: lora
+    materialization_seed: 2026082132
+    configuration: {type: finetuning, method: lora, rank: 24, alpha: 48, dropout: 0.04, learning_rate: 0.0000075, steps: 60, target_scope: attention_ffn, data_source: h8_d2_fresh_isolated_attack_training_data_v1}
+  - attack_instance_id: h8d2_dev_quant_fp4_bf16_nodq_seed2141
+    family: quantization
+    materialization_seed: 2026082141
+    configuration: {type: quantization, method: fp4, compute_dtype: bfloat16, double_quant: false, target_scope: full_model}
+  - attack_instance_id: h8d2_dev_quant_nf4_fp16_nodq_seed2142
+    family: quantization
+    materialization_seed: 2026082142
+    configuration: {type: quantization, method: nf4, compute_dtype: float16, double_quant: false, target_scope: full_model}
+
+output:
+  directory: reproducibility/h8_qwen32b_detector_development_20260820/d2a
+  reference_manifest: D2A_DEVELOPMENT_REFERENCE_GENERATION_MANIFEST.json
+  intact_target_manifest: D2A_DEVELOPMENT_INTACT_TARGET_GENERATION_MANIFEST.json
+  attack_generation_manifest: D2A_DEVELOPMENT_ATTACK_GENERATION_MANIFEST.json
+  attack_instance_manifest: D2A_FRESH_ATTACK_INSTANCE_MANIFEST.json
+  nested_subset_manifest: D2A_NESTED_SUBSET_MANIFEST.json
+  permutation_seed_manifest: D2A_GLOBAL_PERMUTATION_SEED_MANIFEST.json
+  configuration_manifest: D2A_CONFIGURATION_MANIFEST.json
+  artifact_index: D2A_ARTIFACT_SHA256_INDEX.json
+  report: H8_D2A_DETECTOR_DEVELOPMENT_PREFLIGHT_REPORT.json
+
+forbidden_operations:
+  new_model_sampling: true
+  measurement_or_score_refit: true
+  development_comparison: true
+  sample_size_selection: true
+  aggregation_selection: true
+  energy_implementation_or_comparison: true
+  formal_reference_access: true
+  final_heldout_access: true
+  final_attack_or_confirmation_access: true
