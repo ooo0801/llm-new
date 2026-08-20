@@ -160,3 +160,35 @@ tree:
                   for those historical endpoints remains explicitly unverifiable. No detector
                   statistic, sample-size choice, aggregation choice, or configuration comparison ran.
                 evidence: [C08, "reproducibility/h8_qwen32b_detector_development_20260820/d2b0/H8_D2B0_DEVELOPMENT_SAMPLING_AUTHORIZATION_PREFLIGHT_REPORT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FRESHNESS_MATERIALIZATION_AUDIT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FINAL_SHA256_INDEX.json"]
+                children:
+                  - id: N13
+                    type: decision
+                    title: "Authorize D2-B1 response generation without detector evaluation"
+                    provenance: user
+                    timestamp: "2026-08-20T15:55+08:00"
+                    choice: >
+                      Generate exactly the frozen 3,840 development responses, reuse the eight
+                      D2-B0 materialized endpoint identities, preserve nested memberships, and stop
+                      after response integrity auditing without global permutation or configuration selection.
+                    alternatives:
+                      - "Re-derive generation seeds or attack configurations"
+                      - "Include D2-B0 smoke responses in the development bank"
+                      - "Run detector comparison immediately after sampling"
+                    evidence: "Explicit H8 D2-B1 formal development sampling authorization."
+                    children:
+                      - id: N14
+                        type: experiment
+                        title: "H8 D2-B1 formal development response sampling"
+                        provenance: ai-executed
+                        timestamp: "2026-08-20T19:02+08:00"
+                        result: >
+                          PASS. Exactly 3,840 responses were generated: 720 development Reference,
+                          1,200 intact Target, and 1,920 attack responses. All 3,840 response IDs and
+                          generation seeds were unique; cross-role and D2-B0-smoke overlaps were zero.
+                          Each of eight endpoints contributed 240 responses, all nested-membership and
+                          materialization-binding checks passed, required-field failures and technical
+                          retries were zero, and every worker plus final GPU cleanup passed. The run
+                          recorded 3,038 EOS stops and 802 length stops. No development comparison,
+                          detector statistic, sample-size selection, aggregation selection, or detector
+                          freeze occurred.
+                        evidence: [C09, "reproducibility/h8_qwen32b_detector_development_20260820/d2b1/H8_D2B1_FORMAL_DEVELOPMENT_SAMPLING_REPORT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2b1/D2B1_FINAL_SHA256_INDEX.json"]

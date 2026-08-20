@@ -15,3 +15,7 @@ sessions:
     file: "2026-08-20_003.yaml"
     timestamp: "2026-08-20T15:45+08:00"
     summary: "Completed H8 D2-B0 fresh-attack materialization and eight-response smoke preflight; formal development sampling remains unauthorized."
+  - id: "2026-08-20_004"
+    file: "2026-08-20_004.yaml"
+    timestamp: "2026-08-20T19:05+08:00"
+    summary: "Completed H8 D2-B1 3,840-response formal development sampling and integrity audit; detector comparison remains unauthorized."

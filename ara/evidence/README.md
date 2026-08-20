@@ -22,3 +22,5 @@
 - H8 D2-B0 terminal preflight report: `reproducibility/h8_qwen32b_detector_development_20260820/d2b0/H8_D2B0_DEVELOPMENT_SAMPLING_AUTHORIZATION_PREFLIGHT_REPORT.json`
 - H8 D2-B0 freshness and realized-state audit: `reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FRESHNESS_MATERIALIZATION_AUDIT.json`
 - H8 D2-B0 immutable artifact hash index: `reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FINAL_SHA256_INDEX.json`
+- H8 D2-B1 formal development sampling report: `reproducibility/h8_qwen32b_detector_development_20260820/d2b1/H8_D2B1_FORMAL_DEVELOPMENT_SAMPLING_REPORT.json`
+- H8 D2-B1 response/provenance hash index: `reproducibility/h8_qwen32b_detector_development_20260820/d2b1/D2B1_FINAL_SHA256_INDEX.json`

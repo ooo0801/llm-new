@@ -1,0 +1,41 @@
+session:
+  id: "2026-08-20_004"
+  timestamp: "2026-08-20T19:05+08:00"
+  summary: "Completed H8 D2-B1 3,840-response formal development sampling and integrity audit; detector comparison remains unauthorized."
+
+events_logged:
+  - type: decision
+    id: N13
+    provenance: user
+    summary: "Authorized exactly 3,840 frozen development responses and prohibited detector evaluation in the same phase."
+  - type: experiment
+    id: N14
+    provenance: ai-executed
+    summary: "Generated and audited the complete development bank with all count, identity, nested, materialization, and GPU gates passing."
+  - type: claim
+    id: C09
+    provenance: ai-suggested
+    summary: "D2-B1 supports sampling completeness and leakage control, not detector performance."
+  - type: heuristic
+    id: H07
+    provenance: ai-executed
+    summary: "Combined a global immutable response chain with isolated per-model-state workers."
+
+ai_actions:
+  - action: "Implemented an independent D2-B1 authorization, fail-closed global-prefix runner, per-endpoint materialization binding, and terminal response-integrity audit."
+    provenance: ai-executed
+    files_changed: ["configs/h8_d2b1_formal_development_sampling.yaml", "src/llm_integrity/h8_d2b1.py", "scripts/run_h8_d2b1_formal_sampling.py", "tests/test_h8_d2b1.py"]
+  - action: "Generated exactly 3,840 development responses on the server and archived only the report and hash index in Git; raw responses remain hash-bound in the server results directory."
+    provenance: ai-executed
+    files_changed: ["reproducibility/h8_qwen32b_detector_development_20260820/d2b1/"]
+
+claims_touched:
+  - id: C09
+    action: created
+    provenance: ai-suggested
+
+open_threads:
+  - "Global permutation and the twelve-configuration development comparison require separate explicit authorization."
+  - "Sample size, Top-r aggregation, and detector remain unselected and unfrozen."
+
+ai_suggestions_pending: []

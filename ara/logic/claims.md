@@ -73,3 +73,13 @@
 - **Dependencies**: [C07]
 - **Scope note**: H6 did not archive artifact hashes for its in-memory Gaussian, pruning, or quantized states. D2 freshness for those families is therefore supported by configuration, seed, and realized-state evidence, not by a claim of verified artifact-level zero overlap. Eight smoke responses provide no evidence of detector power or specificity.
 - **Tags**: H8, Qwen2.5-32B, fresh attacks, materialization, smoke preflight, provenance
+
+## C09: H8 D2-B1 produces a complete leakage-controlled development response bank
+- **Statement**: Under the frozen D2-A schedules, nested memberships, D2-B0 endpoint identities, Qwen2.5-32B snapshot, and generation protocol, D2-B1 can produce exactly 720 development Reference, 1,200 intact Target, and 1,920 attack responses with unique IDs/seeds, exact endpoint/prompt counts, zero smoke or cross-role overlap, and immutable resume provenance without evaluating or selecting a detector.
+- **Status**: supported
+- **Provenance**: ai-suggested
+- **Falsification criteria**: The terminal response total or any role/endpoint/prompt count differs; an ID or generation seed is duplicated; role or D2-B0-smoke overlap is nonzero; nested membership or materialization binding fails; a technical retry changes seed; a GPU worker remains; or detector comparison/statistics run during D2-B1.
+- **Proof**: [`reproducibility/h8_qwen32b_detector_development_20260820/d2b1/H8_D2B1_FORMAL_DEVELOPMENT_SAMPLING_REPORT.json`, `reproducibility/h8_qwen32b_detector_development_20260820/d2b1/D2B1_FINAL_SHA256_INDEX.json`, N14]
+- **Dependencies**: [C07, C08]
+- **Scope note**: This claim concerns sampling completeness, identity, and leakage control only. D2-B1 does not estimate detector false positives, power, or family-level performance.
+- **Tags**: H8, Qwen2.5-32B, development sampling, fail-closed resume, provenance

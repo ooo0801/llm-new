@@ -35,3 +35,9 @@
 - **Provenance**: ai-executed
 - **Sensitivity**: high
 - **Code ref**: [`scripts/run_h8_d2b0_attack_smoke.py`, `scripts/h8_d2b0_endpoint_worker.py`, `scripts/h8_d2b0_lora_train_worker.py`]
+
+## H07: Chain one global schedule while isolating model-state workers
+- **Rationale**: A single append-only response hash chain prevents resume from skipping, reordering, or regenerating successful requests, while separate intact and per-endpoint GPU workers prevent model-state contamination across attack variants. Comparing each worker's materialization payload hash before its first response binds runtime generation to the D2-B0 endpoint evidence.
+- **Provenance**: ai-executed
+- **Sensitivity**: high
+- **Code ref**: [`src/llm_integrity/h8_d2b1.py`, `scripts/run_h8_d2b1_formal_sampling.py`]
