@@ -249,22 +249,11 @@ def _materialize_lora(
     adapter_root = resolve(auth["artifacts"]["adapter_root"])
     adapter_path = adapter_root / str(instance["attack_instance_id"])
     report_path = adapter_path / "training_report.json"
-    manifest = _attack_manifest(instance)
     if adapter_path.exists() and not report_path.is_file():
         raise FileExistsError("Partial LoRA adapter exists without a training report")
     if not report_path.is_file():
-        report = train_lora_manifest_variant(
-            model_config=h8_config["model"],
-            variant=manifest,
-            data_path=resolve(auth["frozen_inputs"]["lora_training_data"]),
-            output_root=adapter_root,
-            max_length=int(auth["lora_training"]["max_length"]),
-            batch_size=1,
-            gradient_accumulation_steps=int(auth["lora_training"]["gradient_accumulation_steps"]),
-        )
-        training = report.__dict__
-    else:
-        training = json.loads(report_path.read_text(encoding="utf-8"))
+        raise FileNotFoundError("LoRA adapter must be trained in the isolated training subprocess")
+    training = json.loads(report_path.read_text(encoding="utf-8"))
     expected_steps = int(instance["configuration"]["steps"])
     if int(training["requested_steps"]) != expected_steps or int(training["completed_steps"]) != expected_steps:
         raise RuntimeError("LoRA did not complete the frozen number of steps")
@@ -283,6 +272,49 @@ def _materialize_lora(
         "adapter_artifact_hashes": artifacts,
         "adapter_artifact_set_sha256": canonical_json_sha256(artifacts),
     }
+
+
+def train_lora_worker(auth_path: Path, endpoint_id: str) -> int:
+    if os.environ.get("HF_HUB_OFFLINE") != "1" or os.environ.get("TRANSFORMERS_OFFLINE") != "1":
+        raise PermissionError("D2-B0 LoRA training worker requires strict offline mode")
+    auth, h8_config, instances, _ = load_context(auth_path)
+    instance = next((row for row in instances if row["attack_instance_id"] == endpoint_id), None)
+    if instance is None or instance.get("family") != "lora":
+        raise ValueError("Unknown frozen D2-B0 LoRA endpoint")
+    adapter_root = resolve(auth["artifacts"]["adapter_root"])
+    adapter_path = adapter_root / endpoint_id
+    report_path = adapter_path / "training_report.json"
+    if report_path.is_file():
+        raise FileExistsError("A completed LoRA adapter already exists; refusing to retrain")
+    if adapter_path.exists():
+        raise FileExistsError("A partial LoRA adapter directory requires review before training")
+    try:
+        report = train_lora_manifest_variant(
+            model_config=h8_config["model"],
+            variant=_attack_manifest(instance),
+            data_path=resolve(auth["frozen_inputs"]["lora_training_data"]),
+            output_root=adapter_root,
+            max_length=int(auth["lora_training"]["max_length"]),
+            batch_size=1,
+            gradient_accumulation_steps=int(auth["lora_training"]["gradient_accumulation_steps"]),
+        )
+        expected_steps = int(instance["configuration"]["steps"])
+        if report.requested_steps != expected_steps or report.completed_steps != expected_steps:
+            raise RuntimeError("LoRA training subprocess did not complete the frozen step count")
+        if report.data_sha256 != auth["frozen_inputs"]["lora_training_data_sha256"]:
+            raise ValueError("LoRA training subprocess data hash mismatch")
+        return 0
+    finally:
+        gc.collect()
+        try:
+            import torch
+
+            if torch.cuda.is_available():
+                torch.cuda.synchronize()
+                torch.cuda.empty_cache()
+                torch.cuda.ipc_collect()
+        except Exception:
+            pass
 
 
 def _materialize_endpoint(
@@ -513,6 +545,28 @@ def parent(auth_path: Path) -> int:
             continue
         if paths["root"].exists():
             raise FileExistsError(f"Partial endpoint directory requires review before retry: {paths['root']}")
+        endpoint_cleanup: dict[str, Any] = {}
+        if instance["family"] == "lora":
+            adapter_path = resolve(auth["artifacts"]["adapter_root"]) / endpoint_id
+            if not (adapter_path / "training_report.json").is_file():
+                trained = subprocess.run(
+                    [
+                        sys.executable,
+                        str(Path(__file__).resolve()),
+                        "--auth",
+                        str(auth_path),
+                        "--train-lora-endpoint",
+                        endpoint_id,
+                    ],
+                    cwd=ROOT,
+                    env=environment,
+                    check=False,
+                )
+                training_cleanup = gpu_compute_processes()
+                endpoint_cleanup["lora_training_cleanup"] = training_cleanup
+                if trained.returncode != 0 or training_cleanup["status"] != "PASS":
+                    cleanup_by_endpoint[endpoint_id] = endpoint_cleanup
+                    raise RuntimeError(f"D2-B0 isolated LoRA training failed or leaked GPU workers: {endpoint_id}")
         completed = subprocess.run(
             [sys.executable, str(Path(__file__).resolve()), "--auth", str(auth_path), "--worker-endpoint", endpoint_id],
             cwd=ROOT,
@@ -520,7 +574,8 @@ def parent(auth_path: Path) -> int:
             check=False,
         )
         cleanup = gpu_compute_processes()
-        cleanup_by_endpoint[endpoint_id] = cleanup
+        endpoint_cleanup["smoke_worker_cleanup"] = cleanup
+        cleanup_by_endpoint[endpoint_id] = endpoint_cleanup
         if completed.returncode != 0 or cleanup["status"] != "PASS":
             raise RuntimeError(f"D2-B0 endpoint smoke failed or leaked a GPU worker: {endpoint_id}")
         _validate_existing_endpoint(auth, instance, request)
@@ -661,6 +716,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--auth", type=Path, default=DEFAULT_AUTH)
     parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--worker-endpoint", help=argparse.SUPPRESS)
+    parser.add_argument("--train-lora-endpoint", help=argparse.SUPPRESS)
     return parser.parse_args()
 
 
@@ -671,6 +727,8 @@ def main() -> int:
         return preflight_only(auth_path)
     if args.worker_endpoint:
         return worker(auth_path, args.worker_endpoint)
+    if args.train_lora_endpoint:
+        return train_lora_worker(auth_path, args.train_lora_endpoint)
     return parent(auth_path)
 
 
