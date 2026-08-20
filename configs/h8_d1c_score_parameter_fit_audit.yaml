@@ -1,0 +1,86 @@
+phase: H8_D1C_SCORE_PARAMETER_FIT_AND_INDEPENDENT_STABILITY_AUDIT
+authorization_status: user_approved
+authorization_date: "2026-08-20"
+model_sampling_authorized: false
+
+frozen_inputs:
+  d1b1_report: reproducibility/h8_qwen32b_score_calibration_20260819/d1b1/H8_D1B_SCORE_CALIBRATION_SAMPLING_REPORT.json
+  d1b1_report_sha256: 14015afcf30865b4bcca6c12fb0b9bc592854e9b2c0a8a349ea5b5ef0cd78765
+  responses: results/h8_qwen32b_score_calibration/d1b_sampling/score_calibration_responses.jsonl
+  responses_sha256: 2317874bb410d3fc0e858e84d149474a09e78cf793fcba52d4ad15a8b0c3454c
+  attempt_events: results/h8_qwen32b_score_calibration/d1b_sampling/score_calibration_attempt_events.jsonl
+  attempt_events_sha256: 70e77edb04f8ed49239fdf8d311e2ddfa15dc4a08d529869e3445e6bc554e3f3
+  sampling_provenance: results/h8_qwen32b_score_calibration/d1b_sampling/frozen_sampling_provenance.json
+  sampling_provenance_file_sha256: 63d359b8ea1cc6bb23f70e5438162894a74a30f2cec942d585687d4699815e24
+  sampling_provenance_payload_sha256: 91001636d3eedfa50a20f210c36c71adc31be2d04643a84674a2e382292d191a
+  formal_generation_manifest: reproducibility/h8_qwen32b_score_calibration_20260819/d1b0/score_calibration_generation_manifest.json
+  formal_generation_manifest_sha256: e6db0eda9d373c7d62f2a2efeacf4ca127476a0ab91d104665bcaa7354577002
+  mmd_archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  mmd_manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+  d1a_report: reproducibility/h8_qwen32b_score_calibration_20260819/d1a/H8_D1A_SCORE_CALIBRATION_PREFLIGHT_REPORT.json
+  d1a_report_sha256: 7d20622a429e50e4658039961090079078dc75f6a00448ae543994221e1618e1
+  score_schema_sha256: 502589bb4abb3dbf38bd10e9aeab37a1f97d1621d2bd8ca28eda94848b5b7000
+  h6_fingerprint: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  h6_fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  protocol: docs/H8_Qwen32B_D1C_Score_Parameter_Fit_Audit_Protocol.md
+  protocol_sha256: 8e2c28af73de225bed412311a3ac29f9a057d43d5712e43c5d4c6af759e432ed
+
+feature_extraction:
+  semantic_model: BAAI/bge-small-zh-v1.5
+  semantic_model_revision: 7999e1d3359715c523056ef9478215996d62a620
+  semantic_device: cpu
+  semantic_local_files_only: true
+  semantic_dimension: 512
+  expected_total_dimension: 528
+  expected_feature_schema_sha256: 4929ee88394ea6335e957024e16f51b4ad6b16cac96d2867d4135254438e9a8a
+  dtype: float64
+  deterministic_torch_algorithms: true
+  torch_num_threads: 8
+  deduplicate_text_before_semantic_encoding: true
+
+cpu_split:
+  fit_root_seed_uint64: 14640867334222579931
+  audit_root_seed_uint64: 8283658261250137027
+  trials_per_structure_prompt_role: 1000
+  manifest: reproducibility/h8_qwen32b_score_calibration_20260820/d1c/D1C_CPU_SPLIT_MANIFEST.json
+  manifest_sha256: 3c94e4bb6cfd24d75fc83e4d5d6ad71bec78dc03931f887da0e8e661b745b4f2
+
+score_fit:
+  fit_role: score_calibration_fit_only
+  audit_role: score_calibration_stability_audit_only
+  required_responses_per_prompt_per_role: 100
+  sample_structures: [r40_q10, r40_q20, r60_q10, r60_q20]
+  robust_mad_multiplier: 1.4826
+  numerical_zero_threshold: 1.0e-12
+  fit_trials: 1000
+  audit_trials: 1000
+  stability_scale_ratio: [0.5, 2.0]
+  stability_location_shift_over_fit_scale_max: 1.0
+  raw_negative_values_preserved: true
+  cross_structure_pooling: false
+
+output:
+  result_directory: results/h8_qwen32b_score_calibration/d1c
+  feature_matrix: d1c_feature_matrix_float64.npy
+  feature_row_index: d1c_feature_row_index.jsonl
+  raw_null_matrix: d1c_raw_unbiased_mmd2_float64.npy
+  raw_null_index: d1c_raw_null_index.json
+  fit_candidate: SCORE_CALIBRATION_FIT_CANDIDATE.json
+  stability_report: SCORE_CALIBRATION_STABILITY_AUDIT_REPORT.json
+  final_report: H8_D1C_SCORE_PARAMETER_FIT_AUDIT_REPORT.json
+  frozen_archive: reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1
+  frozen_manifest: SCORE_CALIBRATION_FROZEN_MANIFEST.json
+
+forbidden_operations:
+  new_model_sampling: true
+  formal_reference_read_or_generation: true
+  heldout_read_or_generation: true
+  attack_read_or_generation: true
+  target_read_or_generation: true
+  frozen_mmd_mutation: true
+  audit_data_parameter_fit: true
+  sample_size_selection: true
+  aggregation_selection: true
+  top_r_max_energy: true
+  global_permutation: true
