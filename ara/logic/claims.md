@@ -44,3 +44,12 @@
 - **Proof**: [pending]
 - **Dependencies**: [C04]
 - **Tags**: H-H1, prompt-stratified MMD
+
+## C06: H8 D-to-S parameters are stable across independent intact response banks
+- **Statement**: For all four retained sample structures, every nondegenerate Qwen2.5-32B fingerprint satisfies `0.5 <= a_audit/a_fit <= 2.0` and `abs(m_audit-m_fit)/a_fit <= 1.0`, while every structurally degenerate fingerprint preserves zero raw MMD and zero score on the independent Audit bank.
+- **Status**: supported
+- **Provenance**: ai-suggested
+- **Falsification criteria**: Any nondegenerate structure-prompt pair violates either registered gate, any degenerate Audit MMD exceeds `1e-12`, any mapped degenerate score is nonzero, or Audit responses enter the Fit interface.
+- **Proof**: [`reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/SCORE_CALIBRATION_STABILITY_AUDIT_REPORT.json`, `reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/d1c_raw_unbiased_mmd2_float64.npy`, N08]
+- **Dependencies**: []
+- **Tags**: H8, Qwen2.5-32B, score calibration, independent audit, MMD

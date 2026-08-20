@@ -66,3 +66,32 @@ tree:
                           - "Insert a post-hoc thirtieth candidate"
                           - "Run G1/H1 without a confirmed parent fingerprint"
                         evidence: "Frozen F1, G1, and H1 conditional protocols plus N05."
+
+  - id: N07
+    type: decision
+    title: "Fit H8 score parameters on an isolated D1-B1 bank and audit on a second bank"
+    provenance: user
+    timestamp: "2026-08-20T09:50+08:00"
+    choice: >
+      Preserve four sample structures, use 1,000 preregistered without-replacement pseudo splits
+      per structure and prompt in each role, fit only on score_calibration_fit_only responses, and
+      apply fixed 0.5--2.0 scale and 1.0 standardized-location independent Audit gates.
+    alternatives:
+      - "Pool Fit and Audit responses"
+      - "Select a sample structure from calibration results"
+      - "Tune the gate after observing Audit"
+    evidence: "Explicit H8 D1-C authorization and frozen protocol."
+    children:
+      - id: N08
+        type: experiment
+        title: "H8 D1-C score parameter fit and independent stability audit"
+        provenance: ai-executed
+        timestamp: "2026-08-20T10:05+08:00"
+        result: >
+          PASS. The run used 1,200 Fit-only and 1,200 Audit-only D1-B1 responses with no new
+          sampling, completed 48,000 Fit and 48,000 Audit pseudo splits, and froze all four score
+          parameter sets. Across 24 nondegenerate structure-prompt gates the Audit/Fit scale ratio
+          ranged from 0.8571 to 1.1706 and the largest standardized median shift was 0.3373.
+          All 24 degenerate gates had raw MMD and score exactly zero. No sample size or aggregation
+          was selected, and the detector remains not frozen.
+        evidence: [C06, "reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/H8_D1C_SCORE_PARAMETER_FIT_AUDIT_REPORT.json", "reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/SCORE_CALIBRATION_FROZEN_MANIFEST.json"]

@@ -17,3 +17,9 @@
 - **Provenance**: ai-executed
 - **Sensitivity**: high
 - **Code ref**: [`.gitattributes`, `reproducibility/experiment_f_qwen14b_robust_20260807/SHA256SUMS`]
+
+## H04: Freeze independent resampling streams before score fitting
+- **Rationale**: Domain-separated Fit and Audit roots, per-trial PCG64 seeds, and schedule digests prevent response-role leakage and result-dependent resampling while keeping 96,000 pseudo splits compactly reproducible.
+- **Provenance**: ai-executed
+- **Sensitivity**: high
+- **Code ref**: [`src/llm_integrity/h8_d1c.py`, `reproducibility/h8_qwen32b_score_calibration_20260820/d1c/D1C_CPU_SPLIT_MANIFEST.json`]

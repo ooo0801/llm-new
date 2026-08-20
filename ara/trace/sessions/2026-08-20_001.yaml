@@ -1,0 +1,42 @@
+session:
+  id: "2026-08-20_001"
+  timestamp: "2026-08-20T10:10+08:00"
+  summary: "Completed H8 D1-C score fit and independent Audit; score layer frozen with detector still unfrozen."
+
+events_logged:
+  - type: decision
+    id: N07
+    provenance: user
+    summary: "Authorized strict Fit/Audit separation, four structures, 1,000 pseudo splits, and fixed stability gates."
+  - type: experiment
+    id: N08
+    provenance: ai-executed
+    summary: "D1-C passed all 48 independent gates and froze the score layer."
+  - type: claim
+    id: C06
+    provenance: ai-suggested
+    summary: "Independent intact-bank score parameters met all registered stability and zero-invariant gates."
+  - type: heuristic
+    id: H04
+    provenance: ai-executed
+    summary: "Domain-separated, hash-bound resampling streams prevent Fit/Audit split leakage."
+
+ai_actions:
+  - action: "Implemented the D1-C split manifest, fit/audit runner, fail-closed loader, protocol, and CPU tests."
+    provenance: ai-executed
+    files_changed: ["src/llm_integrity/h8_d1c.py", "scripts/run_h8_d1c_score_fit_audit.py", "tests/test_h8_d1c.py"]
+  - action: "Ran 96,000 offline pseudo splits on the frozen 2,400-response D1-B1 bank and archived PASS artifacts."
+    provenance: ai-executed
+    files_changed: ["reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1/"]
+
+claims_touched:
+  - id: C06
+    action: created
+    provenance: ai-suggested
+
+open_threads:
+  - "Sample size remains unselected."
+  - "Aggregation (Top-r/Max/Energy) remains unselected."
+  - "The H8 detector remains not frozen; no formal Reference, held-out, or attack stage has run."
+
+ai_suggestions_pending: []
