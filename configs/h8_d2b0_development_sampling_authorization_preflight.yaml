@@ -1,0 +1,82 @@
+phase: H8_D2B0_DEVELOPMENT_SAMPLING_AUTHORIZATION_PREFLIGHT
+authorization_status: user_approved_preflight_only
+authorization_date: "2026-08-20"
+formal_development_sampling_authorized: false
+attack_smoke_sampling_authorized: true
+implementation_commit: 07afbd7678746793520b79c30ac97a7fa5396090
+
+implementation:
+  runner: scripts/run_h8_d2b0_attack_smoke.py
+  runner_sha256: 25be5a13435b9949fe8f2fd89d08602e36839a2afd341a4abe60627cb34d6949
+  module: src/llm_integrity/h8_d2b0.py
+  module_sha256: b77f8224a1008ce2993338846bf6199d9e1321198944960681ee7395ca0bc788
+
+frozen_inputs:
+  mmd_archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  mmd_manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+  score_archive: reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1
+  score_manifest_sha256: b57d9d5062b13e9e02624e69bbcf4eb585e716084acf73ab96cf00a733802028
+  score_schema_sha256: 502589bb4abb3dbf38bd10e9aeab37a1f97d1621d2bd8ca28eda94848b5b7000
+  h8_config: configs/h8_qwen32b_mmd_precalibration.yaml
+  h8_config_sha256: a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c
+  runtime_authorization: configs/h8_m0f_calibration_sampling.yaml
+  runtime_authorization_sha256: 52c52171844e997312f5ac9ebba03352e5df56d3e4e803a1d3200e4c148f0807
+  fingerprint: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  d2a_directory: reproducibility/h8_qwen32b_detector_development_20260820/d2a
+  d2a_artifact_index: reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_ARTIFACT_SHA256_INDEX.json
+  d2a_artifact_index_sha256: 337de2b59b0b08ba7d0b7d09d9d59d3320cc26bd9b0e05f61a3b4ffbaeb647b7
+  d2a_preflight_report: reproducibility/h8_qwen32b_detector_development_20260820/d2a/H8_D2A_DETECTOR_DEVELOPMENT_PREFLIGHT_REPORT.json
+  d2a_preflight_report_sha256: 5693a498453c86675cd5345bb60fa358a05413d3979d103c3332a476d16aea7a
+  d2b0_pre_smoke_report: reproducibility/h8_qwen32b_detector_development_20260820/d2b0_authorization/H8_D2B0_PRE_SMOKE_AUTHORIZATION_REPORT.json
+  d2b0_pre_smoke_report_sha256: 54cdfe4a8e9c265ba2447e53b7ec06fed4dd943d9fd52c5fa015165987f25251
+  d2b0_pre_smoke_index: reproducibility/h8_qwen32b_detector_development_20260820/d2b0_authorization/D2B0_PRE_SMOKE_SHA256_INDEX.json
+  d2b0_pre_smoke_index_sha256: c41e9c128888e14927f41b0eeb9850867bd77aabe449458fa067890a3cc8bbb5
+  d2b0_attack_smoke_manifest: reproducibility/h8_qwen32b_detector_development_20260820/d2b0_authorization/D2B0_ATTACK_SMOKE_GENERATION_MANIFEST.json
+  lora_training_data: data/h8_d2_fresh_isolated_attack_training_data_v1.jsonl
+  lora_training_data_sha256: 0bb39931c284eb29963d292670c068d3ab04d17aa1584f0b1b8817d8d2f5143a
+  protocol: docs/H8_Qwen32B_D2B0_Development_Sampling_Authorization_Preflight_Protocol.md
+  protocol_sha256: c0fa9c83e589b20a6d3b0d916cbbdacbe52a39ad7235fe584822b16a8ef1deb9
+
+runtime_execution:
+  strict_offline: true
+  hf_hub_cache: /root/autodl-tmp/huggingface
+
+smoke:
+  data_role: detector_development_attack_smoke_only
+  exact_response_count: 8
+  responses_per_endpoint: 1
+  batch_size: 1
+  technical_retry_policy: same_seed_only
+  successful_record_policy: immutable_never_regenerate
+  nested_q10_q20_eligible: false
+  configuration_selection_eligible: false
+
+lora_training:
+  max_length: 256
+  gradient_accumulation_steps: 8
+  mcc12_prompt_or_response_leakage_forbidden: true
+  require_exact_completed_steps: true
+
+freshness:
+  h6_server_adapter_root: /root/autodl-tmp/llm/results/experiment_h6_qwen32b_reconstruction_20260812/adapters
+  id_level_overlap_must_be_verified: true
+  compare_configuration_seed_and_available_artifact_hashes: true
+  quantization_fallback_forbidden: true
+
+artifacts:
+  result_root: results/h8_qwen32b_detector_development/d2b0_attack_smoke
+  adapter_root: results/h8_qwen32b_detector_development/d2b0_adapters
+  archive_dir: reproducibility/h8_qwen32b_detector_development_20260820/d2b0
+
+forbidden_operations:
+  formal_development_sampling: true
+  development_configuration_comparison: true
+  sample_size_selection: true
+  aggregation_selection: true
+  detector_freeze: true
+  mmd_or_score_refit: true
+  formal_reference_generation: true
+  final_heldout_generation_or_read: true
+  final_attack_or_confirmation_generation_or_read: true

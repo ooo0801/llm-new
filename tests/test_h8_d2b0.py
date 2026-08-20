@@ -16,6 +16,9 @@ from llm_integrity.h8_d2b0 import (
 )
 
 
+ROOT = Path(__file__).resolve().parents[1]
+
+
 def instances() -> list[dict[str, object]]:
     return [
         {
@@ -135,3 +138,41 @@ def test_canonical_artifact_fails_closed_after_tampering(tmp_path: Path) -> None
             expected_file_sha256=info["file_sha256"],
             expected_payload_sha256=info["payload_sha256"],
         )
+
+
+def test_frozen_pre_smoke_artifacts_reverse_load_and_bind_revised_rule() -> None:
+    directory = ROOT / "reproducibility/h8_qwen32b_detector_development_20260820/d2b0_authorization"
+    index = json.loads((directory / "D2B0_PRE_SMOKE_SHA256_INDEX.json").read_text(encoding="utf-8"))
+    bindings = {
+        "revised_configuration_manifest": (
+            "D2B0_REVISED_CONFIGURATION_MANIFEST.json",
+            "h8_d2b0_revised_configuration_manifest",
+        ),
+        "freshness_preflight": (
+            "D2B0_FRESH_ATTACK_PROVENANCE_PREFLIGHT.json",
+            "h8_d2b0_fresh_attack_provenance_preflight",
+        ),
+        "lora_training_isolation": (
+            "D2B0_LORA_TRAINING_DATA_ISOLATION_AUDIT.json",
+            "h8_d2b0_lora_training_isolation_audit",
+        ),
+        "attack_smoke_manifest": (
+            "D2B0_ATTACK_SMOKE_GENERATION_MANIFEST.json",
+            "h8_d2b0_attack_smoke_generation_manifest",
+        ),
+    }
+    payloads = {}
+    for key, (filename, artifact_type) in bindings.items():
+        payloads[key] = load_canonical_envelope(
+            directory / filename,
+            expected_artifact_type=artifact_type,
+            expected_file_sha256=index[key]["file_sha256"],
+            expected_payload_sha256=index[key]["payload_sha256"],
+        )
+    rule = payloads["revised_configuration_manifest"]["selection_rule"]
+    assert rule["primary"].startswith("minimize_false_positive_count")
+    assert rule["tie_1"].startswith("maximize_minimum_detected_endpoint_count")
+    assert rule["tie_2"].startswith("maximize_total_detected_count")
+    assert payloads["freshness_preflight"]["id_level_overlap_status"] == "verified_zero"
+    assert payloads["lora_training_isolation"]["mcc12_prompt_or_response_leakage_detected"] is False
+    assert payloads["attack_smoke_manifest"]["request_count"] == 8

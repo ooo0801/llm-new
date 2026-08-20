@@ -144,6 +144,35 @@ def load_context(auth_path: Path) -> tuple[dict[str, Any], dict[str, Any], list[
     pre_index = json.loads(resolve(frozen["d2b0_pre_smoke_index"]).read_text(encoding="utf-8"))
     require_hash(resolve(frozen["d2b0_pre_smoke_index"]), frozen["d2b0_pre_smoke_index_sha256"], "D2-B0 pre-smoke index")
     smoke_info = pre_index["attack_smoke_manifest"]
+    pre_directory = resolve(frozen["d2b0_pre_smoke_report"]).parent
+    revised = load_canonical_envelope(
+        pre_directory / "D2B0_REVISED_CONFIGURATION_MANIFEST.json",
+        expected_artifact_type="h8_d2b0_revised_configuration_manifest",
+        expected_file_sha256=pre_index["revised_configuration_manifest"]["file_sha256"],
+        expected_payload_sha256=pre_index["revised_configuration_manifest"]["payload_sha256"],
+    )
+    freshness = load_canonical_envelope(
+        pre_directory / "D2B0_FRESH_ATTACK_PROVENANCE_PREFLIGHT.json",
+        expected_artifact_type="h8_d2b0_fresh_attack_provenance_preflight",
+        expected_file_sha256=pre_index["freshness_preflight"]["file_sha256"],
+        expected_payload_sha256=pre_index["freshness_preflight"]["payload_sha256"],
+    )
+    lora_isolation = load_canonical_envelope(
+        pre_directory / "D2B0_LORA_TRAINING_DATA_ISOLATION_AUDIT.json",
+        expected_artifact_type="h8_d2b0_lora_training_isolation_audit",
+        expected_file_sha256=pre_index["lora_training_isolation"]["file_sha256"],
+        expected_payload_sha256=pre_index["lora_training_isolation"]["payload_sha256"],
+    )
+    if (
+        revised.get("configuration_count") != 12
+        or not revised.get("selection_rule", {}).get("primary", "").startswith("minimize_false_positive_count")
+        or freshness.get("status") != "PASS"
+        or freshness.get("id_level_overlap_status") != "verified_zero"
+        or lora_isolation.get("status") != "PASS"
+        or lora_isolation.get("mcc12_prompt_or_response_leakage_detected") is not False
+        or lora_isolation.get("training_data_sha256") != frozen["lora_training_data_sha256"]
+    ):
+        raise ValueError("D2-B0 revised selection/freshness/isolation artifact gate failed")
     smoke = load_canonical_envelope(
         resolve(frozen["d2b0_attack_smoke_manifest"]),
         expected_artifact_type="h8_d2b0_attack_smoke_generation_manifest",
