@@ -158,6 +158,16 @@ def development_attack_records() -> list[dict[str, object]]:
     rows = []
     for structure in SAMPLE_STRUCTURES:
         for top_r in TOP_R_VALUES:
+            for intact_unit in range(5):
+                rows.append(
+                    {
+                        "data_role": INTACT_TARGET_ROLE,
+                        "configuration_id": configuration_id(structure, top_r),
+                        "evaluation_unit_id": f"intact_{intact_unit}",
+                        "attack_family": None,
+                        "detected": False,
+                    }
+                )
             for family in ATTACK_FAMILIES:
                 for endpoint in range(2):
                     rows.append(
@@ -165,7 +175,7 @@ def development_attack_records() -> list[dict[str, object]]:
                             "data_role": ATTACK_ROLE,
                             "configuration_id": configuration_id(structure, top_r),
                             "attack_family": family,
-                            "attack_instance_id": f"{family}_{endpoint}",
+                            "evaluation_unit_id": f"{family}_{endpoint}",
                             "detected": True,
                         }
                     )
@@ -176,6 +186,19 @@ def test_selection_rule_uses_all_families_and_frozen_tie_break() -> None:
     result = select_development_configuration(development_attack_records())
     assert result["selected_configuration_id"] == "r40_q10_top2"
     assert result["final_or_heldout_data_read"] is False
+    assert result["formal_fpr_or_tpr_estimation_performed"] is False
+
+
+def test_selection_rule_minimizes_intact_count_before_attack_counts() -> None:
+    rows = development_attack_records()
+    for row in rows:
+        if row["configuration_id"] == "r40_q10_top2" and row["data_role"] == INTACT_TARGET_ROLE:
+            row["detected"] = True
+        if row["configuration_id"] == "r40_q10_top3" and row["data_role"] == ATTACK_ROLE:
+            row["detected"] = False
+    result = select_development_configuration(rows)
+    assert result["selected_configuration_id"] != "r40_q10_top2"
+    assert result["selected_configuration_id"] != "r40_q10_top3"
 
 
 @pytest.mark.parametrize(
@@ -185,7 +208,7 @@ def test_selection_rule_uses_all_families_and_frozen_tie_break() -> None:
 def test_selection_rejects_final_or_heldout_data(role: str) -> None:
     rows = development_attack_records()
     rows[0] = {**rows[0], "data_role": role}
-    with pytest.raises(ValueError, match="development attack data only"):
+    with pytest.raises(ValueError, match="development intact/attack data only"):
         select_development_configuration(rows)
 
 
@@ -194,15 +217,17 @@ def test_intact_sanity_is_diagnostic_not_selection() -> None:
         {
             "data_role": INTACT_TARGET_ROLE,
             "configuration_id": configuration_id(structure, top_r),
+            "evaluation_unit_id": f"intact_{index}",
             "detected": False,
         }
         for structure in SAMPLE_STRUCTURES
         for top_r in TOP_R_VALUES
-        for _ in range(5)
+        for index in range(5)
     ]
     result = intact_sanity_summary(rows)
     assert result["used_for_configuration_selection"] is False
-    assert all(value["false_positive_rate"] == 0.0 for value in result["by_configuration"].values())
+    assert all(value["development_false_positive_count"] == 0 for value in result["by_configuration"].values())
+    assert all(value["not_a_formal_fpr_estimate"] is True for value in result["by_configuration"].values())
 
 
 def test_tampered_mmd_or_score_frozen_hash_fails_closed(tmp_path: Path) -> None:

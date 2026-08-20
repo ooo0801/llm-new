@@ -26,6 +26,8 @@ ATTACK_ROLE = "detector_development_attack_only"
 ALLOWED_DEVELOPMENT_ROLES = {REFERENCE_ROLE, INTACT_TARGET_ROLE, ATTACK_ROLE}
 FORBIDDEN_SELECTION_ROLE_MARKERS = ("formal", "heldout", "final", "confirmation")
 ATTACK_FAMILIES = ("gaussian", "pruning", "lora", "quantization")
+INTACT_DEVELOPMENT_UNITS = 5
+ATTACK_ENDPOINTS_PER_FAMILY = 2
 STRUCTURE_SIZES = {
     "r40_q10": (40, 10),
     "r40_q20": (40, 20),
@@ -237,64 +239,94 @@ def configuration_manifest_payload() -> dict[str, Any]:
         "alpha": DEVELOPMENT_ALPHA,
         "energy_implemented": False,
         "selection_rule": {
-            "primary": "maximize_minimum_detection_rate_across_four_attack_families",
-            "tie_1": "maximize_mean_detection_rate_across_four_attack_families",
-            "tie_2": "prefer_q10_over_q20",
-            "tie_3": "prefer_r40_over_r60",
-            "tie_4": "fixed_top_r_order",
+            "primary": "minimize_false_positive_count_across_five_development_intact_units",
+            "tie_1": "maximize_minimum_detected_endpoint_count_across_four_attack_families",
+            "tie_2": "maximize_total_detected_count_across_eight_development_attack_endpoints",
+            "tie_3": "prefer_q10_over_q20",
+            "tie_4": "prefer_r40_over_r60",
+            "tie_5": "fixed_top_r_order",
             "fixed_top_r_order": [2, 3, 4],
             "single_gaussian_direct_selection_forbidden": True,
+            "development_counts_are_not_formal_fpr_or_tpr_estimates": True,
         },
     }
 
 
 def select_development_configuration(records: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     configurations = {row["configuration_id"]: row for row in configuration_manifest_payload()["configurations"]}
-    grouped: dict[str, dict[str, list[bool]]] = {
-        config_id: {family: [] for family in ATTACK_FAMILIES} for config_id in configurations
+    attack_grouped: dict[str, dict[str, dict[str, bool]]] = {
+        config_id: {family: {} for family in ATTACK_FAMILIES} for config_id in configurations
     }
+    intact_grouped: dict[str, dict[str, bool]] = {config_id: {} for config_id in configurations}
     for record in records:
         role = str(record.get("data_role", ""))
-        if role != ATTACK_ROLE or any(marker in role.lower() for marker in FORBIDDEN_SELECTION_ROLE_MARKERS):
-            raise ValueError("Configuration selection may read development attack data only")
+        if role not in {ATTACK_ROLE, INTACT_TARGET_ROLE} or any(
+            marker in role.lower() for marker in FORBIDDEN_SELECTION_ROLE_MARKERS
+        ):
+            raise ValueError("Configuration selection may read development intact/attack data only")
         config_id = str(record.get("configuration_id", ""))
-        family = str(record.get("attack_family", ""))
-        if config_id not in configurations or family not in ATTACK_FAMILIES:
-            raise ValueError("Unknown configuration or attack family")
+        if config_id not in configurations:
+            raise ValueError("Unknown detector configuration")
         detected = record.get("detected")
         if not isinstance(detected, bool):
             raise ValueError("Development detection result must be boolean")
-        grouped[config_id][family].append(detected)
+        unit_id = str(record.get("evaluation_unit_id", "")).strip()
+        if not unit_id:
+            raise ValueError("Every selection record requires an evaluation_unit_id")
+        if role == INTACT_TARGET_ROLE:
+            if record.get("attack_family") is not None:
+                raise ValueError("Development intact units cannot carry an attack family")
+            if unit_id in intact_grouped[config_id]:
+                raise ValueError("Duplicate intact evaluation unit for a configuration")
+            intact_grouped[config_id][unit_id] = detected
+        else:
+            family = str(record.get("attack_family", ""))
+            if family not in ATTACK_FAMILIES:
+                raise ValueError("Unknown development attack family")
+            if unit_id in attack_grouped[config_id][family]:
+                raise ValueError("Duplicate attack endpoint for a configuration/family")
+            attack_grouped[config_id][family][unit_id] = detected
     metrics: dict[str, Any] = {}
-    for config_id, by_family in grouped.items():
-        if any(len(by_family[family]) != 2 for family in ATTACK_FAMILIES):
+    for config_id, by_family in attack_grouped.items():
+        intact = intact_grouped[config_id]
+        if len(intact) != INTACT_DEVELOPMENT_UNITS:
+            raise ValueError("Every configuration requires exactly five development intact units")
+        if any(len(by_family[family]) != ATTACK_ENDPOINTS_PER_FAMILY for family in ATTACK_FAMILIES):
             raise ValueError("Every configuration requires exactly two fresh endpoints per family")
-        rates = {family: float(np.mean(by_family[family])) for family in ATTACK_FAMILIES}
+        family_counts = {
+            family: int(sum(by_family[family].values())) for family in ATTACK_FAMILIES
+        }
         metrics[config_id] = {
-            "family_detection_rates": rates,
-            "minimum_family_detection_rate": min(rates.values()),
-            "mean_family_detection_rate": float(np.mean(list(rates.values()))),
+            "development_false_positive_count": int(sum(intact.values())),
+            "development_intact_unit_count": INTACT_DEVELOPMENT_UNITS,
+            "family_detected_endpoint_counts": family_counts,
+            "minimum_family_detected_endpoint_count": min(family_counts.values()),
+            "total_detected_attack_endpoint_count": sum(family_counts.values()),
+            "development_attack_endpoint_count": len(ATTACK_FAMILIES) * ATTACK_ENDPOINTS_PER_FAMILY,
+            "counts_are_not_formal_fpr_or_tpr_estimates": True,
         }
     r_order = {r: index for index, r in enumerate(TOP_R_VALUES)}
 
-    def key(config_id: str) -> tuple[float, float, int, int, int]:
+    def key(config_id: str) -> tuple[int, int, int, int, int, int]:
         config = configurations[config_id]
         metric = metrics[config_id]
         return (
-            metric["minimum_family_detection_rate"],
-            metric["mean_family_detection_rate"],
-            -int(config["n_target"]),
-            -int(config["n_reference"]),
-            -r_order[int(config["top_r"])],
+            int(metric["development_false_positive_count"]),
+            -int(metric["minimum_family_detected_endpoint_count"]),
+            -int(metric["total_detected_attack_endpoint_count"]),
+            int(config["n_target"]),
+            int(config["n_reference"]),
+            r_order[int(config["top_r"])],
         )
 
-    selected = max(sorted(configurations), key=key)
+    selected = min(sorted(configurations), key=key)
     return {
         "selected_configuration_id": selected,
         "selection_metrics": metrics,
         "selection_key": list(key(selected)),
         "selection_rule": configuration_manifest_payload()["selection_rule"],
         "final_or_heldout_data_read": False,
+        "formal_fpr_or_tpr_estimation_performed": False,
     }
 
 
@@ -315,7 +347,8 @@ def intact_sanity_summary(records: Sequence[Mapping[str, Any]]) -> dict[str, Any
         "by_configuration": {
             config_id: {
                 "replicates": len(values),
-                "false_positive_rate": float(np.mean(values)),
+                "development_false_positive_count": int(sum(values)),
+                "not_a_formal_fpr_estimate": True,
             }
             for config_id, values in sorted(grouped.items())
         },
