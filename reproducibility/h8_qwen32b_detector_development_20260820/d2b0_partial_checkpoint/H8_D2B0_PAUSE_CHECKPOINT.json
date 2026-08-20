@@ -1,0 +1,35 @@
+{
+  "schema_version": "h8-d2b0-pause-checkpoint-1.0",
+  "phase": "H8_D2B0_DEVELOPMENT_SAMPLING_AUTHORIZATION_PREFLIGHT",
+  "status": "PAUSED_BY_USER_SAFE_TO_RESUME",
+  "execution_commit": "1c6fa690a07e6e2cdd2e7cc3642f3a3b4c58ecb3",
+  "formal_development_responses": 0,
+  "attack_smoke_only_responses_completed": 2,
+  "attack_smoke_only_responses_remaining": 6,
+  "completed_endpoints": [
+    "h8d2_dev_gaussian_ffn_000035_seed2111",
+    "h8d2_dev_gaussian_all_000075_seed2112"
+  ],
+  "next_endpoint": "h8d2_dev_pruning_attention_global22_seed2121",
+  "partial_endpoint_directory_detected": false,
+  "running_d2b0_processes_after_pause": 0,
+  "gpu_compute_processes_after_pause": 0,
+  "completed_record_audit": {
+    "manifest_seed_match": true,
+    "materialization_status_pass": true,
+    "data_role_smoke_only": true,
+    "detector_statistics_computed": false,
+    "formal_development_eligible": false,
+    "same_seed_attempts_only": true
+  },
+  "local_backup_sha256": {
+    "h8d2_dev_gaussian_ffn_000035_seed2111/materialization_report.json": "f1fa1476c8859c85b193516c8ebebcec86a61ac9c212960ca853b2b5276820c2",
+    "h8d2_dev_gaussian_ffn_000035_seed2111/smoke_response.json": "fa3d278d803d9c2b33662999ac76f29260cde7300d548b9b152b2269e5ae5893",
+    "h8d2_dev_gaussian_all_000075_seed2112/materialization_report.json": "10aaae50d486df64edc08387088cb79d0924bf59754522bb0f9590a4a4946404",
+    "h8d2_dev_gaussian_all_000075_seed2112/smoke_response.json": "b4040f48918a2c106c1475b888830e9ef537e2c47a8e4c60b353f3fb8d00ff60"
+  },
+  "server_result_root": "results/h8_qwen32b_detector_development/d2b0_attack_smoke",
+  "resume_command": "/root/autodl-tmp/venvs/llm-integrity/bin/python scripts/run_h8_d2b0_attack_smoke.py",
+  "resume_policy": "validate_and_reuse_two_immutable_successes_then_continue_from_next_missing_endpoint",
+  "created_at": "2026-08-20T12:30:00+08:00"
+}
