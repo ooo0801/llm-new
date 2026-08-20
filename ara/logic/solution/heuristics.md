@@ -29,3 +29,9 @@
 - **Provenance**: ai-executed
 - **Sensitivity**: high
 - **Code ref**: [`src/llm_integrity/h8_d2a.py`, `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_NESTED_SUBSET_MANIFEST.json`]
+
+## H06: Separate LoRA training and smoke inference into independent GPU processes
+- **Rationale**: Reusing one process after adapter training can retain the 32B training model and optimizer state while reloading the base model, causing an avoidable OOM. A bounded training subprocess, a verified GPU-cleanup gate, and a fresh smoke subprocess preserve the registered adapter and seed while making interruption recovery fail-closed and resumable.
+- **Provenance**: ai-executed
+- **Sensitivity**: high
+- **Code ref**: [`scripts/run_h8_d2b0_attack_smoke.py`, `scripts/h8_d2b0_endpoint_worker.py`, `scripts/h8_d2b0_lora_train_worker.py`]

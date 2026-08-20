@@ -127,3 +127,36 @@ tree:
           Eleven dedicated CPU tests passed locally and on the server. The MMD and score
           layers remain frozen, while sample size, aggregation, and detector remain unselected.
         evidence: [C07, "reproducibility/h8_qwen32b_detector_development_20260820/d2a/H8_D2A_DETECTOR_DEVELOPMENT_PREFLIGHT_REPORT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_ARTIFACT_SHA256_INDEX.json"]
+        children:
+          - id: N11
+            type: decision
+            title: "Revise D2 configuration selection to endpoint counts before development sampling"
+            provenance: user
+            timestamp: "2026-08-20T11:40+08:00"
+            choice: >
+              Minimize false-positive count across five development-intact units, then maximize
+              the worst-family detected-endpoint count, total detected endpoints, and finally
+              apply the frozen q10, r40, and Top-r tie-breaks. Treat all quantities as development
+              counts rather than formal FPR or TPR estimates.
+            alternatives:
+              - "Interpret five intact units as an FPR estimate"
+              - "Interpret two endpoints per family as a stable TPR estimate"
+              - "Keep the earlier worst-family-rate-first rule"
+            evidence: "Explicit H8 D2-B0 authorization before any formal development response."
+            children:
+              - id: N12
+                type: experiment
+                title: "H8 D2-B0 fresh-attack materialization and smoke preflight"
+                provenance: ai-executed
+                timestamp: "2026-08-20T15:41+08:00"
+                result: >
+                  PASS with exactly eight attack_smoke_only responses and zero formal-development
+                  responses. Gaussian, pruning, LoRA, and quantization each contributed two
+                  endpoints. All response IDs and generation seeds were unique with zero overlap
+                  against the formal development manifest. Both quantized endpoints were verified
+                  as materially quantized, the two new LoRA adapter hashes did not overlap six
+                  archived H6 adapters, and all GPU workers were released. H6 in-memory Gaussian,
+                  pruning, and quantized state hashes were not archived, so artifact-level overlap
+                  for those historical endpoints remains explicitly unverifiable. No detector
+                  statistic, sample-size choice, aggregation choice, or configuration comparison ran.
+                evidence: [C08, "reproducibility/h8_qwen32b_detector_development_20260820/d2b0/H8_D2B0_DEVELOPMENT_SAMPLING_AUTHORIZATION_PREFLIGHT_REPORT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FRESHNESS_MATERIALIZATION_AUDIT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FINAL_SHA256_INDEX.json"]

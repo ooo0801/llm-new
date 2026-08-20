@@ -1,0 +1,41 @@
+session:
+  id: "2026-08-20_003"
+  timestamp: "2026-08-20T15:45+08:00"
+  summary: "Completed H8 D2-B0 fresh-attack materialization and eight-response smoke preflight; formal development sampling remains unauthorized."
+
+events_logged:
+  - type: decision
+    id: N11
+    provenance: user
+    summary: "Replaced rate language with a preregistered development-count selection rule before formal sampling."
+  - type: experiment
+    id: N12
+    provenance: ai-executed
+    summary: "Materialized and smoke-tested eight fresh attack endpoints with zero formal-development responses."
+  - type: claim
+    id: C08
+    provenance: ai-suggested
+    summary: "D2-B0 supports attack materialization and leakage-control, but not detector performance."
+  - type: heuristic
+    id: H06
+    provenance: ai-executed
+    summary: "Separated LoRA training and inference into cleanup-gated subprocesses after a recoverable OOM."
+
+ai_actions:
+  - action: "Recovered from the paused server checkpoint, preserved the completed adapter, quarantined only verified-empty partial result directories, and resumed from the next incomplete endpoint."
+    provenance: ai-executed
+    files_changed: ["scripts/run_h8_d2b0_attack_smoke.py", "scripts/h8_d2b0_endpoint_worker.py", "scripts/h8_d2b0_lora_train_worker.py"]
+  - action: "Archived eight response records, eight materialization records, freshness audit, terminal report, and SHA-256 index."
+    provenance: ai-executed
+    files_changed: ["reproducibility/h8_qwen32b_detector_development_20260820/d2b0/"]
+
+claims_touched:
+  - id: C08
+    action: created
+    provenance: ai-suggested
+
+open_threads:
+  - "Formal 3,840-response development sampling remains blocked until explicit user authorization."
+  - "Detector sample size, Top-r aggregation, and detector configuration remain unselected and unfrozen."
+
+ai_suggestions_pending: []

@@ -63,3 +63,13 @@
 - **Dependencies**: [C06]
 - **Scope note**: This is a reproducibility and leakage-control claim, not evidence that any detector configuration has adequate power or specificity.
 - **Tags**: H8, Qwen2.5-32B, detector development, global permutation, preregistration
+
+## C08: H8 D2-B0 materializes the eight registered fresh-development attack endpoints without detector evaluation
+- **Statement**: The D2-B0 authorization layer can materialize and smoke-test exactly two Gaussian, two pruning, two LoRA, and two quantization endpoints while preserving unique smoke-only seeds, excluding all smoke records from formal development banks, verifying the realized attack state, and leaving detector statistics and configuration selection untouched.
+- **Status**: supported
+- **Provenance**: ai-suggested
+- **Falsification criteria**: Any endpoint fails to materialize; any smoke seed or response ID duplicates or overlaps the formal development schedule; a quantized endpoint silently loads as the intact model; a LoRA adapter overlaps an available H6 adapter hash or uses MCC12 data; GPU workers remain after completion; or any smoke response enters detector evaluation or configuration selection.
+- **Proof**: [`reproducibility/h8_qwen32b_detector_development_20260820/d2b0/H8_D2B0_DEVELOPMENT_SAMPLING_AUTHORIZATION_PREFLIGHT_REPORT.json`, `reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FRESHNESS_MATERIALIZATION_AUDIT.json`, `reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FINAL_SHA256_INDEX.json`, N12]
+- **Dependencies**: [C07]
+- **Scope note**: H6 did not archive artifact hashes for its in-memory Gaussian, pruning, or quantized states. D2 freshness for those families is therefore supported by configuration, seed, and realized-state evidence, not by a claim of verified artifact-level zero overlap. Eight smoke responses provide no evidence of detector power or specificity.
+- **Tags**: H8, Qwen2.5-32B, fresh attacks, materialization, smoke preflight, provenance

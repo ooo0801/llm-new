@@ -19,3 +19,6 @@
 - H8 D2-A nested subset manifest: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_NESTED_SUBSET_MANIFEST.json`
 - H8 D2-A global permutation seed manifest: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_GLOBAL_PERMUTATION_SEED_MANIFEST.json`
 - H8 D2-A proposed development response manifests: `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_REFERENCE_GENERATION_MANIFEST.json`, `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_INTACT_TARGET_GENERATION_MANIFEST.json`, and `reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_ATTACK_GENERATION_MANIFEST.json`
+- H8 D2-B0 terminal preflight report: `reproducibility/h8_qwen32b_detector_development_20260820/d2b0/H8_D2B0_DEVELOPMENT_SAMPLING_AUTHORIZATION_PREFLIGHT_REPORT.json`
+- H8 D2-B0 freshness and realized-state audit: `reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FRESHNESS_MATERIALIZATION_AUDIT.json`
+- H8 D2-B0 immutable artifact hash index: `reproducibility/h8_qwen32b_detector_development_20260820/d2b0/D2B0_FINAL_SHA256_INDEX.json`
