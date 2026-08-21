@@ -41,3 +41,9 @@
 - **Provenance**: ai-executed
 - **Sensitivity**: high
 - **Code ref**: [`src/llm_integrity/h8_d2b1.py`, `scripts/run_h8_d2b1_formal_sampling.py`]
+
+## H08: Bind offline semantic-feature loading to the direct Hugging Face hub cache
+- **Rationale**: On the execution server, the frozen BGE snapshot is stored under the hub-cache root rather than an `HF_HOME` hierarchy. Setting `HF_HUB_CACHE` to that exact root, together with offline flags and frozen snapshot identity checks, permits deterministic local loading while preventing an accidental network fetch or model substitution.
+- **Provenance**: ai-executed
+- **Sensitivity**: high
+- **Code ref**: [`scripts/run_h8_d2c_development_comparison.py`, `reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/H8_D2C_DEVELOPMENT_COMPARISON_REPORT.json`]

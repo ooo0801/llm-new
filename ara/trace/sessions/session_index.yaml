@@ -19,3 +19,7 @@ sessions:
     file: "2026-08-20_004.yaml"
     timestamp: "2026-08-20T19:05+08:00"
     summary: "Completed H8 D2-B1 3,840-response formal development sampling and integrity audit; detector comparison remains unauthorized."
+  - id: "2026-08-21_001"
+    file: "2026-08-21_001.yaml"
+    timestamp: "2026-08-21T09:28+08:00"
+    summary: "Completed H8 D2-C global-permutation comparison and froze r60_q10_top2 as the development-selected detector."

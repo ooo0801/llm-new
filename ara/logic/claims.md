@@ -83,3 +83,13 @@
 - **Dependencies**: [C07, C08]
 - **Scope note**: This claim concerns sampling completeness, identity, and leakage control only. D2-B1 does not estimate detector false positives, power, or family-level performance.
 - **Tags**: H8, Qwen2.5-32B, development sampling, fail-closed resume, provenance
+
+## C10: The frozen H8 development rule uniquely selects r60_q10_top2
+- **Statement**: Applied without post-hoc modification to the frozen D2-B1 development bank, the preregistered twelve-configuration comparison and lexicographic selection rule uniquely select `r60_q10_top2`.
+- **Status**: supported
+- **Provenance**: ai-suggested
+- **Falsification criteria**: Any frozen dependency or payload hash fails; rerunning the fixed comparison changes a statistic; another candidate has an equal or better frozen selection key; any final/held-out response enters the comparison; or the selected payload differs from `r60_q10_top2` with Top-2 aggregation.
+- **Proof**: [`reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/D2C_12_CONFIGURATION_COMPARISON.json`, `reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/H8_D2C_SELECTED_DETECTOR.json`, `reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/DETECTOR_FROZEN_MANIFEST.json`, N16]
+- **Dependencies**: [C06, C07, C08, C09]
+- **Scope note**: The observed 0/5 intact count and 6/8 attack count are development selection evidence only. They are not formal FPR, TPR, confidence intervals, or proof of generalization to unseen attacks.
+- **Tags**: H8, Qwen2.5-32B, detector selection, global permutation, Top-2, development evidence

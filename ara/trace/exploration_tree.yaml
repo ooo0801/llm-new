@@ -192,3 +192,35 @@ tree:
                           detector statistic, sample-size selection, aggregation selection, or detector
                           freeze occurred.
                         evidence: [C09, "reproducibility/h8_qwen32b_detector_development_20260820/d2b1/H8_D2B1_FORMAL_DEVELOPMENT_SAMPLING_REPORT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2b1/D2B1_FINAL_SHA256_INDEX.json"]
+                        children:
+                          - id: N15
+                            type: decision
+                            title: "Authorize frozen-rule D2-C comparison and detector selection"
+                            provenance: user
+                            timestamp: "2026-08-21T08:50+08:00"
+                            choice: >
+                              Compare all twelve preregistered sample-structure and Top-r configurations
+                              using the frozen development bank, global permutation, nested memberships,
+                              and endpoint-count selection rule, without changing any candidate or bank.
+                            alternatives:
+                              - "Retune candidate configurations after seeing development responses"
+                              - "Change nested memberships or generation data"
+                              - "Skip development comparison and leave the detector unselected"
+                            evidence: "Explicit H8 D2-C Development Comparison authorization."
+                            children:
+                              - id: N16
+                                type: experiment
+                                title: "H8 D2-C global-permutation development comparison"
+                                provenance: ai-executed
+                                timestamp: "2026-08-21T09:20+08:00"
+                                result: >
+                                  PASS with no new model sampling. All twelve frozen configurations were
+                                  compared over five intact units and eight attack endpoints using 999
+                                  global permutations per unit, structure, and Top-r aggregation. The unique
+                                  lexicographic winner was r60_q10_top2: zero false positives among five
+                                  development-intact units, worst-family detected-endpoint count 1/2, and
+                                  six detected endpoints out of eight (Gaussian 1/2, pruning 2/2, LoRA 1/2,
+                                  quantization 2/2). The detector is frozen as development-selected; formal
+                                  held-out confirmation remains unperformed, so these counts are not formal
+                                  FPR or TPR estimates.
+                                evidence: [C10, "reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/H8_D2C_DEVELOPMENT_COMPARISON_REPORT.json", "reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/DETECTOR_FROZEN_MANIFEST.json", "evidence/tables/h8_d2c_development_comparison.md"]

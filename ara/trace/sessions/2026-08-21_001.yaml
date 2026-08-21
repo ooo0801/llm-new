@@ -1,0 +1,41 @@
+session:
+  id: "2026-08-21_001"
+  timestamp: "2026-08-21T09:28+08:00"
+  summary: "Completed H8 D2-C global-permutation comparison and froze r60_q10_top2 as the development-selected detector."
+
+events_logged:
+  - type: decision
+    id: N15
+    provenance: user
+    summary: "Authorized comparison of all twelve frozen D2 configurations under the preregistered endpoint-count selection rule."
+  - type: experiment
+    id: N16
+    provenance: ai-executed
+    summary: "Ran the fixed global-permutation comparison and uniquely selected r60_q10_top2 without new model responses."
+  - type: claim
+    id: C10
+    provenance: ai-suggested
+    summary: "The frozen development comparison uniquely selects r60_q10_top2, subject to future formal held-out confirmation."
+  - type: heuristic
+    id: H08
+    provenance: ai-executed
+    summary: "Used the direct frozen Hugging Face hub cache with offline identity checks for deterministic semantic features."
+
+ai_actions:
+  - action: "Implemented and tested fail-closed D2-C feature extraction, frozen-score mapping, global permutation, twelve-configuration comparison, and lexicographic selection."
+    provenance: ai-executed
+    files_changed: ["configs/h8_d2c_development_comparison.yaml", "docs/H8_Qwen32B_D2C_Development_Comparison_Protocol.md", "src/llm_integrity/h8_d2c.py", "scripts/run_h8_d2c_development_comparison.py", "tests/test_h8_d2c.py"]
+  - action: "Executed the D2-C comparison on the server, archived every hash-bound statistic and frozen detector payload, and verified local, GitHub, and server copies."
+    provenance: ai-executed
+    files_changed: ["reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/"]
+
+claims_touched:
+  - id: C10
+    action: created
+    provenance: ai-suggested
+
+open_threads:
+  - "Run a separately authorized fresh held-out confirmation to estimate formal intact false-positive and attack-detection performance."
+  - "Do not reinterpret the five intact units or two endpoints per family as formal FPR or TPR estimates."
+
+ai_suggestions_pending: []
