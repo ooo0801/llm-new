@@ -1,0 +1,47 @@
+{
+  "schema_version": "h8-f1a-smoke-archive-1.0",
+  "status": "PASS",
+  "sampling_code_commit": "19df110580dcdc212bb47ba388bb8827efda077c",
+  "formal_sampling_authorized": false,
+  "formal_final_confirmation_responses": 0,
+  "tiny_smoke_responses": 6,
+  "detector_statistics_computed": false,
+  "measurement_or_score_refit_performed": false,
+  "initial_attempt": {
+    "status": "FAILED_BEFORE_GENERATION",
+    "reason": "HF_HUB_CACHE was not exported, so fail-closed snapshot provenance looked only in /root/.cache/huggingface/hub",
+    "response_count": 0,
+    "gpu_workers_after_failure": 0
+  },
+  "successful_attempt": {
+    "hf_hub_cache": "/root/autodl-tmp/huggingface",
+    "same_frozen_manifest_and_generation_seeds": true,
+    "response_count": 6,
+    "technical_retry_count": 0,
+    "stop_reason_counts": {"eos": 5, "length": 1},
+    "gpu_cleanup_status": "PASS"
+  },
+  "large_adapter_payload": {
+    "archived_in_git": false,
+    "reason": "134336808-byte smoke-only adapter exceeds the ordinary GitHub single-file limit and is not needed by future formal endpoints",
+    "server_path": "results/h8_qwen32b_final_confirmation/f1a_smoke_adapters/h8f1a_smoke_lora_seed2703/adapter_model.safetensors",
+    "size_bytes": 134336808,
+    "sha256": "a6bcbbf353ecc96e0bf1f1316f30e8d71ab35376238bcdfe885a7d75604645e7",
+    "identity_is_also_bound_in": "materialization/04_h8-f1a-smoke-04-s1251547735.json"
+  },
+  "files": {
+    "H8_F1A_TINY_SMOKE_REPORT.json": "76a6328336d8045526a6263e3b21f1a24346b9bf016ed285dc5d255535fd4def",
+    "materialization/00_h8-f1a-smoke-00-s2028932514.json": "ab470f6deabcf493a4b681ab450d382ff2baa902c440a91815d8a6bd3cc10cff",
+    "materialization/01_h8-f1a-smoke-01-s2412363146.json": "71d52091edb8889666129cdc4b3cfe57ed231bc45e85a73c9105f2f61e2f059f",
+    "materialization/02_h8-f1a-smoke-02-s1516573393.json": "3c71705227440f7d27228a36af6ffcc1143b1c11788be1473d1d8efa9609c66f",
+    "materialization/03_h8-f1a-smoke-03-s3524284911.json": "6940f9f6da49579646c34743d9a89b3259a313517e97247b7598fcf16a23c4c6",
+    "materialization/04_h8-f1a-smoke-04-s1251547735.json": "314071a0287fac3a1b15d2512732bd90f6da828b814f0baa70513246cb54ee41",
+    "materialization/05_h8-f1a-smoke-05-s1755673724.json": "462839af70e15a5a0b0ca6969388346a2b408b9d5ce1bede9d3e87988adc7316",
+    "responses/00_h8-f1a-smoke-00-s2028932514.json": "89bec874237a5731d36ecd442c936e13770e68f6235f5263508cb4fd5bc55b75",
+    "responses/01_h8-f1a-smoke-01-s2412363146.json": "c913dfabe16b3153ebf357ee0ef61f810ae8d99179b1e35ef47bc7ef1bda29cf",
+    "responses/02_h8-f1a-smoke-02-s1516573393.json": "94751d0a273e26ef2602c974ddd5a3b1d8ff496f4924b1889350af70f1a41f78",
+    "responses/03_h8-f1a-smoke-03-s3524284911.json": "f15cd029b3c3b8ac103391137b2f5f7460495dbc7f8ba648bec5d35018f83329",
+    "responses/04_h8-f1a-smoke-04-s1251547735.json": "73053a126bc1d5093156f1791ad423e37bb30b49454c5e47cc7ee474f3d3b9e0",
+    "responses/05_h8-f1a-smoke-05-s1755673724.json": "1bd569967b57ebfbea42034fc9b7a078133de7ef4c619c13531951b3c564873d"
+  }
+}

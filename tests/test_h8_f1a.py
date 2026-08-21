@@ -20,6 +20,7 @@ from llm_integrity.h8_f1a import (
     build_generation_schedule,
     build_permutation_seed_manifest,
     exact_binomial_interval,
+    file_sha256,
     final_global_permutation_test,
     load_canonical_envelope,
     load_frozen_detector,
@@ -40,6 +41,10 @@ FINGERPRINT = (
 DETECTOR_ARCHIVE = (
     ROOT
     / "reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1"
+)
+SMOKE_ARCHIVE = (
+    ROOT
+    / "reproducibility/h8_qwen32b_final_confirmation_20260821/f1a_smoke_v1"
 )
 
 
@@ -285,3 +290,25 @@ def test_int8_threshold_is_bound_into_quantized_model_config() -> None:
     assert realized == "bitsandbytes_int8"
     assert exact is True
     assert notes == ()
+
+
+def test_versioned_smoke_archive_hashes_and_phase_boundary() -> None:
+    index = json.loads((SMOKE_ARCHIVE / "F1A_SMOKE_ARCHIVE_INDEX.json").read_text(encoding="utf-8"))
+    assert index["status"] == "PASS"
+    assert index["tiny_smoke_responses"] == 6
+    assert index["formal_final_confirmation_responses"] == 0
+    assert index["initial_attempt"]["response_count"] == 0
+    for relative, expected in index["files"].items():
+        assert file_sha256(SMOKE_ARCHIVE / relative) == expected
+    report = json.loads((SMOKE_ARCHIVE / "H8_F1A_TINY_SMOKE_REPORT.json").read_text(encoding="utf-8"))
+    assert report["status"] == "PASS"
+    assert report["formal_sampling_authorized"] is False
+    assert report["detector_statistics_computed"] is False
+    assert report["gpu_cleanup_after_all_workers"]["status"] == "PASS"
+    lora = json.loads(
+        (SMOKE_ARCHIVE / "materialization/04_h8-f1a-smoke-04-s1251547735.json").read_text(encoding="utf-8")
+    )
+    assert (
+        lora["materialization"]["adapter_artifact_hashes"]["adapter_model.safetensors"]
+        == index["large_adapter_payload"]["sha256"]
+    )
