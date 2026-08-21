@@ -7,16 +7,16 @@ final_performance_confirmation_authorized: false
 git:
   branch: experiment/h8-qwen32b-mmd-precalibration
   required_f1a_smoke_archive_commit: bc6825318e514b5170fe1f862e4be6c13782f876
-  sampling_implementation_commit: null
+  sampling_implementation_commit: a03c1accc0a7612fc5c6a5fb8fba34bc616d48bb
   authorization_commit_must_descend_from_implementation: true
 
 implementation:
   runner: scripts/run_h8_f1b_formal_sampling.py
-  runner_sha256: null
+  runner_sha256: 8eaa9fce8c831a724e40b8e3803e84472e852d3932aac25a9df1451bd2647222
   module: src/llm_integrity/h8_f1b.py
-  module_sha256: null
+  module_sha256: 2d1de0c013c50f40534027a3d0820fcbddbba6064a0a4ac4a377918b67d93694
   protocol: docs/H8_Qwen32B_F1B_Formal_Final_Confirmation_Sampling_Protocol.md
-  protocol_sha256: null
+  protocol_sha256: 3fb1c2bd2f656ae339b9ee1b558366b8ce1569ce847e225ca7952485a5240fcc
 
 frozen_inputs:
   f1a_config: configs/h8_f1a_final_confirmation_preflight.yaml
