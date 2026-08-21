@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from dataclasses import asdict, dataclass
+import math
 from typing import Any, Mapping
 
 from .modeling import ModelBundle, load_model
@@ -15,6 +16,7 @@ class QuantizationLoadReport:
     exact_requested_method: bool
     compute_dtype: str
     double_quant: bool
+    int8_threshold: float | None
     target_scope: str
     loaded_in_8bit: bool
     loaded_in_4bit: bool
@@ -73,6 +75,10 @@ def _build_model_config(
 
     if method == "int8":
         model_config["quantization"] = "int8"
+        int8_threshold = float(configuration.get("llm_int8_threshold", 6.0))
+        if not math.isfinite(int8_threshold) or int8_threshold <= 0.0:
+            raise ValueError("INT8 threshold must be finite and positive")
+        model_config["llm_int8_threshold"] = int8_threshold
         realized_method = "bitsandbytes_int8"
         exact_requested_method = True
 
@@ -264,6 +270,11 @@ def load_quantized_manifest_variant(
         ),
         double_quant=bool(
             configuration.get("double_quant", False)
+        ),
+        int8_threshold=(
+            float(configuration.get("llm_int8_threshold", 6.0))
+            if requested_method == "int8"
+            else None
         ),
         target_scope=target_scope,
         loaded_in_8bit=loaded_in_8bit,

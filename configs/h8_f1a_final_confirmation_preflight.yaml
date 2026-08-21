@@ -1,0 +1,189 @@
+phase: H8_F1A_FRESH_HELDOUT_FINAL_CONFIRMATION_PROTOCOL_FREEZE_PREFLIGHT
+authorization_status: user_approved_preflight_and_tiny_smoke_only
+authorization_date: "2026-08-21"
+formal_final_confirmation_sampling_authorized: false
+tiny_smoke_sampling_authorized: true
+
+git:
+  branch: experiment/h8-qwen32b-mmd-precalibration
+  required_d2c_archive_commit: 4fd2fa790e3a37c6106ac50fe912e2930df518cb
+
+frozen_detector:
+  archive: reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1
+  manifest: reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/DETECTOR_FROZEN_MANIFEST.json
+  manifest_sha256: 6fb0812a5a0552caea674d6d502985548004fc23169c700197f382f158d97658
+  selected_configuration_id: r60_q10_top2
+  n_reference: 60
+  n_target: 10
+  top_r: 2
+  alpha: 0.05
+  global_permutations: 999
+  global_p_value_formula: "(1 + count(T_perm >= T_observed)) / 1000"
+
+frozen_inputs:
+  mmd_archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  mmd_manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+  score_archive: reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1
+  score_manifest_sha256: b57d9d5062b13e9e02624e69bbcf4eb585e716084acf73ab96cf00a733802028
+  score_schema_sha256: 502589bb4abb3dbf38bd10e9aeab37a1f97d1621d2bd8ca28eda94848b5b7000
+  score_parameter_payload_sha256: 964b190ea8c69e7441697ceee28a07425a753afce3c5d80301e1b3f9e44bdc20
+  h8_generation_config: configs/h8_qwen32b_mmd_precalibration.yaml
+  h8_generation_config_sha256: a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c
+  runtime_authorization: configs/h8_m0f_calibration_sampling.yaml
+  runtime_authorization_sha256: 52c52171844e997312f5ac9ebba03352e5df56d3e4e803a1d3200e4c148f0807
+  fingerprint: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  confirmed_prompt_pool: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/confirmation/confirmed_prompt_pool.jsonl
+  confirmed_prompt_pool_sha256: 1af87c482c22416ac7081b698a74dc68a3e38c723bf1ddcd77c4410538ce53fb
+  final_lora_training_data: data/h8_f1_final_isolated_attack_training_data_v1.jsonl
+  final_lora_training_data_sha256: 6ea605d4a70aa4e12ad6b29dd8093cf413ff43cdd38974ad476ec0eb65765b1a
+  historical_h6_attack_manifests:
+    - experiments/prompt-reconstruction-32b-h6/inputs/attack_manifest_train_executable.jsonl
+    - experiments/prompt-reconstruction-32b-h6/inputs/attack_manifest_development_2each.jsonl
+    - experiments/prompt-reconstruction-32b-h6/inputs/attack_manifest_confirmation_2each.jsonl
+  historical_seed_manifests:
+    - reproducibility/h8_qwen32b_mmd_precalibration_20260818/m0f/calibration_seed_manifest.json
+    - reproducibility/h8_qwen32b_score_calibration_20260819/d1b0/score_calibration_generation_manifest.json
+    - reproducibility/h8_qwen32b_score_calibration_20260819/d1b0/score_calibration_smoke_manifest.json
+    - reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_REFERENCE_GENERATION_MANIFEST.json
+    - reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_INTACT_TARGET_GENERATION_MANIFEST.json
+    - reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_DEVELOPMENT_ATTACK_GENERATION_MANIFEST.json
+    - reproducibility/h8_qwen32b_detector_development_20260820/d2a/D2A_FRESH_ATTACK_INSTANCE_MANIFEST.json
+    - reproducibility/h8_qwen32b_detector_development_20260820/d2b0_authorization/D2B0_ATTACK_SMOKE_GENERATION_MANIFEST.json
+  protocol: docs/H8_Qwen32B_F1A_Fresh_Heldout_Final_Confirmation_Preflight_Protocol.md
+  protocol_sha256: 0550fdc613e84f532cb72a67ae645187e3dec65c901e58f2934e9be3c50a64a0
+
+formal_design:
+  batch_size: 1
+  reference_responses_per_prompt: 60
+  reference_total: 720
+  intact_evaluation_units: 60
+  intact_target_responses_per_unit_prompt: 10
+  intact_target_total: 7200
+  attack_families: [gaussian, pruning, lora, quantization]
+  heldout_endpoints_per_family: 10
+  attack_responses_per_endpoint_prompt: 10
+  attack_total: 4800
+  formal_total: 12720
+  reference_bank_shared_across_units: true
+  reference_bank_count: 1
+  primary_estimand: conditional_performance_of_frozen_detector_with_single_shared_reference_bank
+  exact_binomial_interval_confidence: 0.95
+  interval_label: conditional_clopper_pearson_95ci
+  interval_interpretation: conditional_on_single_frozen_shared_reference_bank
+  unconditional_reference_regeneration_coverage_claimed: false
+  attack_rate_scope: preregistered_fresh_heldout_endpoint_panel_detection_rate
+  iid_attack_superpopulation_claimed: false
+
+seed_roots:
+  formal_generation_uint32: 2026082601
+  formal_order_uint64: 2026082602000001
+  final_global_permutation_uint64: 2026082603000001
+  formal_attack_materialization_uint32: 2026082604
+  formal_lora_training_uint32: 2026082605
+  tiny_smoke_generation_uint32: 2026082606
+  tiny_smoke_attack_materialization_uint32: 2026082607
+  tiny_smoke_lora_training_uint32: 2026082608
+
+attack_design:
+  gaussian:
+    - {std_ratio: 0.00020, target_scope: attention}
+    - {std_ratio: 0.00030, target_scope: ffn}
+    - {std_ratio: 0.00040, target_scope: attention_ffn}
+    - {std_ratio: 0.00060, target_scope: all_transformer_layers}
+    - {std_ratio: 0.00080, target_scope: attention}
+    - {std_ratio: 0.00120, target_scope: ffn}
+    - {std_ratio: 0.00150, target_scope: attention_ffn}
+    - {std_ratio: 0.00200, target_scope: all_transformer_layers}
+    - {std_ratio: 0.00250, target_scope: attention}
+    - {std_ratio: 0.00300, target_scope: ffn}
+  pruning:
+    - {type: unstructured_pruning, ratio: 0.12, method: global_magnitude, target_scope: attention}
+    - {type: unstructured_pruning, ratio: 0.16, method: layerwise_magnitude, target_scope: ffn}
+    - {type: unstructured_pruning, ratio: 0.20, method: random, target_scope: attention_ffn}
+    - {type: unstructured_pruning, ratio: 0.24, method: global_magnitude, target_scope: ffn}
+    - {type: unstructured_pruning, ratio: 0.36, method: layerwise_magnitude, target_scope: all_transformer_layers}
+    - {type: structured_pruning, ratio: 0.03, structure: ffn_channels, selection: magnitude, layer_scope: random_layer_subset, implementation: mask}
+    - {type: structured_pruning, ratio: 0.07, structure: ffn_channels, selection: magnitude, layer_scope: all_layers, implementation: mask}
+    - {type: structured_pruning, ratio: 0.04, structure: attention_heads, selection: magnitude, layer_scope: random_layer_subset, implementation: mask}
+    - {type: structured_pruning, ratio: 0.09, structure: attention_heads, selection: magnitude, layer_scope: all_layers, implementation: mask}
+    - {type: structured_pruning, ratio: 0.12, structure: ffn_channels, selection: magnitude, layer_scope: random_layer_subset, implementation: mask}
+  lora:
+    - {rank: 4, alpha: 8, dropout: 0.02, learning_rate: 0.000030, steps: 20}
+    - {rank: 6, alpha: 12, dropout: 0.025, learning_rate: 0.000025, steps: 25}
+    - {rank: 8, alpha: 24, dropout: 0.03, learning_rate: 0.000018, steps: 30}
+    - {rank: 12, alpha: 24, dropout: 0.035, learning_rate: 0.000015, steps: 35}
+    - {rank: 16, alpha: 48, dropout: 0.04, learning_rate: 0.000012, steps: 40}
+    - {rank: 20, alpha: 40, dropout: 0.045, learning_rate: 0.000010, steps: 45}
+    - {rank: 24, alpha: 72, dropout: 0.05, learning_rate: 0.000008, steps: 50}
+    - {rank: 28, alpha: 56, dropout: 0.055, learning_rate: 0.000007, steps: 55}
+    - {rank: 32, alpha: 96, dropout: 0.06, learning_rate: 0.000006, steps: 60}
+    - {rank: 40, alpha: 80, dropout: 0.065, learning_rate: 0.000005, steps: 65}
+  quantization:
+    - {method: fp4, compute_dtype: bfloat16, double_quant: true, target_scope: full_model}
+    - {method: fp4, compute_dtype: float16, double_quant: false, target_scope: full_model}
+    - {method: fp4, compute_dtype: float16, double_quant: true, target_scope: full_model}
+    - {method: nf4, compute_dtype: bfloat16, double_quant: false, target_scope: full_model}
+    - {method: nf4, compute_dtype: float16, double_quant: true, target_scope: full_model}
+    - {method: int8, compute_dtype: bfloat16, double_quant: false, llm_int8_threshold: 3.0, target_scope: full_model}
+    - {method: int8, compute_dtype: bfloat16, double_quant: false, llm_int8_threshold: 4.0, target_scope: full_model}
+    - {method: int8, compute_dtype: bfloat16, double_quant: false, llm_int8_threshold: 5.0, target_scope: full_model}
+    - {method: int8, compute_dtype: bfloat16, double_quant: false, llm_int8_threshold: 8.0, target_scope: full_model}
+    - {method: int8, compute_dtype: bfloat16, double_quant: false, llm_int8_threshold: 10.0, target_scope: full_model}
+
+tiny_smoke:
+  exact_response_count: 6
+  batch_size: 1
+  formal_eligibility: false
+  detector_statistics_forbidden: true
+  lora_training:
+    max_length: 256
+    gradient_accumulation_steps: 1
+  requests: [reference, intact, gaussian, pruning, lora, quantization]
+  attack_endpoints:
+    - attack_instance_id: h8f1a_smoke_gaussian_seed2701
+      family: gaussian
+      configuration: {type: gaussian_noise, std_ratio: 0.00045, target_scope: attention_ffn, scale_rule: parameter_tensor_std}
+    - attack_instance_id: h8f1a_smoke_pruning_seed2702
+      family: pruning
+      configuration: {type: unstructured_pruning, ratio: 0.11, method: random, target_scope: ffn}
+    - attack_instance_id: h8f1a_smoke_lora_seed2703
+      family: lora
+      configuration: {type: finetuning, method: lora, rank: 4, alpha: 12, dropout: 0.01, learning_rate: 0.00003, steps: 2, target_scope: attention_ffn, data_source: h8_f1_final_isolated_attack_training_data_v1}
+    - attack_instance_id: h8f1a_smoke_quant_seed2704
+      family: quantization
+      configuration: {type: quantization, method: int8, compute_dtype: bfloat16, double_quant: false, llm_int8_threshold: 12.0, target_scope: full_model}
+
+runtime_execution:
+  strict_offline: true
+  hf_hub_cache: /root/autodl-tmp/huggingface
+  technical_retry_policy: same_seed_only
+  successful_record_policy: immutable_never_regenerate
+  legal_first_token_eos_policy: retain_as_valid_response
+
+artifacts:
+  preflight_directory: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a
+  result_directory: results/h8_qwen32b_final_confirmation/f1a_smoke
+  adapter_directory: results/h8_qwen32b_final_confirmation/f1a_smoke_adapters
+  formal_attack_manifest: F1A_FRESH_HELDOUT_ATTACK_ENDPOINT_MANIFEST.json
+  formal_generation_manifest: F1A_FINAL_GENERATION_MANIFEST.json
+  permutation_seed_manifest: F1A_FINAL_GLOBAL_PERMUTATION_SEED_MANIFEST.json
+  freshness_audit: F1A_FRESHNESS_AUDIT.json
+  historical_identity_index: F1A_HISTORICAL_IDENTITY_INDEX.json
+  smoke_manifest: F1A_TINY_SMOKE_MANIFEST.json
+  smoke_report: H8_F1A_TINY_SMOKE_REPORT.json
+  report: H8_F1A_FINAL_CONFIRMATION_PREFLIGHT_REPORT.json
+  sha256_index: F1A_PRE_FLIGHT_SHA256_INDEX.json
+
+forbidden_operations:
+  formal_final_response_generation: true
+  formal_reference_generation: true
+  formal_heldout_intact_generation: true
+  formal_heldout_attack_generation: true
+  detector_configuration_change: true
+  measurement_or_score_refit: true
+  sample_size_or_aggregation_selection: true
+  formal_detector_statistics: true
+  final_effect_reporting: true
+  endpoint_replacement_after_results: true

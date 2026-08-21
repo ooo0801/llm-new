@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import gc
+import math
 from dataclasses import dataclass
 from typing import Any, Iterable, Mapping
 
@@ -67,7 +68,13 @@ def load_model(model_config: Mapping[str, Any]) -> ModelBundle:
     if bool(model_config.get("eager_attention", False)):
         kwargs["attn_implementation"] = "eager"
     if quantization in {"int8", "8bit"}:
-        kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+        int8_threshold = float(model_config.get("llm_int8_threshold", 6.0))
+        if not math.isfinite(int8_threshold) or int8_threshold <= 0.0:
+            raise ValueError("llm_int8_threshold must be finite and positive")
+        kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_8bit=True,
+            llm_int8_threshold=int8_threshold,
+        )
     elif quantization in {"int4", "4bit"}:
         compute_dtype = _torch_dtype(str(model_config.get("compute_dtype", "bfloat16")))
         kwargs["quantization_config"] = BitsAndBytesConfig(
