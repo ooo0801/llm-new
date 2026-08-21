@@ -1,0 +1,116 @@
+phase: H8_F1B_FORMAL_FINAL_CONFIRMATION_SAMPLING
+authorization_status: user_approved_formal_sampling_only
+authorization_date: "2026-08-21"
+formal_final_confirmation_sampling_authorized: true
+final_performance_confirmation_authorized: false
+
+git:
+  branch: experiment/h8-qwen32b-mmd-precalibration
+  required_f1a_smoke_archive_commit: bc6825318e514b5170fe1f862e4be6c13782f876
+  sampling_implementation_commit: null
+  authorization_commit_must_descend_from_implementation: true
+
+implementation:
+  runner: scripts/run_h8_f1b_formal_sampling.py
+  runner_sha256: null
+  module: src/llm_integrity/h8_f1b.py
+  module_sha256: null
+  protocol: docs/H8_Qwen32B_F1B_Formal_Final_Confirmation_Sampling_Protocol.md
+  protocol_sha256: null
+
+frozen_inputs:
+  f1a_config: configs/h8_f1a_final_confirmation_preflight.yaml
+  f1a_config_sha256: a99d35b9cdbd02ab3b98c9a25eb33f4599d42d6058b13f2c176d2fc557dd6ff0
+  f1a_protocol: docs/H8_Qwen32B_F1A_Fresh_Heldout_Final_Confirmation_Preflight_Protocol.md
+  f1a_protocol_sha256: 0550fdc613e84f532cb72a67ae645187e3dec65c901e58f2934e9be3c50a64a0
+  f1a_preflight_report: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/H8_F1A_FINAL_CONFIRMATION_PREFLIGHT_REPORT.json
+  f1a_preflight_report_sha256: 0315388ffcfcb05dcaa23c12b0245b01e9b6e9d5b84e28513aa76151ed546221
+  f1a_preflight_index: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_PRE_FLIGHT_SHA256_INDEX.json
+  f1a_preflight_index_sha256: 786edfe871a2e080ac31981be6eb15d925a9dc700d26f60507e80a07797b693e
+  f1a_smoke_report: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a_smoke_v1/H8_F1A_TINY_SMOKE_REPORT.json
+  f1a_smoke_report_sha256: 76a6328336d8045526a6263e3b21f1a24346b9bf016ed285dc5d255535fd4def
+  f1a_smoke_archive_index: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a_smoke_v1/F1A_SMOKE_ARCHIVE_INDEX.json
+  f1a_smoke_archive_index_sha256: 93d40c5b835c6e75bab02acf792dd47200b05ea3612783fad8dbc1b55b400d95
+  generation_manifest: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_FINAL_GENERATION_MANIFEST.json
+  generation_manifest_sha256: 4e1f3cc488c19a908649c85db6af43259bb6e6b2dab549e13eed2b6cfd2d95d6
+  generation_manifest_payload_sha256: 9eec5207b5cbbb4da43727095bc823919d4130ec46ca0378a4a768a657474395
+  attack_manifest: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_FRESH_HELDOUT_ATTACK_ENDPOINT_MANIFEST.json
+  attack_manifest_sha256: 4e3f40dfa9c1647172f9958b93bf9641dae01b6345c6c3bba2f21913e3fff178
+  attack_manifest_payload_sha256: 17765b14bb6f5b48941fb0c1e6d405d1504b2337f34b357418b4319b2812dd13
+  permutation_manifest: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_FINAL_GLOBAL_PERMUTATION_SEED_MANIFEST.json
+  permutation_manifest_sha256: d4350a1656988daf4c055e9fb8862b4ca3db6f739b69cfcfe462fc972a876dad
+  permutation_manifest_payload_sha256: cedc0591867b8106bd0ad54471cebbe15c5993f6778cc0fb33d0c73461a77b0b
+  freshness_audit: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_FRESHNESS_AUDIT.json
+  freshness_audit_sha256: 1745b52974eddce1dd83cfeb8da65ba43d44f9f004bf2d8071b3f70751bd5743
+  freshness_audit_payload_sha256: 885fe9b1b394275b9240e273e72da13edfab03012c9bda95edbbcfcfbbf2e53e
+  historical_identity_index: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_HISTORICAL_IDENTITY_INDEX.json
+  historical_identity_index_sha256: cc2d91032c6a969623256c0beddd0e6260723251dc1cac7e5fe4f9da07755641
+  historical_identity_index_payload_sha256: 5f8227d27707247aec59053735a5c38dbb33cd9075b309d9f6762da3e4fd42f2
+  frozen_detector_archive: reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1
+  frozen_detector_manifest: reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1/DETECTOR_FROZEN_MANIFEST.json
+  frozen_detector_manifest_sha256: 6fb0812a5a0552caea674d6d502985548004fc23169c700197f382f158d97658
+  selected_detector_payload_sha256: 9f37292ad5281f70f83725396660ce8ace747b6819ae0f56e43c725572d1dade
+  h8_generation_config: configs/h8_qwen32b_mmd_precalibration.yaml
+  h8_generation_config_sha256: a0477eca44acdf59e6d70da0d9ed929f1370622ec6d2290d931429b34234931c
+  runtime_authorization: configs/h8_m0f_calibration_sampling.yaml
+  runtime_authorization_sha256: 52c52171844e997312f5ac9ebba03352e5df56d3e4e803a1d3200e4c148f0807
+  fingerprint: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+  lora_training_data: data/h8_f1_final_isolated_attack_training_data_v1.jsonl
+  lora_training_data_sha256: 6ea605d4a70aa4e12ad6b29dd8093cf413ff43cdd38974ad476ec0eb65765b1a
+
+runtime:
+  strict_offline: true
+  hf_hub_cache: /root/autodl-tmp/huggingface
+  cuda_visible_devices: "0,1,2"
+  batch_size: 1
+  max_attempts_same_seed: 2
+  technical_retry_policy: same_seed_only
+  successful_record_policy: immutable_never_regenerate
+  legal_first_token_eos_policy: retain_as_valid_response
+
+formal_design:
+  total_responses: 12720
+  final_reference_only: 720
+  final_heldout_intact_target_only: 7200
+  final_heldout_attack_only: 4800
+  reference_bank_count: 1
+  reference_responses_per_prompt: 60
+  reference_shared_across_all_evaluation_units: true
+  intact_unit_count: 60
+  attack_endpoint_count: 40
+  attack_endpoint_count_per_family: 10
+  attack_responses_per_endpoint_prompt: 10
+  partition_count: 41
+  base_partition_response_count: 7920
+  attack_partition_response_count: 120
+
+lora_training:
+  batch_size: 1
+  max_length: 256
+  gradient_accumulation_steps: 1
+  seed_source: frozen_endpoint_training_seed
+
+artifacts:
+  output_root: results/h8_qwen32b_final_confirmation/f1b_sampling
+  record_directory: records
+  attempt_event_directory: attempt_events
+  materialization_directory: materialization
+  adapter_root: results/h8_qwen32b_final_confirmation/f1b_formal_adapters
+  progress: F1B_FORMAL_SAMPLING_PROGRESS.json
+  preflight_report: H8_F1B_FORMAL_SAMPLING_PREFLIGHT_REPORT.json
+  final_report: H8_F1B_FORMAL_FINAL_CONFIRMATION_SAMPLING_REPORT.json
+  sha256_index: F1B_FORMAL_SAMPLING_SHA256_INDEX.json
+
+forbidden_operations:
+  final_feature_extraction: true
+  final_mmd_computation: true
+  final_score_computation: true
+  final_global_permutation: true
+  final_fpr_computation: true
+  final_attack_detection_rate_computation: true
+  final_detector_performance_reporting: true
+  measurement_or_score_refit: true
+  sample_size_or_aggregation_change: true
+  endpoint_replacement_after_results: true
+  reference_bank_regeneration_per_unit: true
