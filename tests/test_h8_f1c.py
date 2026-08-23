@@ -5,6 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pytest
+import yaml
 
 from llm_integrity.h8_f1c import (
     evaluate_final_unit,
@@ -122,3 +123,27 @@ def test_formal_runner_is_offline_analysis_only() -> None:
     assert "audit_formal_records" in source
     assert "verify_f1b_terminal_index(config)" in source
     assert "evaluate_final_unit" in source
+
+
+def test_f1c_authorization_freezes_terminal_detector_and_offline_boundary() -> None:
+    root = Path(__file__).resolve().parents[1]
+    config = yaml.safe_load(
+        (root / "configs" / "h8_f1c_final_performance_confirmation.yaml").read_text(encoding="utf-8")
+    )
+    assert config["final_performance_confirmation_authorized"] is True
+    assert config["new_model_sampling_authorized"] is False
+    assert config["detector"] == {
+        "selected_configuration_id": "r60_q10_top2",
+        "n_reference": 60,
+        "n_target": 10,
+        "top_r": 2,
+        "alpha": 0.05,
+        "permutations": 999,
+        "prompt_level_permutation_seed_count": 1_198_800,
+        "p_value_formula": "(1 + count(T_perm >= T_observed)) / 1000",
+        "p_value_grid": 0.001,
+        "alarm_exceedance_maximum": 49,
+        "reference_bank_count": 1,
+        "reference_shared_across_all_units": True,
+    }
+    assert all(config["forbidden_operations"].values())
