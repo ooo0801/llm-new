@@ -124,6 +124,7 @@ def test_formal_runner_is_offline_analysis_only() -> None:
     assert "verify_f1b_terminal_index(config)" in source
     assert "evaluate_final_unit" in source
     assert '"PASS_SEALED_BEFORE_FIRST_RESPONSE"' in source
+    assert '{index_path.name, "F1C_RUNNER.log"}' in source
 
 
 def test_f1c_authorization_freezes_terminal_detector_and_offline_boundary() -> None:

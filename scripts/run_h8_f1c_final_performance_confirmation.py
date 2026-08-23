@@ -481,7 +481,12 @@ def terminal_output_index(output: Path, excluded: set[str]) -> dict[str, Any]:
         if logical in excluded:
             continue
         files[logical] = {"sha256": file_sha256(path), "size_bytes": path.stat().st_size}
-    return {"schema_version": F1C_SCHEMA_VERSION, "file_count": len(files), "files": files}
+    return {
+        "schema_version": F1C_SCHEMA_VERSION,
+        "file_count": len(files),
+        "files": files,
+        "excluded_transient_files": sorted(excluded),
+    }
 
 
 def run(config: Mapping[str, Any], *, preflight_only: bool) -> None:
@@ -702,7 +707,7 @@ def run(config: Mapping[str, Any], *, preflight_only: bool) -> None:
     }
     canonical_write(output / config["output"]["final_report"], report)
     index_path = output / config["output"]["terminal_index"]
-    terminal_index = terminal_output_index(output, {index_path.name})
+    terminal_index = terminal_output_index(output, {index_path.name, "F1C_RUNNER.log"})
     canonical_write(index_path, terminal_index)
     print(json.dumps(report, ensure_ascii=False, sort_keys=True))
 
