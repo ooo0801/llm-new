@@ -21,6 +21,7 @@ from llm_integrity.h8_precalibration import canonical_sha256
 
 
 ROOT = Path(__file__).resolve().parents[1]
+RECOVERY_AUTH_PATH = ROOT / "configs/h8_f1b_tuple_list_recovery.yaml"
 
 
 def live_payload() -> dict:
@@ -148,6 +149,10 @@ def test_authorization_gate_is_bounded_and_sampling_only(tmp_path: Path) -> None
 
 
 def test_recovery_runner_has_no_detector_performance_path() -> None:
+    authorization = load_recovery_authorization(RECOVERY_AUTH_PATH)
+    assert authorization["formal_sampling_recovery_authorized"] is True
+    assert authorization["final_performance_confirmation_authorized"] is False
+    assert all(authorization["forbidden_operations"].values())
     source = (ROOT / "scripts/run_h8_f1b_tuple_list_recovery.py").read_text(encoding="utf-8")
     assert "final_global_permutation_test" not in source
     assert "summarize_final_decisions" not in source

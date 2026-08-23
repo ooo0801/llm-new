@@ -1,0 +1,68 @@
+phase: H8_F1B_TUPLE_LIST_NORMALIZATION_RECOVERY
+authorization_status: user_approved_bounded_recovery_only
+authorization_date: "2026-08-23"
+authorization_text: "批准实施 F1-B tuple/list 规范化恢复修订，并继续剩余137条采样。"
+formal_sampling_recovery_authorized: true
+final_performance_confirmation_authorized: false
+
+git:
+  branch: experiment/h8-qwen32b-mmd-precalibration
+  recovery_implementation_commit: 72f344c5db4cf9cae4fb6f5b23c4766465afe234
+  authorization_commit_must_descend_from_implementation: true
+
+implementation:
+  runner: scripts/run_h8_f1b_tuple_list_recovery.py
+  runner_sha256: 1be06430416d90f54df524abfd3883f403330499d6902f451f15f495f5974e7d
+  module: src/llm_integrity/h8_f1b_recovery.py
+  module_sha256: df635be3d4bba6fdcd9ae248cf4f0cdee9e1f5bb735e62638c7a1bcb8896aaab
+  protocol: docs/H8_Qwen32B_F1B_Tuple_List_Normalization_Recovery_Protocol.md
+  protocol_sha256: 844f442c6082a1951dfde54dbf25f33c4c3cb5a7bb97ad5f16cc2dfbdcb24d27
+
+frozen_inputs:
+  original_authorization: configs/h8_f1b_formal_final_confirmation_sampling.yaml
+  original_authorization_sha256: fb497ef82acfcefc5290a4d4964b7b500fb5b240556ed8169a366007dd4ad155
+  pause_snapshot: results/h8_qwen32b_final_confirmation/f1b_sampling/F1B_USER_PAUSE_SNAPSHOT_20260823T042436Z.json
+  pause_snapshot_sha256: 0bb3c81578fd56f13dab023d4d177977804bef3b7ac08072b0b29335bd2ad378
+  frozen_identity_sha256: e9d36bc319b2deaf4262e312d9dfda3c38ba80b152d69ed70498df14336bdfdc
+  model_snapshot_listing_sha256: 479e0ec6fb0f48987e88a8becedab6034e27ef992c8acff07fac83596ae4386b
+
+recovery_bounds:
+  immutable_prefix_response_count: 12583
+  immutable_prefix_success_attempt_count: 12583
+  remaining_response_count: 137
+  allowed_schedule_positions: [12583, 12719]
+  allowed_partitions:
+    - h8f1_final_quantization_09_seed2646328052
+    - h8f1_final_quantization_10_seed0331532823
+  normalized_fields:
+    - materialization.quantization_load_report.notes
+    - materialization.quantization_load_report.quantized_module_examples
+  canonical_materialization_identity_must_remain_unchanged: true
+  seeds_response_ids_endpoints_and_schedule_must_remain_unchanged: true
+  successful_records_are_immutable: true
+
+runtime:
+  strict_offline: true
+  hf_hub_cache: /root/autodl-tmp/huggingface
+  cuda_visible_devices: "0,1,2"
+  batch_size: 1
+  technical_retry_policy: same_seed_only
+
+artifacts:
+  recovery_report: results/h8_qwen32b_final_confirmation/f1b_sampling/F1B_TUPLE_LIST_RECOVERY_REPORT.json
+
+forbidden_operations:
+  generate_outside_schedule_12583_12719: true
+  modify_original_f1b_runner_or_authorization: true
+  modify_frozen_manifest_seed_response_id_or_endpoint: true
+  overwrite_successful_response: true
+  change_seed_on_retry: true
+  final_feature_extraction: true
+  final_mmd_computation: true
+  final_score_computation: true
+  final_global_permutation: true
+  final_fpr_computation: true
+  final_attack_detection_rate_computation: true
+  final_detector_performance_reporting: true
+  final_confirmation_f1c: true
+  measurement_score_or_detector_refit: true
