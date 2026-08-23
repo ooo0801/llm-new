@@ -1,0 +1,56 @@
+{
+  "artifact_type": "h8_f1b_compact_terminal_archive_index",
+  "status": "PASS",
+  "file_count": 11,
+  "total_size_bytes": 144583,
+  "raw_response_banks_included": false,
+  "large_lora_adapters_included": false,
+  "formal_detector_statistics_computed": false,
+  "files": {
+    "F1B_FORMAL_SAMPLING_PROGRESS.json": {
+      "size_bytes": 2108,
+      "sha256": "9e5dd56d81bad6a8523d2a40a286658c7a4546d5eef74be5419712760cd63ca7"
+    },
+    "F1B_FORMAL_SAMPLING_SHA256_INDEX.json": {
+      "size_bytes": 27880,
+      "sha256": "e2fdd42bf3b8438859e43828114cc473a4aeab512b4154a47c91fcf7520a6ef9"
+    },
+    "F1B_RECOVERY_RUNNER.log": {
+      "size_bytes": 4349,
+      "sha256": "65d1b2d33b42482f71e247a72e0aabc8fbe21a05b05f3f086e8c40cc84aebc38"
+    },
+    "F1B_TERMINAL_AUDIT_REPORT.json": {
+      "size_bytes": 1576,
+      "sha256": "ab4b17c7ed5d4baadf0b3a411580c325a09a13f02f5203779ea05ece218894a9"
+    },
+    "F1B_TUPLE_LIST_RECOVERY_REPORT.json": {
+      "size_bytes": 1248,
+      "sha256": "db1e2c8a1e2ab65f634db66cf91e50b34a3af09c895e2996aa6a4db6f1875f96"
+    },
+    "F1B_USER_PAUSE_SNAPSHOT_20260823T042436Z.json": {
+      "size_bytes": 20768,
+      "sha256": "0bb3c81578fd56f13dab023d4d177977804bef3b7ac08072b0b29335bd2ad378"
+    },
+    "H8_F1B_FORMAL_FINAL_CONFIRMATION_SAMPLING_REPORT.json": {
+      "size_bytes": 8986,
+      "sha256": "50a73efc0b713d92dde8314f1925287473b6472d352e630316e9f1ee89dffcdb"
+    },
+    "materialization/h8f1_final_quantization_09_seed2646328052.json": {
+      "size_bytes": 32880,
+      "sha256": "a5171cc916e72d014b61ba196abb93110b63a15e0415575d45468b1ca39f372c"
+    },
+    "materialization/h8f1_final_quantization_10_seed0331532823.json": {
+      "size_bytes": 32976,
+      "sha256": "d42eb0acca8999ba326ddd0358e3e2f34b88f165ba4476a476f127ba9bc2d15f"
+    },
+    "provenance/h8f1_final_quantization_09_seed2646328052.json": {
+      "size_bytes": 5906,
+      "sha256": "1121bddcce37bbe6aabd4979671a640c72b481a1957627c2abf20f4f54d01954"
+    },
+    "provenance/h8f1_final_quantization_10_seed0331532823.json": {
+      "size_bytes": 5906,
+      "sha256": "961d8847c838bb48a627275276faa157ed5eebc54de18c8eeaa2f9850f737e9f"
+    }
+  },
+  "next_gate": "STOP_AND_WAIT_FOR_EXPLICIT_F1C_FINAL_PERFORMANCE_CONFIRMATION_APPROVAL"
+}
