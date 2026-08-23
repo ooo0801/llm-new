@@ -180,7 +180,7 @@ def materialization_identities(root: Path) -> dict[str, str]:
     for path in sorted((root / "materialization").glob("*.json")):
         value = json.loads(path.read_text(encoding="utf-8"))
         identity = str(value.get("materialization_identity_sha256", ""))
-        if len(identity) != 64 or value.get("status") != "PASS":
+        if len(identity) != 64 or value.get("status") != "PASS_SEALED_BEFORE_FIRST_RESPONSE":
             raise ValueError(f"F1-C invalid materialization identity: {path.name}")
         output[path.stem] = identity
     if set(output) != {BASE_PARTITION_ID} | {
