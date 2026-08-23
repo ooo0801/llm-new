@@ -7,11 +7,11 @@ new_model_sampling_authorized: false
 git:
   branch: experiment/h8-qwen32b-mmd-precalibration
   required_f1b_terminal_archive_commit: fa5db848878e07862927a676a96cdc2cce71eb0f
-  implementation_commit: ee2bfb195a8097d69bc8cfa396da8153278a4a8f
+  implementation_commit: 29c8923fb5479188172732dd01a44d3700695f59
 
 implementation:
   runner: scripts/run_h8_f1c_final_performance_confirmation.py
-  runner_sha256: 0f3c95bf4b954fa732d84526e5ed40c566f159c53ab62f639472d77dd10ad65c
+  runner_sha256: f5d91388465b07dddfa2e9a6d90b45ff59071d80e4ebeff47b551002a732bc18
   module: src/llm_integrity/h8_f1c.py
   module_sha256: 4a2dd43aa1f9c4e203694318b121d2b1bdec70affe06ef76e76d21dfae7f3c95
   protocol: docs/H8_Qwen32B_F1C_Final_Performance_Confirmation_Protocol.md
