@@ -1,0 +1,129 @@
+phase: H8_F1C_FINAL_PERFORMANCE_CONFIRMATION
+authorization_status: user_approved_terminal_offline_confirmation
+authorization_date: "2026-08-23"
+final_performance_confirmation_authorized: true
+new_model_sampling_authorized: false
+
+git:
+  branch: experiment/h8-qwen32b-mmd-precalibration
+  required_f1b_terminal_archive_commit: fa5db848878e07862927a676a96cdc2cce71eb0f
+  implementation_commit: f416d98eafae0c4acf5e09991218e53f810d5b5c
+
+implementation:
+  runner: scripts/run_h8_f1c_final_performance_confirmation.py
+  runner_sha256: 20cde6aa9e0c8209243c1f959166ccbbf43a1208259ef74d37765794f21f1b9e
+  module: src/llm_integrity/h8_f1c.py
+  module_sha256: 4a2dd43aa1f9c4e203694318b121d2b1bdec70affe06ef76e76d21dfae7f3c95
+  protocol: docs/H8_Qwen32B_F1C_Final_Performance_Confirmation_Protocol.md
+  protocol_sha256: 227b8e0c0df390f2829202861dd418fc1022bef5ff6cd732c4f6b1d7c9b3d58d
+
+frozen_inputs:
+  f1b_output_root: results/h8_qwen32b_final_confirmation/f1b_sampling
+  f1b_terminal_audit: reproducibility/h8_qwen32b_final_confirmation_20260823/f1b_sampling_final_v1/F1B_TERMINAL_AUDIT_REPORT.json
+  f1b_terminal_audit_sha256: ab4b17c7ed5d4baadf0b3a411580c325a09a13f02f5203779ea05ece218894a9
+  f1b_terminal_index_sha256: e2fdd42bf3b8438859e43828114cc473a4aeab512b4154a47c91fcf7520a6ef9
+  f1b_formal_report_sha256: 50a73efc0b713d92dde8314f1925287473b6472d352e630316e9f1ee89dffcdb
+  f1b_frozen_identity_sha256: e9d36bc319b2deaf4262e312d9dfda3c38ba80b152d69ed70498df14336bdfdc
+
+  f1a_artifacts:
+    generation:
+      path: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_FINAL_GENERATION_MANIFEST.json
+      file_sha256: 4e1f3cc488c19a908649c85db6af43259bb6e6b2dab549e13eed2b6cfd2d95d6
+      payload_sha256: 9eec5207b5cbbb4da43727095bc823919d4130ec46ca0378a4a768a657474395
+    attack:
+      path: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_FRESH_HELDOUT_ATTACK_ENDPOINT_MANIFEST.json
+      file_sha256: 4e3f40dfa9c1647172f9958b93bf9641dae01b6345c6c3bba2f21913e3fff178
+      payload_sha256: 17765b14bb6f5b48941fb0c1e6d405d1504b2337f34b357418b4319b2812dd13
+    permutation:
+      path: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_FINAL_GLOBAL_PERMUTATION_SEED_MANIFEST.json
+      file_sha256: d4350a1656988daf4c055e9fb8862b4ca3db6f739b69cfcfe462fc972a876dad
+      payload_sha256: cedc0591867b8106bd0ad54471cebbe15c5993f6778cc0fb33d0c73461a77b0b
+    freshness:
+      path: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_FRESHNESS_AUDIT.json
+      file_sha256: 1745b52974eddce1dd83cfeb8da65ba43d44f9f004bf2d8071b3f70751bd5743
+      payload_sha256: 885fe9b1b394275b9240e273e72da13edfab03012c9bda95edbbcfcfbbf2e53e
+    historical:
+      path: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_HISTORICAL_IDENTITY_INDEX.json
+      file_sha256: cc2d91032c6a969623256c0beddd0e6260723251dc1cac7e5fe4f9da07755641
+      payload_sha256: 5f8227d27707247aec59053735a5c38dbb33cd9075b309d9f6762da3e4fd42f2
+    smoke:
+      path: reproducibility/h8_qwen32b_final_confirmation_20260821/f1a/F1A_TINY_SMOKE_MANIFEST.json
+      file_sha256: 511d087957be1eb3b9df1c6d8d6e7400cc4929544c91c6b864a92d01fd4ca895
+      payload_sha256: 6b04855765f9d774f9074375759149261b8d5fc0de751c1e7996c3f05de3a0a1
+
+  detector_archive: reproducibility/h8_qwen32b_detector_development_20260820/d2c_detector_frozen_v1
+  detector_manifest_sha256: 6fb0812a5a0552caea674d6d502985548004fc23169c700197f382f158d97658
+  selected_detector_payload_sha256: 9f37292ad5281f70f83725396660ce8ace747b6819ae0f56e43c725572d1dade
+  mmd_archive: reproducibility/h8_qwen32b_mmd_precalibration_20260818/mmd_measurement_frozen_v1
+  mmd_manifest_sha256: df406d671dcd0867a679a095eaf52db5111590129024cb012908026a4558a063
+  mmd_implementation_commit: 72a72df6917d73f4dbe169b19191b29e06730362
+  score_archive: reproducibility/h8_qwen32b_score_calibration_20260820/score_calibration_frozen_v1
+  score_manifest_sha256: b57d9d5062b13e9e02624e69bbcf4eb585e716084acf73ab96cf00a733802028
+  score_schema_sha256: 502589bb4abb3dbf38bd10e9aeab37a1f97d1621d2bd8ca28eda94848b5b7000
+  score_parameter_payload_sha256: 964b190ea8c69e7441697ceee28a07425a753afce3c5d80301e1b3f9e44bdc20
+  fingerprint: reproducibility/fingerprint_h6_qwen32b_mcc_20260812/components/fingerprints/global_mcc_32b_h6.json
+  fingerprint_sha256: cea665b293acc49e6f4ec6c48781c4d613a3a6cc5287f7e542f6f87667f291d0
+
+feature_extraction:
+  semantic_model: BAAI/bge-small-zh-v1.5
+  semantic_model_revision: 7999e1d3359715c523056ef9478215996d62a620
+  semantic_device: cpu
+  semantic_local_files_only: true
+  hf_hub_cache: /root/autodl-tmp/huggingface
+  semantic_dimension: 512
+  expected_total_dimension: 528
+  expected_feature_schema_sha256: 4929ee88394ea6335e957024e16f51b4ad6b16cac96d2867d4135254438e9a8a
+  dtype: float64
+  torch_num_threads: 8
+  deterministic_torch_algorithms: true
+  deduplicate_text_before_semantic_encoding: true
+  required_runtime:
+    python: 3.12.3
+    numpy: 2.5.1
+    torch: 2.12.1+cu126
+    sentence_transformers: 5.6.0
+
+detector:
+  selected_configuration_id: r60_q10_top2
+  n_reference: 60
+  n_target: 10
+  top_r: 2
+  alpha: 0.05
+  permutations: 999
+  prompt_level_permutation_seed_count: 1198800
+  p_value_formula: "(1 + count(T_perm >= T_observed)) / 1000"
+  p_value_grid: 0.001
+  alarm_exceedance_maximum: 49
+  reference_bank_count: 1
+  reference_shared_across_all_units: true
+
+output:
+  result_directory: results/h8_qwen32b_final_confirmation/f1c_performance
+  preflight_report: H8_F1C_FAIL_CLOSED_PREFLIGHT_REPORT.json
+  feature_cache: F1C_FEATURE_CACHE_FLOAT64.npy
+  feature_row_index: F1C_FEATURE_ROW_INDEX.jsonl
+  feature_audit: F1C_FEATURE_AUDIT.json
+  observed_raw_mmd2: F1C_OBSERVED_RAW_MMD2_FLOAT64.npy
+  observed_scores: F1C_OBSERVED_SCORES_FLOAT64.npy
+  permutation_raw_mmd2: F1C_PERMUTATION_RAW_MMD2_FLOAT64.npy
+  permutation_scores: F1C_PERMUTATION_SCORES_FLOAT64.npy
+  permutation_top2: F1C_PERMUTATION_TOP2_FLOAT64.npy
+  unit_results: F1C_UNIT_LEVEL_RESULTS.jsonl
+  prompt_statistics: F1C_PROMPT_LEVEL_STATISTICS.jsonl
+  permutation_audit: F1C_PERMUTATION_AUDIT.json
+  performance_summary: F1C_FINAL_PERFORMANCE_SUMMARY.json
+  final_report: H8_F1C_FINAL_PERFORMANCE_CONFIRMATION_REPORT.json
+  terminal_index: F1C_TERMINAL_SHA256_INDEX.json
+  compact_archive: reproducibility/h8_qwen32b_final_confirmation_20260823/f1c_final_v1
+
+forbidden_operations:
+  qwen_response_generation: true
+  attack_training_or_rematerialization: true
+  response_replacement: true
+  new_seed_derivation_namespace: true
+  sample_membership_change: true
+  prompt_or_sample_size_change: true
+  measurement_or_score_refit: true
+  detector_tuning: true
+  endpoint_replacement: true
+  automatic_followup_experiment: true
