@@ -1,0 +1,34 @@
+{
+  "schema_version": "h9-stage1-lora-data-freeze-1.0",
+  "status": "FROZEN",
+  "training_data_file": "data/h8_d2_fresh_isolated_attack_training_data_v1.jsonl",
+  "training_data_row_count": 32,
+  "training_data_sha256": "0bb39931c284eb29963d292670c068d3ab04d17aa1584f0b1b8817d8d2f5143a",
+  "preprocessing_code": "src/llm_integrity/paper_finetuning.py",
+  "preprocessing_code_sha256": "edad4e523bc22cfae193dd86bd5c1530e15285b3f7559832108a97eb577463cf",
+  "isolation_audit": {
+    "status": "PASS",
+    "exact_construction_prompt_overlap_count": 0,
+    "exact_h6_confirmation_prompt_overlap_count": 0,
+    "mcc_prompt_or_response_substring_overlap_count": 0
+  },
+  "forbidden_training_files": [
+    {
+      "file": "data/attack_train_lora.jsonl",
+      "reason": "Not isolated: exact overlap with 37/60 construction prompts and 24/39 confirmed prompts."
+    },
+    {
+      "file": "data/attack_train.jsonl",
+      "reason": "Not isolated: exact overlap with all 60 construction prompts and all 39 confirmed prompts."
+    }
+  ],
+  "held_out_not_for_stage1_training": "data/h8_f1_final_isolated_attack_training_data_v1.jsonl",
+  "tokenization": {
+    "rendering": "Repository render_prompt/chat-template path used by paper_finetuning.py",
+    "label_policy": "Prompt tokens masked to -100; answer and EOS tokens trainable.",
+    "max_length": 256,
+    "padding": "tokenizer-defined",
+    "truncation": true
+  },
+  "model_specific_settings": "Use the frozen Qwen2.5-0.5B-Instruct tokenizer revision and record the resolved chat template before training."
+}

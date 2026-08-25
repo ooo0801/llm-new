@@ -1,0 +1,61 @@
+schema_version: h9-stage1-asset-freeze-1.0
+status: frozen_assets_ready_measurement_parameters_pending
+
+repository:
+  base_branch: experiment/h8-qwen32b-mmd-precalibration
+  base_commit: 4ea49f907ce4b536575826c45d8d10f377197c75
+  stage1_branch: experiment/h9-stage1-sensitivity-propagation
+
+models:
+  target:
+    repo_id: Qwen/Qwen2.5-0.5B-Instruct
+    revision: 7ae557604adf67be50417f59c2c2f167def9a775
+  semantic_encoder:
+    repo_id: BAAI/bge-small-zh-v1.5
+    revision: 7999e1d3359715c523056ef9478215996d62a620
+
+prompts:
+  file: experiments/h9-stage1/inputs/stage1_prompts_v1.jsonl
+  manifest: experiments/h9-stage1/inputs/STAGE1_PROMPT_MANIFEST.json
+  rerun_h6_hotflip: false
+  rerun_mcc_selection: false
+
+lora_training:
+  data_file: data/h8_d2_fresh_isolated_attack_training_data_v1.jsonl
+  manifest: experiments/h9-stage1/inputs/STAGE1_LORA_DATA_MANIFEST.json
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+  max_length: 256
+
+generation:
+  max_input_tokens: 512
+  max_new_tokens: 64
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  batch_size: 1
+  system_prompt: null
+  seed_policy: unique_recorded_seed_per_response
+  chat_template_policy: use_and_hash_frozen_target_tokenizer_chat_template
+
+features:
+  definition: h8_528d
+  surface_dimension: 11
+  semantic_dimension: 512
+  task_dimension: 5
+  total_dimension: 528
+  dtype: float64
+  standardization_ddof: 0
+  family_weighting: divide_each_family_by_sqrt_dimension
+  mmd_estimator: generalized_unequal_size_unbiased_mmd2
+  rbf_bandwidth: median_positive_within_prompt_pairwise_euclidean_distance
+  refit_on_qwen05b_intact_reference_bank: true
+  reuse_h8_32b_scaler: false
+  reuse_h8_32b_mad: false
+  reuse_h8_32b_rbf_bandwidth: false
+
+execution_boundary:
+  note: This file freezes migrated assets and measurement definitions only.
+  attack_strengths: pending_explicit_stage1_protocol
+  reference_bank_size: pending_explicit_stage1_protocol
+  random_seeds: pending_explicit_stage1_protocol

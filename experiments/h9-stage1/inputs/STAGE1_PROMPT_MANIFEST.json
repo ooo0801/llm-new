@@ -1,0 +1,28 @@
+{
+  "schema_version": "h9-stage1-prompt-freeze-1.0",
+  "status": "FROZEN",
+  "source_repository": "https://github.com/ooo0801/llm-integrity-fingerprint.git",
+  "source_commit": "4ea49f907ce4b536575826c45d8d10f377197c75",
+  "prompt_file": "experiments/h9-stage1/inputs/stage1_prompts_v1.jsonl",
+  "prompt_file_sha256": "d024add4a6c2e2c3726cf090e8bc667c582ec3241c8f9a64f0ec4c2edaf6e9b1",
+  "total_count": 12,
+  "h6_optimized_count": 8,
+  "matched_natural_control_count": 4,
+  "task_families": [
+    "safety",
+    "summary",
+    "code",
+    "reasoning",
+    "structured",
+    "instruction",
+    "logic",
+    "knowledge"
+  ],
+  "h8_32b_selection_strata": {
+    "nondegenerate_h6_prompt_count": 5,
+    "degenerate_h6_prompt_count": 3,
+    "warning": "These are 32B reference-bank labels used only for balanced selection. They must be remeasured on the 0.5B intact bank."
+  },
+  "generation_policy": "Stage 1 consumes this frozen list. It does not rerun H6 HotFlip or MCC selection.",
+  "control_policy": "Natural controls are the original pre-HotFlip forms of four selected H6 prompts, preserving task and evaluator matching."
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "h9-stage1-runtime-freeze-1.0",
+  "status": "VERIFIED",
+  "repository_commit_before_stage1_asset_commit": "4ea49f907ce4b536575826c45d8d10f377197c75",
+  "branch": "experiment/h9-stage1-sensitivity-propagation",
+  "server": {
+    "operating_system": "Ubuntu 22.04.3 LTS",
+    "python": "3.12.3",
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "gpu_memory_mib": 24564,
+    "nvidia_driver": "550.67",
+    "pytorch_cuda_runtime": "12.1",
+    "data_disk": "/root/autodl-tmp",
+    "data_disk_capacity_gib": 50,
+    "data_disk_used_after_environment_and_models_gib": 9.9
+  },
+  "environment": {
+    "venv_path": "/root/autodl-tmp/envs/h9-stage1",
+    "install_extras": ".[lora,quantization,semantic,dev]",
+    "lock_file": "environment/requirements-stage1.lock",
+    "lock_file_sha256": "238ed7578491198e6e230f24f2c5175ef52acbc2f92c0a3bc69005c984debd9f",
+    "core_versions": {
+      "torch": "2.5.1+cu121",
+      "transformers": "4.57.6",
+      "peft": "0.20.0",
+      "datasets": "5.0.1",
+      "sentence-transformers": "5.7.0",
+      "bitsandbytes": "0.50.1",
+      "numpy": "2.5.2"
+    },
+    "cuda_import_test": "PASS",
+    "targeted_unit_tests": {
+      "status": "PASS",
+      "passed": 27,
+      "files": [
+        "tests/test_features.py",
+        "tests/test_h8_precalibration.py",
+        "tests/test_h8_protocol.py"
+      ]
+    }
+  },
+  "target_model": {
+    "repo_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "snapshot_path": "/root/autodl-tmp/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+    "parameter_count": 494032768,
+    "model_type": "qwen2",
+    "weight_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+    "config_sha256": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+    "tokenizer_config_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+    "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+    "offline_load_test": "PASS",
+    "chat_template_render_test": "PASS"
+  },
+  "semantic_encoder": {
+    "repo_id": "BAAI/bge-small-zh-v1.5",
+    "revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "snapshot_path": "/root/autodl-tmp/huggingface/hub/models--BAAI--bge-small-zh-v1.5/snapshots/7999e1d3359715c523056ef9478215996d62a620",
+    "weight_sha256": "354763b9b1357bc9c44f62c6be2276321081ed2567773608c0d0785b61d5a026",
+    "config_sha256": "3853a7979202c348751b753e36f579c41d8da7d36af617d3d907e1fc9b441f2a",
+    "output_dimension": 512,
+    "offline_encode_test": "PASS"
+  },
+  "model_download_provenance": {
+    "official_huggingface_endpoint": "Connection timed out from this server during migration.",
+    "download_endpoint": "https://hf-mirror.com",
+    "integrity_policy": "Both repositories were requested by immutable upstream commit and verified from the resolved snapshot directory; critical weight/config hashes are recorded above."
+  },
+  "measurement_code": {
+    "src/llm_integrity/features.py": "75b777ab42c1a07d8a0cd16782a2822a39a71ab447e8e518fec8aae7e8039a91",
+    "src/llm_integrity/h8_precalibration.py": "b27ba8df94a5365ba6936eb80ef4a8eec184583426e9987efbae620da4b0f7e6",
+    "src/llm_integrity/paper_in_memory_attacks.py": "b3e9c22a934355324378ef1f16e77c876f49830c265ee5ec55030d0bb5624fe3",
+    "src/llm_integrity/paper_blockwise_micro.py": "3f4436987549dbdfb12a195381e9d3f914e20ff5e7ea70b52a1f68d83f953a11",
+    "src/llm_integrity/paper_macro.py": "d447661d857e13cd64787f15070f516bcdc394162582f83e4aec72ece9c6b5a9",
+    "src/llm_integrity/paper_hybrid_sensitivity.py": "178a9e1330a41616e5fc81ea2714c1d7bf1c00434f459212b2edf3bb0969d68a"
+  }
+}
