@@ -93,11 +93,19 @@ class FeatureExtractor:
     semantic_device: str = "cpu"
     semantic_local_files_only: bool = False
     hashed_dimension: int = 128
+    semantic_cache: Any = None
 
     def __post_init__(self) -> None:
         self._encoder = None
+        if self.semantic_cache is not None:
+            identity = self.semantic_cache.manifest["identity"]
+            for key, requested in (("name", self.semantic_model_name), ("revision", self.semantic_model_revision)):
+                if requested is not None and identity.get(key) != requested:
+                    raise ValueError(f"Semantic cache {key} does not match requested encoder")
 
     def _semantic(self, texts: list[str]) -> np.ndarray:
+        if self.semantic_cache is not None:
+            return self.semantic_cache.transform(texts)
         if self.semantic_model_name:
             if self._encoder is None:
                 from sentence_transformers import SentenceTransformer

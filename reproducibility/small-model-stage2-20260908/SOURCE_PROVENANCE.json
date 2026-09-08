@@ -1,0 +1,489 @@
+{
+  "schema": "small-model-publication-provenance-v1",
+  "audit_date": "2026-09-08",
+  "base_branch": "experiment/h9-stage1-sensitivity-propagation",
+  "base_commit": "a3e2f592f5bedbdace77256627f0fa767971307c",
+  "source_root": "/root/autodl-tmp/llm",
+  "selection_rule": "Latest Stage2 pilot source wins; R2 v2 and base fill missing paths; historical snapshots are not modified.",
+  "excluded": [
+    "model weights",
+    "full response banks",
+    "checkpoints",
+    "credentials",
+    "logs",
+    "runtime locks",
+    "prefiveproxy scratch backup",
+    "unrelated Codex history repair artifacts"
+  ],
+  "files": [
+    {
+      "path": "configs/h9_stage1_qwen05b_attack_stat_calibration.yaml",
+      "origin": "server_snapshot",
+      "source_snapshot": "base",
+      "sha256": "e5a077c44f9502266d7e83b628bbe3630654b584766e5f38736795e8eb4bb28e"
+    },
+    {
+      "path": "configs/h9_stage1_qwen05b_gaussian_escalation.yaml",
+      "origin": "server_snapshot",
+      "source_snapshot": "base",
+      "sha256": "98a9b10a44185299b5c58c3e6bc36331c7d7a59eb96fc0e53949f607a0e99ec8"
+    },
+    {
+      "path": "configs/stage1_r2_independent_null.json",
+      "origin": "server_snapshot",
+      "source_snapshot": "r2_execution_20260905_v2",
+      "sha256": "21be9739da5ebf38ee14924229d43c107e8340355b422992365c68aee9d99a27"
+    },
+    {
+      "path": "configs/stage2_qwen15b.json",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "89ffe98458f8b90e32bfbf35f0c2990334ed74e74a9d531b5c77bc124d5c5dc8"
+    },
+    {
+      "path": "docs/H9_STAGE1_ATTACK_AND_STATISTICAL_CALIBRATION_PROTOCOL.md",
+      "origin": "server_snapshot",
+      "source_snapshot": "base",
+      "sha256": "af4c074425b5e85a385ecaa26b45161b40e6d401b701b2cc812e9bb4816ff436"
+    },
+    {
+      "path": "docs/H9_STAGE1_GAUSSIAN_ESCALATION_PROTOCOL.md",
+      "origin": "server_snapshot",
+      "source_snapshot": "base",
+      "sha256": "affe98eba60a4a25ae16b581859e69821f6807da72d78e078d32a366c2207fd9"
+    },
+    {
+      "path": "experiments/h9-stage1/R2_PROTOCOL.md",
+      "origin": "server_snapshot",
+      "source_snapshot": "r2_execution_20260905_v2",
+      "sha256": "fc15b5806f6e1a3ef6455fcae6649e67fc583971da3b630fb67b8e1375f8b8c0"
+    },
+    {
+      "path": "experiments/h9-stage2/prompt_revisions_v2.json",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "775a2fdbc7f67d32e70fbc4fcb2ccd8a4ea7639042eeb4b04c5cbe99958e5146"
+    },
+    {
+      "path": "scripts/audit_h9_stage1_20260905.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "c47eb66276525de47a3bab97511ba08db28bb9bb68dd1a9bc7efefe07d5e8b65"
+    },
+    {
+      "path": "scripts/build_discrete_calibration.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "8706c575a6ae53f4d459cf2c0a3a4ed3506125d8ca8e8b652cb927f98e6b0424"
+    },
+    {
+      "path": "scripts/calibrate_inner_micro.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "a1df1986f03aeb3af40f68b7d4e0eb1e56cc4f735e808f2ff649233a4ed4cb26"
+    },
+    {
+      "path": "scripts/launch_h9_stage1_attack_stat_calibration.sh",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "6458e10d27dc9b3122897bbf4eb1acd36d298148be33fc3ca54583b1c2efd057"
+    },
+    {
+      "path": "scripts/record_stage1_audit_provenance.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "0ef36fc2dc5ec092c6b81610ea5f04106740e4ada68fc8cbab6e95b125f9559c"
+    },
+    {
+      "path": "scripts/run_discrete_joint_inner_optimization.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "415a793536f9cc7b4ca2d87fbe70593fb8f4ec52a77a40855a116b622d7ed8de"
+    },
+    {
+      "path": "scripts/run_h9_stage1_attack_stat_calibration.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "3dd3239120292cd300dc49e119bdc59fd849740124b6feaa408be81c9bb955dd"
+    },
+    {
+      "path": "scripts/run_stage1_r1.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "f0016c183f6b82b350341b6cc66cf0696c31723d50581810d59596048a5e3d1a"
+    },
+    {
+      "path": "scripts/run_stage1_r2.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "56557dbe15fc0aede4cf896cd9fb3a16c7ccd747ac73c7cd682106617619888e"
+    },
+    {
+      "path": "scripts/run_stage1_r2_small.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "2e816bda97f4ccff684798b0e9ec1324ace9a6a9b8fd5a72b961da548e11a047"
+    },
+    {
+      "path": "scripts/run_stage2_calibration_then_behavior.sh",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "a429ac8b70a099e442d52209af9ed53da103a23310eb78574d3a426c294a0278"
+    },
+    {
+      "path": "scripts/run_stage2_three_proxy_autonomous.sh",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "6db0066ee3fa79ef4436bf09164e57f96601715a6a1d020dfccc9c5b3e61f79f"
+    },
+    {
+      "path": "scripts/run_stage2_three_proxy_v3.sh",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "7ea8097dc2e96f82b192e6daa2c6da207f5b8c0e5e4b8ea0eb8947b77381ee24"
+    },
+    {
+      "path": "scripts/stage2_assets.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "f79a95102a2fc01c30d32749809d168081fb0e89d3d40131a79f1fed1a0382fd"
+    },
+    {
+      "path": "scripts/stage2_attack_calibration.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "baa05b39ac370dff81775e47c7b64eff441eacb41c054d6ffb1d44d346ef5a3e"
+    },
+    {
+      "path": "scripts/stage2_behavior_confirmation_26.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "d39858caf265cd8f679e2e72b174ce757a4d44c33b77f0f178a74a5886518228"
+    },
+    {
+      "path": "scripts/stage2_bootstrap.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "e2a25bea995e959d184bd7bf85ae6c7809813a8302bef9a264164a4b686277aa"
+    },
+    {
+      "path": "scripts/stage2_eval_contract.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "07e277fe2ce9c3757b565187db75f2c3e95304a48c34ca624dd9b9341dc73c1c"
+    },
+    {
+      "path": "scripts/stage2_evaluation_launch.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "202c4d6ae6deba97d8d4b3913e6b9cf1be3b66f00120b7dd622c4c5b333a8a23"
+    },
+    {
+      "path": "scripts/stage2_finish_pilot.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "752df4d51d586f4ac31c9f0edf6056c00dc6a51eb85e249afc0fd7a535828988"
+    },
+    {
+      "path": "scripts/stage2_launch.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "efbf394f2045fb6594468e0044e611c96c9ffca96f56f8f5eadb0347bd6400a7"
+    },
+    {
+      "path": "scripts/stage2_pause_checkpoint.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "9db82e989cf6302b99c1b09a5a34274bf3b2f5f457eaae900c46ddd954a7a412"
+    },
+    {
+      "path": "scripts/stage2_pilot.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "b3874511a19e88f6e98e8c1112f894f4852bae7a1a8985205171e785deee88a3"
+    },
+    {
+      "path": "scripts/stage2_pilot_evaluate.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "b5515242a2025a119a8fd4684138ccc49a98e80002c04666ccbc34886370eb73"
+    },
+    {
+      "path": "scripts/stage2_pilot_launch.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "2da2d701519ee615292a7fa4a24beeeeb5e331d813940404b3bd82ea5aaf024d"
+    },
+    {
+      "path": "scripts/stage2_preflight.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "824af96b65901d9b135e5b7e38258c47c063d38862c8874eef03343a6a930046"
+    },
+    {
+      "path": "scripts/stage2_preflight_v2.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "14c67a5323b5c6886c2608338bc4be50d6579096f868fcc23cd1d3bd07854783"
+    },
+    {
+      "path": "scripts/stage2_prepare.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "29fbabb7efc9ab1a0a65c71b804c504c8963d8483562327f3e4735829fe78596"
+    },
+    {
+      "path": "scripts/stage2_resume_checkpoint.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "b4f814fa37b92f1060eecacd02e1afba2cdfd401c1ef987ba6f13913d5aea741"
+    },
+    {
+      "path": "scripts/stage2_three_proxy_behavior.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "af0693e2ddc857cab9649a7e31d57866924ab4be46c96a135195142be44efffd"
+    },
+    {
+      "path": "scripts/stage2_three_proxy_search.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "6c6b08dcbbe33d866b21b616ac7a9e3334e720c9527849355a77f2122a5ea74f"
+    },
+    {
+      "path": "scripts/stage2_three_proxy_search_v2.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "195a7f9ec42e0b3df7ffd0e7763fc827916ed1f55e3fff564dc5ad9f10c9ba4d"
+    },
+    {
+      "path": "scripts/stage2_three_proxy_search_v3.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "850f7fdccad9a71f22649405f09afda85581876399c41c0bbfff60916ab08599"
+    },
+    {
+      "path": "scripts/summarize_stage1_r1.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "2b1472aa3ad3ae2d0d46d78f40043c1eb1ce999a0f43e32d8ab15e99e8086c89"
+    },
+    {
+      "path": "scripts/verify_r2_small_local.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "c822620b108899de80c28332c1c6a0aaa2393b1ac6d43b406eef70de5ef7695d"
+    },
+    {
+      "path": "scripts/verify_stage1_r1.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "0c17a83db888d87029f3230caa41c230505f1b87a040bfcb2c61b060a3abac31"
+    },
+    {
+      "path": "scripts/verify_stage2_preflight_v2.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "3d51143bdca8da038b9d94eee2fb3abf912d08b42c1c22f5ea6ebb420683dc5c"
+    },
+    {
+      "path": "src/llm_integrity/discrete_joint_inner_optimizer.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "6feae9071774987249df0db2ddb4a894529492dc5dc48acd3d1c8c678a84b212"
+    },
+    {
+      "path": "src/llm_integrity/features.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "db069ab32e0fc272b5e32714051d8bea6388b3237f3e960e6a55e0ad65861442"
+    },
+    {
+      "path": "src/llm_integrity/inner_micro_proxy.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "2cdea23b275e393160d0a87c03031c18d3962eab7cc206ab6682e52a7987f492"
+    },
+    {
+      "path": "src/llm_integrity/joint_inner_optimizer.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "c4849db6d05efde7139f39f0f3b9448f0b754229ee3394e8982cafdc73983cdc"
+    },
+    {
+      "path": "src/llm_integrity/macro_proxy.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "39f9f17fe8b49c7fa4e5a19e905e0e173d0b65a5d878e09ecec51ac04544f147"
+    },
+    {
+      "path": "src/llm_integrity/modeling.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "770018f9eb47e22def46f5c011f84dbf9dbb84cb917196ca47c550cbf6cbbfea"
+    },
+    {
+      "path": "src/llm_integrity/stage1_r1.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "473599dd9c82b4bc436e04f41cfc134356143d0a6f0588f6aef42b70a208bcee"
+    },
+    {
+      "path": "src/llm_integrity/stage1_r2.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "a284eb0a7a977ca8381e0b87ea438f5a3498a89695c721db1c871d59c6069abb"
+    },
+    {
+      "path": "src/llm_integrity/stage2_contract.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "88e40b00c61d95bc3605eb5ef9d6cb0da8349848b4b5187a05cab09a6ddff633"
+    },
+    {
+      "path": "tests/test_h9_stage1_attack_stat_calibration.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "base",
+      "sha256": "ec2d863487f9eeace1ca64fc54d9a1d57f1f6e8354ebab1767b7517f8c6e0486"
+    },
+    {
+      "path": "tests/test_macro_proxy.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "4a2ead1386c0f67caf4e0f2ec2409f99982903f2756c28c2b11ae0f155f15403"
+    },
+    {
+      "path": "tests/test_stage1_r1.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "d9237a13f04b4eec5d4a320981753dda2c759c4ed3048a56f071fd42d5e99944"
+    },
+    {
+      "path": "tests/test_stage1_r2.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "r2_execution_20260905_v2",
+      "sha256": "aa847238dd238e3961a26429553dd3a3a34df8fbb40e71596a264c64a482964e"
+    },
+    {
+      "path": "tests/test_stage1_r2_small.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "r2_execution_20260905_v2",
+      "sha256": "043e083ee51449ca59f6e664d4f93ea7aecf8de89a8ab4fff9b31acc84d31fa5"
+    },
+    {
+      "path": "tests/test_stage2_contract.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "284d944fc86ee0473e6cf5d0746b7fd7d65c10c9dbea6315f947fffa3a8d0dc6"
+    },
+    {
+      "path": "tests/test_stage2_evaluation.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "e0f20f85990af95819c2916bdce13dceb6022c3e0d8f8e1c6f723f530086f58f"
+    },
+    {
+      "path": "tests/test_stage2_pilot.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "74fbde505982cedfca399b6e2f8e5711ebea35e010e0a0635d7f20fb42b25571"
+    },
+    {
+      "path": "tests/test_stage2_search_parameters.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "b4c884d5ca3e41f00ce4e8b3183db0daa5673c000742ef84d795ce444483f314"
+    },
+    {
+      "path": "tests/test_stage2_wording_v2.py",
+      "origin": "server_snapshot",
+      "source_snapshot": "stage2_pilot_execution_20260905",
+      "sha256": "5c791d835994f0ab89b159e055f971d3ab50f412cca8d3213128fb74fe318c16"
+    },
+    {
+      "path": "experiments/h9-stage1/R1_PROTOCOL.md",
+      "origin": "local_analysis_or_protocol_not_found_in_server_snapshot",
+      "sha256": "caacdcb7cf2612fc6da6a782c4c7d429a1ca48d68849222b3f6537cf2a23a6ce"
+    },
+    {
+      "path": "scripts/analyze_stage2_existing_data.py",
+      "origin": "local_analysis_or_protocol_not_found_in_server_snapshot",
+      "sha256": "1c0049fa57115f69ac7574b4062d82771b452c3a5026140d2f9a019c073997db"
+    },
+    {
+      "path": "scripts/audit_stage2_saved_search.py",
+      "origin": "local_analysis_or_protocol_not_found_in_server_snapshot",
+      "sha256": "9978ec53a45ca0b357b27f1977ce3c7034bd4a789e987aff1e3f5c471e91a776"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_attack_utility_calibration_v2_20260906/CALIBRATION_REPORT.json",
+      "origin": "server_evidence",
+      "sha256": "920c6e62024210b20341e3c5e446f093293ebba442dd9b75e67a95c91b37367f"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_attack_utility_calibration_v2_20260906/DESIGN.json",
+      "origin": "server_evidence",
+      "sha256": "3f6890d594179604caf88ce00091a34b8e88b995715005ab1d5af5cb30a91b78"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_attack_utility_calibration_v2_20260906/STATUS.json",
+      "origin": "server_evidence",
+      "sha256": "20e9a4cebf98a3220805085c6d22b604d7fdef26c30acdf6eec7383e1d749028"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_attack_utility_calibration_v2_20260906/UTILITY_SET.json",
+      "origin": "server_evidence",
+      "sha256": "2d96e1b7dccb4e84f7dccf4bbb8a82529e2293354d3ca857ae2e0ac1f9c291d4"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_attack_utility_calibration_v2_20260906/VERIFICATION.json",
+      "origin": "server_evidence",
+      "sha256": "b3d70f510599fb8d1d5f4d01ee28611d27511c875f82738357a0acbfa98720d3"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/PLAN.json",
+      "origin": "server_evidence",
+      "sha256": "6db1f93ef58aee873b45410c37b05ab4ef8f22c8acd09c2e60c9617e48826d7e"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/PREFLIGHT_REPORT.json",
+      "origin": "server_evidence",
+      "sha256": "69ac3311ff96fba9784200597309da6d73ec0fe37f8d5aaeb3ba17c4b349018b"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/PROMOTION.json",
+      "origin": "server_evidence",
+      "sha256": "8bfac49c6e8f63c7b365259d85392b56a833356f0e3ff32a0bd910dc11f80d86"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/PROXY_CALIBRATION.json",
+      "origin": "server_evidence",
+      "sha256": "6ddf6c7c57ae109037dcf0b2bca8dacd69318689f381769e3627dff840626211"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/REUSE_MANIFEST.json",
+      "origin": "server_evidence",
+      "sha256": "72721e86311495609a9728e80e301bf6ad01bd765d17276d3a5afb32d23d148e"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/STATUS.json",
+      "origin": "server_evidence",
+      "sha256": "8fbc53e326ca4fc18697426695f9e8664eb19308722f90b38a35779c6c36c12c"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/pilot_behavior/evaluation/PILOT_MATRIX.json",
+      "origin": "server_evidence",
+      "sha256": "d34f01fcfefd343fd73200a846f6597a00b0b3960093270b2566ba0a2b61580a"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/pilot_behavior/evaluation/PLAN.json",
+      "origin": "server_evidence",
+      "sha256": "7f9d9c35de1b866dd6640862c90e2e9fb19523498934b7abdbe62a75a7f2a1b8"
+    },
+    {
+      "path": "reproducibility/small-model-stage2-20260908/evidence/stage2_three_proxy_ceiling_v3_20260906/pilot_behavior/evaluation/STATUS.json",
+      "origin": "server_evidence",
+      "sha256": "2b132195d044bcaf610401f24f1c126d9108294a1ac39a5f28f4259c0083350e"
+    }
+  ]
+}

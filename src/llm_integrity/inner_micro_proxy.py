@@ -16,6 +16,10 @@ _BLOCK_PATTERNS = {
     "q_proj": re.compile(r"(?:^|\.)layers\.(\d+)\.self_attn\.q_proj\.weight$"),
     "v_proj": re.compile(r"(?:^|\.)layers\.(\d+)\.self_attn\.v_proj\.weight$"),
     "down_proj": re.compile(r"(?:^|\.)layers\.(\d+)\.mlp\.down_proj\.weight$"),
+    "k_proj": re.compile(r"(?:^|\.)layers\.(\d+)\.self_attn\.k_proj\.weight$"),
+    "o_proj": re.compile(r"(?:^|\.)layers\.(\d+)\.self_attn\.o_proj\.weight$"),
+    "gate_proj": re.compile(r"(?:^|\.)layers\.(\d+)\.mlp\.gate_proj\.weight$"),
+    "up_proj": re.compile(r"(?:^|\.)layers\.(\d+)\.mlp\.up_proj\.weight$"),
 }
 
 
@@ -61,10 +65,16 @@ class BlockMicroScore:
     probe_scores: tuple[float, ...]
 
 
-def discover_micro_blocks(model) -> list[MicroBlock]:
+def discover_micro_blocks(model, block_types=None) -> list[MicroBlock]:
+    # Preserve the historical default; Stage2 must explicitly request expansion.
+    block_types = tuple(("q_proj", "v_proj", "down_proj") if block_types is None else block_types)
+    if not block_types or len(set(block_types)) != len(block_types) or set(block_types) - set(_BLOCK_PATTERNS):
+        raise ValueError("Invalid micro block types")
     blocks: list[MicroBlock] = []
     for name, parameter in model.named_parameters():
         for block_type, pattern in _BLOCK_PATTERNS.items():
+            if block_type not in block_types:
+                continue
             match = pattern.search(name)
             if match is None:
                 continue

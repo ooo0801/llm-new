@@ -93,11 +93,15 @@ def main() -> None:
     parser.add_argument("--micro-records", required=True)
     parser.add_argument("--macro-records", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--block-types", default=",".join(BLOCK_TYPES))
     parser.add_argument(
         "--family-weights",
         default="0.2,0.2,0.2,0.2,0.2",
     )
     args = parser.parse_args()
+    block_types = tuple(args.block_types.split(","))
+    if not all(block_types) or len(set(block_types)) != len(block_types):
+        raise ValueError("Invalid block type list")
 
     micro_path = project_path(args.micro_records)
     macro_path = project_path(args.macro_records)
@@ -106,7 +110,7 @@ def main() -> None:
     micro = grouped_calibration(
         micro_records,
         group_key="block_type",
-        groups=BLOCK_TYPES,
+        groups=block_types,
         score_key="raw_micro_score",
     )
     macro = grouped_calibration(
@@ -131,7 +135,7 @@ def main() -> None:
 
     micro_target = statistics.median(
         micro[block]["normalized_gradient_norm"]["median"]
-        for block in BLOCK_TYPES
+        for block in block_types
     )
     macro_target = sum(
         family_weights[family]

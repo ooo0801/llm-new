@@ -1,0 +1,7 @@
+{
+  "phase": "CALIBRATION_COMPLETE",
+  "utc_unix": 1788630605.0939627,
+  "report_status": "PASS_FOR_STAGE3",
+  "can_proceed_stage3": true,
+  "endpoints": 54
+}

@@ -1,0 +1,14 @@
+{
+  "version": "stage2-small-v1",
+  "output": "results/stage2_qwen15b_20260905",
+  "model": {"name": "Qwen/Qwen2.5-1.5B-Instruct", "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306", "dtype": "bfloat16", "device_map": "auto", "local_files_only": true, "trust_remote_code": false, "eager_attention": true},
+  "seed": 2026090502,
+  "source_prompts": "experiments/prompt-reconstruction-32b-h6/inputs/construction_prompts_k60.jsonl",
+  "preflight": {"categories": ["logic", "math", "instruction", "structured"], "per_category": 3, "repetitions": 4, "minimum_correct": 3, "selected_count": 8, "max_new_tokens": 128},
+  "search": {"rounds": 14, "probes_inner": 4, "block_types": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"], "representative_layer_count": 4, "block_schedule": "balanced", "candidate_positions": 8, "candidates_per_position": 32, "rerank_candidates": 24, "gradient_restarts": 1, "variants_per_family": 2, "anchor_variants_per_family": 1, "family_aggregation": "mean", "family_gate_aggregation": "all_anchor_variants", "minimum_nondegraded_families": 5, "family_relative_tolerance": 0.01, "macro_weight": 1.0, "minimum_proxy_gain": 0.0, "ppl_ratio_limit": 2.0, "max_edit_ratio": 0.25, "max_input_tokens": 128, "calibration_probes": 4, "outer_probes": 8, "maximum_candidates_per_source": 2},
+  "legacy_overrides": {"rounds": 3, "probes_inner": 1, "block_types": ["q_proj", "v_proj", "down_proj"], "block_schedule": "legacy", "candidate_positions": 4, "candidates_per_position": 24, "rerank_candidates": 12, "variants_per_family": 1, "minimum_nondegraded_families": 3},
+  "proxy_diagnostics": {"primary": ["raw_logit_l2", "centered_logit_l2", "probability_l2", "js", "topk_change", "top1_flip"], "secondary": ["kl_intact_to_attack"], "top_k": 10, "context": "same complete chat-formatted prompt, first response token", "probability_temperature": 1.0, "js_log_base": "e", "l2_report": "norm; original optimization retains squared norm"},
+  "generation": {"max_input_tokens": 512, "max_new_tokens": 128, "temperature": 0.7, "top_p": 0.9, "top_k": 50, "batch_size": 1},
+  "statistics": {"permutations": 999, "alpha": 0.05, "tie_atol": 1e-12, "scope": "exploratory prompt-level comparisons, not certified model-level FPR"},
+  "execution": {"automatic_budget_expansion": false, "shutdown_server": false, "maximum_search_candidates_per_method": 16, "stage": "preflight_before_attack_freeze"}
+}

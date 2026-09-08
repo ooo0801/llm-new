@@ -1,0 +1,10 @@
+{
+  "phase": "PILOT_BEHAVIOR_COMPLETE",
+  "utc_unix": 1788671555.974647,
+  "decision": "STOP_NO_MEASURABLE_GAUSSIAN_LORA_SIGNAL",
+  "ranking": [
+    "js",
+    "raw_logit_l2",
+    "topk_continuous"
+  ]
+}

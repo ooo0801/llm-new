@@ -1,0 +1,11 @@
+{
+  "schema": "stage2-v3-reuse-v1",
+  "source": "results/stage2_three_proxy_ceiling_v2_20260906",
+  "artifacts": {
+    "preflight_responses.jsonl": "4d504fbee163746618c1c2abb32fc6a001c0cc1d02d98a5b3e079fa00021985b",
+    "PREFLIGHT_REPORT.json": "69ac3311ff96fba9784200597309da6d73ec0fe37f8d5aaeb3ba17c4b349018b",
+    "proxy_calibration_records.json": "4ea1a17089f5c41f47b76c3d84e474b26a3c95575c5cb4eed88543103831aa65",
+    "PROXY_CALIBRATION.json": "6ddf6c7c57ae109037dcf0b2bca8dacd69318689f381769e3627dff840626211"
+  },
+  "v3_plan_sha256": "6db1f93ef58aee873b45410c37b05ab4ef8f22c8acd09c2e60c9617e48826d7e"
+}

@@ -1,5 +1,20 @@
 # LLM Integrity Fingerprint
 
+## 本分支：小模型 Stage1 / Stage2（2026-09-08 归档）
+
+`experiment/small-model-stage2` 从 H9 提交 `a3e2f59` 派生，保存经服务器逐文件核对的小模型代码，**不是新的 32B 实验结果分支**。
+
+- Stage1：Qwen2.5-0.5B 的攻击/统计校准及 R1、R2 修复验证代码。
+- Stage2：Qwen2.5-1.5B 的增强 H6、攻击效用校准和 JS / Top-K 连续代理 / raw-logit L2 pilot。
+- 最新状态：三代理 pilot 完成，**无代理达到冻结晋级条件，未执行后续正式搜索和完整 held-out 比较**。不能据此宣称最佳代理或 Stage2 全部通过。
+- [小模型分支说明、复现边界与操作警告](docs/SMALL_MODEL_STAGE2.md)
+- [逐文件来源与 SHA256](reproducibility/small-model-stage2-20260908/SOURCE_PROVENANCE.json)
+- [冻结证据与验证结果](reproducibility/small-model-stage2-20260908/README.md)
+
+以下内容为继承的历史基线说明，涉及的 7B / 14B / 32B 结果不代表本分支的小模型结果。根目录 `PROJECT_MANIFEST.json` 也属于历史快照，当前新增文件以以上来源清单为准。
+
+## 历史项目概览
+
 基于敏感提示词指纹的云端开源大语言模型完整性验证研究代码。项目已完成两个相互独立、均可复现的闭环版本：V1 在 16 条候选的并集上选择 MCC12；V2 用 336 条独立广覆盖校准提示词估计全局可观察组件集合，并在同一 16 条候选上执行全局 MCC12 和全新的下游验证。
 
 ## 当前基线

@@ -1,0 +1,15 @@
+{
+  "version": "stage2-equivalent-wording-v2",
+  "policy": "Preserve operands, order relations, output schema and expected answers; no solved examples or answers added. Instruction prompts stay unchanged.",
+  "replacements": {
+    "logic_h6_b219e132deed": "比较三个人的身高。已知：戊的身高大于甲，甲的身高大于乙。请找出身高最大的人。回复只能是这个人的单字名字，不写解释或标点。",
+    "math_h6_508530e3d71e": "计算一道整数算术题：先将12乘以2，再给乘积加上11。回复只能是最终结果的整数数字，不写算式、步骤或其他文字。",
+    "structured_h6_ab6cbbad91f4": "输出一个表示代码审查的JSON对象，包含name、level、enabled三个字段，类型分别是字符串、整数、布尔值。回复会直接交给JSON解析器，因此从左花括号开始、到右花括号结束。不要使用Markdown代码围栏，也不要输出说明文字。",
+    "logic_h6_9d21034448c9": "有甲、乙、丙三个人，甲比乙高，乙比丙高。问：谁的身高最大？仅输出最高者的一个汉字名字，不输出句子、解释或标点。",
+    "math_h6_79241bbf388d": "计算一道整数算术题：先将8乘以3，再给乘积加上7。回复只能是最终结果的整数数字，不写算式、步骤或其他文字。",
+    "structured_h6_0400c9e6f3bd": "输出一个表示模型配置的JSON对象，包含name、level、enabled三个字段，类型分别是字符串、整数、布尔值。回复会直接交给JSON解析器，因此从左花括号开始、到右花括号结束。不要使用Markdown代码围栏，也不要输出说明文字。",
+    "logic_h6_22bdccec8314": "身高关系如下：甲的身高大于乙，乙的身高大于丙。需要回答三人中的最高者。请只写该人的一个汉字名字，不能添加分析、句子或标点。",
+    "math_h6_7ee8c8c33c09": "计算一道整数算术题：先将13乘以4，再给乘积加上12。回复只能是最终结果的整数数字，不写算式、步骤或其他文字。",
+    "structured_h6_090866e7729d": "请返回表示模型配置的原始JSON文本。对象中必须有name字符串字段、level整数字段和enabled布尔字段。请从左花括号直接开始，到右花括号结束；不要加反引号、Markdown围栏或任何解释。"
+  }
+}

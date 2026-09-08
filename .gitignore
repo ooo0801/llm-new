@@ -50,3 +50,14 @@ backups/
 *.bak
 *.bak_*
 untitled.py
+
+# Small-model execution snapshots and bulk archives remain outside Git.
+*_execution_*/
+responses/
+logs/
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.lock
+*.prefiveproxy_*.py

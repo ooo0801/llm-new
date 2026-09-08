@@ -134,7 +134,8 @@ def generate_texts(
     prompts: list[str],
     generation_config: Mapping[str, Any],
     seed: int | None = None,
-) -> list[str]:
+    return_metadata: bool = False,
+) -> list:
     import torch
 
     if seed is not None:
@@ -164,7 +165,18 @@ def generate_texts(
         )
     with torch.inference_mode():
         generated = bundle.model.generate(**encoded, **kwargs)
-    return bundle.tokenizer.batch_decode(generated[:, input_length:], skip_special_tokens=True)
+    output_ids = generated[:, input_length:]
+    texts = bundle.tokenizer.batch_decode(output_ids, skip_special_tokens=True)
+    if not return_metadata:
+        return texts
+    eos = bundle.tokenizer.eos_token_id
+    results = []
+    for text, ids in zip(texts, output_ids.tolist(), strict=True):
+        ended = eos in ids
+        effective_count = ids.index(eos)+1 if ended else len(ids)
+        results.append({"text": text, "token_count": effective_count,
+                        "truncated": not ended and len(ids) >= kwargs["max_new_tokens"]})
+    return results
 
 
 def next_token_logits(

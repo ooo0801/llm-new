@@ -207,7 +207,29 @@ def main() -> None:
             sequential_model_execution=bool(
                 settings.get("sequential_model_execution", False)
             ),
+            block_types=tuple(settings.get("block_types", ["q_proj", "v_proj", "down_proj"])),
+            representative_layer_count=int(settings.get("representative_layer_count", 4)),
+            block_schedule=str(settings.get("block_schedule", "legacy")),
+            task_validation_mode=str(settings.get("task_validation_mode", "legacy")),
         )
+        effective = {
+            "rounds": optimizer.rounds, "probes_inner": optimizer.probes,
+            "block_types": list(optimizer.block_types), "representative_layers": list(optimizer.layers),
+            "block_schedule": optimizer.block_schedule, "candidate_positions": optimizer.candidate_positions,
+            "candidates_per_position": optimizer.candidates_per_position,
+            "rerank_candidates": optimizer.rerank_candidates, "variants_per_family": optimizer.variants_per_family,
+            "anchor_variants_per_family": optimizer.anchor_variants_per_family,
+            "minimum_nondegraded_families": optimizer.minimum_nondegraded_families,
+            "ppl_ratio_limit": optimizer.ppl_ratio_limit, "max_edit_ratio": optimizer.max_edit_ratio,
+            "optimization_max_length": optimizer.max_length,
+            "task_validation_mode": optimizer.task_validation_mode,
+            "config_sha256": sha256(config_path), "calibration_sha256": sha256(calibration_path),
+        }
+        for previous in results:
+            previous_effective = previous.get("effective_search_parameters")
+            if ((previous_effective is not None and previous_effective != effective)
+                    or (previous_effective is None and optimizer.block_schedule == "balanced")):
+                raise ValueError("Resume configuration differs or lacks parameter binding; use a new output")
         for index, row in enumerate(prompts, start=1):
             prompt_id = str(row.get("id", row.get("prompt_id")))
             if prompt_id in completed:
@@ -215,6 +237,7 @@ def main() -> None:
             result = optimizer.optimize(row)
             payload = {
                 **result.payload(),
+                "effective_search_parameters": effective,
                 "category": row.get("category", "unknown"),
                 "source": row.get("source"),
                 "evaluator": row.get("evaluator"),

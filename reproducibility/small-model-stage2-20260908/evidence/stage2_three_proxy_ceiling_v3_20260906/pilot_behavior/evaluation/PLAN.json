@@ -1,0 +1,1136 @@
+{
+  "schema": "stage2-three-proxy-pilot-behavior-v1",
+  "model": {
+    "name": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "dtype": "bfloat16",
+    "device_map": "auto",
+    "local_files_only": true,
+    "trust_remote_code": false,
+    "eager_attention": true
+  },
+  "prompts": [
+    {
+      "id": "u_9aa93296693fc3a8",
+      "category": "logic",
+      "template": "familiar_chain_高_0",
+      "prompt": "小明比小红高，小红比小刚高。谁最高？只回答名称，不解释。",
+      "expected_answer": "小明",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_84a361849cb7469a",
+      "category": "logic",
+      "template": "familiar_chain_高_1",
+      "prompt": "小林比小王高，小王比小周高。谁最高？只回答名称，不解释。",
+      "expected_answer": "小林",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_39b09e4cfebc2cb6",
+      "category": "logic",
+      "template": "familiar_chain_高_0",
+      "prompt": "甲队比乙队高，乙队比丙队高。谁最高？只回答名称，不解释。",
+      "expected_answer": "甲队",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_d1c3c044ee3bf663",
+      "category": "math",
+      "template": "arithmetic_2",
+      "prompt": "计算 6×6。只输出最终整数，不写过程。",
+      "expected_answer": "36",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_9090d1d65d31ca69",
+      "category": "math",
+      "template": "arithmetic_3",
+      "prompt": "计算 20+29。只输出最终整数，不写过程。",
+      "expected_answer": "49",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_f5ae4adff556b136",
+      "category": "math",
+      "template": "arithmetic_0",
+      "prompt": "计算 88-15。只输出最终整数，不写过程。",
+      "expected_answer": "73",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_f602cf581a7a99f6",
+      "category": "extraction",
+      "template": "方括号",
+      "prompt": "从字符串“左段[松涛]右段”中提取方括号里的两个汉字，只输出提取结果。",
+      "expected_answer": "松涛",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_4c44e439b8a59ba5",
+      "category": "extraction",
+      "template": "尖括号",
+      "prompt": "从字符串“左段<远帆>右段”中提取尖括号里的两个汉字，只输出提取结果。",
+      "expected_answer": "远帆",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_adbfc9222ba4b279",
+      "category": "extraction",
+      "template": "花括号",
+      "prompt": "从字符串“左段{星河}右段”中提取花括号里的两个汉字，只输出提取结果。",
+      "expected_answer": "星河",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_33b529c3dad808d0",
+      "category": "classification",
+      "template": "parity_1",
+      "prompt": "判断整数 46 的奇偶性。偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "偶",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_00540bb862aa69af",
+      "category": "classification",
+      "template": "parity_3",
+      "prompt": "判断整数 64 的奇偶性。偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "偶",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_ecfcb1ac3016d8bd",
+      "category": "classification",
+      "template": "parity_2",
+      "prompt": "判断整数 73 的奇偶性。偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "奇",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_9ee0df44ee6cfe9d",
+      "category": "instruction",
+      "template": "copy_0",
+      "prompt": "严格原样输出“春风春风”，不要引号、标点或解释。",
+      "expected_answer": "春风春风",
+      "evaluator": "compact",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_8164c57cdf8f161b",
+      "category": "instruction",
+      "template": "copy_1",
+      "prompt": "严格原样输出“夏雨”，不要引号、标点或解释。",
+      "expected_answer": "夏雨",
+      "evaluator": "compact",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_f1df276b7ffdb453",
+      "category": "structured",
+      "template": "json_0",
+      "prompt": "严格输出JSON数组，内容为从2开始的三个连续整数。不要代码块或解释。",
+      "expected_answer": "[2,3,4]",
+      "evaluator": "json",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_2df76506cd4a2370",
+      "category": "structured",
+      "template": "json_1",
+      "prompt": "严格输出一个JSON对象，唯一键为“k1”，整数值为11。不要代码块或解释。",
+      "expected_answer": "{\"k1\":11}",
+      "evaluator": "json",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_1cc5aad423d179c8",
+      "category": "logic",
+      "template": "familiar_chain_高_0",
+      "prompt": "小明比小红高，小红比小刚高。谁王国？只回答名称，不解释。",
+      "expected_answer": "小明",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_75499b776e7d8406",
+      "category": "logic",
+      "template": "familiar_chain_高_1",
+      "prompt": "小林比小王高，小王比小周高。獒最高elementGuidId只回答名称，不解释。",
+      "expected_answer": "小林",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_00da128f5039d0df",
+      "category": "logic",
+      "template": "familiar_chain_高_0",
+      "prompt": "ukkit队比乙队高，乙队比丙队高。谁最高？只回答名称，不解释。",
+      "expected_answer": "甲队",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_95a734881fa5ac59",
+      "category": "math",
+      "template": "arithmetic_2",
+      "prompt": "计算 6×6 PROGMEM只输出最终整数，不写过程。",
+      "expected_answer": "36",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_d9558faeefb63415",
+      "category": "math",
+      "template": "arithmetic_3",
+      "prompt": "计算 20+29。只输出最终整burger，不写过程。",
+      "expected_answer": "49",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_033a7fc3eb6ebbdf",
+      "category": "extraction",
+      "template": "方括号",
+      "prompt": "从字符串“左段[松涛]右段agal中提取方括号里的两个汉字，只输出提取结果。",
+      "expected_answer": "松涛",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_fce996c7deb1978a",
+      "category": "extraction",
+      "template": "尖括号",
+      "prompt": "从字符串“左段<远帆>右段”中_bind尖括号里的两个汉字，只输出提取结果。",
+      "expected_answer": "远帆",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_25219d9b653c0b11",
+      "category": "extraction",
+      "template": "花括号",
+      "prompt": " sucking字符串“左段{星河}右段”中提取花括号里的两个汉字，只输出提取结果。",
+      "expected_answer": "星河",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_f745b4a79855fc3b",
+      "category": "classification",
+      "template": "parity_1",
+      "prompt": "判断整 İz 46 的奇偶性。偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "偶",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_5633a531fbd3ecae",
+      "category": "classification",
+      "template": "parity_3",
+      "prompt": "判断整数 64 的奇偶modele。偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "偶",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_dbb918725a0b54c1",
+      "category": "classification",
+      "template": "parity_2",
+      "prompt": "判断整 Genç 73 的奇偶性。偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "奇",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_61c5d228edb92aec",
+      "category": "instruction",
+      "template": "copy_0",
+      "prompt": "严格原样---\n\n“春风春风”，不要引号、标点或解释。",
+      "expected_answer": "春风春风",
+      "evaluator": "compact",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_36c01f151cd22328",
+      "category": "instruction",
+      "template": "copy_1",
+      "prompt": "严格原.minecraft输出“夏雨”，不要引号&&!标点或解释。",
+      "expected_answer": "夏雨",
+      "evaluator": "compact",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_df735f2c3e335dea",
+      "category": "structured",
+      "template": "json_0",
+      "prompt": "严格输出ASON数组，内容为从2开始的三个连续整数。不要代码块或解释。",
+      "expected_answer": "[2,3,4]",
+      "evaluator": "json",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_8ddea1ee4fa2de07",
+      "category": "structured",
+      "template": "json_1",
+      "prompt": "严格输出一个qué对象，唯一键为>equalsk1”，整数值为11。不要代码块或解释。",
+      "expected_answer": "{\"k1\":11}",
+      "evaluator": "json",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_c6aff6370cfda4ee",
+      "category": "logic",
+      "template": "familiar_chain_高_0",
+      "prompt": "小明比小红高，小红比小刚高。ich王国？只回答名称，不解释。",
+      "expected_answer": "小明",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_7461dc94b4482d48",
+      "category": "logic",
+      "template": "familiar_chain_高_1",
+      "prompt": "小林比小王高，小王比小周高。CloseOperation最高？只回答名称，不解释。",
+      "expected_answer": "小林",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_53b9f3a1c389897a",
+      "category": "logic",
+      "template": "familiar_chain_高_0",
+      "prompt": "甲队比乙队高，乙队比丙队高。谁法师职业？只回答名称，不解释。",
+      "expected_answer": "甲队",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_38d7f3739371763e",
+      "category": "math",
+      "template": "arithmetic_2",
+      "prompt": "计算 6×6egie只输出最终整数，不写过程。",
+      "expected_answer": "36",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_55543d91c3cc372a",
+      "category": "math",
+      "template": "arithmetic_3",
+      "prompt": "计算 20+29 ****************************************************************************只输出最终整数，不写过程傍",
+      "expected_answer": "49",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_243fdd657f819890",
+      "category": "math",
+      "template": "arithmetic_0",
+      "prompt": "计算 88-15ValueCollection只输出最终整数，不写过程。",
+      "expected_answer": "73",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_8df1b976d8d3c87d",
+      "category": "extraction",
+      "template": "方括号",
+      "prompt": "从字符串“左段[松涛]右段”中提取方括号里的两个asc，只输出提取结果。",
+      "expected_answer": "松涛",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_3b0b2763d2c4debc",
+      "category": "extraction",
+      "template": "花括号",
+      "prompt": "从字符串“左段{星河}右段”中 vendor花括号里的两个汉字，只输出提取结果。",
+      "expected_answer": "星河",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_e9a518df2e12f359",
+      "category": "instruction",
+      "template": "copy_0",
+      "prompt": "严格原样/*----------------------------------------------------------------------------“春风春风”，ノ引号、标点或解释。",
+      "expected_answer": "春风春风",
+      "evaluator": "compact",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_207d056a212f98f3",
+      "category": "instruction",
+      "template": "copy_1",
+      "prompt": "严格原.minecraft输出“夏雨”，不要引号、标点或解释。",
+      "expected_answer": "夏雨",
+      "evaluator": "compact",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_1747eb0881294022",
+      "category": "structured",
+      "template": "json_0",
+      "prompt": "严格输出 overd数组，内容为从2开始的三个连续整数。不要代码块或解释。",
+      "expected_answer": "[2,3,4]",
+      "evaluator": "json",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_ecdde1285df483a1",
+      "category": "structured",
+      "template": "json_1",
+      "prompt": "严格输出一个JSON对象，唯一键为“k1”，整数值为11。enum FRONT块或解释。",
+      "expected_answer": "{\"k1\":11}",
+      "evaluator": "json",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_6ba216fcebe60de0",
+      "category": "logic",
+      "template": "familiar_chain_高_0",
+      "prompt": "小明比小红高，小红比小刚高。谁最高strtotime只回答名称，不解释。",
+      "expected_answer": "小明",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_83a381cf600c43bc",
+      "category": "logic",
+      "template": "familiar_chain_高_1",
+      "prompt": "小林比小王高..\n\n\n\n小王比小周高。谁最高？只回答名称，不解释。",
+      "expected_answer": "小林",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_2481dd8f183834e6",
+      "category": "logic",
+      "template": "familiar_chain_高_0",
+      "prompt": " local队比乙队高，乙队比丙队高。谁最高？只回答名称，不解释。",
+      "expected_answer": "甲队",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_b352cbf0e7de37a0",
+      "category": "math",
+      "template": "arithmetic_2",
+      "prompt": "计算 6可靠性6。只输出最终整.，不写过程。",
+      "expected_answer": "36",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_e171bbb6aea24708",
+      "category": "math",
+      "template": "arithmetic_3",
+      "prompt": "计算 20+29。只输出最终整数，不写过程 Governance",
+      "expected_answer": "49",
+      "evaluator": "number",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_2303a5248245ac0d",
+      "category": "extraction",
+      "template": "方括号",
+      "prompt": "从字符串“左段[松涛]右段”中提取方括号里的两个汉字，只输出提取结果 penet",
+      "expected_answer": "松涛",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_5558b2ff136807a4",
+      "category": "extraction",
+      "template": "花括号",
+      "prompt": "从字符串“左段{星河}右段”中提取花括号里的两个汉字，只输出提取结果 penet",
+      "expected_answer": "星河",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_a16bcbc0d69cb15f",
+      "category": "classification",
+      "template": "parity_1",
+      "prompt": "判断整 <\", 46 的奇偶性。偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "偶",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_cb7e18e092963a9d",
+      "category": "classification",
+      "template": "parity_3",
+      "prompt": "反击整数 Crime64 的奇偶性。偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "偶",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_a1af11ded34026f0",
+      "category": "classification",
+      "template": "parity_2",
+      "prompt": "判断整数厌恶73 的奇偶性\n偶数只输出“偶”，奇数只输出“奇”。",
+      "expected_answer": "奇",
+      "evaluator": "token",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_90de386b0bddfd4a",
+      "category": "instruction",
+      "template": "copy_0",
+      "prompt": "严格原jspx输出“春风春风”，不要引号、标点或解释。",
+      "expected_answer": "春风春风",
+      "evaluator": "compact",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_c09cbdf2b07f167a",
+      "category": "instruction",
+      "template": "copy_1",
+      "prompt": "严格原样输出 and夏雨”，不要引号、标点或解释。",
+      "expected_answer": "夏雨",
+      "evaluator": "compact",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_fb94fa6482f5a12b",
+      "category": "structured",
+      "template": "json_0",
+      "prompt": " Cald输出JSON数组，内容为从2开始的三个连续整数。不要代码块afety解释。",
+      "expected_answer": "[2,3,4]",
+      "evaluator": "json",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    },
+    {
+      "id": "u_6c1cb644f7886192",
+      "category": "structured",
+      "template": "json_1",
+      "prompt": "严格输出一个evenodd上，唯一键为“k1”，整数值为11。不要代码块或解释。",
+      "expected_answer": "{\"k1\":11}",
+      "evaluator": "json",
+      "correct": 4,
+      "modal_response_count": 4,
+      "valid": true
+    }
+  ],
+  "aliases": [
+    {
+      "prompt_id": "u_9aa93296693fc3a8",
+      "method": "source",
+      "source_id": "pool_logic_v2_00",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_84a361849cb7469a",
+      "method": "source",
+      "source_id": "pool_logic_v2_01",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_39b09e4cfebc2cb6",
+      "method": "source",
+      "source_id": "pool_logic_v2_04",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_d1c3c044ee3bf663",
+      "method": "source",
+      "source_id": "pool_math_02",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_9090d1d65d31ca69",
+      "method": "source",
+      "source_id": "pool_math_03",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_f5ae4adff556b136",
+      "method": "source",
+      "source_id": "pool_math_04",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_f602cf581a7a99f6",
+      "method": "source",
+      "source_id": "pool_extract_00",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_4c44e439b8a59ba5",
+      "method": "source",
+      "source_id": "pool_extract_01",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_adbfc9222ba4b279",
+      "method": "source",
+      "source_id": "pool_extract_02",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_33b529c3dad808d0",
+      "method": "source",
+      "source_id": "pool_class_05",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_00540bb862aa69af",
+      "method": "source",
+      "source_id": "pool_class_11",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_ecfcb1ac3016d8bd",
+      "method": "source",
+      "source_id": "pool_class_14",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_9ee0df44ee6cfe9d",
+      "method": "source",
+      "source_id": "pool_instr_00",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_8164c57cdf8f161b",
+      "method": "source",
+      "source_id": "pool_instr_01",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_f1df276b7ffdb453",
+      "method": "source",
+      "source_id": "pool_struct_00",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_2df76506cd4a2370",
+      "method": "source",
+      "source_id": "pool_struct_01",
+      "proxy_gain": 0.0
+    },
+    {
+      "prompt_id": "u_1cc5aad423d179c8",
+      "method": "js",
+      "source_id": "pool_logic_v2_00",
+      "proxy_gain": 200.8984082213597
+    },
+    {
+      "prompt_id": "u_75499b776e7d8406",
+      "method": "js",
+      "source_id": "pool_logic_v2_01",
+      "proxy_gain": 641.7810346811054
+    },
+    {
+      "prompt_id": "u_00da128f5039d0df",
+      "method": "js",
+      "source_id": "pool_logic_v2_04",
+      "proxy_gain": 461.49393536938555
+    },
+    {
+      "prompt_id": "u_95a734881fa5ac59",
+      "method": "js",
+      "source_id": "pool_math_02",
+      "proxy_gain": 2078.5717304686937
+    },
+    {
+      "prompt_id": "u_d9558faeefb63415",
+      "method": "js",
+      "source_id": "pool_math_03",
+      "proxy_gain": 130.2539593135555
+    },
+    {
+      "prompt_id": "u_033a7fc3eb6ebbdf",
+      "method": "js",
+      "source_id": "pool_extract_00",
+      "proxy_gain": 1248.0047254654987
+    },
+    {
+      "prompt_id": "u_fce996c7deb1978a",
+      "method": "js",
+      "source_id": "pool_extract_01",
+      "proxy_gain": 1540.8160978906758
+    },
+    {
+      "prompt_id": "u_25219d9b653c0b11",
+      "method": "js",
+      "source_id": "pool_extract_02",
+      "proxy_gain": 2230.2628083238023
+    },
+    {
+      "prompt_id": "u_f745b4a79855fc3b",
+      "method": "js",
+      "source_id": "pool_class_05",
+      "proxy_gain": 184.03821081671978
+    },
+    {
+      "prompt_id": "u_5633a531fbd3ecae",
+      "method": "js",
+      "source_id": "pool_class_11",
+      "proxy_gain": 167.0515964721571
+    },
+    {
+      "prompt_id": "u_dbb918725a0b54c1",
+      "method": "js",
+      "source_id": "pool_class_14",
+      "proxy_gain": 713.0746827065416
+    },
+    {
+      "prompt_id": "u_61c5d228edb92aec",
+      "method": "js",
+      "source_id": "pool_instr_00",
+      "proxy_gain": 215.81229237686364
+    },
+    {
+      "prompt_id": "u_36c01f151cd22328",
+      "method": "js",
+      "source_id": "pool_instr_01",
+      "proxy_gain": 471.3526612516491
+    },
+    {
+      "prompt_id": "u_df735f2c3e335dea",
+      "method": "js",
+      "source_id": "pool_struct_00",
+      "proxy_gain": 238.61241666991384
+    },
+    {
+      "prompt_id": "u_8ddea1ee4fa2de07",
+      "method": "js",
+      "source_id": "pool_struct_01",
+      "proxy_gain": 708.6190053491641
+    },
+    {
+      "prompt_id": "u_c6aff6370cfda4ee",
+      "method": "topk_continuous",
+      "source_id": "pool_logic_v2_00",
+      "proxy_gain": 946.9795624226756
+    },
+    {
+      "prompt_id": "u_7461dc94b4482d48",
+      "method": "topk_continuous",
+      "source_id": "pool_logic_v2_01",
+      "proxy_gain": 2532.3083372458063
+    },
+    {
+      "prompt_id": "u_53b9f3a1c389897a",
+      "method": "topk_continuous",
+      "source_id": "pool_logic_v2_04",
+      "proxy_gain": 1312.866357222729
+    },
+    {
+      "prompt_id": "u_38d7f3739371763e",
+      "method": "topk_continuous",
+      "source_id": "pool_math_02",
+      "proxy_gain": 451.8140864619172
+    },
+    {
+      "prompt_id": "u_55543d91c3cc372a",
+      "method": "topk_continuous",
+      "source_id": "pool_math_03",
+      "proxy_gain": 168.04374542820312
+    },
+    {
+      "prompt_id": "u_243fdd657f819890",
+      "method": "topk_continuous",
+      "source_id": "pool_math_04",
+      "proxy_gain": 2024.9986832525028
+    },
+    {
+      "prompt_id": "u_8df1b976d8d3c87d",
+      "method": "topk_continuous",
+      "source_id": "pool_extract_00",
+      "proxy_gain": 7762.986537883365
+    },
+    {
+      "prompt_id": "u_fce996c7deb1978a",
+      "method": "topk_continuous",
+      "source_id": "pool_extract_01",
+      "proxy_gain": 13872.985430126688
+    },
+    {
+      "prompt_id": "u_3b0b2763d2c4debc",
+      "method": "topk_continuous",
+      "source_id": "pool_extract_02",
+      "proxy_gain": 8439.160890114934
+    },
+    {
+      "prompt_id": "u_e9a518df2e12f359",
+      "method": "topk_continuous",
+      "source_id": "pool_instr_00",
+      "proxy_gain": 3276.6623628500274
+    },
+    {
+      "prompt_id": "u_207d056a212f98f3",
+      "method": "topk_continuous",
+      "source_id": "pool_instr_01",
+      "proxy_gain": 531.085043984801
+    },
+    {
+      "prompt_id": "u_1747eb0881294022",
+      "method": "topk_continuous",
+      "source_id": "pool_struct_00",
+      "proxy_gain": 7565.941763102561
+    },
+    {
+      "prompt_id": "u_ecdde1285df483a1",
+      "method": "topk_continuous",
+      "source_id": "pool_struct_01",
+      "proxy_gain": 1526.852736805642
+    },
+    {
+      "prompt_id": "u_6ba216fcebe60de0",
+      "method": "raw_logit_l2",
+      "source_id": "pool_logic_v2_00",
+      "proxy_gain": 1.9852162630583736
+    },
+    {
+      "prompt_id": "u_83a381cf600c43bc",
+      "method": "raw_logit_l2",
+      "source_id": "pool_logic_v2_01",
+      "proxy_gain": 0.6232779128835202
+    },
+    {
+      "prompt_id": "u_2481dd8f183834e6",
+      "method": "raw_logit_l2",
+      "source_id": "pool_logic_v2_04",
+      "proxy_gain": 1.6138364078440794
+    },
+    {
+      "prompt_id": "u_b352cbf0e7de37a0",
+      "method": "raw_logit_l2",
+      "source_id": "pool_math_02",
+      "proxy_gain": 24.06917871574625
+    },
+    {
+      "prompt_id": "u_e171bbb6aea24708",
+      "method": "raw_logit_l2",
+      "source_id": "pool_math_03",
+      "proxy_gain": 1.7552575753639577
+    },
+    {
+      "prompt_id": "u_2303a5248245ac0d",
+      "method": "raw_logit_l2",
+      "source_id": "pool_extract_00",
+      "proxy_gain": 10.182702052872628
+    },
+    {
+      "prompt_id": "u_5558b2ff136807a4",
+      "method": "raw_logit_l2",
+      "source_id": "pool_extract_02",
+      "proxy_gain": 16.131728725622153
+    },
+    {
+      "prompt_id": "u_a16bcbc0d69cb15f",
+      "method": "raw_logit_l2",
+      "source_id": "pool_class_05",
+      "proxy_gain": 4.187004236214866
+    },
+    {
+      "prompt_id": "u_cb7e18e092963a9d",
+      "method": "raw_logit_l2",
+      "source_id": "pool_class_11",
+      "proxy_gain": 2.5943032540390325
+    },
+    {
+      "prompt_id": "u_a1af11ded34026f0",
+      "method": "raw_logit_l2",
+      "source_id": "pool_class_14",
+      "proxy_gain": 9.618344001462196
+    },
+    {
+      "prompt_id": "u_90de386b0bddfd4a",
+      "method": "raw_logit_l2",
+      "source_id": "pool_instr_00",
+      "proxy_gain": 2.9036011933833867
+    },
+    {
+      "prompt_id": "u_c09cbdf2b07f167a",
+      "method": "raw_logit_l2",
+      "source_id": "pool_instr_01",
+      "proxy_gain": 3.2710709896504904
+    },
+    {
+      "prompt_id": "u_fb94fa6482f5a12b",
+      "method": "raw_logit_l2",
+      "source_id": "pool_struct_00",
+      "proxy_gain": 16.898428505546203
+    },
+    {
+      "prompt_id": "u_6c1cb644f7886192",
+      "method": "raw_logit_l2",
+      "source_id": "pool_struct_01",
+      "proxy_gain": 5.385806462783704
+    }
+  ],
+  "variants": [
+    {
+      "variant_id": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "grid_index": 5,
+      "intensity": 0.006,
+      "seed": 20269150,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.006,
+        "target_scope": "attention_ffn"
+      },
+      "strength": "medium",
+      "calibration_group_intensity": 0.006
+    },
+    {
+      "variant_id": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "grid_index": 5,
+      "intensity": 0.006,
+      "seed": 20269151,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.006,
+        "target_scope": "attention_ffn"
+      },
+      "strength": "medium",
+      "calibration_group_intensity": 0.006
+    },
+    {
+      "variant_id": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "grid_index": 2,
+      "intensity": 0.006,
+      "seed": 20269220,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 60,
+        "target_scope": "attention_ffn"
+      },
+      "strength": "medium",
+      "calibration_group_intensity": 0.006
+    },
+    {
+      "variant_id": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "grid_index": 2,
+      "intensity": 0.006,
+      "seed": 20269221,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 60,
+        "target_scope": "attention_ffn"
+      },
+      "strength": "medium",
+      "calibration_group_intensity": 0.006
+    }
+  ],
+  "responses_per_prompt_endpoint": 4,
+  "generation": {
+    "max_input_tokens": 512,
+    "max_new_tokens": 128,
+    "do_sample": true,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 50
+  },
+  "statistics": {
+    "permutations": 199,
+    "alpha": 0.05,
+    "tie_atol": 1e-12
+  },
+  "semantic": {
+    "name": "BAAI/bge-small-zh-v1.5",
+    "revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "weight_sha256": "354763b9b1357bc9c44f62c6be2276321081ed2567773608c0d0785b61d5a026",
+    "max_seq_length": 512,
+    "normalize_embeddings": true
+  },
+  "semantic_model": {
+    "repo": "BAAI/bge-small-zh-v1.5",
+    "revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "snapshot": "/root/autodl-tmp/huggingface/hub/models--BAAI--bge-small-zh-v1.5/snapshots/7999e1d3359715c523056ef9478215996d62a620",
+    "files_sha256": {
+      "1_Pooling/config.json": "aaa8861589f80c961a03cc86c7eeaef7605c1676b9ab55329d33a304738769c6",
+      "config.json": "3853a7979202c348751b753e36f579c41d8da7d36af617d3d907e1fc9b441f2a",
+      "config_sentence_transformers.json": "940d5f50db195fa6e5e6a4f122c095f77880de259d74b14a65779ed48bdd7c56",
+      "model.safetensors": "354763b9b1357bc9c44f62c6be2276321081ed2567773608c0d0785b61d5a026",
+      "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "sentence_bert_config.json": "84e39fda68ccbff05bfa723ae9c0e70e23e2ec373b76e0f8c6e71af72a693cbf",
+      "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "tokenizer.json": "48cea5d44424912a6fd1ea647bf4fe50b55ab8b1e5879c3275f80e339e8fae26",
+      "tokenizer_config.json": "e6f3b96db926a37d4039995fbf5ad17de158dfb8f6343d607e4dbaad18d75f5a",
+      "vocab.txt": "45bbac6b341c319adc98a532532882e91a9cefc0329aa57bac9ae761c27b291c"
+    }
+  },
+  "packages": {
+    "torch": "2.5.1+cu121",
+    "transformers": "4.57.6",
+    "sentence-transformers": "5.7.0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "peft": "0.20.0",
+    "bitsandbytes": "0.50.1"
+  },
+  "banks": {
+    "intact_reference": {
+      "count": 228,
+      "sha256": "da27fe641424a0f1648a5289ca60c4acc2cd3b5b8ddf2629be26ff74827e1f3b"
+    },
+    "intact_null": {
+      "count": 228,
+      "sha256": "f00a520ae11f18cbf8d4444bac96273e3939849e36a53a87a84d79081cfdfc90"
+    },
+    "cal_gaussian_g05_s0": {
+      "count": 228,
+      "sha256": "d58abce0a0b145db4dfdfc77e4fd51b1a42dd357f51ccc0b4c2f372016106448"
+    },
+    "cal_gaussian_g05_s1": {
+      "count": 228,
+      "sha256": "46a90b2f149e4e3be467703094e21431a2816e32a1a14270254304ffdf6d59e9"
+    },
+    "cal_lora_g02_s0": {
+      "count": 228,
+      "sha256": "ef82cf9d800289be5e2725f14953a68ba5e00b945534c9df00ab5bddd36c2cd2"
+    },
+    "cal_lora_g02_s1": {
+      "count": 228,
+      "sha256": "f6bbbc267728b7c747e8c9a6b361f0d16d5f2606a8f68189fe503cc53c43f347"
+    }
+  },
+  "response_budget": 1368,
+  "search_plan_sha256": "6db1f93ef58aee873b45410c37b05ab4ef8f22c8acd09c2e60c9617e48826d7e",
+  "preflight_sha256": "69ac3311ff96fba9784200597309da6d73ec0fe37f8d5aaeb3ba17c4b349018b",
+  "promotion_sha256": null,
+  "validity": "intact response modal count; attacked local task correctness is not a gate",
+  "channels": "Raw primary, H8 separately reported in formal stage; no OR rule"
+}

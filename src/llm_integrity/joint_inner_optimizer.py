@@ -79,6 +79,8 @@ class JointInnerOptimizer:
         max_length: int = 64,
         max_edit_ratio: float = 0.25,
         ppl_ratio_limit: float = 2.0,
+        block_types: tuple[str, ...] = ("q_proj", "v_proj", "down_proj"),
+        representative_layer_count: int = 4,
     ) -> None:
         self.reference = reference
         self.sampler = sampler
@@ -108,9 +110,10 @@ class JointInnerOptimizer:
         self.max_length = int(max_length)
         self.max_edit_ratio = float(max_edit_ratio)
         self.ppl_ratio_limit = float(ppl_ratio_limit)
-        self.blocks = discover_micro_blocks(reference.model)
-        self.layers = representative_layers(self.blocks, 4)
-        self.block_types = ("q_proj", "v_proj", "down_proj")
+        self.block_types = tuple(block_types)
+        self.representative_layer_count = int(representative_layer_count)
+        self.blocks = discover_micro_blocks(reference.model, self.block_types)
+        self.layers = representative_layers(self.blocks, self.representative_layer_count)
         self._freeze(reference)
 
     @staticmethod
@@ -200,7 +203,10 @@ class JointInnerOptimizer:
             use_cache=False,
             return_dict=True,
         )
-        return output.logits[:, -1, :].float()
+        logits = output.logits[:, -1, :].float()
+        if logits.shape[0] != 1:
+            raise ValueError("Prompt optimization expects batch size one")
+        return logits[0]
 
     @staticmethod
     def _clip_component(

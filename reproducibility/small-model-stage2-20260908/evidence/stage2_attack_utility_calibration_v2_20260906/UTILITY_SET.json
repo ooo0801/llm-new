@@ -1,0 +1,752 @@
+{
+  "status": "FROZEN",
+  "prompts": [
+    {
+      "id": "s2cal_logic_00",
+      "prompt": "甲比乙高，乙比丙高。谁最矮？只输出一个汉字。",
+      "expected_answer": "丙",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_01",
+      "prompt": "丁比戊重，戊比己重。谁最重？只输出一个汉字。",
+      "expected_answer": "丁",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_05",
+      "prompt": "松树比柏树高，柏树比柳树高。哪种树最矮？只输出树名。",
+      "expected_answer": "柳树",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_09",
+      "prompt": "A排在B前面，B排在C前面。谁排在最后？只输出字母。",
+      "expected_answer": "C",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_10",
+      "prompt": "猫比狗轻，狗比羊轻。哪种动物最重？只输出动物名。",
+      "expected_answer": "羊",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_11",
+      "prompt": "书架甲比书架乙宽，书架乙比书架丙宽。最窄的是哪个？只输出代号。",
+      "expected_answer": "丙",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_13",
+      "prompt": "灯A比灯B亮，灯B比灯C亮。最暗的是哪盏？只输出字母。",
+      "expected_answer": "C",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_15",
+      "prompt": "温度甲低于乙，乙低于丙。温度最高的是谁？只输出代号。",
+      "expected_answer": "丙",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_math_00",
+      "prompt": "计算1+2，只输出整数。",
+      "expected_answer": "3",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_01",
+      "prompt": "计算3+4，只输出整数。",
+      "expected_answer": "7",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_02",
+      "prompt": "计算5+3，只输出整数。",
+      "expected_answer": "8",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_03",
+      "prompt": "计算6+7，只输出整数。",
+      "expected_answer": "13",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_04",
+      "prompt": "计算9-3，只输出整数。",
+      "expected_answer": "6",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_08",
+      "prompt": "计算2×3，只输出整数。",
+      "expected_answer": "6",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_12",
+      "prompt": "计算8÷2，只输出整数。",
+      "expected_answer": "4",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_13",
+      "prompt": "计算9÷3，只输出整数。",
+      "expected_answer": "3",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_instruction_00",
+      "prompt": "请原样输出：竹影清风。不要添加标点或解释。",
+      "expected_answer": "竹影清风",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_06",
+      "prompt": "把“蓝色天空”原样输出一次，不添加其他内容。",
+      "expected_answer": "蓝色天空",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_07",
+      "prompt": "把“实验记录”原样输出一次，不添加其他内容。",
+      "expected_answer": "实验记录",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_08",
+      "prompt": "只输出字母XYZ，保持大写。",
+      "expected_answer": "XYZ",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_09",
+      "prompt": "只输出小写字母abc。",
+      "expected_answer": "abc",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_12",
+      "prompt": "将数字5重复三次，不加空格或标点。",
+      "expected_answer": "555",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_14",
+      "prompt": "只回答“同意”两个汉字。",
+      "expected_answer": "同意",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_15",
+      "prompt": "只回答“完成”两个汉字。",
+      "expected_answer": "完成",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_structured_00",
+      "prompt": "输出一个JSON对象：name为\"cat\"、level为1、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"cat\",\"level\":1,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_01",
+      "prompt": "输出一个JSON对象：name为\"dog\"、level为2、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"dog\",\"level\":2,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_02",
+      "prompt": "输出一个JSON对象：name为\"red\"、level为3、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"red\",\"level\":3,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_03",
+      "prompt": "输出一个JSON对象：name为\"blue\"、level为4、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"blue\",\"level\":4,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_04",
+      "prompt": "输出一个JSON对象：name为\"east\"、level为5、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"east\",\"level\":5,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_05",
+      "prompt": "输出一个JSON对象：name为\"west\"、level为6、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"west\",\"level\":6,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_06",
+      "prompt": "输出一个JSON对象：name为\"sun\"、level为7、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"sun\",\"level\":7,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_07",
+      "prompt": "输出一个JSON对象：name为\"moon\"、level为8、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"moon\",\"level\":8,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    }
+  ],
+  "count": 32,
+  "category_counts": {
+    "logic": 8,
+    "math": 8,
+    "instruction": 8,
+    "structured": 8
+  },
+  "selection_diagnostics": [
+    {
+      "prompt_id": "s2cal_logic_00",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_01",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_02",
+      "category": "logic",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_03",
+      "category": "logic",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_04",
+      "category": "logic",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_logic_05",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_logic_06",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_logic_07",
+      "category": "logic",
+      "passes": 3,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.75
+    },
+    {
+      "prompt_id": "s2cal_logic_08",
+      "category": "logic",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_logic_09",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_10",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_11",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_12",
+      "category": "logic",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_13",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_logic_14",
+      "category": "logic",
+      "passes": 2,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.5
+    },
+    {
+      "prompt_id": "s2cal_logic_15",
+      "category": "logic",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_00",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_01",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_02",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_03",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_math_04",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_05",
+      "category": "math",
+      "passes": 3,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_06",
+      "category": "math",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 9.0
+    },
+    {
+      "prompt_id": "s2cal_math_07",
+      "category": "math",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 9.0
+    },
+    {
+      "prompt_id": "s2cal_math_08",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_09",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_math_10",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_math_11",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_math_12",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_13",
+      "category": "math",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_14",
+      "category": "math",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_math_15",
+      "category": "math",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_00",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 5.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_01",
+      "category": "instruction",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 6.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_02",
+      "category": "instruction",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 5.75
+    },
+    {
+      "prompt_id": "s2cal_instruction_03",
+      "category": "instruction",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 5.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_04",
+      "category": "instruction",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 23.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_05",
+      "category": "instruction",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 20.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_06",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_07",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_08",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_09",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 4.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_10",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 6.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_11",
+      "category": "instruction",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 8.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_12",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 4.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_13",
+      "category": "instruction",
+      "passes": 1,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 3.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_14",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_instruction_15",
+      "category": "instruction",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 2.0
+    },
+    {
+      "prompt_id": "s2cal_structured_00",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_01",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_02",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_03",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_04",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_05",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_06",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_07",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_08",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 27.0
+    },
+    {
+      "prompt_id": "s2cal_structured_09",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 28.0
+    },
+    {
+      "prompt_id": "s2cal_structured_10",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 28.0
+    },
+    {
+      "prompt_id": "s2cal_structured_11",
+      "category": "structured",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 28.0
+    },
+    {
+      "prompt_id": "s2cal_structured_12",
+      "category": "structured",
+      "passes": 0,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 28.0
+    },
+    {
+      "prompt_id": "s2cal_structured_13",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 28.0
+    },
+    {
+      "prompt_id": "s2cal_structured_14",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 28.0
+    },
+    {
+      "prompt_id": "s2cal_structured_15",
+      "category": "structured",
+      "passes": 4,
+      "repetitions": 4,
+      "truncations": 0,
+      "mean_tokens": 28.0
+    }
+  ],
+  "preflight_records_sha256": "d54853c574480cf16fc72b9d3493d773868b537031d0a09a0ddcf848d4857ee3",
+  "design_sha256": "3f6890d594179604caf88ce00091a34b8e88b995715005ab1d5af5cb30a91b78"
+}

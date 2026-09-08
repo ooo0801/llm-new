@@ -106,6 +106,7 @@ def main() -> None:
     args = parser.parse_args()
 
     config = load_config(args.config)
+    block_types = tuple(config.get("discrete_joint_inner", {}).get("block_types", BLOCK_TYPES))
     rows = read_jsonl(project_path(args.prompts))[: args.max_prompts]
     output = project_path(args.output)
     summary_path = project_path(args.summary)
@@ -125,7 +126,7 @@ def main() -> None:
     bundle = load_model(config["model"])
     records = list(completed)
     try:
-        blocks = discover_micro_blocks(bundle.model)
+        blocks = discover_micro_blocks(bundle.model, block_types)
         layers = representative_layers(
             blocks,
             args.representative_layer_count,
@@ -134,7 +135,7 @@ def main() -> None:
         for prompt_index, row in enumerate(rows):
             prompt_id = str(row.get("id", row.get("prompt_id")))
             layer_id = layers[prompt_index % len(layers)]
-            for block_index, block_type in enumerate(BLOCK_TYPES):
+            for block_index, block_type in enumerate(block_types):
                 key = (prompt_id, layer_id, block_type)
                 if key in completed_keys:
                     continue
@@ -147,7 +148,7 @@ def main() -> None:
                     "layer_id": layer_id,
                     "probe_seed": (
                         args.seed
-                        + prompt_index * len(BLOCK_TYPES)
+                        + prompt_index * len(block_types)
                         + block_index
                     ),
                     "probe_count": args.probes,
@@ -252,11 +253,11 @@ def main() -> None:
         "input": str(project_path(args.prompts)),
         "output": str(output),
         "requested_prompts": len(rows),
-        "requested_records": len(rows) * len(BLOCK_TYPES),
+        "requested_records": len(rows) * len(block_types),
         "records": len(records),
         "valid_records": len(valid),
         "invalid_records": len(records) - len(valid),
-        "block_types": list(BLOCK_TYPES),
+        "block_types": list(block_types),
         "representative_layers": layers,
         "max_length": args.max_length,
         "probes": args.probes,
@@ -269,7 +270,7 @@ def main() -> None:
             if normalized_norms
             else None
         ),
-        "passed": len(valid) == len(rows) * len(BLOCK_TYPES),
+        "passed": len(valid) == len(rows) * len(block_types),
     }
     summary_path.parent.mkdir(parents=True, exist_ok=True)
     summary_path.write_text(

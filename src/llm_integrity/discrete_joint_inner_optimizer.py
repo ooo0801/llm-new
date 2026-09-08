@@ -25,6 +25,7 @@ from .joint_inner_optimizer import JointInnerOptimizer
 from .modeling import ModelBundle, generate_texts, load_model
 from .paper_variant_executor import load_manifest_variant
 from .sequential_macro import squared_l2_logit_vjp
+from .macro_proxy import SEARCH_PROXIES, differentiable_macro_proxy
 from .task_validation import evaluate_task
 
 
@@ -442,6 +443,14 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
         task_max_input_tokens: int = 512,
         task_max_new_tokens: int = 128,
         sequential_model_execution: bool = False,
+        block_types: tuple[str, ...] = ("q_proj", "v_proj", "down_proj"),
+        representative_layer_count: int = 4,
+        block_schedule: str = "legacy",
+        task_validation_mode: str = "legacy",
+        macro_proxy: str = "raw_logit_l2",
+        macro_top_k: int = 10,
+        enforce_surface_compatibility: bool = True,
+        enforce_perplexity: bool = True,
     ) -> None:
         super().__init__(
             reference=reference,
@@ -456,10 +465,12 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
             max_length=max_length,
             max_edit_ratio=max_edit_ratio,
             ppl_ratio_limit=ppl_ratio_limit,
+            block_types=block_types,
+            representative_layer_count=representative_layer_count,
         )
         if set(micro_scales) != set(self.block_types):
             raise ValueError(
-                "micro_scales must contain q_proj, v_proj, and down_proj"
+                "micro_scales must match the selected block_types"
             )
         if set(macro_scales) != set(FAMILIES):
             raise ValueError("macro_scales must contain all five families")
@@ -513,6 +524,14 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
             )
         if task_max_input_tokens <= 0 or task_max_new_tokens <= 0:
             raise ValueError("Task generation lengths must be positive")
+        if macro_proxy not in SEARCH_PROXIES:
+            raise ValueError(f"Unknown macro proxy: {macro_proxy}")
+        if macro_top_k <= 0:
+            raise ValueError("macro_top_k must be positive")
+        if sequential_model_execution and macro_proxy != "raw_logit_l2":
+            raise ValueError(
+                "Sequential exact VJP currently supports raw_logit_l2 only"
+            )
 
         self.micro_scales = {
             key: float(value) for key, value in micro_scales.items()
@@ -545,6 +564,18 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
         self.sequential_model_execution = bool(
             sequential_model_execution
         )
+        if block_schedule not in {"legacy", "balanced"}:
+            raise ValueError("Unknown block schedule")
+        self.block_schedule = block_schedule
+        if task_validation_mode not in {"legacy", "strict_r1"}:
+            raise ValueError("Unknown task validation mode")
+        self.task_validation_mode = task_validation_mode
+        self.macro_proxy = str(macro_proxy)
+        self.macro_top_k = int(macro_top_k)
+        self.enforce_surface_compatibility = bool(
+            enforce_surface_compatibility
+        )
+        self.enforce_perplexity = bool(enforce_perplexity)
         self.task_generation = {
             "max_input_tokens": int(task_max_input_tokens),
             "max_new_tokens": int(task_max_new_tokens),
@@ -561,8 +592,8 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
     def _reload_reference(self) -> None:
         self.reference = load_model(self.model_config)
         self._freeze(self.reference)
-        self.blocks = discover_micro_blocks(self.reference.model)
-        self.layers = representative_layers(self.blocks, 4)
+        self.blocks = discover_micro_blocks(self.reference.model, self.block_types)
+        self.layers = representative_layers(self.blocks, self.representative_layer_count)
 
     def _task_validation(
         self,
@@ -582,15 +613,28 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
             self.reference,
             prompts,
             self.task_generation,
+            return_metadata=self.task_validation_mode == "strict_r1",
         )
         outputs: list[dict[str, Any]] = []
-        for text in generated:
-            passed, rule = evaluate_task(row, text)
+        for item in generated:
+            metadata = {}
+            if self.task_validation_mode == "strict_r1":
+                from .stage1_r1 import evaluate_task_r1
+                text = item["text"]
+                checked = evaluate_task_r1(text, row)
+                passed = checked["passed"] is True and not item["truncated"]
+                rule = "strict_r1:" + checked["reason"]
+                metadata = {"truncated": item["truncated"], "generated_tokens": item["token_count"],
+                            "task_check": checked}
+            else:
+                text = item
+                passed, rule = evaluate_task(row, text)
             outputs.append(
                 {
                     "task_passed": bool(passed),
                     "evaluation_rule": rule,
                     "generated_text": text,
+                    **metadata,
                 }
             )
         return outputs
@@ -810,9 +854,12 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
                         full,
                         mask,
                     )
-                    raw_score = (
-                        variant_logits - reference_logits
-                    ).square().sum()
+                    raw_score = differentiable_macro_proxy(
+                        reference_logits,
+                        variant_logits,
+                        proxy=self.macro_proxy,
+                        top_k=self.macro_top_k,
+                    )
                     full_gradient = torch.autograd.grad(
                         raw_score,
                         full,
@@ -842,6 +889,7 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
                             "macro_score_raw": float(
                                 raw_score.detach().item()
                             ),
+                            "macro_proxy": self.macro_proxy,
                             "macro_score_normalized": normalized_score,
                             "macro_gradient_norm_normalized": norm_before,
                             "macro_clip_coefficient": clip,
@@ -1174,7 +1222,7 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
                 [item.candidate_token_id],
                 skip_special_tokens=False,
             )
-            if not token_surfaces_compatible(
+            if self.enforce_surface_compatibility and not token_surfaces_compatible(
                 source_token,
                 candidate_token,
             ):
@@ -1207,7 +1255,11 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
             if not valid:
                 filter_stats["text_constraint"] += 1
                 continue
-            ppl = self._perplexity(ids + overflow_ids)
+            ppl = (
+                self._perplexity(ids + overflow_ids)
+                if self.enforce_perplexity
+                else initial_ppl
+            )
             ppl_ratio = ppl / max(initial_ppl, 1e-12)
             if (
                 not math.isfinite(ppl)
@@ -1366,15 +1418,14 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
                                 mask,
                             )
                             raw_score = float(
-                                (
-                                    variant_logits
-                                    - reference_logits[index].to(
+                                differentiable_macro_proxy(
+                                    reference_logits[index].to(
                                         variant_logits.device
-                                    )
-                                )
-                                .square()
-                                .sum()
-                                .item()
+                                    ),
+                                    variant_logits,
+                                    proxy=self.macro_proxy,
+                                    top_k=self.macro_top_k,
+                                ).item()
                             )
                             normalized = (
                                 raw_score
@@ -1385,6 +1436,7 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
                                 "raw": raw_score,
                                 "normalized": normalized,
                                 "variant_id": sample.variant_id,
+                                "proxy": self.macro_proxy,
                             }
                             if index == 0:
                                 baseline_macro_variant_scores[family].append(
@@ -1556,7 +1608,11 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
         ) = self._chat_parts(prompt)
         current_ids = list(initial_active_ids)
         current_embeddings = self._embed_user(current_ids)
-        initial_ppl = self._perplexity(current_ids + overflow_ids)
+        initial_ppl = (
+            self._perplexity(current_ids + overflow_ids)
+            if self.enforce_perplexity
+            else 1.0
+        )
         initial_task = self._task_validation(row, [prompt])[0]
         if (
             self.require_task_preservation
@@ -1603,6 +1659,11 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
                 round_index % len(self.block_types)
             ]
             layer_id = self.layers[round_index % len(self.layers)]
+            if self.block_schedule == "balanced":
+                from .stage2_contract import balanced_block_schedule
+                block_type, layer_id = balanced_block_schedule(
+                    self.block_types, self.layers, self.rounds, prompt_id
+                )[round_index]
             probe_seed = self.seed + round_index * 1000
             round_trace: dict[str, Any] = {
                 "round": round_index + 1,
@@ -1915,7 +1976,11 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
             1,
             len(initial_active_ids) + len(overflow_ids),
         )
-        final_ppl = self._perplexity(current_ids + overflow_ids)
+        final_ppl = (
+            self._perplexity(current_ids + overflow_ids)
+            if self.enforce_perplexity
+            else initial_ppl
+        )
         ppl_ratio = final_ppl / max(initial_ppl, 1e-12)
         valid_text, decoded, _ = self._valid_discrete_text(
             initial_prompt=prompt,

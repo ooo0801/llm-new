@@ -1,0 +1,46 @@
+{
+  "schema": "three-proxy-calibration-v1",
+  "records_sha256": "4ea1a17089f5c41f47b76c3d84e474b26a3c95575c5cb4eed88543103831aa65",
+  "macro_scales": {
+    "js": {
+      "unstructured_pruning": 0.000573620869545266,
+      "structured_pruning": 0.0009338320232927799,
+      "quantization": 0.00027060872525908053,
+      "gaussian_noise": 6.027385461493395e-05,
+      "finetuning": 0.0003814834781223908
+    },
+    "topk_continuous": {
+      "unstructured_pruning": 0.00010856986045837402,
+      "structured_pruning": 0.0002432316541671753,
+      "quantization": 2.1979212760925293e-05,
+      "gaussian_noise": 1.424551010131836e-05,
+      "finetuning": 3.358721733093262e-05
+    },
+    "raw_logit_l2": {
+      "unstructured_pruning": 201799.0390625,
+      "structured_pruning": 858456.8125,
+      "quantization": 19479.3642578125,
+      "gaussian_noise": 10539.33740234375,
+      "finetuning": 57690.76953125
+    }
+  },
+  "micro_scales": {
+    "q_proj": 40110850.0,
+    "k_proj": 93961812.0,
+    "v_proj": 122970088.0,
+    "o_proj": 193760176.0,
+    "gate_proj": 154173280.0,
+    "up_proj": 223701424.0,
+    "down_proj": 280815568.0
+  },
+  "micro_clips": {
+    "q_proj": 178.67446971034684,
+    "k_proj": 7592.680695455401,
+    "v_proj": 11039.683416398862,
+    "o_proj": 494.9614920405484,
+    "gate_proj": 73.68264041243573,
+    "up_proj": 76.96708485677482,
+    "down_proj": 109.38566207032278
+  },
+  "recommended_micro_weight": 3.2114738317044287
+}

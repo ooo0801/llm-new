@@ -1,0 +1,4336 @@
+{
+  "records": [
+    {
+      "prompt_id": "u_9aa93296693fc3a8",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 4.996003610813204e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 4.996003610813204e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_84a361849cb7469a",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_39b09e4cfebc2cb6",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_d1c3c044ee3bf663",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9090d1d65d31ca69",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f5ae4adff556b136",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f602cf581a7a99f6",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.885780586188048e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.885780586188048e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_4c44e439b8a59ba5",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1908745046211096,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.1908745046211096,
+          "semantic": 0.0018058119696847674
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_adbfc9222ba4b279",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1908745046211096,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.1908745046211096,
+          "semantic": 0.002346809186653087
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_33b529c3dad808d0",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.8752855775692762,
+        "p_value": 0.15,
+        "standardized_effect": 1.4154752468885035,
+        "components": {
+          "prefix10_tv": 0.7,
+          "bigram_js": 0.8752855775692762,
+          "semantic": 0.06699404990207075
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_00540bb862aa69af",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.7365986029206008,
+        "p_value": 0.24,
+        "standardized_effect": 0.23668247288963906,
+        "components": {
+          "prefix10_tv": 0.525,
+          "bigram_js": 0.7365986029206008,
+          "semantic": 0.04927510189928186
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_ecfcb1ac3016d8bd",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.7750945458559284,
+        "p_value": 0.705,
+        "standardized_effect": -0.5749546853646261,
+        "components": {
+          "prefix10_tv": 0.24999999999999997,
+          "bigram_js": 0.7750945458559284,
+          "semantic": 0.02092477298315648
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9ee0df44ee6cfe9d",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8164c57cdf8f161b",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f1df276b7ffdb453",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2df76506cd4a2370",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_1cc5aad423d179c8",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.7042131721557103,
+        "p_value": 0.595,
+        "standardized_effect": -0.5879189387834806,
+        "components": {
+          "prefix10_tv": 0.49999999999999994,
+          "bigram_js": 0.7042131721557103,
+          "semantic": 0.06415746558113739
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_75499b776e7d8406",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.25,
+        "p_value": 0.475,
+        "standardized_effect": -0.05852873301359748,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.25,
+          "semantic": 0.046639020787448304
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_00da128f5039d0df",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 0.7921371824510356,
+        "p_value": 0.295,
+        "standardized_effect": -0.315509982807138,
+        "components": {
+          "prefix10_tv": 0.225,
+          "bigram_js": 0.7921371824510356,
+          "semantic": 0.054509320982773446
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_95a734881fa5ac59",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.02,
+        "standardized_effect": 6.286274821544811,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.30188216844281235
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_d9558faeefb63415",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_033a7fc3eb6ebbdf",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.8896297788180758,
+        "p_value": 0.04,
+        "standardized_effect": 2.2215765006327928,
+        "components": {
+          "prefix10_tv": 0.8499999999999999,
+          "bigram_js": 0.8896297788180758,
+          "semantic": 0.15927071496672413
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_fce996c7deb1978a",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.8719303066664339,
+        "p_value": 0.45,
+        "standardized_effect": 0.625841069535127,
+        "components": {
+          "prefix10_tv": 0.49999999999999994,
+          "bigram_js": 0.8719303066664339,
+          "semantic": 0.06141173056483601
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_25219d9b653c0b11",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.9249746739826754,
+        "p_value": 0.18,
+        "standardized_effect": 1.1999155344822823,
+        "components": {
+          "prefix10_tv": 0.7000000000000002,
+          "bigram_js": 0.9249746739826754,
+          "semantic": 0.10874835987082698
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f745b4a79855fc3b",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.7307376141066265,
+        "p_value": 0.18,
+        "standardized_effect": 1.3069492594057508,
+        "components": {
+          "prefix10_tv": 0.7250000000000001,
+          "bigram_js": 0.7307376141066265,
+          "semantic": 0.05875656794164613
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_5633a531fbd3ecae",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.44984750073036756,
+        "p_value": 0.85,
+        "standardized_effect": -1.2388258388193973,
+        "components": {
+          "prefix10_tv": 0.37500000000000006,
+          "bigram_js": 0.44984750073036756,
+          "semantic": 0.030554247569815507
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_dbb918725a0b54c1",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.7250000000000001,
+        "p_value": 0.08,
+        "standardized_effect": 1.934360010972924,
+        "components": {
+          "prefix10_tv": 0.7250000000000001,
+          "bigram_js": 0.5939800800700445,
+          "semantic": 0.017928121270942066
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_61c5d228edb92aec",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_36c01f151cd22328",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.24999999999999997,
+        "p_value": 0.8,
+        "standardized_effect": -0.4636935514545332,
+        "components": {
+          "prefix10_tv": 0.24999999999999997,
+          "bigram_js": 0.16692255549631457,
+          "semantic": 0.051311212948718266
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_df735f2c3e335dea",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.175,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.175,
+          "bigram_js": 0.05030901007334118,
+          "semantic": 0.005277475461222703
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8ddea1ee4fa2de07",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.75,
+        "p_value": 0.135,
+        "standardized_effect": 2.336530489695067,
+        "components": {
+          "prefix10_tv": 0.75,
+          "bigram_js": 0.659610491090888,
+          "semantic": 0.04342012843231541
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_c6aff6370cfda4ee",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.9007527083189708,
+        "p_value": 0.35,
+        "standardized_effect": 0.9018320293730839,
+        "components": {
+          "prefix10_tv": 0.6500000000000001,
+          "bigram_js": 0.9007527083189708,
+          "semantic": 0.24305806407385538
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_7461dc94b4482d48",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.4591479170272448,
+        "p_value": 0.38,
+        "standardized_effect": 1.2858201014657251,
+        "components": {
+          "prefix10_tv": 0.125,
+          "bigram_js": 0.4591479170272448,
+          "semantic": 0.04535163841509249
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_53b9f3a1c389897a",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.3871269383468461,
+        "p_value": 0.895,
+        "standardized_effect": -1.062816500692872,
+        "components": {
+          "prefix10_tv": 0.22499999999999998,
+          "bigram_js": 0.3871269383468461,
+          "semantic": 0.03449533651151271
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_38d7f3739371763e",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_55543d91c3cc372a",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_243fdd657f819890",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.9184279441014015,
+        "p_value": 0.18,
+        "standardized_effect": 1.6179919077961302,
+        "components": {
+          "prefix10_tv": 0.55,
+          "bigram_js": 0.9184279441014015,
+          "semantic": 0.14616816358195317
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8df1b976d8d3c87d",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.49999999999999994,
+        "p_value": 0.41,
+        "standardized_effect": 0.735610034907654,
+        "components": {
+          "prefix10_tv": 0.49999999999999994,
+          "bigram_js": 0.31775683279432904,
+          "semantic": 0.029536514954735638
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_3b0b2763d2c4debc",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.48632961681873943,
+        "p_value": 1.0,
+        "standardized_effect": -0.9629689827406481,
+        "components": {
+          "prefix10_tv": 0.35000000000000003,
+          "bigram_js": 0.48632961681873943,
+          "semantic": 0.010366283511670571
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_e9a518df2e12f359",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.5530554131274161,
+        "p_value": 0.72,
+        "standardized_effect": -0.4091468539608747,
+        "components": {
+          "prefix10_tv": 0.24999999999999997,
+          "bigram_js": 0.5530554131274161,
+          "semantic": 0.03849655117003381
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_207d056a212f98f3",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.3,
+        "p_value": 0.29,
+        "standardized_effect": -0.15744237633466715,
+        "components": {
+          "prefix10_tv": 0.3,
+          "bigram_js": 0.26188128252486353,
+          "semantic": 0.061472576855645444
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_1747eb0881294022",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.035,
+        "standardized_effect": 3.2837711767879814,
+        "components": {
+          "prefix10_tv": 0.7,
+          "bigram_js": 0.9999999999999999,
+          "semantic": 0.09050435690247283
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_ecdde1285df483a1",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.6315001770173585,
+        "p_value": 0.74,
+        "standardized_effect": -0.4371772803817645,
+        "components": {
+          "prefix10_tv": 0.4749999999999999,
+          "bigram_js": 0.6315001770173585,
+          "semantic": 0.024040092437378036
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_6ba216fcebe60de0",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 4.996003610813204e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 4.996003610813204e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_83a381cf600c43bc",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1379253809700299,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.025,
+          "bigram_js": 0.1379253809700299,
+          "semantic": 0.010633112181282933
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2481dd8f183834e6",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.2569811892423542,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.07500000000000001,
+          "bigram_js": 0.2569811892423542,
+          "semantic": 0.008519245687400312
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_b352cbf0e7de37a0",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.11428422739066801,
+        "p_value": 0.145,
+        "standardized_effect": 2.303831352300891,
+        "components": {
+          "prefix10_tv": 0.07500000000000001,
+          "bigram_js": 0.0,
+          "semantic": 0.11428422739066801
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_e171bbb6aea24708",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2303a5248245ac0d",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.8389541646898332,
+        "p_value": 0.035,
+        "standardized_effect": 1.246686310296004,
+        "components": {
+          "prefix10_tv": 0.6500000000000001,
+          "bigram_js": 0.8389541646898332,
+          "semantic": 0.12386081940529681
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_5558b2ff136807a4",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.035,
+        "standardized_effect": 4.982546452313815,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.925057267327453,
+          "semantic": 0.20438633438067144
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_a16bcbc0d69cb15f",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.7,
+        "p_value": 0.19,
+        "standardized_effect": 0.9957728902788067,
+        "components": {
+          "prefix10_tv": 0.7,
+          "bigram_js": 0.3968937568268659,
+          "semantic": 0.023800917929965415
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_cb7e18e092963a9d",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.925,
+        "p_value": 0.35,
+        "standardized_effect": 1.0179056165542348,
+        "components": {
+          "prefix10_tv": 0.925,
+          "bigram_js": 0.3781166802360125,
+          "semantic": 0.014954910150350942
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_a1af11ded34026f0",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.49999999999999994,
+        "p_value": 0.45,
+        "standardized_effect": 1.0066665541498518,
+        "components": {
+          "prefix10_tv": 0.49999999999999994,
+          "bigram_js": 0.40611366760997336,
+          "semantic": 0.03458823981991216
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_90de386b0bddfd4a",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.49479189319143363,
+        "p_value": 1.0,
+        "standardized_effect": -0.740361203346701,
+        "components": {
+          "prefix10_tv": 0.24999999999999997,
+          "bigram_js": 0.49479189319143363,
+          "semantic": 0.018583092784931476
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_c09cbdf2b07f167a",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.15000000000000002,
+        "p_value": 0.455,
+        "standardized_effect": 1.1005049346146116,
+        "components": {
+          "prefix10_tv": 0.15000000000000002,
+          "bigram_js": 0.020720839623908215,
+          "semantic": 0.012773919719636706
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_fb94fa6482f5a12b",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_6c1cb644f7886192",
+      "endpoint": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "attack_seed": 20269150,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.275,
+        "p_value": 1.0,
+        "standardized_effect": -1.186911086608149,
+        "components": {
+          "prefix10_tv": 0.275,
+          "bigram_js": 0.10288818066744362,
+          "semantic": 0.018637664749199256
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9aa93296693fc3a8",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 4.996003610813204e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 4.996003610813204e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_84a361849cb7469a",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.2569811892423542,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.07500000000000001,
+          "bigram_js": 0.2569811892423542,
+          "semantic": 0.008883174273381034
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_39b09e4cfebc2cb6",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_d1c3c044ee3bf663",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9090d1d65d31ca69",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f5ae4adff556b136",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 1.0,
+      "raw": {
+        "statistic": 0.23205183534869622,
+        "p_value": 0.025,
+        "standardized_effect": 4.358152590790672,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.0,
+          "semantic": 0.23205183534869622
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f602cf581a7a99f6",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.885780586188048e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.885780586188048e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_4c44e439b8a59ba5",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1908745046211096,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.1908745046211096,
+          "semantic": 0.0018058119696847674
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_adbfc9222ba4b279",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1908745046211096,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.1908745046211096,
+          "semantic": 0.002346809186653087
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_33b529c3dad808d0",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.560971498611484,
+        "p_value": 0.52,
+        "standardized_effect": -0.5538461595575722,
+        "components": {
+          "prefix10_tv": 0.5249999999999999,
+          "bigram_js": 0.560971498611484,
+          "semantic": 0.03515454435218113
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_00540bb862aa69af",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.6250000000000001,
+        "p_value": 0.815,
+        "standardized_effect": -0.5554635240483435,
+        "components": {
+          "prefix10_tv": 0.6250000000000001,
+          "bigram_js": 0.45465952682978594,
+          "semantic": 0.031872009940699164
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_ecfcb1ac3016d8bd",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.84258126075946,
+        "p_value": 0.15,
+        "standardized_effect": 0.871481858989529,
+        "components": {
+          "prefix10_tv": 0.6500000000000001,
+          "bigram_js": 0.84258126075946,
+          "semantic": 0.05211869582947315
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9ee0df44ee6cfe9d",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8164c57cdf8f161b",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f1df276b7ffdb453",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2df76506cd4a2370",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.19900672430047056,
+        "p_value": 0.04,
+        "standardized_effect": 4.612099065078454,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.19900672430047056,
+          "semantic": 0.005869411633422361
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_1cc5aad423d179c8",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.9417663449464879,
+        "p_value": 0.135,
+        "standardized_effect": 2.387623852179268,
+        "components": {
+          "prefix10_tv": 0.6000000000000001,
+          "bigram_js": 0.9417663449464879,
+          "semantic": 0.182418297918447
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_75499b776e7d8406",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.25,
+        "p_value": 0.435,
+        "standardized_effect": -0.025845445087353796,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.25,
+          "semantic": 0.046639020787448304
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_00da128f5039d0df",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 0.7921371824510356,
+        "p_value": 0.33,
+        "standardized_effect": -0.3258147784383321,
+        "components": {
+          "prefix10_tv": 0.225,
+          "bigram_js": 0.7921371824510356,
+          "semantic": 0.052351373384210254
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_95a734881fa5ac59",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.6732638753096142,
+        "p_value": 0.13,
+        "standardized_effect": 1.4582591510447198,
+        "components": {
+          "prefix10_tv": 0.45000000000000007,
+          "bigram_js": 0.6732638753096142,
+          "semantic": 0.06559505020598422
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_d9558faeefb63415",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_033a7fc3eb6ebbdf",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.29064215133017457,
+        "p_value": 0.945,
+        "standardized_effect": -1.1449373759438088,
+        "components": {
+          "prefix10_tv": 0.125,
+          "bigram_js": 0.29064215133017457,
+          "semantic": 0.03633167709991514
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_fce996c7deb1978a",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.7396536564821201,
+        "p_value": 0.595,
+        "standardized_effect": -0.39719132958057857,
+        "components": {
+          "prefix10_tv": 0.675,
+          "bigram_js": 0.7396536564821201,
+          "semantic": 0.04264781916150112
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_25219d9b653c0b11",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.49999999999999994,
+        "p_value": 0.44,
+        "standardized_effect": 0.5764797025939402,
+        "components": {
+          "prefix10_tv": 0.49999999999999994,
+          "bigram_js": 0.3010937483899573,
+          "semantic": 0.09106909871565999
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f745b4a79855fc3b",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.8749999999999999,
+        "p_value": 0.115,
+        "standardized_effect": 2.0638356667290294,
+        "components": {
+          "prefix10_tv": 0.8749999999999999,
+          "bigram_js": 0.763316892689011,
+          "semantic": 0.08477498171006898
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_5633a531fbd3ecae",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.8,
+        "p_value": 0.26,
+        "standardized_effect": 1.0985486500715127,
+        "components": {
+          "prefix10_tv": 0.8,
+          "bigram_js": 0.318308605461632,
+          "semantic": 0.025254758272518163
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_dbb918725a0b54c1",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.5999999999999999,
+        "p_value": 0.6,
+        "standardized_effect": -0.16699240446687968,
+        "components": {
+          "prefix10_tv": 0.5999999999999999,
+          "bigram_js": 0.5434203711295342,
+          "semantic": 0.03051759794860398
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_61c5d228edb92aec",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_36c01f151cd22328",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.6453029052115169,
+        "p_value": 0.615,
+        "standardized_effect": -0.2545203192406297,
+        "components": {
+          "prefix10_tv": 0.45000000000000007,
+          "bigram_js": 0.6453029052115169,
+          "semantic": 0.05812136808946161
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_df735f2c3e335dea",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.885780586188048e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.885780586188048e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8ddea1ee4fa2de07",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.44999999999999996,
+        "p_value": 0.68,
+        "standardized_effect": -0.5469130782972768,
+        "components": {
+          "prefix10_tv": 0.44999999999999996,
+          "bigram_js": 0.17610373562257692,
+          "semantic": 0.02025096670089105
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_c6aff6370cfda4ee",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.6518666625576308,
+        "p_value": 0.415,
+        "standardized_effect": 0.23854287788026002,
+        "components": {
+          "prefix10_tv": 0.4000000000000001,
+          "bigram_js": 0.6518666625576308,
+          "semantic": 0.11752288857360133
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_7461dc94b4482d48",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_53b9f3a1c389897a",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.48955463865116744,
+        "p_value": 0.325,
+        "standardized_effect": 0.3677419273490934,
+        "components": {
+          "prefix10_tv": 0.25,
+          "bigram_js": 0.48955463865116744,
+          "semantic": 0.03825326371973242
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_38d7f3739371763e",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_55543d91c3cc372a",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_243fdd657f819890",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.5616828138680772,
+        "p_value": 0.51,
+        "standardized_effect": 0.02985918937589823,
+        "components": {
+          "prefix10_tv": 0.49999999999999994,
+          "bigram_js": 0.5616828138680772,
+          "semantic": 0.0428241677150924
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8df1b976d8d3c87d",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.3030342088728632,
+        "p_value": 0.815,
+        "standardized_effect": -1.2436872026372128,
+        "components": {
+          "prefix10_tv": 0.22499999999999998,
+          "bigram_js": 0.3030342088728632,
+          "semantic": 0.03476628081401262
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_3b0b2763d2c4debc",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.55,
+        "p_value": 1.0,
+        "standardized_effect": -0.9532760952323018,
+        "components": {
+          "prefix10_tv": 0.55,
+          "bigram_js": 0.3677011408333827,
+          "semantic": 0.021682688153256524
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_e9a518df2e12f359",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.45559150682455174,
+        "p_value": 0.775,
+        "standardized_effect": -0.9242150772409891,
+        "components": {
+          "prefix10_tv": 0.125,
+          "bigram_js": 0.45559150682455174,
+          "semantic": 0.0333919186558585
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_207d056a212f98f3",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.11153574007909187,
+        "p_value": 1.0,
+        "standardized_effect": -0.97232638020078,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.11153574007909187,
+          "semantic": 0.04130926051029804
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_1747eb0881294022",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.04,
+        "standardized_effect": 3.0183224458097215,
+        "components": {
+          "prefix10_tv": 0.725,
+          "bigram_js": 1.0,
+          "semantic": 0.07438036916142027
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_ecdde1285df483a1",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.6341877216197799,
+        "p_value": 0.325,
+        "standardized_effect": 0.6468205348835587,
+        "components": {
+          "prefix10_tv": 0.24999999999999997,
+          "bigram_js": 0.6341877216197799,
+          "semantic": 0.029724327345251822
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_6ba216fcebe60de0",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 4.996003610813204e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 4.996003610813204e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_83a381cf600c43bc",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2481dd8f183834e6",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.2569811892423542,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.07500000000000001,
+          "bigram_js": 0.2569811892423542,
+          "semantic": 0.008519245687400312
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_b352cbf0e7de37a0",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_e171bbb6aea24708",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2303a5248245ac0d",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.8389541646898332,
+        "p_value": 0.025,
+        "standardized_effect": 1.4616436418433154,
+        "components": {
+          "prefix10_tv": 0.6500000000000001,
+          "bigram_js": 0.8389541646898332,
+          "semantic": 0.12386081940529681
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_5558b2ff136807a4",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.035,
+        "standardized_effect": 4.942815824987698,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.912237388402575,
+          "semantic": 0.22010522802251892
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_a16bcbc0d69cb15f",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.75,
+        "p_value": 0.265,
+        "standardized_effect": 0.8895588931410636,
+        "components": {
+          "prefix10_tv": 0.75,
+          "bigram_js": 0.522655597271775,
+          "semantic": 0.05649800151954154
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_cb7e18e092963a9d",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.8500000000000001,
+        "p_value": 1.0,
+        "standardized_effect": -1.5333089282431123,
+        "components": {
+          "prefix10_tv": 0.8500000000000001,
+          "bigram_js": 0.3704327897171438,
+          "semantic": 0.010250493352731427
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_a1af11ded34026f0",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.43397563003894546,
+        "p_value": 0.175,
+        "standardized_effect": 0.9471692546717195,
+        "components": {
+          "prefix10_tv": 0.175,
+          "bigram_js": 0.43397563003894546,
+          "semantic": 0.012065845965022803
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_90de386b0bddfd4a",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.4992107799821419,
+        "p_value": 1.0,
+        "standardized_effect": -1.415821660713021,
+        "components": {
+          "prefix10_tv": 0.30000000000000004,
+          "bigram_js": 0.4992107799821419,
+          "semantic": 0.02261083999113711
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_c09cbdf2b07f167a",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.15000000000000002,
+        "p_value": 0.39,
+        "standardized_effect": 1.2587357087234732,
+        "components": {
+          "prefix10_tv": 0.15000000000000002,
+          "bigram_js": 0.020720839623908215,
+          "semantic": 0.012773919719636706
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_fb94fa6482f5a12b",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_6c1cb644f7886192",
+      "endpoint": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "attack_seed": 20269151,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.37499999999999994,
+        "p_value": 1.0,
+        "standardized_effect": -1.2183080156449315,
+        "components": {
+          "prefix10_tv": 0.37499999999999994,
+          "bigram_js": 0.15547747236058157,
+          "semantic": 0.018188199517350068
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9aa93296693fc3a8",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 4.996003610813204e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 4.996003610813204e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_84a361849cb7469a",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_39b09e4cfebc2cb6",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_d1c3c044ee3bf663",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9090d1d65d31ca69",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f5ae4adff556b136",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 1.0,
+      "raw": {
+        "statistic": 0.13592542822670473,
+        "p_value": 0.025,
+        "standardized_effect": 3.748200205604316,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.0,
+          "semantic": 0.13592542822670473
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f602cf581a7a99f6",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.885780586188048e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.885780586188048e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_4c44e439b8a59ba5",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1908745046211096,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.1908745046211096,
+          "semantic": 0.0018058119696847674
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_adbfc9222ba4b279",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1908745046211096,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.1908745046211096,
+          "semantic": 0.002346809186653087
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_33b529c3dad808d0",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.04,
+        "standardized_effect": 2.0865790641207744,
+        "components": {
+          "prefix10_tv": 0.7999999999999998,
+          "bigram_js": 0.9999999999999999,
+          "semantic": 0.1618012809562892
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_00540bb862aa69af",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.035,
+        "standardized_effect": 2.0445317372653404,
+        "components": {
+          "prefix10_tv": 0.6250000000000001,
+          "bigram_js": 1.0,
+          "semantic": 0.16830496309106002
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_ecfcb1ac3016d8bd",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.025,
+        "standardized_effect": 5.035845527204116,
+        "components": {
+          "prefix10_tv": 0.42500000000000016,
+          "bigram_js": 1.0,
+          "semantic": 0.17703731522389404
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9ee0df44ee6cfe9d",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8164c57cdf8f161b",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f1df276b7ffdb453",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2df76506cd4a2370",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_1cc5aad423d179c8",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.7809444972943937,
+        "p_value": 0.38,
+        "standardized_effect": 0.2881081269608328,
+        "components": {
+          "prefix10_tv": 0.525,
+          "bigram_js": 0.7809444972943937,
+          "semantic": 0.09175780734868294
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_75499b776e7d8406",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1379253809700299,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.05,
+          "bigram_js": 0.1379253809700299,
+          "semantic": 0.01873019635093287
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_00da128f5039d0df",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 0.7169171866886992,
+        "p_value": 0.025,
+        "standardized_effect": 2.4882292682771645,
+        "components": {
+          "prefix10_tv": 0.275,
+          "bigram_js": 0.7169171866886992,
+          "semantic": 0.09150789079132515
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_95a734881fa5ac59",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.025,
+        "standardized_effect": 5.857672806174665,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.30188216844281235
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_d9558faeefb63415",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.08773896785485646,
+        "p_value": 0.195,
+        "standardized_effect": 2.0583590807395966,
+        "components": {
+          "prefix10_tv": 0.07500000000000001,
+          "bigram_js": 0.0,
+          "semantic": 0.08773896785485646
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_033a7fc3eb6ebbdf",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.8896297788180758,
+        "p_value": 0.03,
+        "standardized_effect": 3.02310462408562,
+        "components": {
+          "prefix10_tv": 0.8499999999999999,
+          "bigram_js": 0.8896297788180758,
+          "semantic": 0.15927071496672413
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_fce996c7deb1978a",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.9135072146170922,
+        "p_value": 0.19,
+        "standardized_effect": 1.3140014730134042,
+        "components": {
+          "prefix10_tv": 0.7000000000000002,
+          "bigram_js": 0.9135072146170922,
+          "semantic": 0.08144814867342393
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_25219d9b653c0b11",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.9249746739826754,
+        "p_value": 0.195,
+        "standardized_effect": 1.1174384982171208,
+        "components": {
+          "prefix10_tv": 0.7000000000000002,
+          "bigram_js": 0.9249746739826754,
+          "semantic": 0.10874835987082698
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f745b4a79855fc3b",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.045,
+        "standardized_effect": 3.213820189325886,
+        "components": {
+          "prefix10_tv": 0.3750000000000001,
+          "bigram_js": 1.0,
+          "semantic": 0.11692512656002335
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_5633a531fbd3ecae",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.9249999999999999,
+        "p_value": 0.14,
+        "standardized_effect": 1.821469797199142,
+        "components": {
+          "prefix10_tv": 0.9249999999999999,
+          "bigram_js": 0.8875877920858688,
+          "semantic": 0.16740611350227347
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_dbb918725a0b54c1",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.02,
+        "standardized_effect": 4.512521238068379,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.24881518547895326
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_61c5d228edb92aec",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_36c01f151cd22328",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.27499999999999997,
+        "p_value": 1.0,
+        "standardized_effect": -0.7223687900249193,
+        "components": {
+          "prefix10_tv": 0.27499999999999997,
+          "bigram_js": 0.19581289484235123,
+          "semantic": 0.02510752149001516
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_df735f2c3e335dea",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.885780586188048e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.885780586188048e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8ddea1ee4fa2de07",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.75,
+        "p_value": 0.145,
+        "standardized_effect": 2.327909852238974,
+        "components": {
+          "prefix10_tv": 0.75,
+          "bigram_js": 0.659610491090888,
+          "semantic": 0.04342012843231541
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_c6aff6370cfda4ee",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.6500000000000001,
+        "p_value": 0.275,
+        "standardized_effect": 0.6110520855043625,
+        "components": {
+          "prefix10_tv": 0.6500000000000001,
+          "bigram_js": 0.5317742565825518,
+          "semantic": 0.09743011851127553
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_7461dc94b4482d48",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.02,
+        "standardized_effect": 3.928035444837048,
+        "components": {
+          "prefix10_tv": 0.6250000000000001,
+          "bigram_js": 1.0,
+          "semantic": 0.2968699705362123
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_53b9f3a1c389897a",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.7999999999999999,
+        "p_value": 0.025,
+        "standardized_effect": 3.4243445243632347,
+        "components": {
+          "prefix10_tv": 0.7999999999999999,
+          "bigram_js": 0.7829255648659594,
+          "semantic": 0.16511186537272926
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_38d7f3739371763e",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_55543d91c3cc372a",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_243fdd657f819890",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.9184279441014015,
+        "p_value": 0.125,
+        "standardized_effect": 1.8631034214738638,
+        "components": {
+          "prefix10_tv": 0.5750000000000001,
+          "bigram_js": 0.9184279441014015,
+          "semantic": 0.16727529626877807
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8df1b976d8d3c87d",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.015,
+        "standardized_effect": 3.4134505709822194,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.9491600933920591,
+          "semantic": 0.32502599698022167
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_3b0b2763d2c4debc",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.8329654988468753,
+        "p_value": 0.045,
+        "standardized_effect": 1.712724257779066,
+        "components": {
+          "prefix10_tv": 0.7000000000000002,
+          "bigram_js": 0.8329654988468753,
+          "semantic": 0.0729464452302725
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_e9a518df2e12f359",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.04,
+        "standardized_effect": 3.6460927144406723,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.9439180469497113,
+          "semantic": 0.32090795554919427
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_207d056a212f98f3",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.27499999999999997,
+        "p_value": 1.0,
+        "standardized_effect": -0.44363144611577476,
+        "components": {
+          "prefix10_tv": 0.27499999999999997,
+          "bigram_js": 0.1199652275398865,
+          "semantic": 0.036850048108002964
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_1747eb0881294022",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.0849455074189347,
+        "p_value": 1.0,
+        "standardized_effect": -0.5831001460578814,
+        "components": {
+          "prefix10_tv": 0.07500000000000001,
+          "bigram_js": 0.0849455074189347,
+          "semantic": 0.014587206122018748
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_ecdde1285df483a1",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.6822228339734706,
+        "p_value": 0.13,
+        "standardized_effect": 1.8839625729492082,
+        "components": {
+          "prefix10_tv": 0.24999999999999997,
+          "bigram_js": 0.6822228339734706,
+          "semantic": 0.06490227628186673
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_6ba216fcebe60de0",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 4.996003610813204e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 4.996003610813204e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_83a381cf600c43bc",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2481dd8f183834e6",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.6893917467430877,
+        "p_value": 0.14,
+        "standardized_effect": 2.3142291565943722,
+        "components": {
+          "prefix10_tv": 0.22500000000000003,
+          "bigram_js": 0.6893917467430877,
+          "semantic": 0.1132577297941968
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_b352cbf0e7de37a0",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_e171bbb6aea24708",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2303a5248245ac0d",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.8268954832712401,
+        "p_value": 0.125,
+        "standardized_effect": 1.2714650117395472,
+        "components": {
+          "prefix10_tv": 0.6000000000000001,
+          "bigram_js": 0.8268954832712401,
+          "semantic": 0.08087319870168175
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_5558b2ff136807a4",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.04,
+        "standardized_effect": 4.599445989074979,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.9999999999999998,
+          "semantic": 0.31538458628025223
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_a16bcbc0d69cb15f",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.035,
+        "standardized_effect": 4.090173624656265,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.21642053274261075
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_cb7e18e092963a9d",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.13,
+        "standardized_effect": 1.955663638409377,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.6754565275960435,
+          "semantic": 0.08429820600650201
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_a1af11ded34026f0",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.045,
+        "standardized_effect": 3.504008570706645,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.9418974788824548,
+          "semantic": 0.16292500476168953
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_90de386b0bddfd4a",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.49848189481461147,
+        "p_value": 1.0,
+        "standardized_effect": -0.5811532715959391,
+        "components": {
+          "prefix10_tv": 0.24999999999999997,
+          "bigram_js": 0.49848189481461147,
+          "semantic": 0.019453516336840948
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_c09cbdf2b07f167a",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.15000000000000002,
+        "p_value": 0.42,
+        "standardized_effect": 1.1821972599552846,
+        "components": {
+          "prefix10_tv": 0.15000000000000002,
+          "bigram_js": 0.020720839623908215,
+          "semantic": 0.012773919719636706
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_fb94fa6482f5a12b",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_6c1cb644f7886192",
+      "endpoint": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "attack_seed": 20269220,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.525,
+        "p_value": 0.435,
+        "standardized_effect": 0.16828490513244418,
+        "components": {
+          "prefix10_tv": 0.525,
+          "bigram_js": 0.16176044683726837,
+          "semantic": 0.05962638487507527
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9aa93296693fc3a8",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 4.996003610813204e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 4.996003610813204e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_84a361849cb7469a",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_39b09e4cfebc2cb6",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_d1c3c044ee3bf663",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9090d1d65d31ca69",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f5ae4adff556b136",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f602cf581a7a99f6",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.885780586188048e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.885780586188048e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_4c44e439b8a59ba5",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1908745046211096,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.1908745046211096,
+          "semantic": 0.0018058119696847674
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_adbfc9222ba4b279",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1908745046211096,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.1,
+          "bigram_js": 0.1908745046211096,
+          "semantic": 0.002346809186653087
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_33b529c3dad808d0",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.045,
+        "standardized_effect": 2.006128850055766,
+        "components": {
+          "prefix10_tv": 0.7999999999999998,
+          "bigram_js": 0.9999999999999999,
+          "semantic": 0.1618012809562892
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_00540bb862aa69af",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.07,
+        "standardized_effect": 1.9168827263966544,
+        "components": {
+          "prefix10_tv": 0.6500000000000001,
+          "bigram_js": 1.0,
+          "semantic": 0.19474934557880313
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_ecfcb1ac3016d8bd",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.06,
+        "standardized_effect": 3.640842554434026,
+        "components": {
+          "prefix10_tv": 0.42500000000000016,
+          "bigram_js": 1.0,
+          "semantic": 0.13829207173209895
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_9ee0df44ee6cfe9d",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8164c57cdf8f161b",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f1df276b7ffdb453",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.49999999999999994,
+        "p_value": 0.395,
+        "standardized_effect": 1.245504737559055,
+        "components": {
+          "prefix10_tv": 0.49999999999999994,
+          "bigram_js": 0.021146498365188674,
+          "semantic": 0.0398600715518691
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2df76506cd4a2370",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_1cc5aad423d179c8",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.7123646968544889,
+        "p_value": 0.92,
+        "standardized_effect": -1.3911897276402403,
+        "components": {
+          "prefix10_tv": 0.44999999999999996,
+          "bigram_js": 0.7123646968544889,
+          "semantic": 0.08011018811223253
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_75499b776e7d8406",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.25,
+      "raw": {
+        "statistic": 0.1379253809700299,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.05,
+          "bigram_js": 0.1379253809700299,
+          "semantic": 0.01873019635093287
+        }
+      },
+      "intact_modal": 3,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_00da128f5039d0df",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 0.7169171866886992,
+        "p_value": 0.05,
+        "standardized_effect": 2.6107488182678718,
+        "components": {
+          "prefix10_tv": 0.275,
+          "bigram_js": 0.7169171866886992,
+          "semantic": 0.09150789079132515
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_95a734881fa5ac59",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.025,
+        "standardized_effect": 5.778345352681128,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.30188216844281235
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_d9558faeefb63415",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_033a7fc3eb6ebbdf",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.625,
+      "raw": {
+        "statistic": 0.8896297788180758,
+        "p_value": 0.03,
+        "standardized_effect": 3.177826276118214,
+        "components": {
+          "prefix10_tv": 0.8499999999999999,
+          "bigram_js": 0.8896297788180758,
+          "semantic": 0.15927071496672413
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_fce996c7deb1978a",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.9135072146170922,
+        "p_value": 0.15,
+        "standardized_effect": 1.3912179148730315,
+        "components": {
+          "prefix10_tv": 0.7000000000000002,
+          "bigram_js": 0.9135072146170922,
+          "semantic": 0.08144814867342393
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_25219d9b653c0b11",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.9249746739826754,
+        "p_value": 0.245,
+        "standardized_effect": 1.086267432033232,
+        "components": {
+          "prefix10_tv": 0.7000000000000002,
+          "bigram_js": 0.9249746739826754,
+          "semantic": 0.10874835987082698
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_f745b4a79855fc3b",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.875,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.04,
+        "standardized_effect": 3.155291801578737,
+        "components": {
+          "prefix10_tv": 0.3750000000000001,
+          "bigram_js": 1.0,
+          "semantic": 0.11692512656002335
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_5633a531fbd3ecae",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.03,
+        "standardized_effect": 2.3428042359973085,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.1911632262233417
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_dbb918725a0b54c1",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.05,
+        "standardized_effect": 3.453172836173227,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.24881518547895326
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_61c5d228edb92aec",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_36c01f151cd22328",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.6394319446848298,
+        "p_value": 0.28,
+        "standardized_effect": 1.0346917006385457,
+        "components": {
+          "prefix10_tv": 0.44999999999999996,
+          "bigram_js": 0.6394319446848298,
+          "semantic": 0.04169287963938195
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_df735f2c3e335dea",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.885780586188048e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.885780586188048e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8ddea1ee4fa2de07",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.75,
+        "p_value": 0.185,
+        "standardized_effect": 2.00501324807106,
+        "components": {
+          "prefix10_tv": 0.75,
+          "bigram_js": 0.6280996792786879,
+          "semantic": 0.04192132566385448
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_c6aff6370cfda4ee",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.733105259188968,
+        "p_value": 0.27,
+        "standardized_effect": 0.6961003429205392,
+        "components": {
+          "prefix10_tv": 0.6500000000000001,
+          "bigram_js": 0.733105259188968,
+          "semantic": 0.16562827994066376
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_7461dc94b4482d48",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.5487949406953986,
+        "p_value": 0.14,
+        "standardized_effect": 1.809967788657843,
+        "components": {
+          "prefix10_tv": 0.125,
+          "bigram_js": 0.5487949406953986,
+          "semantic": 0.14286621211538042
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_53b9f3a1c389897a",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.75,
+        "p_value": 0.15,
+        "standardized_effect": 1.5504216462206215,
+        "components": {
+          "prefix10_tv": 0.75,
+          "bigram_js": 0.61569552279529,
+          "semantic": 0.19037512532678225
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_38d7f3739371763e",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_55543d91c3cc372a",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_243fdd657f819890",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.9184279441014015,
+        "p_value": 0.14,
+        "standardized_effect": 1.6663369379097384,
+        "components": {
+          "prefix10_tv": 0.55,
+          "bigram_js": 0.9184279441014015,
+          "semantic": 0.13963015395906542
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_8df1b976d8d3c87d",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.05,
+        "standardized_effect": 2.9223903824065722,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.9491600933920591,
+          "semantic": 0.32502599698022167
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_3b0b2763d2c4debc",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.8329654988468753,
+        "p_value": 0.03,
+        "standardized_effect": 1.9795788258528044,
+        "components": {
+          "prefix10_tv": 0.7000000000000002,
+          "bigram_js": 0.8329654988468753,
+          "semantic": 0.0729464452302725
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_e9a518df2e12f359",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.04,
+        "standardized_effect": 3.643776794514624,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.8702809025575208,
+          "semantic": 0.2673003283182811
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_207d056a212f98f3",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.7394468924503993,
+        "p_value": 0.04,
+        "standardized_effect": 1.2546638949083604,
+        "components": {
+          "prefix10_tv": 0.525,
+          "bigram_js": 0.7394468924503993,
+          "semantic": 0.11275231819644771
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_1747eb0881294022",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.035,
+        "standardized_effect": 2.4307754598060343,
+        "components": {
+          "prefix10_tv": 0.42500000000000004,
+          "bigram_js": 0.9999999999999999,
+          "semantic": 0.09073167361079226
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_ecdde1285df483a1",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 0.6822228339734706,
+        "p_value": 0.11,
+        "standardized_effect": 1.9910090162578578,
+        "components": {
+          "prefix10_tv": 0.24999999999999997,
+          "bigram_js": 0.6822228339734706,
+          "semantic": 0.06490227628186673
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_6ba216fcebe60de0",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 4.996003610813204e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 4.996003610813204e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_83a381cf600c43bc",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2481dd8f183834e6",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.6893917467430877,
+        "p_value": 0.155,
+        "standardized_effect": 2.3734644158557203,
+        "components": {
+          "prefix10_tv": 0.22500000000000003,
+          "bigram_js": 0.6893917467430877,
+          "semantic": 0.13102441488305333
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_b352cbf0e7de37a0",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_e171bbb6aea24708",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 2.220446049250313e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 2.220446049250313e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_2303a5248245ac0d",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.75,
+      "raw": {
+        "statistic": 0.8389541646898332,
+        "p_value": 0.03,
+        "standardized_effect": 1.5228143443978102,
+        "components": {
+          "prefix10_tv": 0.6500000000000001,
+          "bigram_js": 0.8389541646898332,
+          "semantic": 0.12386081940529681
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_5558b2ff136807a4",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.9999999999999999,
+        "p_value": 0.02,
+        "standardized_effect": 6.308227426388272,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 0.9999999999999998,
+          "semantic": 0.2740293279198255
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_a16bcbc0d69cb15f",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.02,
+        "standardized_effect": 4.146187633720255,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.21642053274261075
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_cb7e18e092963a9d",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.025,
+        "standardized_effect": 3.10567602527244,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.21564544381591194
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_a1af11ded34026f0",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 1.0,
+        "p_value": 0.035,
+        "standardized_effect": 3.995293995924591,
+        "components": {
+          "prefix10_tv": 0.9999999999999999,
+          "bigram_js": 1.0,
+          "semantic": 0.20220148502368712
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_90de386b0bddfd4a",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.375,
+      "raw": {
+        "statistic": 0.528938689138897,
+        "p_value": 0.49,
+        "standardized_effect": 0.016794470855080693,
+        "components": {
+          "prefix10_tv": 0.3,
+          "bigram_js": 0.528938689138897,
+          "semantic": 0.02111557393785707
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_c09cbdf2b07f167a",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.5,
+      "raw": {
+        "statistic": 0.15000000000000002,
+        "p_value": 0.49,
+        "standardized_effect": 1.0254493608913982,
+        "components": {
+          "prefix10_tv": 0.15000000000000002,
+          "bigram_js": 0.020720839623908215,
+          "semantic": 0.012773919719636706
+        }
+      },
+      "intact_modal": 2,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_fb94fa6482f5a12b",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.0,
+      "raw": {
+        "statistic": 3.3306690738754696e-16,
+        "p_value": 1.0,
+        "standardized_effect": null,
+        "components": {
+          "prefix10_tv": 0.0,
+          "bigram_js": 0.0,
+          "semantic": 3.3306690738754696e-16
+        }
+      },
+      "intact_modal": 4,
+      "nonempty": true
+    },
+    {
+      "prompt_id": "u_6c1cb644f7886192",
+      "endpoint": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "attack_seed": 20269221,
+      "text_tv": 0.125,
+      "raw": {
+        "statistic": 0.5500000000000002,
+        "p_value": 0.415,
+        "standardized_effect": 0.15677831722694385,
+        "components": {
+          "prefix10_tv": 0.5500000000000002,
+          "bigram_js": 0.25647866947192577,
+          "semantic": 0.031052198654002217
+        }
+      },
+      "intact_modal": 1,
+      "nonempty": true
+    }
+  ]
+}

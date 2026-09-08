@@ -1,0 +1,88 @@
+schema_version: h9-stage1-gaussian-escalation-1.0
+status: adaptive_extension_parameters_frozen
+source_commit: a3e2f592f5bedbdace77256627f0fa767971307c
+extension_reason: primary_gaussian_grid_maximum_failed_all_predeclared_sensitivity_gates
+parent_result: results/h9_stage1_qwen05b_attack_stat_calibration_20260904
+
+model:
+  name: Qwen/Qwen2.5-0.5B-Instruct
+  revision: 7ae557604adf67be50417f59c2c2f167def9a775
+  dtype: bfloat16
+  device_map: auto
+  trust_remote_code: false
+  local_files_only: true
+  quantization: none
+
+semantic_encoder:
+  name: BAAI/bge-small-zh-v1.5
+  revision: 7999e1d3359715c523056ef9478215996d62a620
+  device: cuda
+  local_files_only: true
+
+inputs:
+  prompts: experiments/h9-stage1/inputs/stage1_prompts_v1.jsonl
+  prompts_sha256: d024add4a6c2e2c3726cf090e8bc667c582ec3241c8f9a64f0ec4c2edaf6e9b1
+  lora_train: data/h8_d2_fresh_isolated_attack_training_data_v1.jsonl
+  lora_train_sha256: 0bb39931c284eb29963d292670c068d3ab04d17aa1584f0b1b8817d8d2f5143a
+  lora_heldout: data/h8_f1_final_isolated_attack_training_data_v1.jsonl
+
+generation:
+  max_input_tokens: 512
+  max_new_tokens: 64
+  do_sample: true
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  system_prompt: null
+  intact_repetitions_per_prompt: 48
+  attack_repetitions_per_prompt: 24
+  response_seed_base: 910000
+  attack_response_indices: [0, 23]
+  intact_test_reference_indices: [24, 47]
+  seed_pairing_policy: shared_across_attack_endpoints_but_disjoint_from_intact_test_reference
+
+null_calibration:
+  reference_group_size: 24
+  fit_splits: 199
+  evaluation_splits: 200
+  split_seed_base: 73000
+  alpha: 0.05
+  decision_rule: empirical_upper_tail_p_with_plus_one_le_alpha
+  degeneracy_epsilon: 1.0e-12
+  raw_components: [prefix10_tv, bigram_js, semantic_centroid_distance]
+  composite_rule: max_standardized_component_inside_each_null_split
+
+gaussian:
+  target_scope: all_transformer_layers
+  scale_rule: parameter_tensor_std
+  seeds: [4101, 4102, 4103]
+  strengths:
+    - {label: weak, std_ratio: 0.006}
+    - {label: medium, std_ratio: 0.012}
+    - {label: strong, std_ratio: 0.024}
+
+lora:
+  seeds: [5101, 5102, 5103]
+  rank: 8
+  alpha: 16
+  dropout: 0.0
+  learning_rate: 0.0001
+  target_scope: attention_ffn
+  max_length: 256
+  batch_size: 1
+  gradient_accumulation_steps: 4
+  strengths:
+    - {label: weak, steps: 5}
+    - {label: medium, steps: 20}
+    - {label: strong, steps: 80}
+
+selection:
+  raw_composite_q25_min: 1.0
+  h8_mmd_z_q25_min: 1.0
+  raw_detection_fraction_min: 0.5
+  maximum_task_pass_drop: 0.15
+  policy: weakest_level_meeting_all_criteria_else_no_calibrated_level
+
+output:
+  root: results/h9_stage1_qwen05b_gaussian_escalation_20260904
+

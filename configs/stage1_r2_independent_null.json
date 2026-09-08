@@ -1,0 +1,15 @@
+{
+  "version": "stage1-r2-independent-null-v2",
+  "model": {"name": "Qwen/Qwen2.5-0.5B-Instruct", "revision": "7ae557604adf67be50417f59c2c2f167def9a775", "dtype": "bfloat16", "device_map": "auto", "quantization": "none", "local_files_only": true, "trust_remote_code": false},
+  "target_weight_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "semantic": {"name": "BAAI/bge-small-zh-v1.5", "revision": "7999e1d3359715c523056ef9478215996d62a620", "weight_sha256": "354763b9b1357bc9c44f62c6be2276321081ed2567773608c0d0785b61d5a026", "max_seq_length": 512, "batch_size": 1, "normalize_embeddings": true, "precision": "float32", "attention": "eager", "text_preprocessing": "exact_response_no_prefix"},
+  "prompts": "experiments/h9-stage1/inputs/stage1_prompts_v1.jsonl",
+  "prompts_sha256": "d024add4a6c2e2c3726cf090e8bc667c582ec3241c8f9a64f0ec4c2edaf6e9b1",
+  "generation": {"max_input_tokens": 512, "max_new_tokens": 64, "do_sample": true, "temperature": 0.7, "top_p": 0.9, "top_k": 50, "batch_size": 1, "system_prompt": null, "determinism": "fixed_seeds_best_effort_warn_only_cuda_cumsum"},
+  "sampling": {"seed_base": 2600000000, "fit_per_prompt": 48, "calibration_per_prompt": 48, "validation_units_per_prompt": 60, "reference_per_unit": 24, "target_per_unit": 24, "prompt_count": 12, "response_budget": 35712},
+  "test": {"permutations": 999, "alpha": 0.05, "tie_atol": 1e-12, "channels": ["raw", "h8"], "combination": "separate_reports_no_OR"},
+  "acceptance": {"scope": "conditional_on_frozen_fit_uniform_12_prompt_macro_engineering_check", "confidence_error_across_two_macro_bounds": 0.05, "macro_fpr_upper_max": 0.10, "localized_inflation_alpha_familywise": 0.05, "localized_null_rate": 0.05, "no_optional_sample_extension": true, "no_threshold_tuning": true, "no_unevaluable_units": true},
+  "calibration_role": "one_24_vs_24_smoke_per_prompt_no_threshold_tuning_or_statistical_stopping",
+  "freeze_order": "fit_only_transform_freeze_then_calibration_audit_then_validation_generation",
+  "shutdown_server": false
+}

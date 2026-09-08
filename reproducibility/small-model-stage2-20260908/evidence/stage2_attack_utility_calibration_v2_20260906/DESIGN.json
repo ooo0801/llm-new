@@ -1,0 +1,1432 @@
+{
+  "schema": "stage2-attack-utility-calibration-v2",
+  "purpose": "attack selection from independent task utility only; H6 behavior is unavailable to the selector",
+  "model": {
+    "name": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "dtype": "bfloat16",
+    "device_map": "auto",
+    "local_files_only": true,
+    "trust_remote_code": false,
+    "eager_attention": true
+  },
+  "generation": {
+    "preflight": {
+      "do_sample": true,
+      "temperature": 0.2,
+      "top_p": 0.9,
+      "top_k": 50,
+      "max_input_tokens": 256,
+      "max_new_tokens": 48
+    },
+    "utility": {
+      "do_sample": false,
+      "max_input_tokens": 256,
+      "max_new_tokens": 48
+    }
+  },
+  "utility_pool": [
+    {
+      "id": "s2cal_logic_00",
+      "prompt": "甲比乙高，乙比丙高。谁最矮？只输出一个汉字。",
+      "expected_answer": "丙",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_01",
+      "prompt": "丁比戊重，戊比己重。谁最重？只输出一个汉字。",
+      "expected_answer": "丁",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_02",
+      "prompt": "春比夏早，夏比秋早。谁最晚？只输出一个汉字。",
+      "expected_answer": "秋",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_03",
+      "prompt": "东比南远，南比西远。谁最近？只输出一个汉字。",
+      "expected_answer": "西",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_04",
+      "prompt": "红盒比蓝盒轻，蓝盒比绿盒轻。哪个盒子最重？只输出颜色。",
+      "expected_answer": "绿",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_05",
+      "prompt": "松树比柏树高，柏树比柳树高。哪种树最矮？只输出树名。",
+      "expected_answer": "柳树",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_06",
+      "prompt": "一号比二号快，二号比三号快。哪个号码最慢？只输出中文号码。",
+      "expected_answer": "三号",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_07",
+      "prompt": "小安比小北年长，小北比小辰年长。谁最年轻？只输出名字。",
+      "expected_answer": "小辰",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_08",
+      "prompt": "铜球比铁球轻，铁球比木球重，木球比铜球重。哪个球最轻？只输出名称。",
+      "expected_answer": "铜球",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_09",
+      "prompt": "A排在B前面，B排在C前面。谁排在最后？只输出字母。",
+      "expected_answer": "C",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_10",
+      "prompt": "猫比狗轻，狗比羊轻。哪种动物最重？只输出动物名。",
+      "expected_answer": "羊",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_11",
+      "prompt": "书架甲比书架乙宽，书架乙比书架丙宽。最窄的是哪个？只输出代号。",
+      "expected_answer": "丙",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_12",
+      "prompt": "河流甲比河流乙长，河流乙比河流丙长。最长的是哪条？只输出代号。",
+      "expected_answer": "甲",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_13",
+      "prompt": "灯A比灯B亮，灯B比灯C亮。最暗的是哪盏？只输出字母。",
+      "expected_answer": "C",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_14",
+      "prompt": "班级一比班级二人数多，班级二比班级三人数多。人数最少的是？只输出中文数字。",
+      "expected_answer": "三",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_logic_15",
+      "prompt": "温度甲低于乙，乙低于丙。温度最高的是谁？只输出代号。",
+      "expected_answer": "丙",
+      "category": "logic",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_math_00",
+      "prompt": "计算1+2，只输出整数。",
+      "expected_answer": "3",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_01",
+      "prompt": "计算3+4，只输出整数。",
+      "expected_answer": "7",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_02",
+      "prompt": "计算5+3，只输出整数。",
+      "expected_answer": "8",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_03",
+      "prompt": "计算6+7，只输出整数。",
+      "expected_answer": "13",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_04",
+      "prompt": "计算9-3，只输出整数。",
+      "expected_answer": "6",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_05",
+      "prompt": "计算8-2，只输出整数。",
+      "expected_answer": "6",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_06",
+      "prompt": "计算12-5，只输出整数。",
+      "expected_answer": "7",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_07",
+      "prompt": "计算15-6，只输出整数。",
+      "expected_answer": "9",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_08",
+      "prompt": "计算2×3，只输出整数。",
+      "expected_answer": "6",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_09",
+      "prompt": "计算3×4，只输出整数。",
+      "expected_answer": "12",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_10",
+      "prompt": "计算5×4，只输出整数。",
+      "expected_answer": "20",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_11",
+      "prompt": "计算6×5，只输出整数。",
+      "expected_answer": "30",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_12",
+      "prompt": "计算8÷2，只输出整数。",
+      "expected_answer": "4",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_13",
+      "prompt": "计算9÷3，只输出整数。",
+      "expected_answer": "3",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_14",
+      "prompt": "计算12÷4，只输出整数。",
+      "expected_answer": "3",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_math_15",
+      "prompt": "计算15÷5，只输出整数。",
+      "expected_answer": "3",
+      "category": "math",
+      "evaluator": "numeric"
+    },
+    {
+      "id": "s2cal_instruction_00",
+      "prompt": "请原样输出：竹影清风。不要添加标点或解释。",
+      "expected_answer": "竹影清风",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_01",
+      "prompt": "请原样输出：远山近水。不要添加标点或解释。",
+      "expected_answer": "远山近水",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_02",
+      "prompt": "只输出三个汉字：松竹梅。",
+      "expected_answer": "松竹梅",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_03",
+      "prompt": "只输出四个汉字：琴棋书画。",
+      "expected_answer": "琴棋书画",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_04",
+      "prompt": "严格输出从4开始的4个连续整数，用英文逗号分隔。",
+      "expected_answer": "4,5,6,7",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_05",
+      "prompt": "严格输出从7开始的3个连续整数，用英文逗号分隔。",
+      "expected_answer": "7,8,9",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_06",
+      "prompt": "把“蓝色天空”原样输出一次，不添加其他内容。",
+      "expected_answer": "蓝色天空",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_07",
+      "prompt": "把“实验记录”原样输出一次，不添加其他内容。",
+      "expected_answer": "实验记录",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_08",
+      "prompt": "只输出字母XYZ，保持大写。",
+      "expected_answer": "XYZ",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_09",
+      "prompt": "只输出小写字母abc。",
+      "expected_answer": "abc",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_10",
+      "prompt": "按此顺序输出甲乙丙，中间不加空格。",
+      "expected_answer": "甲乙丙",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_11",
+      "prompt": "按此顺序输出春秋冬，中间不加空格。",
+      "expected_answer": "春秋冬",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_12",
+      "prompt": "将数字5重复三次，不加空格或标点。",
+      "expected_answer": "555",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_13",
+      "prompt": "将汉字“云”重复两次，不加空格或标点。",
+      "expected_answer": "云云",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_14",
+      "prompt": "只回答“同意”两个汉字。",
+      "expected_answer": "同意",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_instruction_15",
+      "prompt": "只回答“完成”两个汉字。",
+      "expected_answer": "完成",
+      "category": "instruction",
+      "evaluator": "exact"
+    },
+    {
+      "id": "s2cal_structured_00",
+      "prompt": "输出一个JSON对象：name为\"cat\"、level为1、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"cat\",\"level\":1,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_01",
+      "prompt": "输出一个JSON对象：name为\"dog\"、level为2、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"dog\",\"level\":2,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_02",
+      "prompt": "输出一个JSON对象：name为\"red\"、level为3、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"red\",\"level\":3,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_03",
+      "prompt": "输出一个JSON对象：name为\"blue\"、level为4、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"blue\",\"level\":4,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_04",
+      "prompt": "输出一个JSON对象：name为\"east\"、level为5、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"east\",\"level\":5,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_05",
+      "prompt": "输出一个JSON对象：name为\"west\"、level为6、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"west\",\"level\":6,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_06",
+      "prompt": "输出一个JSON对象：name为\"sun\"、level为7、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"sun\",\"level\":7,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_07",
+      "prompt": "输出一个JSON对象：name为\"moon\"、level为8、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"moon\",\"level\":8,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_08",
+      "prompt": "输出一个JSON对象：name为\"alpha\"、level为9、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"alpha\",\"level\":9,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_09",
+      "prompt": "输出一个JSON对象：name为\"beta\"、level为10、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"beta\",\"level\":10,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_10",
+      "prompt": "输出一个JSON对象：name为\"north\"、level为11、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"north\",\"level\":11,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_11",
+      "prompt": "输出一个JSON对象：name为\"south\"、level为12、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"south\",\"level\":12,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_12",
+      "prompt": "输出一个JSON对象：name为\"one\"、level为13、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"one\",\"level\":13,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_13",
+      "prompt": "输出一个JSON对象：name为\"two\"、level为14、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"two\",\"level\":14,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_14",
+      "prompt": "输出一个JSON对象：name为\"green\"、level为15、enabled为true。不要解释。",
+      "expected_answer": "{\"name\":\"green\",\"level\":15,\"enabled\":true}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    },
+    {
+      "id": "s2cal_structured_15",
+      "prompt": "输出一个JSON对象：name为\"white\"、level为16、enabled为false。不要解释。",
+      "expected_answer": "{\"name\":\"white\",\"level\":16,\"enabled\":false}",
+      "category": "structured",
+      "evaluator": "json_semantic"
+    }
+  ],
+  "preflight_repetitions": 4,
+  "preflight_minimum_passes": 3,
+  "select_per_category": 8,
+  "final_utility_size": 32,
+  "utility_categories": [
+    "logic",
+    "math",
+    "instruction",
+    "structured"
+  ],
+  "utility_gate": {
+    "minimum_intact_correct": 24,
+    "maximum_absolute_loss_from_intact": 2,
+    "gaussian_lora_group_policy": "all three independently realized seeds must pass",
+    "coverage_policy": "each deterministic configuration checked independently"
+  },
+  "selection": {
+    "gaussian_noise": "three highest sigma groups for which all three seeds pass utility",
+    "finetuning": "three highest predeclared update-budget groups for which all three seeds pass utility",
+    "unstructured_pruning": "highest ratio passing utility",
+    "structured_pruning": "highest ratio passing utility",
+    "quantization": "highest INT8 threshold passing utility; NF4 is never selectable and remains destructive control"
+  },
+  "variants": [
+    {
+      "variant_id": "cal_gaussian_g00_s0",
+      "family": "gaussian_noise",
+      "grid_index": 0,
+      "intensity": 0.001,
+      "seed": 20269100,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.001,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g00_s1",
+      "family": "gaussian_noise",
+      "grid_index": 0,
+      "intensity": 0.001,
+      "seed": 20269101,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.001,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g00_s2",
+      "family": "gaussian_noise",
+      "grid_index": 0,
+      "intensity": 0.001,
+      "seed": 20269102,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.001,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g01_s0",
+      "family": "gaussian_noise",
+      "grid_index": 1,
+      "intensity": 0.002,
+      "seed": 20269110,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.002,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g01_s1",
+      "family": "gaussian_noise",
+      "grid_index": 1,
+      "intensity": 0.002,
+      "seed": 20269111,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.002,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g01_s2",
+      "family": "gaussian_noise",
+      "grid_index": 1,
+      "intensity": 0.002,
+      "seed": 20269112,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.002,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g02_s0",
+      "family": "gaussian_noise",
+      "grid_index": 2,
+      "intensity": 0.003,
+      "seed": 20269120,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.003,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g02_s1",
+      "family": "gaussian_noise",
+      "grid_index": 2,
+      "intensity": 0.003,
+      "seed": 20269121,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.003,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g02_s2",
+      "family": "gaussian_noise",
+      "grid_index": 2,
+      "intensity": 0.003,
+      "seed": 20269122,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.003,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g03_s0",
+      "family": "gaussian_noise",
+      "grid_index": 3,
+      "intensity": 0.004,
+      "seed": 20269130,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.004,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g03_s1",
+      "family": "gaussian_noise",
+      "grid_index": 3,
+      "intensity": 0.004,
+      "seed": 20269131,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.004,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g03_s2",
+      "family": "gaussian_noise",
+      "grid_index": 3,
+      "intensity": 0.004,
+      "seed": 20269132,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.004,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g04_s0",
+      "family": "gaussian_noise",
+      "grid_index": 4,
+      "intensity": 0.005,
+      "seed": 20269140,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.005,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g04_s1",
+      "family": "gaussian_noise",
+      "grid_index": 4,
+      "intensity": 0.005,
+      "seed": 20269141,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.005,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g04_s2",
+      "family": "gaussian_noise",
+      "grid_index": 4,
+      "intensity": 0.005,
+      "seed": 20269142,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.005,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g05_s0",
+      "family": "gaussian_noise",
+      "grid_index": 5,
+      "intensity": 0.006,
+      "seed": 20269150,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.006,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g05_s1",
+      "family": "gaussian_noise",
+      "grid_index": 5,
+      "intensity": 0.006,
+      "seed": 20269151,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.006,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g05_s2",
+      "family": "gaussian_noise",
+      "grid_index": 5,
+      "intensity": 0.006,
+      "seed": 20269152,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.006,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g06_s0",
+      "family": "gaussian_noise",
+      "grid_index": 6,
+      "intensity": 0.008,
+      "seed": 20269160,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.008,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g06_s1",
+      "family": "gaussian_noise",
+      "grid_index": 6,
+      "intensity": 0.008,
+      "seed": 20269161,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.008,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_gaussian_g06_s2",
+      "family": "gaussian_noise",
+      "grid_index": 6,
+      "intensity": 0.008,
+      "seed": 20269162,
+      "configuration": {
+        "method": "relative_gaussian",
+        "std_ratio": 0.008,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g00_s0",
+      "family": "finetuning",
+      "grid_index": 0,
+      "intensity": 0.002,
+      "seed": 20269200,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 20,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g00_s1",
+      "family": "finetuning",
+      "grid_index": 0,
+      "intensity": 0.002,
+      "seed": 20269201,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 20,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g00_s2",
+      "family": "finetuning",
+      "grid_index": 0,
+      "intensity": 0.002,
+      "seed": 20269202,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 20,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g01_s0",
+      "family": "finetuning",
+      "grid_index": 1,
+      "intensity": 0.004,
+      "seed": 20269210,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 40,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g01_s1",
+      "family": "finetuning",
+      "grid_index": 1,
+      "intensity": 0.004,
+      "seed": 20269211,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 40,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g01_s2",
+      "family": "finetuning",
+      "grid_index": 1,
+      "intensity": 0.004,
+      "seed": 20269212,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 40,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g02_s0",
+      "family": "finetuning",
+      "grid_index": 2,
+      "intensity": 0.006,
+      "seed": 20269220,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 60,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g02_s1",
+      "family": "finetuning",
+      "grid_index": 2,
+      "intensity": 0.006,
+      "seed": 20269221,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 60,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g02_s2",
+      "family": "finetuning",
+      "grid_index": 2,
+      "intensity": 0.006,
+      "seed": 20269222,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.0001,
+        "steps": 60,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g03_s0",
+      "family": "finetuning",
+      "grid_index": 3,
+      "intensity": 0.005999999999999999,
+      "seed": 20269230,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.00015,
+        "steps": 40,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g03_s1",
+      "family": "finetuning",
+      "grid_index": 3,
+      "intensity": 0.005999999999999999,
+      "seed": 20269231,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.00015,
+        "steps": 40,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g03_s2",
+      "family": "finetuning",
+      "grid_index": 3,
+      "intensity": 0.005999999999999999,
+      "seed": 20269232,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.00015,
+        "steps": 40,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g04_s0",
+      "family": "finetuning",
+      "grid_index": 4,
+      "intensity": 0.009,
+      "seed": 20269240,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.00015,
+        "steps": 60,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g04_s1",
+      "family": "finetuning",
+      "grid_index": 4,
+      "intensity": 0.009,
+      "seed": 20269241,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.00015,
+        "steps": 60,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_lora_g04_s2",
+      "family": "finetuning",
+      "grid_index": 4,
+      "intensity": 0.009,
+      "seed": 20269242,
+      "configuration": {
+        "method": "lora",
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "learning_rate": 0.00015,
+        "steps": 60,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_unstructured_g00",
+      "family": "unstructured_pruning",
+      "grid_index": 0,
+      "intensity": 0.08,
+      "seed": 20269300,
+      "configuration": {
+        "method": "layerwise_magnitude",
+        "ratio": 0.08,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_unstructured_g01",
+      "family": "unstructured_pruning",
+      "grid_index": 1,
+      "intensity": 0.1,
+      "seed": 20269301,
+      "configuration": {
+        "method": "layerwise_magnitude",
+        "ratio": 0.1,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_unstructured_g02",
+      "family": "unstructured_pruning",
+      "grid_index": 2,
+      "intensity": 0.12,
+      "seed": 20269302,
+      "configuration": {
+        "method": "layerwise_magnitude",
+        "ratio": 0.12,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_unstructured_g03",
+      "family": "unstructured_pruning",
+      "grid_index": 3,
+      "intensity": 0.14,
+      "seed": 20269303,
+      "configuration": {
+        "method": "layerwise_magnitude",
+        "ratio": 0.14,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_unstructured_g04",
+      "family": "unstructured_pruning",
+      "grid_index": 4,
+      "intensity": 0.16,
+      "seed": 20269304,
+      "configuration": {
+        "method": "layerwise_magnitude",
+        "ratio": 0.16,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_unstructured_g05",
+      "family": "unstructured_pruning",
+      "grid_index": 5,
+      "intensity": 0.18,
+      "seed": 20269305,
+      "configuration": {
+        "method": "layerwise_magnitude",
+        "ratio": 0.18,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_unstructured_g06",
+      "family": "unstructured_pruning",
+      "grid_index": 6,
+      "intensity": 0.2,
+      "seed": 20269306,
+      "configuration": {
+        "method": "layerwise_magnitude",
+        "ratio": 0.2,
+        "target_scope": "attention_ffn"
+      }
+    },
+    {
+      "variant_id": "cal_structured_g00",
+      "family": "structured_pruning",
+      "grid_index": 0,
+      "intensity": 0.005,
+      "seed": 20269400,
+      "configuration": {
+        "structure": "ffn_channels",
+        "ratio": 0.005,
+        "selection": "magnitude",
+        "layer_scope": "all_layers",
+        "implementation": "mask"
+      }
+    },
+    {
+      "variant_id": "cal_structured_g01",
+      "family": "structured_pruning",
+      "grid_index": 1,
+      "intensity": 0.01,
+      "seed": 20269401,
+      "configuration": {
+        "structure": "ffn_channels",
+        "ratio": 0.01,
+        "selection": "magnitude",
+        "layer_scope": "all_layers",
+        "implementation": "mask"
+      }
+    },
+    {
+      "variant_id": "cal_structured_g02",
+      "family": "structured_pruning",
+      "grid_index": 2,
+      "intensity": 0.02,
+      "seed": 20269402,
+      "configuration": {
+        "structure": "ffn_channels",
+        "ratio": 0.02,
+        "selection": "magnitude",
+        "layer_scope": "all_layers",
+        "implementation": "mask"
+      }
+    },
+    {
+      "variant_id": "cal_structured_g03",
+      "family": "structured_pruning",
+      "grid_index": 3,
+      "intensity": 0.03,
+      "seed": 20269403,
+      "configuration": {
+        "structure": "ffn_channels",
+        "ratio": 0.03,
+        "selection": "magnitude",
+        "layer_scope": "all_layers",
+        "implementation": "mask"
+      }
+    },
+    {
+      "variant_id": "cal_structured_g04",
+      "family": "structured_pruning",
+      "grid_index": 4,
+      "intensity": 0.04,
+      "seed": 20269404,
+      "configuration": {
+        "structure": "ffn_channels",
+        "ratio": 0.04,
+        "selection": "magnitude",
+        "layer_scope": "all_layers",
+        "implementation": "mask"
+      }
+    },
+    {
+      "variant_id": "cal_structured_g05",
+      "family": "structured_pruning",
+      "grid_index": 5,
+      "intensity": 0.05,
+      "seed": 20269405,
+      "configuration": {
+        "structure": "ffn_channels",
+        "ratio": 0.05,
+        "selection": "magnitude",
+        "layer_scope": "all_layers",
+        "implementation": "mask"
+      }
+    },
+    {
+      "variant_id": "cal_int8_t4",
+      "family": "quantization",
+      "grid_index": 0,
+      "intensity": 4.0,
+      "seed": 20269500,
+      "configuration": {
+        "method": "int8",
+        "llm_int8_threshold": 4.0,
+        "compute_dtype": "bfloat16",
+        "target_scope": "full_model",
+        "double_quant": false
+      }
+    },
+    {
+      "variant_id": "cal_int8_t6",
+      "family": "quantization",
+      "grid_index": 1,
+      "intensity": 6.0,
+      "seed": 20269501,
+      "configuration": {
+        "method": "int8",
+        "llm_int8_threshold": 6.0,
+        "compute_dtype": "bfloat16",
+        "target_scope": "full_model",
+        "double_quant": false
+      }
+    },
+    {
+      "variant_id": "cal_int8_t8",
+      "family": "quantization",
+      "grid_index": 2,
+      "intensity": 8.0,
+      "seed": 20269502,
+      "configuration": {
+        "method": "int8",
+        "llm_int8_threshold": 8.0,
+        "compute_dtype": "bfloat16",
+        "target_scope": "full_model",
+        "double_quant": false
+      }
+    },
+    {
+      "variant_id": "cal_nf4_destructive_control",
+      "family": "quantization",
+      "grid_index": 99,
+      "intensity": 99.0,
+      "selection_role": "destructive_control_only",
+      "seed": 20269599,
+      "configuration": {
+        "method": "nf4",
+        "compute_dtype": "bfloat16",
+        "target_scope": "full_model",
+        "double_quant": true
+      }
+    }
+  ],
+  "lora_training": [
+    {
+      "id": "s2_sft_00",
+      "prompt": "太阳系中最大的行星是什么？",
+      "expected_answer": "太阳系中最大的行星是木星。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_01",
+      "prompt": "水在标准大气压下的沸点是多少？",
+      "expected_answer": "水在标准大气压下的沸点是100摄氏度。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_02",
+      "prompt": "植物通过什么过程利用阳光制造养分？",
+      "expected_answer": "植物通过光合作用利用阳光制造养分。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_03",
+      "prompt": "地球的天然卫星叫什么？",
+      "expected_answer": "地球的天然卫星叫月球。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_04",
+      "prompt": "解释计算机中的只读文件。",
+      "expected_answer": "只读文件允许读取内容，但不允许直接修改。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_05",
+      "prompt": "为什么实验要记录随机种子？",
+      "expected_answer": "记录随机种子有助于在相同环境中复现实验。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_06",
+      "prompt": "简述训练集与测试集的区别。",
+      "expected_answer": "训练集用于学习参数，测试集用于评估未见数据上的表现。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_07",
+      "prompt": "为什么应保存原始数据？",
+      "expected_answer": "保存原始数据便于复核处理过程并追溯结果。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_08",
+      "prompt": "将英文翻译成中文：Save the result.",
+      "expected_answer": "保存结果。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_09",
+      "prompt": "将英文翻译成中文：Check the file path.",
+      "expected_answer": "检查文件路径。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_10",
+      "prompt": "将英文翻译成中文：Read the instructions.",
+      "expected_answer": "阅读说明。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_11",
+      "prompt": "将英文翻译成中文：The model is ready.",
+      "expected_answer": "模型已准备好。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_12",
+      "prompt": "将英文翻译成中文：Compare the two values.",
+      "expected_answer": "比较这两个值。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_13",
+      "prompt": "将英文翻译成中文：Keep the original copy.",
+      "expected_answer": "保留原始副本。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_14",
+      "prompt": "将英文翻译成中文：The experiment has ended.",
+      "expected_answer": "实验已经结束。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_15",
+      "prompt": "将英文翻译成中文：Use a separate test set.",
+      "expected_answer": "使用独立的测试集。",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_16",
+      "prompt": "计算17+28，只输出整数。",
+      "expected_answer": "45",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_17",
+      "prompt": "计算39+12，只输出整数。",
+      "expected_answer": "51",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_18",
+      "prompt": "计算24+31，只输出整数。",
+      "expected_answer": "55",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_19",
+      "prompt": "计算46+18，只输出整数。",
+      "expected_answer": "64",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_20",
+      "prompt": "计算57+23，只输出整数。",
+      "expected_answer": "80",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_21",
+      "prompt": "计算63+19，只输出整数。",
+      "expected_answer": "82",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_22",
+      "prompt": "计算72+16，只输出整数。",
+      "expected_answer": "88",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_23",
+      "prompt": "计算85+14，只输出整数。",
+      "expected_answer": "99",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_24",
+      "prompt": "将词语“山谷”原样输出一次，不添加其他内容。",
+      "expected_answer": "山谷",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_25",
+      "prompt": "将词语“河流”原样输出一次，不添加其他内容。",
+      "expected_answer": "河流",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_26",
+      "prompt": "将词语“森林”原样输出一次，不添加其他内容。",
+      "expected_answer": "森林",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_27",
+      "prompt": "将词语“海洋”原样输出一次，不添加其他内容。",
+      "expected_answer": "海洋",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_28",
+      "prompt": "将词语“星辰”原样输出一次，不添加其他内容。",
+      "expected_answer": "星辰",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_29",
+      "prompt": "将词语“晨光”原样输出一次，不添加其他内容。",
+      "expected_answer": "晨光",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_30",
+      "prompt": "将词语“雨滴”原样输出一次，不添加其他内容。",
+      "expected_answer": "雨滴",
+      "source": "authored_stage2_mini_sft"
+    },
+    {
+      "id": "s2_sft_31",
+      "prompt": "将词语“白云”原样输出一次，不添加其他内容。",
+      "expected_answer": "白云",
+      "source": "authored_stage2_mini_sft"
+    }
+  ],
+  "exclusion": {
+    "old_stage2_design_sha256": "b941be8b5282da4a3cc0389aed60a790c1e3185473be3810dbd4dd82eb980579",
+    "excluded_prompt_count": 46,
+    "exact_prompt_overlap_count": 0,
+    "roles": [
+      "H6 source prompts",
+      "LoRA training prompts",
+      "old utility prompts"
+    ]
+  },
+  "code_sha256": {
+    "src/llm_integrity/modeling.py": "770018f9eb47e22def46f5c011f84dbf9dbb84cb917196ca47c550cbf6cbbfea",
+    "src/llm_integrity/stage1_r1.py": "473599dd9c82b4bc436e04f41cfc134356143d0a6f0588f6aef42b70a208bcee",
+    "src/llm_integrity/paper_variant_executor.py": "f3fba25ea715210160f534a639fdbd1c284521bc9428c46b2ecd2e989bf0dad2",
+    "src/llm_integrity/paper_in_memory_attacks.py": "b3e9c22a934355324378ef1f16e77c876f49830c265ee5ec55030d0bb5624fe3",
+    "src/llm_integrity/paper_quantization.py": "af8dd143a4e2d190cf9ed0d1f9959bf364881e5f0c21de9fcd2c1e7047087026",
+    "src/llm_integrity/paper_finetuning.py": "edad4e523bc22cfae193dd86bd5c1530e15285b3f7559832108a97eb577463cf"
+  },
+  "driver_sha256": "baa05b39ac370dff81775e47c7b64eff441eacb41c054d6ffb1d44d346ef5a3e"
+}
