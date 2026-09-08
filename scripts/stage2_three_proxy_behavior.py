@@ -193,8 +193,10 @@ def generate(stage):
 
 
 def empirical_tv(left, right):
-    keys = set(left) | set(right)
     a, b = Counter(normalize(value) for value in left), Counter(normalize(value) for value in right)
+    # Counts are keyed by normalized response text; using raw keys here
+    # silently introduced zero-mass entries and inflated TV estimates.
+    keys = set(a) | set(b)
     return .5 * sum(abs(a[key] / len(left) - b[key] / len(right)) for key in keys)
 
 
@@ -265,9 +267,10 @@ def analyze_pilot():
         summary[proxy] = {"families": family_values, "median_raw_standardized_effect": float(np.median(raw_z)) if raw_z else None,
                           "promotion_score": score, "qualifies": qualifies}
     ranking = sorted(PROXIES, key=lambda proxy: (-summary[proxy]["promotion_score"], proxy))
-    can_continue = any(summary[proxy]["qualifies"] for proxy in PROXIES)
+    qualified = [proxy for proxy in ranking if summary[proxy]["qualifies"]]
+    can_continue = bool(qualified)
     promotion = {"schema": "stage2-three-proxy-promotion-v1", "can_continue": can_continue,
-                 "promoted_proxies": ranking[:2] if can_continue else [], "ranking": ranking,
+                 "promoted_proxies": qualified[:2] if can_continue else [], "ranking": ranking,
                  "proxy_summaries": summary, "pilot_matrix_sha256": digest(PILOT / "evaluation" / "PILOT_MATRIX.json"),
                  "decision": "CONTINUE_FORMAL" if can_continue else "STOP_NO_MEASURABLE_GAUSSIAN_LORA_SIGNAL"}
     freeze(OUT / "PROMOTION.json", promotion)
