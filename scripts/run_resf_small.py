@@ -8,6 +8,7 @@ import gc
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import time
@@ -62,7 +63,7 @@ def variant(family, label, seed, config, split):
     return dict(family=family, variant_id=label, seed=seed, configuration=config, split=split)
 
 
-def prepare(root, model):
+def prepare(root, model, utility_mode='gate'):
     from stage2_prepare import training_data
     from stage2_attack_calibration import utility_pool
     from stage2_three_proxy_search import prompt_pool
@@ -89,7 +90,7 @@ def prepare(root, model):
         proxies=["js","topk_continuous","raw_logit_l2"], max_sources=2, max_candidates=6,
         search=dict(rounds=5, probes=8, candidate_positions=4, candidates_per_position=16, rerank_candidates=8),
         temperatures=[.5,.7,.9], actual_temperature=.7, top_k=50, top_p=.9, looks=[30,60,100], simulations=10000,
-        panel_alpha=.05, e_fraction=.2, preflight_repetitions=4,
+        panel_alpha=.05, e_fraction=.2, preflight_repetitions=4, utility_mode=utility_mode,
         budget=dict(lora_optimizer_steps=160, search_jobs=6, search_rounds=30,
                     utility_responses=384, preflight_responses=32, token_responses=4800,
                     reference_smoke_requests=6, total_generation_requests=5222, utility_max_new_tokens=64),
@@ -118,6 +119,8 @@ def exact_task(row, text):
     expected=str(row['expected_answer']).strip()
     if row.get('evaluator')=='json_semantic':
         try:
+            fence=re.fullmatch(r'```(?:json)?\s*\n?(.*?)\n?```',text,re.S|re.I)
+            if fence:text=fence[1].strip()
             def pairs(items):
                 d={}
                 for k,v in items:
@@ -165,7 +168,11 @@ def utility(root, plan):
     reports={}
     for j,row in enumerate([None]+plan['variants']):
         label='intact' if row is None else row['variant_id'];target=root/'utility'/f'{label}.json'
-        if target.exists():reports[label]=read(target);continue
+        if target.exists():
+            report=read(target)
+            questions={r['id']:r for r in plan['utility']}
+            for item in report['records']:item['passed']=exact_task(questions[item['id']],item['response'])
+            save(target,report);reports[label]=report;continue
         progress('utility',endpoint=label)
         loaded=None
         bundle=load_model(plan['model']) if row is None else (loaded:=load_variant(plan,row,root)).bundle
@@ -185,7 +192,8 @@ def utility(root, plan):
         summary[label]=dict(correct=sum(r['passed'] for r in report['records']),lost=lost,
                             qualifies=len(baseline)>=24 and len(lost)/len(baseline)<=.0625)
     save(root/'UTILITY.json',summary)
-    if not all(x['qualifies'] for x in summary.values()):raise RuntimeError('Utility gate failed; no automatic attack escalation')
+    if not all(x['qualifies'] for x in summary.values()) and plan['utility_mode']=='gate':
+        raise RuntimeError('Utility gate failed; no automatic attack escalation')
 
 
 def preflight(root, plan):
@@ -378,11 +386,13 @@ def evaluate(root, plan):
             if bundle is not None:(loaded.close() if loaded else bundle.close())
             clean()
     freeze(root/'RESULTS.json',dict(endpoints=reports,scope=plan['scope'],status='EXPLORATORY_COMPLETE',
+        utility=read(root/'UTILITY.json'),utility_mode=plan['utility_mode'],
         caveat='Only two real intact-null panels; not a population FPR certification. Three unseen attack seeds at one strength per family.'))
 
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('phase',choices=['prepare','train','utility','preflight','calibrate','search','reference','evaluate'])
+    parser.add_argument('--utility-mode',choices=['gate','report-only'],default='gate')
     parser.add_argument('--root',type=Path,required=True);parser.add_argument('--model',default='/root/autodl-tmp/token-integrity/models/qwen15b')
     args=parser.parse_args();root=args.root.resolve();root.mkdir(parents=True,exist_ok=True)
     import fcntl
@@ -390,7 +400,7 @@ def main():
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         try:
             save(root/'STATUS.json',dict(phase=args.phase,status='RUNNING',time=time.time()))
-            if args.phase=='prepare':prepare(root,args.model)
+            if args.phase=='prepare':prepare(root,args.model,args.utility_mode)
             else:
                 import torch
                 torch.set_num_threads(4);torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
@@ -404,7 +414,7 @@ def main():
                           'reference':['CANDIDATES.json'], 'evaluate':['CANDIDATES.json','REFERENCE.json']}
                 for name in required[args.phase]:
                     if not (root/name).exists():raise RuntimeError('Missing prerequisite '+name)
-                if args.phase in ('preflight','calibrate','search','reference','evaluate'):
+                if args.phase in ('preflight','calibrate','search','reference','evaluate') and plan['utility_mode']=='gate':
                     if not all(r['qualifies'] for r in read(root/'UTILITY.json').values()):raise RuntimeError('Utility gate not passed')
                 globals()[args.phase](root,plan)
             save(root/'STATUS.json',dict(phase=args.phase,status='TECHNICAL_COMPLETE',time=time.time()))

@@ -1,5 +1,7 @@
 import numpy as np
 import pytest
+import json
+from pathlib import Path
 from llm_integrity.resf_token import early_window, fitted_deviance, calibration, detect
 
 
@@ -42,3 +44,21 @@ def test_monte_carlo_null_alarm_smoke():
         alarms = sum(detect(rng.choice(3,100,p=row), [0,1,2], q, cal, panel_size=1)['alarm']
                      for _ in range(200))
         assert alarms <= 20  # Gross calibration regression only; not FPR certification.
+
+
+def test_impossible_combination_is_json_serializable():
+    q=np.array([[1.,0.],[0.,1.]])
+    result=detect([0,1]*50,[0,1],q,calibration(q,simulations=2000),panel_size=1)
+    assert result['rule']=='P'
+    assert result['traces'][0]['statistic_is_infinite']
+    json.dumps(result,allow_nan=False)
+
+
+def test_json_utility_preserves_types_and_accepts_complete_fence(monkeypatch):
+    monkeypatch.syspath_prepend(str(Path(__file__).resolve().parents[1]/'scripts'))
+    from run_resf_small import exact_task
+    row=dict(evaluator='json_semantic',expected_answer='{"enabled":true,"level":1}')
+    assert exact_task(row,'```json\n{"level":1,"enabled":true}\n```')
+    assert not exact_task(row,'{"enabled":1,"level":1}')
+    assert not exact_task(row,'{"enabled":true,"enabled":false,"level":1}')
+    assert not exact_task(row,'Explanation\n```json\n{"enabled":true,"level":1}\n```')
