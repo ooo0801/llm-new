@@ -94,6 +94,7 @@ def prepare(root, model, utility_mode='gate'):
         budget=dict(lora_optimizer_steps=160, search_jobs=6, search_rounds=30,
                     utility_responses=384, preflight_responses=32, token_responses=4800,
                     reference_smoke_requests=6, total_generation_requests=5222, utility_max_new_tokens=64),
+        source_selection="first valid per category; report-only mode uses first source if none is task-valid",
         scope="new prompt optimization; two source categories; same-strength unseen attack seeds, not configuration/data held-out",
         detector="RESF-inspired: union post-decoding support; finite temperature grid; exact sparse multinomial deviance MC; alpha split across prompts/rules/looks",
         source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),code_sha256=code_identity(),
@@ -207,7 +208,10 @@ def preflight(root, plan):
             records.append(dict(source=row,results=results,correct=passed))
         for category in ['extraction','classification']:
             valid=[r['source'] for r in records if r['source']['category']==category and r['correct']>=3]
-            if not valid:raise RuntimeError('No valid source in '+category)
+            if not valid:
+                save(root/'PREFLIGHT_AUDIT.json',dict(records=records,failed_category=category))
+                if plan['utility_mode']=='gate':raise RuntimeError('No valid source in '+category)
+                valid=[r for r in plan['source_pool'] if r['category']==category]
             selected.append(valid[0])
         freeze(root/'PREFLIGHT.json',dict(records=records,selected=selected))
     finally:bundle.close();clean()
