@@ -5,6 +5,20 @@ import pytest
 torch = pytest.importorskip("torch")
 
 from llm_integrity.paper_in_memory_attacks import _prune_ffn_channels
+from llm_integrity.paper_in_memory_attacks import apply_paper_gaussian_noise
+
+
+def test_gaussian_audit_measures_realized_bfloat16_update():
+    model = torch.nn.Linear(64, 32, bias=False).to(torch.bfloat16)
+    before = model.weight.detach().float().clone()
+    report = apply_paper_gaussian_noise(model, {
+        'std_ratio': .006, 'target_scope': 'full_model', 'measure_realized': True,
+    }, seed=71)
+    after = model.weight.detach().float()
+    audit = report.details['realized_audit']
+    assert audit['actual_changed_parameters'] == torch.count_nonzero(after != before).item()
+    assert audit['actual_changed_parameters'] < model.weight.numel()
+    assert audit['delta_frobenius'] == pytest.approx(float((after-before).norm()), rel=1e-5)
 
 
 class ToyMLP(torch.nn.Module):

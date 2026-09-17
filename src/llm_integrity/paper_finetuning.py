@@ -453,6 +453,7 @@ def train_lora_manifest_variant(
                 gradient_accumulation_steps
             ),
             learning_rate=learning_rate,
+            lr_scheduler_type=str(configuration.get("lr_scheduler_type", "linear")),
             weight_decay=0.0,
             warmup_ratio=0.0,
             logging_steps=max(

@@ -616,6 +616,11 @@ def apply_paper_gaussian_noise(
     changed_parameters = 0
     total_parameters = 0
 
+    measure_realized = bool(configuration.get("measure_realized", False))
+    actual_changed = 0
+    delta_squared = 0.0
+    original_squared = 0.0
+
     for _, parameter in selected:
         total_parameters += parameter.numel()
         scale = (
@@ -642,7 +647,14 @@ def apply_paper_gaussian_noise(
         noise = noise.to(parameter.dtype) * scale
 
         with torch.no_grad():
+            before = parameter.detach().float().clone() if measure_realized else None
             parameter.add_(noise)
+            if before is not None:
+                after = parameter.detach().float()
+                actual_changed += int(torch.count_nonzero(after != before).item())
+                delta_squared += float((after - before).square().sum().item())
+                original_squared += float(before.square().sum().item())
+                del before, after
 
         changed_parameters += parameter.numel()
 
@@ -657,6 +669,11 @@ def apply_paper_gaussian_noise(
             "seed": seed,
             "selected_tensors": len(selected),
             "selected_layers": sorted(retained_layers),
+            "realized_audit": ({"actual_changed_parameters": actual_changed,
+                                "selected_parameter_count": total_parameters,
+                                "delta_frobenius": delta_squared ** .5,
+                                "original_frobenius": original_squared ** .5}
+                               if measure_realized else None),
         },
     )
 
