@@ -314,7 +314,7 @@ def search(root, plan):
 
 def reference(root, plan):
     import torch
-    from transformers import TemperatureLogitsWarper,TopKLogitsWarper,TopPLogitsWarper
+    from transformers import TemperatureLogitsWarper,TopKLogitsWarper,TopPLogitsWarper,RepetitionPenaltyLogitsProcessor
     from llm_integrity.modeling import load_model
     from llm_integrity.resf_token import calibration
     if (root/'REFERENCE.json').exists():return
@@ -323,6 +323,9 @@ def reference(root, plan):
         for i,row in enumerate(prompts):
             ids=bundle.tokenizer.apply_chat_template([dict(role='user',content=row['prompt'])],tokenize=True,add_generation_prompt=True,return_tensors='pt').to(bundle.device)
             with torch.inference_mode():logits=bundle.model(input_ids=ids,attention_mask=torch.ones_like(ids),use_cache=False).logits[:,-1].float()
+            penalty=float(bundle.model.generation_config.repetition_penalty)
+            if penalty!=1.:
+                logits=RepetitionPenaltyLogitsProcessor(penalty)(ids,logits)
             probs=[]
             for temperature in plan['temperatures']:
                 scores=TemperatureLogitsWarper(temperature)(ids,logits)
@@ -338,7 +341,7 @@ def reference(root, plan):
             null=calibration(q,looks=tuple(plan['looks']),simulations=plan['simulations'],seed=275000000+i)
             cache=root/'null_mc'/f"{row['id']}.npz";cache.parent.mkdir(exist_ok=True)
             np.savez_compressed(cache,**{str(k):v for k,v in null.items()})
-            records.append(dict(**row,token_ids=support.tolist(),probabilities=q.tolist(),temperatures=plan['temperatures'],
+            records.append(dict(**row,token_ids=support.tolist(),probabilities=q.tolist(),temperatures=plan['temperatures'],repetition_penalty=penalty,
                 input_ids_sha256=identity(ids[0].tolist()),null_mc_sha256=hashlib.sha256(cache.read_bytes()).hexdigest()))
         freeze(root/'REFERENCE.json',dict(records=records,plan_sha256=identity(plan)))
     finally:bundle.close();clean()
