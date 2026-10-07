@@ -1337,11 +1337,11 @@ class DiscreteJointInnerOptimizer(JointInnerOptimizer):
                 block=block,
                 probes=self.probes,
                 seed=probe_seed,
-            )
+            ) if self.micro_weight != 0 else None
             micro_normalized = (
-                micro.raw_micro_score / self.micro_scales[block_type]
+                micro.raw_micro_score / self.micro_scales[block_type] if micro is not None else 0.0
             )
-            item["micro_score_raw"] = micro.raw_micro_score
+            item["micro_score_raw"] = micro.raw_micro_score if micro is not None else 0.0
             item["micro_score_normalized"] = micro_normalized
             item["proxy_objective"] = (
                 self.micro_weight * micro_normalized
