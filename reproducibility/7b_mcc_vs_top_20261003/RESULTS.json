@@ -1,0 +1,1417 @@
+{
+  "configurations": [
+    {
+      "method": "mcc",
+      "m": 4,
+      "n": 25,
+      "query_cap": 100,
+      "hits": 37,
+      "attack_total": 40,
+      "tpr": 0.925,
+      "tpr_wilson": [
+        0.8013576647568946,
+        0.9741639742254119
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": false,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 4,
+          "total": 5,
+          "rate": 0.8,
+          "wilson": [
+            0.37553462976252533,
+            0.9637758913675698
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 4,
+          "total": 5,
+          "rate": 0.8,
+          "wilson": [
+            0.37553462976252533,
+            0.9637758913675698
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 4,
+          "total": 5,
+          "rate": 0.8,
+          "wilson": [
+            0.37553462976252533,
+            0.9637758913675698
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "top_sensitivity",
+      "m": 4,
+      "n": 25,
+      "query_cap": 100,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "mcc",
+      "m": 4,
+      "n": 50,
+      "query_cap": 200,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "top_sensitivity",
+      "m": 4,
+      "n": 50,
+      "query_cap": 200,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "mcc",
+      "m": 4,
+      "n": 80,
+      "query_cap": 320,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "top_sensitivity",
+      "m": 4,
+      "n": 80,
+      "query_cap": 320,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "mcc",
+      "m": 8,
+      "n": 25,
+      "query_cap": 200,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "top_sensitivity",
+      "m": 8,
+      "n": 25,
+      "query_cap": 200,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "mcc",
+      "m": 8,
+      "n": 50,
+      "query_cap": 400,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 1,
+      "normal_total": 20,
+      "fpr": 0.05,
+      "fpr_wilson": [
+        0.008881448800795402,
+        0.23613119344674205
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "top_sensitivity",
+      "m": 8,
+      "n": 50,
+      "query_cap": 400,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "mcc",
+      "m": 8,
+      "n": 80,
+      "query_cap": 640,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "method": "top_sensitivity",
+      "m": 8,
+      "n": 80,
+      "query_cap": 640,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "m": 4,
+      "n": 25,
+      "tpr_difference": -0.075,
+      "mcc_only_hits": 0,
+      "top_only_hits": 3,
+      "paired_bootstrap_percentiles": [
+        -0.15,
+        -0.075,
+        0.0
+      ],
+      "mcnemar_exact_unadjusted": 0.25
+    },
+    {
+      "m": 4,
+      "n": 50,
+      "tpr_difference": 0.0,
+      "mcc_only_hits": 0,
+      "top_only_hits": 0,
+      "paired_bootstrap_percentiles": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mcnemar_exact_unadjusted": 1.0
+    },
+    {
+      "m": 4,
+      "n": 80,
+      "tpr_difference": 0.0,
+      "mcc_only_hits": 0,
+      "top_only_hits": 0,
+      "paired_bootstrap_percentiles": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mcnemar_exact_unadjusted": 1.0
+    },
+    {
+      "m": 8,
+      "n": 25,
+      "tpr_difference": 0.0,
+      "mcc_only_hits": 0,
+      "top_only_hits": 0,
+      "paired_bootstrap_percentiles": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mcnemar_exact_unadjusted": 1.0
+    },
+    {
+      "m": 8,
+      "n": 50,
+      "tpr_difference": 0.0,
+      "mcc_only_hits": 0,
+      "top_only_hits": 0,
+      "paired_bootstrap_percentiles": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mcnemar_exact_unadjusted": 1.0
+    },
+    {
+      "m": 8,
+      "n": 80,
+      "tpr_difference": 0.0,
+      "mcc_only_hits": 0,
+      "top_only_hits": 0,
+      "paired_bootstrap_percentiles": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mcnemar_exact_unadjusted": 1.0
+    }
+  ],
+  "empirically_lowest_budget": {
+    "mcc": {
+      "method": "mcc",
+      "m": 4,
+      "n": 50,
+      "query_cap": 200,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    },
+    "top_sensitivity": {
+      "method": "top_sensitivity",
+      "m": 4,
+      "n": 25,
+      "query_cap": 100,
+      "hits": 40,
+      "attack_total": 40,
+      "tpr": 1.0,
+      "tpr_wilson": [
+        0.9123783988027135,
+        1.0
+      ],
+      "false_alarms": 0,
+      "normal_total": 20,
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.16112515805281938
+      ],
+      "meets_empirical_target": true,
+      "strata": {
+        "gaussian_noise:0.001": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.0025": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.004": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "gaussian_noise:0.006": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:5": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:10": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:20": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "finetuning:40": {
+          "hits": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson": [
+            0.5655175352168251,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "caveat": "Test instances are new within known attack families; 20 normal panels are repeated sampling, not independent model implementations. Unadjusted tests are descriptive; sample target is not a population guarantee."
+}

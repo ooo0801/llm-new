@@ -1,0 +1,54 @@
+{
+  "plan_identity": "feb412da1fd793899574407e3b2971c733a271a0772fdca082cd313de08f7d47",
+  "panels": {
+    "mcc_4": {
+      "method": "mcc",
+      "size": 4,
+      "prompt_ids": [
+        "o_bd84d7c60da600f6d982",
+        "o_77cc9bb79f00171eb980",
+        "o_bc15e8cfa5446ed662a9",
+        "o_0ae96d9e96bf9b02217a"
+      ]
+    },
+    "mcc_8": {
+      "method": "mcc",
+      "size": 8,
+      "prompt_ids": [
+        "o_bd84d7c60da600f6d982",
+        "o_77cc9bb79f00171eb980",
+        "o_bc15e8cfa5446ed662a9",
+        "o_0ae96d9e96bf9b02217a",
+        "o_396e8f1f748d84ad31f2",
+        "o_1d99800d46ff34cbb31e",
+        "o_f9940d592745158a1160",
+        "o_3071a8184aed0a86270e"
+      ]
+    },
+    "top_sensitivity_4": {
+      "method": "top_sensitivity",
+      "size": 4,
+      "prompt_ids": [
+        "o_087ac226f23fc34bf170",
+        "o_ca5d842791273a7199e1",
+        "o_83a7c5197497e328d76d",
+        "o_aaecf63c2b73e716f7bf"
+      ]
+    },
+    "top_sensitivity_8": {
+      "method": "top_sensitivity",
+      "size": 8,
+      "prompt_ids": [
+        "o_087ac226f23fc34bf170",
+        "o_ca5d842791273a7199e1",
+        "o_83a7c5197497e328d76d",
+        "o_aaecf63c2b73e716f7bf",
+        "o_125fe18f87fb50775a49",
+        "o_4f458c427d100d362e65",
+        "o_3071a8184aed0a86270e",
+        "o_b9061ce4a05f78e72f18"
+      ]
+    }
+  },
+  "parent_sha256": "b418867cd4f0cd4136875c27ef268fd6fec0bc73878ede10503e309e84a69461"
+}

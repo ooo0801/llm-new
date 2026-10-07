@@ -1,0 +1,32 @@
+{"id": "independent_train_00", "prompt": "水在标准大气压下的沸点是多少摄氏度？", "expected_answer": "100摄氏度。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_01", "prompt": "地球唯一的天然卫星叫什么？", "expected_answer": "月球。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_02", "prompt": "太阳系最大的行星是哪颗？", "expected_answer": "木星。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_03", "prompt": "植物进行光合作用主要吸收哪种气体？", "expected_answer": "二氧化碳。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_04", "prompt": "人体负责泵血的器官是什么？", "expected_answer": "心脏。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_05", "prompt": "人类用哪种器官进行呼吸？", "expected_answer": "肺。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_06", "prompt": "铁的化学元素符号是什么？", "expected_answer": "Fe。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_07", "prompt": "黄金的化学元素符号是什么？", "expected_answer": "Au。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_08", "prompt": "汉字“明”由哪两个常见字组成？", "expected_answer": "日和月。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_09", "prompt": "汉字“休”通常表示什么意思？", "expected_answer": "休息。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_10", "prompt": "一年通常分为哪四个季节？", "expected_answer": "春、夏、秋、冬。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_11", "prompt": "彩虹通常说有几种颜色？", "expected_answer": "七种。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_12", "prompt": "指南针的北端通常指向哪个方向？", "expected_answer": "北方。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_13", "prompt": "测量温度通常使用什么仪器？", "expected_answer": "温度计。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_14", "prompt": "测量物体质量通常使用什么仪器？", "expected_answer": "天平。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_15", "prompt": "观察微小物体常用什么光学仪器？", "expected_answer": "显微镜。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_16", "prompt": "请用一句话解释什么是蒸发。", "expected_answer": "液体表面转化为气体的过程叫蒸发。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_17", "prompt": "请用一句话解释什么是凝固。", "expected_answer": "液体转化为固体的过程叫凝固。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_18", "prompt": "请简要说明为什么要节约用水。", "expected_answer": "淡水资源有限，节约用水有助于保护资源。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_19", "prompt": "请简要说明为什么要洗手。", "expected_answer": "洗手可以减少手上的污物和病原体。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_20", "prompt": "请给出一个常见的可再生能源名称。", "expected_answer": "太阳能。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_21", "prompt": "请给出一种常见的金属材料。", "expected_answer": "铝。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_22", "prompt": "请给出一种常见的交通工具。", "expected_answer": "自行车。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_23", "prompt": "请给出一种常用的书写工具。", "expected_answer": "铅笔。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_24", "prompt": "将英文单词water翻译成中文。", "expected_answer": "水。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_25", "prompt": "将英文单词sun翻译成中文。", "expected_answer": "太阳。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_26", "prompt": "将英文单词book翻译成中文。", "expected_answer": "书。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_27", "prompt": "将英文单词school翻译成中文。", "expected_answer": "学校。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_28", "prompt": "请将“我喜欢阅读”翻译成英语。", "expected_answer": "I like reading.", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_29", "prompt": "请将“早上好”翻译成英语。", "expected_answer": "Good morning.", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_30", "prompt": "请写一句提醒他人按时休息的话。", "expected_answer": "请合理安排时间，记得按时休息。", "source": "prespecified_synthetic_general_knowledge_v1"}
+{"id": "independent_train_31", "prompt": "请写一句鼓励他人坚持学习的话。", "expected_answer": "每天进步一点，坚持学习就会有所收获。", "source": "prespecified_synthetic_general_knowledge_v1"}

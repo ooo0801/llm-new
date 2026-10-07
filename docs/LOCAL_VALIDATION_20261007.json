@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-07",
+  "status": "PASS",
+  "copied_files_sha256_verified": 1970,
+  "existing_code_sha256_verified": 428,
+  "related_pytest_files": [
+    "test_scaling_matrix_resume.py",
+    "test_prompt_budget.py",
+    "test_paired_prompt_budget.py",
+    "test_generation_ablation.py"
+  ],
+  "related_pytest_result": "18 passed (separate pytest invocation)",
+  "sensitive_evidence_check": "verify_core_results.py PASS: 80 sources, 61 candidates, 720 decisions, 12 summaries",
+  "original_arm_evidence_check": "720 decisions, 12 summaries, panel identities, budgets, alpha allocation and hit/false-alarm aggregation verified",
+  "new_document_relative_links_verified": 47,
+  "imported_files_ignored_by_git": 0,
+  "not_performed": [
+    "new model experiments",
+    "full raw-response/GPU reproduction",
+    "git commit",
+    "git push"
+  ],
+  "raw_backup_audit_scope": "Historical audit records imported as evidence; full large backups not re-audited this turn."
+}

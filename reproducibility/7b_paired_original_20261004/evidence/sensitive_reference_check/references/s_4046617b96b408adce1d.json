@@ -1,0 +1,42 @@
+{
+  "id": "s_4046617b96b408adce1d",
+  "prompt": "文本 selbstitem><color>红</color><status>有效</status></item>。提取color，只显示其值。",
+  "category": "extraction",
+  "source_id": "extraction_1_2_0",
+  "source_index": 170,
+  "prompt_sha256": "4046617b96b408adce1d72ad4c0482cb0a09895a35262f7f5b6326a933623072",
+  "token_ids": [
+    45181,
+    100345
+  ],
+  "probabilities": [
+    [
+      0.5621765088386383,
+      0.4378234911613616
+    ],
+    [
+      0.5445241928100586,
+      0.4554758071899414
+    ],
+    [
+      0.5346666137774769,
+      0.465333386222523
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "26df45e42fc437ce54951c5096deb42c5c1dd50a86ffd62fa0f5902886d7efe2",
+  "prompt_ids_sha256": "8ec930a85ee2b353d7e39614af00a3d2303294e340f2f24410c86599acbaa52b"
+}

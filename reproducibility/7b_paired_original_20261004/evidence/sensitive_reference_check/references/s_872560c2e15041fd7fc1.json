@@ -1,0 +1,42 @@
+{
+  "id": "s_872560c2e15041fd7fc1",
+  "prompt": "A=[5, 6, 8]，B=[6, 7, 8]。求A中但不在B中的元素。升序输出，用英文逗号分隔))))\n",
+  "category": "logic",
+  "source_id": "logic_2_2_2",
+  "source_index": 38,
+  "prompt_sha256": "872560c2e15041fd7fc1ee96d7f67535de6089bbcc008c859aa7fa9bb9592353",
+  "token_ids": [
+    785,
+    1249
+  ],
+  "probabilities": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.11072744926674405,
+      0.889272550733256
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "9a99d5dd4e6e0edabffbff9c0f93d44efdba939a8cac58b6755222f6a0035f70",
+  "prompt_ids_sha256": "22537a8eee723e278b958b5ebd290c92e9404f04992cc3acab048c2ff7a65170"
+}

@@ -1,0 +1,33 @@
+{
+  "variant_id": "test_lora_2_2",
+  "family": "finetuning",
+  "method": "lora",
+  "base_model": "/root/autodl-tmp/token-integrity/models/qwen7b",
+  "adapter_path": "/root/autodl-tmp/token-integrity/runs/fingerprint-7b-mcc-vs-top-v1/adapters/test_lora_2_2",
+  "data_path": "/root/autodl-tmp/token-integrity/runs/fingerprint-7b-mcc-vs-top-v1/test_train.jsonl",
+  "data_sha256": "6d16d9a301e8f19ea4669404768ad2a36b9113853923f3e6946abe14e485ae00",
+  "training_rows": 32,
+  "requested_steps": 20,
+  "completed_steps": 20,
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.0,
+  "learning_rate": 0.0001,
+  "target_scope": "attention_ffn",
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "seed": 100520202,
+  "max_length": 128,
+  "trainable_parameters": 20185088,
+  "total_parameters": 7635801600,
+  "trainable_ratio": 0.0026434798934534915,
+  "training_loss": 1.8460294961929322,
+  "adapter_files_sha256": "bb008a24a628c4d3e12d0ebea475758d9f6a3658ad9d9e2801270ca774fbe1b1"
+}

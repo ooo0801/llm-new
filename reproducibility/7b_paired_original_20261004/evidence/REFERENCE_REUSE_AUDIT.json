@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "s_06caaf425a78810255bf",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_4046617b96b408adce1d",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_4d228a12b9d17a3089fb",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_51e9dade830a5e3fe40a",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_6b0f6a94d8278cf56a6e",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_77567d38dd00fea9f111",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_83b6eb82245f66758ae9",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_872560c2e15041fd7fc1",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_94d351b36d8608cd85be",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_9cf40426013653fc7728",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_b079204fc1c5a2d38449",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_be2a10893ae3ba280c8f",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_c355778eeb5187bf5cdf",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_de18129e1071203f81c7",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    },
+    {
+      "id": "s_f01fbc9a384f1a6a7576",
+      "same_support": true,
+      "max_probability_error": 0.0,
+      "passed": true
+    }
+  ]
+}

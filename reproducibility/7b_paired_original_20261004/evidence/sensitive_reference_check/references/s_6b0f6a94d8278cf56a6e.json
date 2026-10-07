@@ -1,0 +1,38 @@
+{
+  "id": "s_6b0f6a94d8278cf56a6e",
+  "prompt": "陈雨在上午9点出发，经过2小时到达。按24小时制，到达时是多次？只输出yme，不加单位。",
+  "category": "logic",
+  "source_id": "logic_4_4_1",
+  "source_index": 72,
+  "prompt_sha256": "6b0f6a94d8278cf56a6e3481b5e5b94dd1ebeffa82074b953968c903f3b7cf40",
+  "token_ids": [
+    16
+  ],
+  "probabilities": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "c47a78753f86485e62beb0fe8f5203806082cca1ce231173541828688b6d2660",
+  "prompt_ids_sha256": "46cdd38b48ca5946440add6b7d0321aa785b5b762d86523a1c36d0e72baf1fb4"
+}

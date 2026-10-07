@@ -1,12 +1,20 @@
-# Central state for the 14B follow-up sequence. Updated after each completed stage.
+# Current project summary updated 2026-10-07; no new model experiment run.
+# Sections literature/hypotheses/etc. below preserve the historical 14B/H6 state.
+# Their claims/statuses are scoped to that historical stage, not the latest method.
+# Exact original: docs/history/research-state.yaml.before-20261007.txt
 project:
-  title: "Qwen2.5 integrity fingerprint: completed 14B validation and 32B model-specific reconstruction"
-  question: "Can the validated construction method rebuild an independently confirmed sensitive-prompt pool and deterministic MCC12 on fixed-revision Qwen2.5-32B without reusing 14B model endpoints or component identities?"
-  status: experiment_h6_complete_go
-  started: "2026-08-05"
-  domain: "LLM integrity and cross-scale prompt transfer"
-  git_branch: "experiment/h6-qwen2.5-32b-reconstruction"
-  current_stage: "experiment_h6_qwen32b_mcc12_complete_archived"
+  title: "LLM integrity: historical text/MMD experiments and current 7B first-token evaluation"
+  question: "Do optimized sensitive prompts improve same-budget detection relative to their same-source originals?"
+  status: completed_7b_sensitive_and_paired_original_evaluation
+  current_stage: "7b_first_token_mcc_top_and_paired_original_complete"
+  current_method: "first-token E/P, RESF-inspired"
+  current_model: "Qwen2.5-7B-Instruct"
+  git_branch: "server-import-20261007"
+  updated: "2026-10-07"
+  latest_experiment_date: "2026-10-04"
+  current_status_document: "docs/CURRENT_STATUS.md"
+  machine_readable_status: "project-status.json"
+  historical_sections_scope: "14B follow-up and H6 32B reconstruction"
 
 literature:
   key_papers: []

@@ -1,0 +1,42 @@
+{
+  "id": "s_94d351b36d8608cd85be",
+  "prompt": "苏禾、何川、唐月各养猫、狗、鸟中的一种且不重复。苏禾养猫，何川不养狗。唐月养什么？只 实答案。",
+  "category": "logic",
+  "source_id": "logic_3_0_2",
+  "source_index": 46,
+  "prompt_sha256": "94d351b36d8608cd85be8ae954bde8a4465afde2202bde3d26ad8e8b87cdcd49",
+  "token_ids": [
+    100181,
+    100345
+  ],
+  "probabilities": [
+    [
+      0.14655229886032042,
+      0.8534477011396796
+    ],
+    [
+      0.22123236624550274,
+      0.7787676337544973
+    ],
+    [
+      0.27312278747558594,
+      0.7268772125244141
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "273f67dc66c4f848b4821847f52242f4a3b58f5ac7a7e5985d5eaeae5ea3670e",
+  "prompt_ids_sha256": "bdda50b9798a99c5e3fc97c529a86a409c6a6c9305e88a0792be2e11be488d07"
+}

@@ -1,0 +1,13 @@
+{
+  "plan_identity": "b5ae5659f324bc96bac153c4dd31fa28e3805699f9a37a39380fc948e99a85bd",
+  "scores": {
+    "q_proj": 224539904.0,
+    "k_proj": 87271360.0,
+    "v_proj": 407479424.0,
+    "o_proj": 430056960.0,
+    "gate_proj": 1508478976.0,
+    "up_proj": 1307632640.0,
+    "down_proj": 596422016.0
+  },
+  "token_count": 70
+}

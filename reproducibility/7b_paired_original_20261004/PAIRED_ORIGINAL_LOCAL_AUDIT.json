@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "archive_sha256": "fc847e8df8367c823e7649fa8cd846768f16241b21c576761ffce421075ab708",
+  "files": 173,
+  "parent_files": 2801,
+  "prompts": 15,
+  "responses": 72000,
+  "decisions": 720,
+  "configurations": 12,
+  "null_caches_recomputed": 15,
+  "source_pairs_verified": true,
+  "reference_reuse_verified": true
+}

@@ -1,0 +1,26 @@
+{
+  "variant_id": "test_gaussian_1_2",
+  "family": "gaussian_noise",
+  "execution_mode": "in_memory",
+  "realized_method": "gaussian_noise",
+  "isolated_base_reload": true,
+  "details": {
+    "name": "gaussian_noise",
+    "changed_parameters": 6525417472,
+    "total_parameters": 6525417472,
+    "details": {
+      "std_ratio": 0.0025,
+      "target_scope": "attention_ffn",
+      "scale_rule": "parameter_tensor_std",
+      "seed": 100510102,
+      "selected_tensors": 280,
+      "selected_layers": [],
+      "realized_audit": {
+        "actual_changed_parameters": 3189293655,
+        "selected_parameter_count": 6525417472,
+        "delta_frobenius": 4.659723371553077,
+        "original_frobenius": 1829.0291199080998
+      }
+    }
+  }
+}

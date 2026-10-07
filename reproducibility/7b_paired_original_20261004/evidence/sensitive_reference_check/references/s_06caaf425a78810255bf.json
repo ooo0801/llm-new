@@ -1,0 +1,38 @@
+{
+  "id": "s_06caaf425a78810255bf",
+  "prompt": "计算17([-5。只输出数字。",
+  "category": "math",
+  "source_id": "math_0_1_2",
+  "source_index": 79,
+  "prompt_sha256": "06caaf425a78810255bf3eed949c558119056f8559ed74a55bc4105f569e545b",
+  "token_ids": [
+    23
+  ],
+  "probabilities": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "c47a78753f86485e62beb0fe8f5203806082cca1ce231173541828688b6d2660",
+  "prompt_ids_sha256": "f8fa06b812a01235363bb91d7e67d6c2d97d348e627b9c3f96c9bf268b454373"
+}

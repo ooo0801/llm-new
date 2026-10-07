@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "scope": "git_tracked_files_except_manifest",
+  "scope": "historical_tracked_files_snapshot_not_current_inventory",
   "file_count": 232,
   "total_bytes": 2775278,
   "files": [
@@ -1164,5 +1164,6 @@
       "bytes": 1915,
       "sha256": "2cf4a5b0b882577517e6ffc41917b44af1e5a3bbc7c2cd43bd12dbbf26a8d426"
     }
-  ]
+  ],
+  "historical_notice": "Preserved early snapshot. Current state: project-status.json. Supplement provenance: docs/IMPORT_PROVENANCE_20261007.json. Original saved in docs/history."
 }

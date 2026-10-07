@@ -1,0 +1,39 @@
+{
+  "id": "o_1d99800d46ff34cbb31e",
+  "prompt": "判断词语类别：松树。从人物、地点、动物、植物中选一项，只输出类别。",
+  "category": "classification",
+  "source_id": "classification_3_0_3",
+  "source_index": 272,
+  "prompt_sha256": "1d99800d46ff34cbb31e8d121ebc462bfa21493de4b759082277dd2df58ecab9",
+  "sensitive_id": "s_f01fbc9a384f1a6a7576",
+  "token_ids": [
+    104155
+  ],
+  "probabilities": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "c47a78753f86485e62beb0fe8f5203806082cca1ce231173541828688b6d2660",
+  "prompt_ids_sha256": "0d52415ded13642edf284c41b2247a90ae2b3db72264733e5790093076353bae"
+}

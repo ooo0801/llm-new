@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "archive_sha256": "04b0033a6d7c9f920bdf0f2ccb2b5297eab04ae0d46ea7b6bc92f943e813ef63",
+  "verified_files": 5310,
+  "micro": 560,
+  "macro_variants": 2000,
+  "macro_means": 400,
+  "nested_scales_and_weights": "independently recomputed",
+  "bootstrap": "all 3000 replicates independently recomputed",
+  "gradient_vectors": "all 2000 verified; 400 vector means recomputed",
+  "adapters": "5 verified",
+  "duplicate_configuration_pairs_over_all80": {
+    "gaussian_noise": 0,
+    "finetuning": 0,
+    "unstructured_pruning": 0,
+    "structured_pruning": 0,
+    "quantization": 0
+  },
+  "raw_macro_zero_scores": 4,
+  "raw_macro_zero_gradients": 4
+}

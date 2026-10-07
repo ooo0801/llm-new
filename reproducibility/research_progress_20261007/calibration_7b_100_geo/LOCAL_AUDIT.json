@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "calibration_valid": true,
+  "archive_sha256": "72214e4f1436c1b137c98d0aa233438b3009bc0817f6d3736f1adaf4b8b7ac3e",
+  "verified_files": 6545,
+  "micro_records": 700,
+  "macro_records": 2500,
+  "macro_means": 500,
+  "bootstrap_replicates_verified": 2000,
+  "adapters_verified": 5,
+  "raw_macro_zero_scores": 0,
+  "raw_macro_zero_gradients": 0,
+  "identical_configuration_pairs": {
+    "gaussian_noise": 0,
+    "finetuning": 0,
+    "unstructured_pruning": 0,
+    "structured_pruning": 0,
+    "quantization": 0
+  },
+  "provenance": "synthetic 400; source and split verified; template sharing is intentional"
+}

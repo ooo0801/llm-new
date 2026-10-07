@@ -1,0 +1,46 @@
+{
+  "id": "s_be2a10893ae3ba280c8f",
+  "prompt": "记录：姓名: 李青\n城市 :- 厦门\n编号: T46\n颜色: 黄\n状态: 签收。只提取编号的 flexDirection。",
+  "category": "extraction",
+  "source_id": "extraction_0_2_3",
+  "source_index": 158,
+  "prompt_sha256": "be2a10893ae3ba280c8fba82cad62524cf8339cbc0800b0f22dd35a4d0f81c3f",
+  "token_ids": [
+    45181,
+    72640,
+    107439
+  ],
+  "probabilities": [
+    [
+      0.0,
+      0.9320772816831076,
+      0.0679227183168924
+    ],
+    [
+      0.09965473861531202,
+      0.7801893716994115,
+      0.12015588968527646
+    ],
+    [
+      0.1406017798006004,
+      0.6967747599847687,
+      0.16262346021463095
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "e77d46a8677244952d8bec49c7b79f6778b36062557e66d4a2a14ff78aa67cd7",
+  "prompt_ids_sha256": "d0f853a694186240425c04be1a14ea6d8771b4befc7c339be35490c191cf5426"
+}

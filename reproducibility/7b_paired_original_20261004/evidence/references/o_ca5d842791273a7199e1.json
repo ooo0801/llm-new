@@ -1,0 +1,43 @@
+{
+  "id": "o_ca5d842791273a7199e1",
+  "prompt": "规则：红色标为停止，绿色标为通行，其余标为等待。当前颜色为绿。只输出对应标签。",
+  "category": "classification",
+  "source_id": "classification_1_4_2",
+  "source_index": 253,
+  "prompt_sha256": "ca5d842791273a7199e14ee10798056b7ddfb6b72981d43976af9ec6dffd3f7a",
+  "sensitive_id": "s_51e9dade830a5e3fe40a",
+  "token_ids": [
+    100706,
+    102999
+  ],
+  "probabilities": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.13565555619166958,
+      0.8643444438083304
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "efa099117c3868cf1e659dd53e65b01151630b5b5a63b75800f46752a8052fd2",
+  "prompt_ids_sha256": "16ee5a96e8a9dcbeddcb182076f5af375710ed445d46dc97060545253833301a"
+}

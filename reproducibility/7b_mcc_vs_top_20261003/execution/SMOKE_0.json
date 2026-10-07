@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "gpu": 0,
+  "records": [
+    {
+      "source_index": 0,
+      "score": 23724360.0,
+      "gradient": 5075151872.0
+    },
+    {
+      "source_index": 25,
+      "score": 4885335552.0,
+      "gradient": 1364797292544.0
+    }
+  ]
+}

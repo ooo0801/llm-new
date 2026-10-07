@@ -1,0 +1,314 @@
+{
+  "version": "scope-80-v4",
+  "time": 1790960380.9276772,
+  "reason": "User reduced optimization pool to 80; 20 per category and 4 per subtask",
+  "original_plan_sha256": "a777b3367cdca2bd795b186ce06b386640b802369c18ef71ad33588ce23c4bc5",
+  "parent_scope_sha256": "06d660d2df04b84ffa4ebf641f32a718d1dc4b46cee753d7a903faec3467dc0b",
+  "selected_original_indices": [
+    5,
+    75,
+    157,
+    229,
+    8,
+    79,
+    158,
+    231,
+    12,
+    80,
+    159,
+    232,
+    14,
+    81,
+    162,
+    234,
+    16,
+    90,
+    166,
+    240,
+    17,
+    95,
+    170,
+    244,
+    18,
+    99,
+    171,
+    249,
+    20,
+    102,
+    176,
+    253,
+    30,
+    105,
+    180,
+    257,
+    31,
+    108,
+    185,
+    262,
+    38,
+    109,
+    186,
+    267,
+    39,
+    113,
+    193,
+    268,
+    46,
+    120,
+    195,
+    272,
+    47,
+    124,
+    196,
+    274,
+    55,
+    128,
+    199,
+    275,
+    58,
+    132,
+    204,
+    276,
+    60,
+    140,
+    211,
+    289,
+    63,
+    145,
+    213,
+    291,
+    67,
+    146,
+    217,
+    293,
+    72,
+    147,
+    222,
+    294
+  ],
+  "strata": [
+    {
+      "category": "logic",
+      "subtask": "ordering",
+      "seed": 100310000,
+      "selected_indices": [
+        5,
+        8,
+        12,
+        14
+      ]
+    },
+    {
+      "category": "logic",
+      "subtask": "conditional",
+      "seed": 100310001,
+      "selected_indices": [
+        16,
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "category": "logic",
+      "subtask": "sets",
+      "seed": 100310002,
+      "selected_indices": [
+        30,
+        31,
+        38,
+        39
+      ]
+    },
+    {
+      "category": "logic",
+      "subtask": "assignment",
+      "seed": 100310003,
+      "selected_indices": [
+        46,
+        47,
+        55,
+        58
+      ]
+    },
+    {
+      "category": "logic",
+      "subtask": "time_space",
+      "seed": 100310004,
+      "selected_indices": [
+        60,
+        63,
+        67,
+        72
+      ]
+    },
+    {
+      "category": "math",
+      "subtask": "arithmetic",
+      "seed": 100310100,
+      "selected_indices": [
+        75,
+        79,
+        80,
+        81
+      ]
+    },
+    {
+      "category": "math",
+      "subtask": "fractions",
+      "seed": 100310101,
+      "selected_indices": [
+        90,
+        95,
+        99,
+        102
+      ]
+    },
+    {
+      "category": "math",
+      "subtask": "equations",
+      "seed": 100310102,
+      "selected_indices": [
+        105,
+        108,
+        109,
+        113
+      ]
+    },
+    {
+      "category": "math",
+      "subtask": "geometry_units",
+      "seed": 100310103,
+      "selected_indices": [
+        120,
+        124,
+        128,
+        132
+      ]
+    },
+    {
+      "category": "math",
+      "subtask": "word_problems",
+      "seed": 100310104,
+      "selected_indices": [
+        140,
+        145,
+        146,
+        147
+      ]
+    },
+    {
+      "category": "extraction",
+      "subtask": "fields",
+      "seed": 100310200,
+      "selected_indices": [
+        157,
+        158,
+        159,
+        162
+      ]
+    },
+    {
+      "category": "extraction",
+      "subtask": "json_xml",
+      "seed": 100310201,
+      "selected_indices": [
+        166,
+        170,
+        171,
+        176
+      ]
+    },
+    {
+      "category": "extraction",
+      "subtask": "facts",
+      "seed": 100310202,
+      "selected_indices": [
+        180,
+        185,
+        186,
+        193
+      ]
+    },
+    {
+      "category": "extraction",
+      "subtask": "delimited",
+      "seed": 100310203,
+      "selected_indices": [
+        195,
+        196,
+        199,
+        204
+      ]
+    },
+    {
+      "category": "extraction",
+      "subtask": "multi_record",
+      "seed": 100310204,
+      "selected_indices": [
+        211,
+        213,
+        217,
+        222
+      ]
+    },
+    {
+      "category": "classification",
+      "subtask": "number_properties",
+      "seed": 100310300,
+      "selected_indices": [
+        229,
+        231,
+        232,
+        234
+      ]
+    },
+    {
+      "category": "classification",
+      "subtask": "rule_labels",
+      "seed": 100310301,
+      "selected_indices": [
+        240,
+        244,
+        249,
+        253
+      ]
+    },
+    {
+      "category": "classification",
+      "subtask": "sentiment",
+      "seed": 100310302,
+      "selected_indices": [
+        257,
+        262,
+        267,
+        268
+      ]
+    },
+    {
+      "category": "classification",
+      "subtask": "entity",
+      "seed": 100310303,
+      "selected_indices": [
+        272,
+        274,
+        275,
+        276
+      ]
+    },
+    {
+      "category": "classification",
+      "subtask": "intent",
+      "seed": 100310304,
+      "selected_indices": [
+        289,
+        291,
+        293,
+        294
+      ]
+    }
+  ],
+  "selection_uses_scores": false,
+  "original_indices_and_search_seeds_preserved": true,
+  "calibration_unchanged": true
+}

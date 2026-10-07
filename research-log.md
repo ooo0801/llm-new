@@ -1,3 +1,5 @@
+> 历史阶段记录：以下内容属于早期14B/H系列研究，保留当时结论。当前进度见 [CURRENT_STATUS](docs/CURRENT_STATUS.md)，方法分期见 [实验索引](docs/EXPERIMENT_INDEX.md)。
+
 # Research Log
 
 Chronological, append-only record for Experiment A.

@@ -1,0 +1,24 @@
+{
+  "status": "CORE_PASS_FULL_BACKUP_PENDING",
+  "archive_sha256": "7d7b158316a0b8918579a09b89b735bb0f2c5ec60982c0331bd26d866c9cd996",
+  "files": 2855,
+  "calibration_files": 6545,
+  "sources": 80,
+  "candidates": 61,
+  "micro_records": 61,
+  "macro_records": 1525,
+  "coverage_profiles": 61,
+  "panels": 4,
+  "unique_test_prompts": 15,
+  "test_lora": 20,
+  "responses": 72000,
+  "independent_decisions": 720,
+  "configurations": 12,
+  "null_caches_recomputed": 15,
+  "model_identity_remote_verified": true,
+  "limitations": [
+    "Adapter hashes checked against remote manifest only; full archive still downloading",
+    "GPU logits/activation values not rerun locally; stored values, identities and deterministic downstream computations checked",
+    "20 normal panels reuse one model; attack families known during search; no cross-family or cross-model confirmation"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "o_f9940d592745158a1160",
+  "prompt": "陈雨在上午9点出发，经过2小时到达。按24小时制，到达时是几点？只输出答案，不加单位。",
+  "category": "logic",
+  "source_id": "logic_4_4_1",
+  "source_index": 72,
+  "prompt_sha256": "f9940d592745158a1160b161d9587ad011dd5a344fc979c672e89a757c0798d8",
+  "sensitive_id": "s_6b0f6a94d8278cf56a6e",
+  "token_ids": [
+    16
+  ],
+  "probabilities": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "c47a78753f86485e62beb0fe8f5203806082cca1ce231173541828688b6d2660",
+  "prompt_ids_sha256": "85af44cfcad134f220c49f9060f09645dc21cdd4da033397450754226c54bb18"
+}

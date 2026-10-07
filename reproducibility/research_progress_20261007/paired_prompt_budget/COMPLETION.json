@@ -1,0 +1,15 @@
+{
+  "status": "COMPLETE",
+  "local_audit": "PASS",
+  "archive_sha256": "e75eb8f985a7943ad0c01616e36c721e56ff463c661fef674a3b1f9970f559f5",
+  "formal_responses": 336000,
+  "development_responses": 33600,
+  "prompt_decisions_recomputed": 50400,
+  "panel_configurations_recomputed": 3912,
+  "shutdown_command": "/usr/bin/shutdown",
+  "shutdown_exit_code": 0,
+  "post_shutdown_ssh": "Connection closed by 116.172.94.204 port 22224",
+  "cloud_console_power_status_checked": false,
+  "report": "实验结果报告.md",
+  "automation": "PAUSED"
+}

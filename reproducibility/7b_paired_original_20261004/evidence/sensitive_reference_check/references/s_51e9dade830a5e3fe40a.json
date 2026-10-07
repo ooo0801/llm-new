@@ -1,0 +1,42 @@
+{
+  "id": "s_51e9dade830a5e3fe40a",
+  "prompt": "规则：红色标为停止，绿色标为 features，其余标为等待。当前颜色为绿。只输出对应标签。",
+  "category": "classification",
+  "source_id": "classification_1_4_2",
+  "source_index": 253,
+  "prompt_sha256": "51e9dade830a5e3fe40a00b4f32262bdd6198ee3c323d832575e4349b1dfa540",
+  "token_ids": [
+    20304,
+    69313
+  ],
+  "probabilities": [
+    [
+      0.8175744779813802,
+      0.18242552201861986
+    ],
+    [
+      0.744868814945221,
+      0.25513118505477905
+    ],
+    [
+      0.6970589964705407,
+      0.30294100352945935
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "51cf7bd796093af73318ce08f0f4905b2a0a95df667cc4461cfe16ee3c8ee0b1",
+  "prompt_ids_sha256": "b40a40e1aee257c92c79d100245199e17f23238aeb8eaadda1a34ccced32e95f"
+}

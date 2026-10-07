@@ -1,0 +1,20 @@
+{
+  "time": 1790765569.3149915,
+  "model_files_verified": true,
+  "adapters_verified": {
+    "cal7b_finetuning_0": "1622bbc78f2b3822316fee87407bf46be6d09f430c511f1dbc8b571874f94656",
+    "cal7b_finetuning_1": "88cb05e290e9432c1e3b51140095640384cd07195f5ed972068f3c50c08cfb29",
+    "cal7b_finetuning_2": "4e510848f85c962d19b7e41adb3eb5bd2d284a72136926180bc1dd4b264aea8b",
+    "cal7b_finetuning_3": "291bf2f9ebf906f9ffa108ef391defab7614fabeddb7039548edddc973a82744",
+    "cal7b_finetuning_4": "e464343915521a56f108fb6442dd1c1ace765e7ec20ad12ceaba5d188e33909f"
+  },
+  "python": "3.12.3",
+  "packages": {
+    "torch": "2.5.1+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "bitsandbytes": "0.50.2",
+    "numpy": "2.1.3"
+  },
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER, GPU-f2cc9ef9-75ce-afb3-a2b4-105e1ec0c81d, 32760 MiB, 595.71.05\n"
+}

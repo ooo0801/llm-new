@@ -1,0 +1,8 @@
+{
+  "original_sha256": "2cc1d5264362a0c215a96be70c03f226213dbd48793adff25eea076ece1b3e24",
+  "adapted_sha256": "7249d6b754d053c4065f15879867f42f093582ce467f7b9c9bcda1fb3413bda8",
+  "changes": [
+    "new response seed base 1004300000",
+    "reuse parent test adapters"
+  ]
+}

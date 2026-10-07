@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "archive_sha256": "aa9ae6017b781e5fb4bac8f81b8cf5f83adbc18ca3ea4acd0c40a7adeaba11d9",
+  "formal_responses": 240000,
+  "development_responses": 33600,
+  "prompt_decisions": 48000,
+  "configurations_including_random_replicates": 2040,
+  "ranking_independently_recomputed": true,
+  "seed_separation": true,
+  "all_alarms_and_actual_query_counts_recomputed": true
+}

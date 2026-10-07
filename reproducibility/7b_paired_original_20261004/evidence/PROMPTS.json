@@ -1,0 +1,137 @@
+[
+  {
+    "id": "o_77cc9bb79f00171eb980",
+    "prompt": "计算17减5。只输出数字。",
+    "category": "math",
+    "source_id": "math_0_1_2",
+    "source_index": 79,
+    "prompt_sha256": "77cc9bb79f00171eb98084b4845919e4d1be0dc1d837b8ab4d84228648072ab4",
+    "sensitive_id": "s_06caaf425a78810255bf"
+  },
+  {
+    "id": "o_3071a8184aed0a86270e",
+    "prompt": "文本：<item><color>红</color><status>有效</status></item>。提取color，只输出其值。",
+    "category": "extraction",
+    "source_id": "extraction_1_2_0",
+    "source_index": 170,
+    "prompt_sha256": "3071a8184aed0a86270e16950e20fd9cd0e19d098b7f367f5e5de7b2db8b8d80",
+    "sensitive_id": "s_4046617b96b408adce1d"
+  },
+  {
+    "id": "o_087ac226f23fc34bf170",
+    "prompt": "周宁得分高于吴凡但低于林悦。谁得分最低？只输出答案。",
+    "category": "logic",
+    "source_id": "logic_0_2_0",
+    "source_index": 5,
+    "prompt_sha256": "087ac226f23fc34bf17001ee744bfbd93e7981698d35fb915c2eff050b30680d",
+    "sensitive_id": "s_4d228a12b9d17a3089fb"
+  },
+  {
+    "id": "o_ca5d842791273a7199e1",
+    "prompt": "规则：红色标为停止，绿色标为通行，其余标为等待。当前颜色为绿。只输出对应标签。",
+    "category": "classification",
+    "source_id": "classification_1_4_2",
+    "source_index": 253,
+    "prompt_sha256": "ca5d842791273a7199e14ee10798056b7ddfb6b72981d43976af9ec6dffd3f7a",
+    "sensitive_id": "s_51e9dade830a5e3fe40a"
+  },
+  {
+    "id": "o_f9940d592745158a1160",
+    "prompt": "陈雨在上午9点出发，经过2小时到达。按24小时制，到达时是几点？只输出答案，不加单位。",
+    "category": "logic",
+    "source_id": "logic_4_4_1",
+    "source_index": 72,
+    "prompt_sha256": "f9940d592745158a1160b161d9587ad011dd5a344fc979c672e89a757c0798d8",
+    "sensitive_id": "s_6b0f6a94d8278cf56a6e"
+  },
+  {
+    "id": "o_396e8f1f748d84ad31f2",
+    "prompt": "从原点向东走5米，再向西走7米。最终在原点哪个方向？只输出答案，不加单位。",
+    "category": "logic",
+    "source_id": "logic_4_2_2",
+    "source_index": 67,
+    "prompt_sha256": "396e8f1f748d84ad31f287c51bc35d50f31640ba3f13fd06f69de887c44c4c42",
+    "sensitive_id": "s_77567d38dd00fea9f111"
+  },
+  {
+    "id": "o_b9061ce4a05f78e72f18",
+    "prompt": "规则：编号以A开头归甲类，否则归乙类。编号为C18。只输出对应标签。",
+    "category": "classification",
+    "source_id": "classification_1_1_2",
+    "source_index": 244,
+    "prompt_sha256": "b9061ce4a05f78e72f18e30b1b16a569954b196c4f3ffbb946790673a8b468b7",
+    "sensitive_id": "s_83b6eb82245f66758ae9"
+  },
+  {
+    "id": "o_bc15e8cfa5446ed662a9",
+    "prompt": "A=[5, 6, 8]，B=[6, 7, 8]。求A中但不在B中的元素。升序输出，用英文逗号分隔。",
+    "category": "logic",
+    "source_id": "logic_2_2_2",
+    "source_index": 38,
+    "prompt_sha256": "bc15e8cfa5446ed662a97efa80d63d82e920b67d2f242a1c65e608138beab9e6",
+    "sensitive_id": "s_872560c2e15041fd7fc1"
+  },
+  {
+    "id": "o_bd84d7c60da600f6d982",
+    "prompt": "苏禾、何川、唐月各养猫、狗、鸟中的一种且不重复。苏禾养猫，何川不养狗。唐月养什么？只输出答案。",
+    "category": "logic",
+    "source_id": "logic_3_0_2",
+    "source_index": 46,
+    "prompt_sha256": "bd84d7c60da600f6d982fd07fec7b21cc8c091357783e2ca9a60e8a75ca6bb53",
+    "sensitive_id": "s_94d351b36d8608cd85be"
+  },
+  {
+    "id": "o_aaecf63c2b73e716f7bf",
+    "prompt": "解方程2x-4=8，只输出x的数值。",
+    "category": "math",
+    "source_id": "math_2_2_1",
+    "source_index": 113,
+    "prompt_sha256": "aaecf63c2b73e716f7bfecf3a7a353a248c19843a556c1198a9e9705deeeadf0",
+    "sensitive_id": "s_9cf40426013653fc7728"
+  },
+  {
+    "id": "o_83a7c5197497e328d76d",
+    "prompt": "4千米等于多少米？只输出数字。",
+    "category": "math",
+    "source_id": "math_3_3_1",
+    "source_index": 128,
+    "prompt_sha256": "83a7c5197497e328d76df746f98d70c130407eca149b430e2656fe825d45c94a",
+    "sensitive_id": "s_b079204fc1c5a2d38449"
+  },
+  {
+    "id": "o_0ae96d9e96bf9b02217a",
+    "prompt": "记录：姓名: 李青\n城市: 厦门\n编号: T46\n颜色: 黄\n状态: 签收。只提取编号的值。",
+    "category": "extraction",
+    "source_id": "extraction_0_2_3",
+    "source_index": 158,
+    "prompt_sha256": "0ae96d9e96bf9b02217afabb11b15f9eed173bbe7c217badd9387d5ed0884b6f",
+    "sensitive_id": "s_be2a10893ae3ba280c8f"
+  },
+  {
+    "id": "o_125fe18f87fb50775a49",
+    "prompt": "文本为“Q39,何川,成都”，分隔符为“,”。从1开始数，只输出第1段。",
+    "category": "extraction",
+    "source_id": "extraction_3_1_2",
+    "source_index": 199,
+    "prompt_sha256": "125fe18f87fb50775a49dbb9f56af2c6aca026d7af8cd7ceb44dcba0f6176a63",
+    "sensitive_id": "s_c355778eeb5187bf5cdf"
+  },
+  {
+    "id": "o_4f458c427d100d362e65",
+    "prompt": "A=[5, 6, 8]，B=[6, 7, 8]。求交集的元素。升序输出，用英文逗号分隔。",
+    "category": "logic",
+    "source_id": "logic_2_0_2",
+    "source_index": 31,
+    "prompt_sha256": "4f458c427d100d362e65e66763d877e11bbf788ea0869ea891b8d3c1c1b80234",
+    "sensitive_id": "s_de18129e1071203f81c7"
+  },
+  {
+    "id": "o_1d99800d46ff34cbb31e",
+    "prompt": "判断词语类别：松树。从人物、地点、动物、植物中选一项，只输出类别。",
+    "category": "classification",
+    "source_id": "classification_3_0_3",
+    "source_index": 272,
+    "prompt_sha256": "1d99800d46ff34cbb31e8d121ebc462bfa21493de4b759082277dd2df58ecab9",
+    "sensitive_id": "s_f01fbc9a384f1a6a7576"
+  }
+]

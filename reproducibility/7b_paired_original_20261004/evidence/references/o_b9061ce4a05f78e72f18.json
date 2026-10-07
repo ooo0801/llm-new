@@ -1,0 +1,39 @@
+{
+  "id": "o_b9061ce4a05f78e72f18",
+  "prompt": "规则：编号以A开头归甲类，否则归乙类。编号为C18。只输出对应标签。",
+  "category": "classification",
+  "source_id": "classification_1_1_2",
+  "source_index": 244,
+  "prompt_sha256": "b9061ce4a05f78e72f18e30b1b16a569954b196c4f3ffbb946790673a8b468b7",
+  "sensitive_id": "s_83b6eb82245f66758ae9",
+  "token_ids": [
+    100916
+  ],
+  "probabilities": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "c47a78753f86485e62beb0fe8f5203806082cca1ce231173541828688b6d2660",
+  "prompt_ids_sha256": "24ad814834612205d9ad9b4bd00225981da232b8dde79a77dc86d449200865b5"
+}

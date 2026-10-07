@@ -1,0 +1,14 @@
+{
+  "status": "COMPLETE",
+  "completed_at": "2026-09-23T16:55:05.9652389+08:00",
+  "archive_sha256": "3f4dbdf9f351ebba3e806873a17f352acc13a5a3c0e6e5b2f3d5114a6999d405",
+  "archive_bytes": 21047788,
+  "audit": "PASS",
+  "development_responses": 37200,
+  "test_responses": 372000,
+  "prompt_decisions": 55800,
+  "panels": 3912,
+  "shutdown": "Issued /usr/bin/shutdown; SSH closed by remote host; subsequent SSH connection closed",
+  "cloud_console_power_state": "not independently verified",
+  "automation": "PAUSED"
+}

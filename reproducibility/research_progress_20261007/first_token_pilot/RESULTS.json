@@ -1,0 +1,962 @@
+{
+  "endpoints": {
+    "intact_null_1": {
+      "panel_alarm": false,
+      "prompts": [
+        {
+          "prompt_id": "p_7204d2d0c7393b17",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 4.7449181880700735,
+              "statistic_is_infinite": false,
+              "p_value": 0.9875012498750125,
+              "grid_index": 0,
+              "null_p_values": [
+                0.40075992400759924,
+                0.44445555444455553,
+                0.9875012498750125
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 11.269222995579327,
+              "statistic_is_infinite": false,
+              "p_value": 0.7121287871212879,
+              "grid_index": 1,
+              "null_p_values": [
+                0.031796820317968204,
+                0.049095090490950906,
+                0.7121287871212879
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 6.785178230913402,
+              "statistic_is_infinite": false,
+              "p_value": 0.9571042895710429,
+              "grid_index": 1,
+              "null_p_values": [
+                0.15058494150584942,
+                0.24957504249575044,
+                0.9571042895710429
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_b74d8a7a8dd0c8e6",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 11.231606242763405,
+              "statistic_is_infinite": false,
+              "p_value": 0.8895110488951105,
+              "grid_index": 1,
+              "null_p_values": [
+                0.0547945205479452,
+                0.2126787321267873,
+                0.8895110488951105
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 16.15911235975969,
+              "statistic_is_infinite": false,
+              "p_value": 0.6342365763423657,
+              "grid_index": 1,
+              "null_p_values": [
+                0.009499050094990502,
+                0.0456954304569543,
+                0.6342365763423657
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 8.758021754632694,
+              "statistic_is_infinite": false,
+              "p_value": 0.9809019098090191,
+              "grid_index": 1,
+              "null_p_values": [
+                0.13258674132586742,
+                0.420957904209579,
+                0.9809019098090191
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_80468e620104a842",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 4.172318917163167,
+              "statistic_is_infinite": false,
+              "p_value": 0.9849015098490151,
+              "grid_index": 1,
+              "null_p_values": [
+                0.013098690130986902,
+                0.3167683231676832,
+                0.9849015098490151
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 7.482435538172709,
+              "statistic_is_infinite": false,
+              "p_value": 0.8034196580341966,
+              "grid_index": 1,
+              "null_p_values": [
+                0.0024997500249975004,
+                0.08349165083491651,
+                0.8034196580341966
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 4.98301002723656,
+              "statistic_is_infinite": false,
+              "p_value": 0.937006299370063,
+              "grid_index": 1,
+              "null_p_values": [
+                0.016298370162983702,
+                0.1847815218478152,
+                0.937006299370063
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_6d16e4f8b1bbe0a6",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 13.148751839966778,
+              "statistic_is_infinite": false,
+              "p_value": 0.8668133186681332,
+              "grid_index": 1,
+              "null_p_values": [
+                0.1621837816218378,
+                0.45455454454554545,
+                0.8668133186681332
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 8.166734219447505,
+              "statistic_is_infinite": false,
+              "p_value": 0.9977002299770023,
+              "grid_index": 1,
+              "null_p_values": [
+                0.46135386461353867,
+                0.8318168183181682,
+                0.9977002299770023
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 7.37175915637539,
+              "statistic_is_infinite": false,
+              "p_value": 0.9968003199680032,
+              "grid_index": 1,
+              "null_p_values": [
+                0.5226477352264773,
+                0.8536146385361464,
+                0.9968003199680032
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        }
+      ]
+    },
+    "intact_null_2": {
+      "panel_alarm": false,
+      "prompts": [
+        {
+          "prompt_id": "p_7204d2d0c7393b17",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 2.0171895508035504,
+              "statistic_is_infinite": false,
+              "p_value": 0.9969003099690031,
+              "grid_index": 1,
+              "null_p_values": [
+                0.7449255074492551,
+                0.8328167183281672,
+                0.9969003099690031
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 1.2805643952850971,
+              "statistic_is_infinite": false,
+              "p_value": 1.0,
+              "grid_index": 1,
+              "null_p_values": [
+                0.8821117888211178,
+                0.9388061193880612,
+                1.0
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 1.740509034030083,
+              "statistic_is_infinite": false,
+              "p_value": 1.0,
+              "grid_index": 1,
+              "null_p_values": [
+                0.7847215278472153,
+                0.8916108389161084,
+                1.0
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_b74d8a7a8dd0c8e6",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 13.982931289638572,
+              "statistic_is_infinite": false,
+              "p_value": 0.6946305369463054,
+              "grid_index": 1,
+              "null_p_values": [
+                0.017298270172982702,
+                0.08659134086591341,
+                0.6946305369463054
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 15.044802251393463,
+              "statistic_is_infinite": false,
+              "p_value": 0.7216278372162783,
+              "grid_index": 1,
+              "null_p_values": [
+                0.014198580141985802,
+                0.0674932506749325,
+                0.7216278372162783
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 10.253135125714607,
+              "statistic_is_infinite": false,
+              "p_value": 0.9527047295270473,
+              "grid_index": 1,
+              "null_p_values": [
+                0.0791920807919208,
+                0.2903709629037096,
+                0.9527047295270473
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_80468e620104a842",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 2.17950162318526,
+              "statistic_is_infinite": false,
+              "p_value": 0.9942005799420058,
+              "grid_index": 1,
+              "null_p_values": [
+                0.288971102889711,
+                0.6128387161283871,
+                0.9942005799420058
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 1.0167806164674857,
+              "statistic_is_infinite": false,
+              "p_value": 0.9999000099990001,
+              "grid_index": 1,
+              "null_p_values": [
+                0.3745625437456254,
+                0.8124187581241876,
+                0.9999000099990001
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 0.390497761910666,
+              "statistic_is_infinite": false,
+              "p_value": 1.0,
+              "grid_index": 1,
+              "null_p_values": [
+                0.4968503149685031,
+                0.9616038396160383,
+                1.0
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_6d16e4f8b1bbe0a6",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 7.829870817628873,
+              "statistic_is_infinite": false,
+              "p_value": 0.9885011498850115,
+              "grid_index": 0,
+              "null_p_values": [
+                0.5460453954604539,
+                0.8702129787021298,
+                0.9885011498850115
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 18.176451868825666,
+              "statistic_is_infinite": false,
+              "p_value": 0.616938306169383,
+              "grid_index": 1,
+              "null_p_values": [
+                0.0314968503149685,
+                0.1473852614738526,
+                0.616938306169383
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 21.87035240620139,
+              "statistic_is_infinite": false,
+              "p_value": 0.38296170382961703,
+              "grid_index": 1,
+              "null_p_values": [
+                0.0066993300669933005,
+                0.05449455054494551,
+                0.38296170382961703
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        }
+      ]
+    },
+    "gaussian_s1": {
+      "panel_alarm": true,
+      "prompts": [
+        {
+          "prompt_id": "p_7204d2d0c7393b17",
+          "alarm": true,
+          "rule": "E",
+          "query": 2,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_b74d8a7a8dd0c8e6",
+          "alarm": true,
+          "rule": "E",
+          "query": 10,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_80468e620104a842",
+          "alarm": true,
+          "rule": "P",
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 2.915241097364625,
+              "statistic_is_infinite": false,
+              "p_value": 0.9923007699230078,
+              "grid_index": 0,
+              "null_p_values": [
+                0.288971102889711,
+                0.49875012498750126,
+                0.9923007699230078
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 5.83048219472925,
+              "statistic_is_infinite": false,
+              "p_value": 0.9218078192180782,
+              "grid_index": 0,
+              "null_p_values": [
+                0.06079392060793921,
+                0.1563843615638436,
+                0.9218078192180782
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 36.111764091693026,
+              "statistic_is_infinite": false,
+              "p_value": 9.999000099990002e-05,
+              "grid_index": 1,
+              "null_p_values": [
+                9.999000099990002e-05,
+                9.999000099990002e-05,
+                9.999000099990002e-05
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_6d16e4f8b1bbe0a6",
+          "alarm": true,
+          "rule": "P",
+          "query": 30,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 46.56737069858491,
+              "statistic_is_infinite": false,
+              "p_value": 9.999000099990002e-05,
+              "grid_index": 1,
+              "null_p_values": [
+                9.999000099990002e-05,
+                9.999000099990002e-05,
+                9.999000099990002e-05
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        }
+      ]
+    },
+    "lora_s1": {
+      "panel_alarm": true,
+      "prompts": [
+        {
+          "prompt_id": "p_7204d2d0c7393b17",
+          "alarm": true,
+          "rule": "E",
+          "query": 1,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_b74d8a7a8dd0c8e6",
+          "alarm": true,
+          "rule": "E",
+          "query": 1,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_80468e620104a842",
+          "alarm": true,
+          "rule": "E",
+          "query": 1,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_6d16e4f8b1bbe0a6",
+          "alarm": true,
+          "rule": "P",
+          "query": 30,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 151.59059036676143,
+              "statistic_is_infinite": false,
+              "p_value": 9.999000099990002e-05,
+              "grid_index": 1,
+              "null_p_values": [
+                9.999000099990002e-05,
+                9.999000099990002e-05,
+                9.999000099990002e-05
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        }
+      ]
+    },
+    "gaussian_s2": {
+      "panel_alarm": true,
+      "prompts": [
+        {
+          "prompt_id": "p_7204d2d0c7393b17",
+          "alarm": true,
+          "rule": "P",
+          "query": 30,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 33.77670179033613,
+              "statistic_is_infinite": false,
+              "p_value": 0.00019998000199980003,
+              "grid_index": 2,
+              "null_p_values": [
+                9.999000099990002e-05,
+                9.999000099990002e-05,
+                0.00019998000199980003
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_b74d8a7a8dd0c8e6",
+          "alarm": true,
+          "rule": "P",
+          "query": 30,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 50.468682020317544,
+              "statistic_is_infinite": false,
+              "p_value": 9.999000099990002e-05,
+              "grid_index": 2,
+              "null_p_values": [
+                9.999000099990002e-05,
+                9.999000099990002e-05,
+                9.999000099990002e-05
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_80468e620104a842",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 8.057179054629351,
+              "statistic_is_infinite": false,
+              "p_value": 0.6891310868913109,
+              "grid_index": 1,
+              "null_p_values": [
+                0.0024997500249975004,
+                0.048295170482951705,
+                0.6891310868913109
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 4.260869478397254,
+              "statistic_is_infinite": false,
+              "p_value": 0.9763023697630236,
+              "grid_index": 1,
+              "null_p_values": [
+                0.07799220077992201,
+                0.26137386261373863,
+                0.9763023697630236
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 10.382863406440407,
+              "statistic_is_infinite": false,
+              "p_value": 0.5164483551644835,
+              "grid_index": 1,
+              "null_p_values": [
+                0.0007999200079992001,
+                0.0212978702129787,
+                0.5164483551644835
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_6d16e4f8b1bbe0a6",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 10.386023833828517,
+              "statistic_is_infinite": false,
+              "p_value": 0.9585041495850415,
+              "grid_index": 1,
+              "null_p_values": [
+                0.3251674832516748,
+                0.6848315168483151,
+                0.9585041495850415
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 15.934602270956645,
+              "statistic_is_infinite": false,
+              "p_value": 0.7773222677732227,
+              "grid_index": 1,
+              "null_p_values": [
+                0.06179382061793821,
+                0.25177482251774824,
+                0.7773222677732227
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 20.058436695561852,
+              "statistic_is_infinite": false,
+              "p_value": 0.4968503149685031,
+              "grid_index": 1,
+              "null_p_values": [
+                0.013298670132986702,
+                0.08659134086591341,
+                0.4968503149685031
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        }
+      ]
+    },
+    "lora_s2": {
+      "panel_alarm": true,
+      "prompts": [
+        {
+          "prompt_id": "p_7204d2d0c7393b17",
+          "alarm": true,
+          "rule": "E",
+          "query": 1,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_b74d8a7a8dd0c8e6",
+          "alarm": true,
+          "rule": "E",
+          "query": 1,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_80468e620104a842",
+          "alarm": true,
+          "rule": "E",
+          "query": 5,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_6d16e4f8b1bbe0a6",
+          "alarm": true,
+          "rule": "P",
+          "query": 30,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 84.34636135315036,
+              "statistic_is_infinite": false,
+              "p_value": 9.999000099990002e-05,
+              "grid_index": 0,
+              "null_p_values": [
+                9.999000099990002e-05,
+                9.999000099990002e-05,
+                9.999000099990002e-05
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        }
+      ]
+    },
+    "gaussian_s3": {
+      "panel_alarm": true,
+      "prompts": [
+        {
+          "prompt_id": "p_7204d2d0c7393b17",
+          "alarm": true,
+          "rule": "E",
+          "query": 27,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_b74d8a7a8dd0c8e6",
+          "alarm": true,
+          "rule": "E",
+          "query": 3,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_80468e620104a842",
+          "alarm": true,
+          "rule": "P",
+          "query": 60,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 8.601837255892804,
+              "statistic_is_infinite": false,
+              "p_value": 0.6157384261573843,
+              "grid_index": 2,
+              "null_p_values": [
+                0.0024997500249975004,
+                0.0423957604239576,
+                0.6157384261573843
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 27.21904168970343,
+              "statistic_is_infinite": false,
+              "p_value": 0.0026997300269973002,
+              "grid_index": 2,
+              "null_p_values": [
+                9.999000099990002e-05,
+                9.999000099990002e-05,
+                0.0026997300269973002
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_6d16e4f8b1bbe0a6",
+          "alarm": false,
+          "rule": null,
+          "query": 100,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 15.852387045228497,
+              "statistic_is_infinite": false,
+              "p_value": 0.712028797120288,
+              "grid_index": 1,
+              "null_p_values": [
+                0.0704929507049295,
+                0.2675732426757324,
+                0.712028797120288
+              ]
+            },
+            {
+              "query": 60,
+              "statistic": 11.085914560356798,
+              "statistic_is_infinite": false,
+              "p_value": 0.9685031496850315,
+              "grid_index": 1,
+              "null_p_values": [
+                0.23967603239676033,
+                0.6083391660833917,
+                0.9685031496850315
+              ]
+            },
+            {
+              "query": 100,
+              "statistic": 6.347641496230949,
+              "statistic_is_infinite": false,
+              "p_value": 0.9989001099890011,
+              "grid_index": 1,
+              "null_p_values": [
+                0.629037096290371,
+                0.9106089391060894,
+                0.9989001099890011
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        }
+      ]
+    },
+    "lora_s3": {
+      "panel_alarm": true,
+      "prompts": [
+        {
+          "prompt_id": "p_7204d2d0c7393b17",
+          "alarm": true,
+          "rule": "E",
+          "query": 1,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_b74d8a7a8dd0c8e6",
+          "alarm": true,
+          "rule": "E",
+          "query": 1,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_80468e620104a842",
+          "alarm": true,
+          "rule": "E",
+          "query": 1,
+          "traces": [],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        },
+        {
+          "prompt_id": "p_6d16e4f8b1bbe0a6",
+          "alarm": true,
+          "rule": "P",
+          "query": 30,
+          "traces": [
+            {
+              "query": 30,
+              "statistic": 170.13700893121117,
+              "statistic_is_infinite": false,
+              "p_value": 9.999000099990002e-05,
+              "grid_index": 2,
+              "null_p_values": [
+                9.999000099990002e-05,
+                9.999000099990002e-05,
+                9.999000099990002e-05
+              ]
+            }
+          ],
+          "alpha_e": 0.0025000000000000005,
+          "alpha_p_per_look": 0.003333333333333334
+        }
+      ]
+    }
+  },
+  "scope": "new prompt optimization; two source categories; same-strength unseen attack seeds, not configuration/data held-out",
+  "status": "EXPLORATORY_COMPLETE",
+  "utility": {
+    "intact": {
+      "correct": 22,
+      "lost": [],
+      "qualifies": false
+    },
+    "gaussian_s0": {
+      "correct": 20,
+      "lost": [
+        "s2cal_logic_07",
+        "s2cal_math_05"
+      ],
+      "qualifies": false
+    },
+    "lora_s0": {
+      "correct": 23,
+      "lost": [],
+      "qualifies": false
+    },
+    "gaussian_s1": {
+      "correct": 20,
+      "lost": [
+        "s2cal_logic_06",
+        "s2cal_logic_07"
+      ],
+      "qualifies": false
+    },
+    "lora_s1": {
+      "correct": 25,
+      "lost": [],
+      "qualifies": false
+    },
+    "gaussian_s2": {
+      "correct": 22,
+      "lost": [
+        "s2cal_logic_07"
+      ],
+      "qualifies": false
+    },
+    "lora_s2": {
+      "correct": 23,
+      "lost": [],
+      "qualifies": false
+    },
+    "gaussian_s3": {
+      "correct": 21,
+      "lost": [
+        "s2cal_logic_06",
+        "s2cal_logic_07"
+      ],
+      "qualifies": false
+    },
+    "lora_s3": {
+      "correct": 24,
+      "lost": [],
+      "qualifies": false
+    },
+    "pruning": {
+      "correct": 22,
+      "lost": [
+        "s2cal_logic_01"
+      ],
+      "qualifies": false
+    },
+    "structured": {
+      "correct": 21,
+      "lost": [
+        "s2cal_logic_05"
+      ],
+      "qualifies": false
+    },
+    "int8": {
+      "correct": 21,
+      "lost": [
+        "s2cal_logic_07"
+      ],
+      "qualifies": false
+    }
+  },
+  "utility_mode": "report-only",
+  "caveat": "Only two real intact-null panels; not a population FPR certification. Three unseen attack seeds at one strength per family."
+}

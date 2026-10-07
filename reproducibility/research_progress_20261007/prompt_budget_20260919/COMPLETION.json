@@ -1,0 +1,15 @@
+{
+  "status": "COMPLETE",
+  "local_audit": "PASS",
+  "archive_sha256": "aa9ae6017b781e5fb4bac8f81b8cf5f83adbc18ca3ea4acd0c40a7adeaba11d9",
+  "formal_response_records": 240000,
+  "development_response_records": 33600,
+  "prompt_decisions_recomputed": 48000,
+  "panel_configurations": 2040,
+  "shutdown_command": "/usr/bin/shutdown",
+  "shutdown_command_exit_code": 0,
+  "post_shutdown_ssh_checks": ["Connection closed by 36.103.198.204 port 38460", "Connection closed by 36.103.198.204 port 38460"],
+  "cloud_console_power_state_checked": false,
+  "report": "实验结果报告.md",
+  "date_local": "2026-09-20"
+}

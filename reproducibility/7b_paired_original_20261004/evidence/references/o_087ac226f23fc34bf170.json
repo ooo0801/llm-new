@@ -1,0 +1,39 @@
+{
+  "id": "o_087ac226f23fc34bf170",
+  "prompt": "周宁得分高于吴凡但低于林悦。谁得分最低？只输出答案。",
+  "category": "logic",
+  "source_id": "logic_0_2_0",
+  "source_index": 5,
+  "prompt_sha256": "087ac226f23fc34bf17001ee744bfbd93e7981698d35fb915c2eff050b30680d",
+  "sensitive_id": "s_4d228a12b9d17a3089fb",
+  "token_ids": [
+    103948
+  ],
+  "probabilities": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "c47a78753f86485e62beb0fe8f5203806082cca1ce231173541828688b6d2660",
+  "prompt_ids_sha256": "fb8822f33f22015c73080a3053d2263be167f233007e669b3eb0d6a6d786792c"
+}

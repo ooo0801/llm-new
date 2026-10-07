@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "category_medians": {
+    "logic": {
+      "gaussian_noise": 0.0007743188063614071,
+      "finetuning": 0.0034617831677678625,
+      "unstructured_pruning": 0.0019526565913110972,
+      "structured_pruning": 0.033292393665760756,
+      "quantization": 0.0019287325618620344
+    },
+    "math": {
+      "gaussian_noise": 0.007313714595511556,
+      "finetuning": 0.03279847418889403,
+      "unstructured_pruning": 0.054179535573348404,
+      "structured_pruning": 0.018789004161953927,
+      "quantization": 0.027432688605040313
+    },
+    "extraction": {
+      "gaussian_noise": 0.0015281961706932635,
+      "finetuning": 0.09423760548233986,
+      "unstructured_pruning": 0.009150106273591519,
+      "structured_pruning": 0.02099734917283058,
+      "quantization": 0.0061542267678305505
+    },
+    "classification": {
+      "gaussian_noise": 7.658328058823826e-07,
+      "finetuning": 2.352283784823328e-06,
+      "unstructured_pruning": 6.650890894661643e-05,
+      "structured_pruning": 8.061749540502205e-05,
+      "quantization": 9.172203817797708e-07
+    }
+  },
+  "gradient_micro_median": 52.566704675734755,
+  "gradient_macro_median": 505.6423705609352,
+  "micro_weight_unclipped": 9.619061603348785,
+  "micro_weight": 9.619061603348785,
+  "macro_weight": 1.0,
+  "weight_clipped": false,
+  "macro_aggregation": "category_median_equal_weight_geometric_mean",
+  "micro_scales": {
+    "q_proj": 24205792.0,
+    "k_proj": 48393320.0,
+    "v_proj": 390982912.0,
+    "o_proj": 276898432.0,
+    "gate_proj": 25832432.0,
+    "up_proj": 422545968.0,
+    "down_proj": 459014656.0
+  },
+  "macro_scales": {
+    "gaussian_noise": 0.0002853269029191689,
+    "finetuning": 0.0022398393229358105,
+    "unstructured_pruning": 0.0028326425715270095,
+    "structured_pruning": 0.005704408770654703,
+    "quantization": 0.0007392594663743319
+  }
+}

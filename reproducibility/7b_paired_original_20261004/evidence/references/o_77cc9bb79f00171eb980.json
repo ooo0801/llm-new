@@ -1,0 +1,39 @@
+{
+  "id": "o_77cc9bb79f00171eb980",
+  "prompt": "计算17减5。只输出数字。",
+  "category": "math",
+  "source_id": "math_0_1_2",
+  "source_index": 79,
+  "prompt_sha256": "77cc9bb79f00171eb98084b4845919e4d1be0dc1d837b8ab4d84228648072ab4",
+  "sensitive_id": "s_06caaf425a78810255bf",
+  "token_ids": [
+    16
+  ],
+  "probabilities": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "c47a78753f86485e62beb0fe8f5203806082cca1ce231173541828688b6d2660",
+  "prompt_ids_sha256": "bdb6004955ff84ffa0db432aa6a21f4725c71c3851507e1255589cc737a24034"
+}

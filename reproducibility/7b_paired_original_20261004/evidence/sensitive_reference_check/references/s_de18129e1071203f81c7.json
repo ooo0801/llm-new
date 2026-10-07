@@ -1,0 +1,46 @@
+{
+  "id": "s_de18129e1071203f81c7",
+  "prompt": "A=[5, 6, 8]，B=[6, 7, 8]。求交集的元素。升序输出，以英文逗号分隔。",
+  "category": "logic",
+  "source_id": "logic_2_0_2",
+  "source_index": 31,
+  "prompt_sha256": "de18129e1071203f81c7b9133d20b0b89fdee3d29811193399217836c853df7e",
+  "token_ids": [
+    785,
+    30534,
+    38109
+  ],
+  "probabilities": [
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.9341991582990194,
+      0.06580084170098056
+    ],
+    [
+      0.07722381790071048,
+      0.818782658084581,
+      0.10399352401470854
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "64cafaa5c68b45ed68d347bd5a4e84c45105d7012a97b7c1b8b727de27068ea2",
+  "prompt_ids_sha256": "0053ebd61e9f3a369834613b5cd2e73c4d82f99639928c8e1261070c54c33926"
+}

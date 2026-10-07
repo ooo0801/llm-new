@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETE",
+  "local_audit": "PASS",
+  "completed_at": "2026-09-29T13:04:59.8759101+08:00",
+  "archive_sha256": "48fcd6a73ad0ef8b31d71b28b1172e70708738cc3a2a0ac79871e35ffe504080",
+  "shutdown_command": "/usr/bin/shutdown",
+  "shutdown_request": "SSH command completed without reported error",
+  "subsequent_ssh": "Connection refused",
+  "cloud_power_state": "not independently checked",
+  "monitoring": "PAUSED",
+  "scope": "calibration only; no prompt generation, MCC or detection",
+  "report": "校准尺度计算报告.md"
+}

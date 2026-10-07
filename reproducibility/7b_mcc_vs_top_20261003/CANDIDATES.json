@@ -1,0 +1,742 @@
+{
+  "prompts": [
+    {
+      "id": "s_03bde0ccbfebcd7c15c3",
+      "prompt": "文本\"Butitem><color>黄</color><status>有效</status></item>。提取color，只输出其值。",
+      "category": "extraction",
+      "source_id": "extraction_1_2_3",
+      "source_index": 171,
+      "prompt_sha256": "03bde0ccbfebcd7c15c311cc9386bc0cec7f7ae2e5b91bfabf65cd2b47ff81e4"
+    },
+    {
+      "id": "s_06caaf425a78810255bf",
+      "prompt": "计算17([-5。只输出数字。",
+      "category": "math",
+      "source_id": "math_0_1_2",
+      "source_index": 79,
+      "prompt_sha256": "06caaf425a78810255bf3eed949c558119056f8559ed74a55bc4105f569e545b"
+    },
+    {
+      "id": "s_08f1f402c9f2f2e3aeef",
+      "prompt": "阅读句子并判断态度：菜已经凉了，令人扫兴。仅输出积极、 bà或中性。",
+      "category": "classification",
+      "source_id": "classification_2_2_1",
+      "source_index": 262,
+      "prompt_sha256": "08f1f402c9f2f2e3aeefa95d6d936e168024cab3ea7b0762cee32d80df760c79"
+    },
+    {
+      "id": "s_13d65e3fb43f44e7f385",
+      "prompt": "A=[3, 4, 6]，B=[4, 5, 6]。求交集的元素。升序输出，用控制逗号分隔。",
+      "category": "logic",
+      "source_id": "logic_2_0_0",
+      "source_index": 30,
+      "prompt_sha256": "13d65e3fb43f44e7f385481088d4a5b124a31daf477a96d0a9cddd62b95cfaf4"
+    },
+    {
+      "id": "s_148be9f1d9a6b67f0b60",
+      "prompt": "李青、王晨、郑平各养猫、狗、鸟中的一种且不重复。李青养猫，王晨不养狗。郑平养什么？只 InputDecoration答案。",
+      "category": "logic",
+      "source_id": "logic_3_0_3",
+      "source_index": 47,
+      "prompt_sha256": "148be9f1d9a6b67f0b602c69895e53727910f883d2e0e8e44e879169c7c78a6e"
+    },
+    {
+      "id": "s_15978982f9a01d1aa55b",
+      "prompt": "计算4加11。只 app数字。",
+      "category": "math",
+      "source_id": "math_0_0_1",
+      "source_index": 75,
+      "prompt_sha256": "15978982f9a01d1aa55b01d8ad1417c497222c694b0092e229119d9684453394"
+    },
+    {
+      "id": "s_2133ff6996aaccc5b579",
+      "prompt": "规则：开机则灯亮。林悦的设备灯不亮。能否推出其未开机？只泳Length或不能。",
+      "category": "logic",
+      "source_id": "logic_1_1_0",
+      "source_index": 16,
+      "prompt_sha256": "2133ff6996aaccc5b579c465500f19ac503133a7ae44624203bbd0c700634b4c"
+    },
+    {
+      "id": "s_2d37b4039c562e2673df",
+      "prompt": "文本：<order idсяR17\">< Joseph> seemingly凡</buyer></order>。提取buyer，只输出其值。",
+      "category": "extraction",
+      "source_id": "extraction_1_4_0",
+      "source_index": 176,
+      "prompt_sha256": "2d37b4039c562e2673df729404fd2eb41a9c2870cf340b9b8be37a129ed9d805"
+    },
+    {
+      "id": "s_2ec62ea99a166d6ed66e",
+      "prompt": "整数13是质数还是合数？只 long类别。",
+      "category": "classification",
+      "source_id": "classification_0_2_2",
+      "source_index": 232,
+      "prompt_sha256": "2ec62ea99a166d6ed66ee6534bf0e493c3f588095eced392dd4197b44875b6f8"
+    },
+    {
+      "id": "s_2f604975c360774ca56b",
+      "prompt": "给问道分类：多谢你替我值班。仅输出请求、询问、陈述或感谢。",
+      "category": "classification",
+      "source_id": "classification_4_2_3",
+      "source_index": 293,
+      "prompt_sha256": "2f604975c360774ca56b9010b3cb75e9eeca3682ce7df84b5d4b85859c5b7c7a"
+    },
+    {
+      "id": "s_4046617b96b408adce1d",
+      "prompt": "文本 selbstitem><color>红</color><status>有效</status></item>。提取color，只显示其值。",
+      "category": "extraction",
+      "source_id": "extraction_1_2_0",
+      "source_index": 170,
+      "prompt_sha256": "4046617b96b408adce1d72ad4c0482cb0a09895a35262f7f5b6326a933623072"
+    },
+    {
+      "id": "s_4470982bd8043c4f85b6",
+      "prompt": "刘星借了一本《远行录》，归还日为周五。请提取书名，只输出 alternative中的答案。",
+      "category": "extraction",
+      "source_id": "extraction_2_2_1",
+      "source_index": 186,
+      "prompt_sha256": "4470982bd8043c4f85b6511d9545ec4c7ac71d06f4d6d3f84d347c40032a2679"
+    },
+    {
+      "id": "s_45e19f619659d06eafe8",
+      "prompt": "规则：开机则灯亮。苏禾的设备灯不亮。能否推出其未开车？只答能或不能。",
+      "category": "logic",
+      "source_id": "logic_1_1_2",
+      "source_index": 18,
+      "prompt_sha256": "45e19f619659d06eafe82ee70d15c1d0e5fcce1ee82d08de78dc65aff416078d"
+    },
+    {
+      "id": "s_46e576793f6c72747857",
+      "prompt": "解方程3x=12，只输出x的数值#pragma",
+      "category": "math",
+      "source_id": "math_2_1_0",
+      "source_index": 109,
+      "prompt_sha256": "46e576793f6c72747857e9710f3028bf0728b9c1e2cd4d8aae5d75dd5f0f2877"
+    },
+    {
+      "id": "s_46f2c28102849238040b",
+      "prompt": "吴凡借了一本as山海记》，归还日为周五。请 MyBase书名，只输出原文中的答案。",
+      "category": "extraction",
+      "source_id": "extraction_2_2_0",
+      "source_index": 185,
+      "prompt_sha256": "46f2c28102849238040b5a2fd91b9a23c662a85ab9d887c8c4ecabf93dfd7db3"
+    },
+    {
+      "id": "s_47410640ab9b2b52213f",
+      "prompt": "4 여기又15分钟，共多少分钟？只输出数字。",
+      "category": "math",
+      "source_id": "math_3_4_1",
+      "source_index": 132,
+      "prompt_sha256": "47410640ab9b2b52213f2965d9642ab9aa4a09b1d7bd47305cd294b41efda2bf"
+    },
+    {
+      "id": "s_4d228a12b9d17a3089fb",
+      "prompt": "周宁得分高于吴凡但低于林悦。谁得分最低？只输出l。",
+      "category": "logic",
+      "source_id": "logic_0_2_0",
+      "source_index": 5,
+      "prompt_sha256": "4d228a12b9d17a3089fb4f91503b9a6423f509a126b8837dec3765d705f2ba20"
+    },
+    {
+      "id": "s_51e9dade830a5e3fe40a",
+      "prompt": "规则：红色标为停止，绿色标为 features，其余标为等待。当前颜色为绿。只输出对应标签。",
+      "category": "classification",
+      "source_id": "classification_1_4_2",
+      "source_index": 253,
+      "prompt_sha256": "51e9dade830a5e3fe40a00b4f32262bdd6198ee3c323d832575e4349b1dfa540"
+    },
+    {
+      "id": "s_52e79349085d471f3d09",
+      "prompt": "文本：{\"name\": \"陈雨\", \" careful\": \"yn\"} Sahara提取city，只输出其值。",
+      "category": "extraction",
+      "source_id": "extraction_1_0_1",
+      "source_index": 166,
+      "prompt_sha256": "52e79349085d471f3d09b0fe278f70731c6c1f3ba3703abbd440b1f6c7ff353c"
+    },
+    {
+      "id": "s_5c885f90fb288b767728",
+      "prompt": "长方形长5厘米、宽3厘米，面积是多少平方厘米？ deut输出数字。",
+      "category": "math",
+      "source_id": "math_3_0_0",
+      "source_index": 120,
+      "prompt_sha256": "5c885f90fb288b767728ebeaaa501b33552ecad6a6c30a92666535ace05a3a58"
+    },
+    {
+      "id": "s_6ad58dbfeaa8bd866c9c",
+      "prompt": "识别这句话的情感倾向：内容混乱，令人失望。仅输出积极、 travers或中性。",
+      "category": "classification",
+      "source_id": "classification_2_4_1",
+      "source_index": 268,
+      "prompt_sha256": "6ad58dbfeaa8bd866c9c96d2d65d568a6cb72f64c11d24611307f39efca10e8b"
+    },
+    {
+      "id": "s_6b0f6a94d8278cf56a6e",
+      "prompt": "陈雨在上午9点出发，经过2小时到达。按24小时制，到达时是多次？只输出yme，不加单位。",
+      "category": "logic",
+      "source_id": "logic_4_4_1",
+      "source_index": 72,
+      "prompt_sha256": "6b0f6a94d8278cf56a6e3481b5e5b94dd1ebeffa82074b953968c903f3b7cf40"
+    },
+    {
+      "id": "s_6ea4b6b24908bcd1c4e2",
+      "prompt": "规则：只有同时LayoutInflater票且成年才为允许，否则为拒绝。此人持票但未成年。只输出对应标签。",
+      "category": "classification",
+      "source_id": "classification_1_3_1",
+      "source_index": 249,
+      "prompt_sha256": "6ea4b6b24908bcd1c4e21ca2ed471bc66b3e12c16dbad3e879181adece0b01b3"
+    },
+    {
+      "id": "s_6f87823a1ac7d382dd45",
+      "prompt": "计算3 which5。只输出数字。",
+      "category": "math",
+      "source_id": "math_0_2_0",
+      "source_index": 81,
+      "prompt_sha256": "6f87823a1ac7d382dd45753199b27b3bb8b38c0346a5fba12adbb5b253a8adc2"
+    },
+    {
+      "id": "s_705e1f83d839851b1d4c",
+      "prompt": "识别这句话的情感倾向：课程讲得清楚，收获很大。仅输出一定程度、消极或中性。",
+      "category": "classification",
+      "source_id": "classification_2_4_0",
+      "source_index": 267,
+      "prompt_sha256": "705e1f83d839851b1d4c86088235e00f12730f3ee8e8050e8894413217d14f8a"
+    },
+    {
+      "id": "s_7330d84a5392221c7ec5",
+      "prompt": "文本为“李青|厦门|T46”，分隔符为“|”。从1开始数，只输出校2段。",
+      "category": "extraction",
+      "source_id": "extraction_3_0_3",
+      "source_index": 196,
+      "prompt_sha256": "7330d84a5392221c7ec54c74470fd1efb1c94335d2b59d9d913e456f261fdb2f"
+    },
+    {
+      "id": "s_74255d49d470946e177c",
+      "prompt": "识别对象类型：鲁迅。从人物、地点、动物、植物中选一项，只UCKer。",
+      "category": "classification",
+      "source_id": "classification_3_2_0",
+      "source_index": 276,
+      "prompt_sha256": "74255d49d470946e177c7a8f597ced5cc3e788bb7fe3420788761974b4a6c54e"
+    },
+    {
+      "id": "s_768ec4e87853c9dcc1a2",
+      "prompt": " profiling沟通意图：请为我保留座位on仅输出请求、询问、陈述或感谢。",
+      "category": "classification",
+      "source_id": "classification_4_3_0",
+      "source_index": 294,
+      "prompt_sha256": "768ec4e87853c9dcc1a2956b9d783715dd614f07dd86108e95d9d4d3fc9076f9"
+    },
+    {
+      "id": "s_77567d38dd00fea9f111",
+      "prompt": "从原点=[\"走5米，再向西走7米。最终在原点哪个方向？只输出答案，不加单位。",
+      "category": "logic",
+      "source_id": "logic_4_2_2",
+      "source_index": 67,
+      "prompt_sha256": "77567d38dd00fea9f111146c2d1320cf8dc865177654e692cb213855d5844325"
+    },
+    {
+      "id": "s_7db464b18478584b2d0d",
+      "prompt": "规则：开机则灯亮。陈雨的设备灯不亮。能否推出其未 Begin？只答能或不能。",
+      "category": "logic",
+      "source_id": "logic_1_1_1",
+      "source_index": 17,
+      "prompt_sha256": "7db464b18478584b2d0d9691c5da297486ef915c0aaaadc926f27d68110330fb"
+    },
+    {
+      "id": "s_7f6b38aa74f85a1b6a17",
+      "prompt": "给实体分类：向日葵。从人物、地点、动物、Path中选一项，只输出类别。",
+      "category": "classification",
+      "source_id": "classification_3_1_3",
+      "source_index": 275,
+      "prompt_sha256": "7f6b38aa74f85a1b6a17098b8319f1846c7957100657b36bf799b178bfeec60f"
+    },
+    {
+      "id": "s_8355154f617b00536fe9",
+      "prompt": "将7鹈部分数、零、负数分类。只输出类别。",
+      "category": "classification",
+      "source_id": "classification_0_1_2",
+      "source_index": 229,
+      "prompt_sha256": "8355154f617b00536fe92fa4742e0cd19cbc6dcb14895e15dbd3a26fa9813b7d"
+    },
+    {
+      "id": "s_83b6eb82245f66758ae9",
+      "prompt": "规则：编号以A开头归甲类，否则归ен类。编号为C18。只输出对应标签。",
+      "category": "classification",
+      "source_id": "classification_1_1_2",
+      "source_index": 244,
+      "prompt_sha256": "83b6eb82245f66758ae96bdc6262936c2d39cc8748e4bec4f82623df4f4dc551"
+    },
+    {
+      "id": "s_872560c2e15041fd7fc1",
+      "prompt": "A=[5, 6, 8]，B=[6, 7, 8]。求A中但不在B中的元素。升序输出，用英文逗号分隔))))\n",
+      "category": "logic",
+      "source_id": "logic_2_2_2",
+      "source_index": 38,
+      "prompt_sha256": "872560c2e15041fd7fc1ee96d7f67535de6089bbcc008c859aa7fa9bb9592353"
+    },
+    {
+      "id": "s_929fdeca2c1fe6fd4ec6",
+      "prompt": "苏禾、何川、唐月分别拿1、2、3号牌且不重复。苏禾的号码大于何川，唐月拿2号。何川拿几号？只输出：\n。",
+      "category": "logic",
+      "source_id": "logic_3_4_2",
+      "source_index": 58,
+      "prompt_sha256": "929fdeca2c1fe6fd4ec6299aa765cb57b65cdfb080a2b072070be9f5958865b3"
+    },
+    {
+      "id": "s_93c866efdffa2d2d4567",
+      "prompt": "解方程x+6=14)^只输出x的数值。",
+      "category": "math",
+      "source_id": "math_2_0_3",
+      "source_index": 108,
+      "prompt_sha256": "93c866efdffa2d2d4567ec1465a5c8e8fab6f4b2cfa25524bd55bf65b86c4b20"
+    },
+    {
+      "id": "s_94d351b36d8608cd85be",
+      "prompt": "苏禾、何川、唐月各养猫、狗、鸟中的一种且不重复。苏禾养猫，何川不养狗。唐月养什么？只 实答案。",
+      "category": "logic",
+      "source_id": "logic_3_0_2",
+      "source_index": 46,
+      "prompt_sha256": "94d351b36d8608cd85be8ae954bde8a4465afde2202bde3d26ad8e8b87cdcd49"
+    },
+    {
+      "id": "s_9cf40426013653fc7728",
+      "prompt": "解方程2,),\n-4=8，只输出x的数值。",
+      "category": "math",
+      "source_id": "math_2_2_1",
+      "source_index": 113,
+      "prompt_sha256": "9cf40426013653fc7728a48bd1c8014ef62abc3eff55a3853e8a362c30133cc6"
+    },
+    {
+      "id": "s_a3b7359108401930cc58",
+      "prompt": " four8人，每车最多坐4人，至少需要几辆车？只输出数字。",
+      "category": "math",
+      "source_id": "math_4_4_0",
+      "source_index": 147,
+      "prompt_sha256": "a3b7359108401930cc58c206658753237f143b98fde139c96533d8263c69fdf5"
+    },
+    {
+      "id": "s_a7936ea31a02c0bc869d",
+      "prompt": "赵安购买了蓝色外套和黑色鞋子。请提取外套颜色，只输出原文中的ho。",
+      "category": "extraction",
+      "source_id": "extraction_2_4_1",
+      "source_index": 193,
+      "prompt_sha256": "a7936ea31a02c0bc869d0ce933fda2990f17df50a76c19e615ed7d21d692a81a"
+    },
+    {
+      "id": "s_ab4633293bb8ae7e3835",
+      "prompt": "记录：姓名: 苏禾\n城市: 成都\n编号ся Q39\n颜色: 绿\n状态: 退回。只提取编号的值。",
+      "category": "extraction",
+      "source_id": "extraction_0_2_2",
+      "source_index": 157,
+      "prompt_sha256": "ab4633293bb8ae7e3835195095ed359ad1c9f5aab2feefdfcc9054b987166602"
+    },
+    {
+      "id": "s_aef1764a560dcb28f39e",
+      "prompt": "今天是星期二，autos后是研几？只输出答案，不加单位。",
+      "category": "logic",
+      "source_id": "logic_4_0_1",
+      "source_index": 60,
+      "prompt_sha256": "aef1764a560dcb28f39ec05b7bc6758a9e207945cf9b81f7b90d74f4429a27cb"
+    },
+    {
+      "id": "s_b079204fc1c5a2d38449",
+      "prompt": "4万股等于多少米？只 product数字。",
+      "category": "math",
+      "source_id": "math_3_3_1",
+      "source_index": 128,
+      "prompt_sha256": "b079204fc1c5a2d384496b3f758c36f755af549e65442e7e180b264e38529e93"
+    },
+    {
+      "id": "s_b3a9e58e0fd4d48ec527",
+      "prompt": "陈雨、赵安、刘星各负责 OpenGL、更新、重启一项任务。刘星负责重启，陈雨不负责更新。谁负责更新？只输出答案。",
+      "category": "logic",
+      "source_id": "logic_3_3_1",
+      "source_index": 55,
+      "prompt_sha256": "b3a9e58e0fd4d48ec5277fe8c0efc992f00cc6d3f97a395e494148b4acfd1f2a"
+    },
+    {
+      "id": "s_b3ceb9b6ca5e2f8c5ec0",
+      "prompt": "陈雨在杭州工作，职位为编辑。请提取工作城市，只(W原文中的答案。",
+      "category": "extraction",
+      "source_id": "extraction_2_0_1",
+      "source_index": 180,
+      "prompt_sha256": "b3ceb9b6ca5e2f8c5ec022a89d6b5b63c1a4171354878cb154968a3efbf94de0"
+    },
+    {
+      "id": "s_b7244389250f4153da9f",
+      "prompt": "给话语 McInt：图书馆在哪里？仅停车请求、询问、陈述或感谢。",
+      "category": "classification",
+      "source_id": "classification_4_2_1",
+      "source_index": 291,
+      "prompt_sha256": "b7244389250f4153da9f654715c3e125ea17c9e8c1c491a2b84da64dde1f0077"
+    },
+    {
+      "id": "s_be2a10893ae3ba280c8f",
+      "prompt": "记录：姓名: 李青\n城市 :- 厦门\n编号: T46\n颜色: 黄\n状态: 签收。只提取编号的 flexDirection。",
+      "category": "extraction",
+      "source_id": "extraction_0_2_3",
+      "source_index": 158,
+      "prompt_sha256": "be2a10893ae3ba280c8fba82cad62524cf8339cbc0800b0f22dd35a4d0f81c3f"
+    },
+    {
+      "id": "s_c355778eeb5187bf5cdf",
+      "prompt": "文本为—toQ39,何川,成都”，分隔符为“,”。从1开始数，只输出第1段。",
+      "category": "extraction",
+      "source_id": "extraction_3_1_2",
+      "source_index": 199,
+      "prompt_sha256": "c355778eeb5187bf5cdfc493d2ab1350ad93cdeedb29e8966d1cf3c8790af6b2"
+    },
+    {
+      "id": "s_c6856ffbbb28e2966b5d",
+      "prompt": " remote方程).\n+3=11，只输出x的数值。",
+      "category": "math",
+      "source_id": "math_2_0_0",
+      "source_index": 105,
+      "prompt_sha256": "c6856ffbbb28e2966b5d145ff165f4db25a2b08620a6a13e225726066c49e38c"
+    },
+    {
+      "id": "s_c6bca36464e956047d32",
+      "prompt": "整Expression9是质数还是合数？只 solution类别。",
+      "category": "classification",
+      "source_id": "classification_0_2_1",
+      "source_index": 231,
+      "prompt_sha256": "c6bca36464e956047d32513371418d1f1593c7692c66e53bc1ec72975ee6a403"
+    },
+    {
+      "id": "s_c9bf7a6c8e45230ec837",
+      "prompt": "1/3与1/6相加 than只输出最简分数；分母为1时输出整数。",
+      "category": "math",
+      "source_id": "math_1_0_0",
+      "source_index": 90,
+      "prompt_sha256": "c9bf7a6c8e45230ec837c710a0a26d623402b3e0bdeed7a6fc636277ed01eb56"
+    },
+    {
+      "id": "s_ce26c8428c569d53afad",
+      "prompt": "给实体分类：上海。从人物、个人、动物、植物中选一项，只输出类别。",
+      "category": "classification",
+      "source_id": "classification_3_1_1",
+      "source_index": 274,
+      "prompt_sha256": "ce26c8428c569d53afad72b621fac8a02f44a222d3d50303c327c9529f6a126d"
+    },
+    {
+      "id": "s_cfc83b4c7814a5ee9ab7",
+      "prompt": "规则：分数至少60为通过，否则为未通过。分数为59。只输出Foto标签。",
+      "category": "classification",
+      "source_id": "classification_1_0_0",
+      "source_index": 240,
+      "prompt_sha256": "cfc83b4c7814a5ee9ab7d4bb071f51da44ff0c1284d3a5ea1b05118b6824ff1b"
+    },
+    {
+      "id": "s_d34b706c8591e438a462",
+      "prompt": "计算18减6。只 breaking数字。",
+      "category": "math",
+      "source_id": "math_0_1_3",
+      "source_index": 80,
+      "prompt_sha256": "d34b706c8591e438a4629c2b051dae5ed176c38b0f1e79a232229925c6d3f352"
+    },
+    {
+      "id": "s_d4ac7b2bd4707aec9326",
+      "prompt": "给下面评价标注情感：这部电影精彩极了。仅输出 하지만、消极或中性。",
+      "category": "classification",
+      "source_id": "classification_2_1_0",
+      "source_index": 257,
+      "prompt_sha256": "d4ac7b2bd4707aec93264847ecbc724803bcd0a73c364b67c18cbaffb73dbc07"
+    },
+    {
+      "id": "s_d84db8b7b4d65399762c",
+      "prompt": "三角形底6厘米、海盗5厘米，面积是多少平方厘米？只输出数字。",
+      "category": "math",
+      "source_id": "math_3_2_0",
+      "source_index": 124,
+      "prompt_sha256": "d84db8b7b4d65399762c83c09045bfa0af2b1caee4f436fbb17ec63728763fc8"
+    },
+    {
+      "id": "s_de18129e1071203f81c7",
+      "prompt": "A=[5, 6, 8]，B=[6, 7, 8]。求交集的元素。升序输出，以英文逗号分隔。",
+      "category": "logic",
+      "source_id": "logic_2_0_2",
+      "source_index": 31,
+      "prompt_sha256": "de18129e1071203f81c7b9133d20b0b89fdee3d29811193399217836c853df7e"
+    },
+    {
+      "id": "s_e6467decd467e6ac935d",
+      "prompt": "商品原价300元，打Ill折后价格多少元？只输出数字。",
+      "category": "math",
+      "source_id": "math_4_3_0",
+      "source_index": 145,
+      "prompt_sha256": "e6467decd467e6ac935d697775081144302af0858c4472524fc7b6a934c4bbb8"
+    },
+    {
+      "id": "s_f01fbc9a384f1a6a7576",
+      "prompt": "判断词语类别：松树。从人物、地点、动物、植物中选一项，只水中类别。",
+      "category": "classification",
+      "source_id": "classification_3_0_3",
+      "source_index": 272,
+      "prompt_sha256": "f01fbc9a384f1a6a75765483f7603b4d7bdaee0d4717162e71c3c6a531b75a33"
+    },
+    {
+      "id": "s_fa902e0aa96965f03500",
+      "prompt": "识别说话目的：非常感谢你的提醒 time仅(fl请求、询问、陈述或感谢。",
+      "category": "classification",
+      "source_id": "classification_4_1_3",
+      "source_index": 289,
+      "prompt_sha256": "fa902e0aa96965f035005701b7d55adbe195f087360efbc7256fb835caff6700"
+    },
+    {
+      "id": "s_fbe33b20dd246f9afbf2",
+      "prompt": "商品原Cl600元，打八折后价格多少元？只输出数字。",
+      "category": "math",
+      "source_id": "math_4_3_3",
+      "source_index": 146,
+      "prompt_sha256": "fbe33b20dd246f9afbf226bc4eb8349388815905798877a0fc7e1e1f859c66a5"
+    }
+  ],
+  "mapping": [
+    {
+      "source_id": "logic_0_2_0",
+      "candidate_id": "s_4d228a12b9d17a3089fb"
+    },
+    {
+      "source_id": "logic_1_1_0",
+      "candidate_id": "s_2133ff6996aaccc5b579"
+    },
+    {
+      "source_id": "logic_1_1_1",
+      "candidate_id": "s_7db464b18478584b2d0d"
+    },
+    {
+      "source_id": "logic_1_1_2",
+      "candidate_id": "s_45e19f619659d06eafe8"
+    },
+    {
+      "source_id": "logic_2_0_0",
+      "candidate_id": "s_13d65e3fb43f44e7f385"
+    },
+    {
+      "source_id": "logic_2_0_2",
+      "candidate_id": "s_de18129e1071203f81c7"
+    },
+    {
+      "source_id": "logic_2_2_2",
+      "candidate_id": "s_872560c2e15041fd7fc1"
+    },
+    {
+      "source_id": "logic_3_0_2",
+      "candidate_id": "s_94d351b36d8608cd85be"
+    },
+    {
+      "source_id": "logic_3_0_3",
+      "candidate_id": "s_148be9f1d9a6b67f0b60"
+    },
+    {
+      "source_id": "logic_3_3_1",
+      "candidate_id": "s_b3a9e58e0fd4d48ec527"
+    },
+    {
+      "source_id": "logic_3_4_2",
+      "candidate_id": "s_929fdeca2c1fe6fd4ec6"
+    },
+    {
+      "source_id": "logic_4_0_1",
+      "candidate_id": "s_aef1764a560dcb28f39e"
+    },
+    {
+      "source_id": "logic_4_2_2",
+      "candidate_id": "s_77567d38dd00fea9f111"
+    },
+    {
+      "source_id": "logic_4_4_1",
+      "candidate_id": "s_6b0f6a94d8278cf56a6e"
+    },
+    {
+      "source_id": "math_0_0_1",
+      "candidate_id": "s_15978982f9a01d1aa55b"
+    },
+    {
+      "source_id": "math_0_1_2",
+      "candidate_id": "s_06caaf425a78810255bf"
+    },
+    {
+      "source_id": "math_0_1_3",
+      "candidate_id": "s_d34b706c8591e438a462"
+    },
+    {
+      "source_id": "math_0_2_0",
+      "candidate_id": "s_6f87823a1ac7d382dd45"
+    },
+    {
+      "source_id": "math_1_0_0",
+      "candidate_id": "s_c9bf7a6c8e45230ec837"
+    },
+    {
+      "source_id": "math_2_0_0",
+      "candidate_id": "s_c6856ffbbb28e2966b5d"
+    },
+    {
+      "source_id": "math_2_0_3",
+      "candidate_id": "s_93c866efdffa2d2d4567"
+    },
+    {
+      "source_id": "math_2_1_0",
+      "candidate_id": "s_46e576793f6c72747857"
+    },
+    {
+      "source_id": "math_2_2_1",
+      "candidate_id": "s_9cf40426013653fc7728"
+    },
+    {
+      "source_id": "math_3_0_0",
+      "candidate_id": "s_5c885f90fb288b767728"
+    },
+    {
+      "source_id": "math_3_2_0",
+      "candidate_id": "s_d84db8b7b4d65399762c"
+    },
+    {
+      "source_id": "math_3_3_1",
+      "candidate_id": "s_b079204fc1c5a2d38449"
+    },
+    {
+      "source_id": "math_3_4_1",
+      "candidate_id": "s_47410640ab9b2b52213f"
+    },
+    {
+      "source_id": "math_4_3_0",
+      "candidate_id": "s_e6467decd467e6ac935d"
+    },
+    {
+      "source_id": "math_4_3_3",
+      "candidate_id": "s_fbe33b20dd246f9afbf2"
+    },
+    {
+      "source_id": "math_4_4_0",
+      "candidate_id": "s_a3b7359108401930cc58"
+    },
+    {
+      "source_id": "extraction_0_2_2",
+      "candidate_id": "s_ab4633293bb8ae7e3835"
+    },
+    {
+      "source_id": "extraction_0_2_3",
+      "candidate_id": "s_be2a10893ae3ba280c8f"
+    },
+    {
+      "source_id": "extraction_1_0_1",
+      "candidate_id": "s_52e79349085d471f3d09"
+    },
+    {
+      "source_id": "extraction_1_2_0",
+      "candidate_id": "s_4046617b96b408adce1d"
+    },
+    {
+      "source_id": "extraction_1_2_3",
+      "candidate_id": "s_03bde0ccbfebcd7c15c3"
+    },
+    {
+      "source_id": "extraction_1_4_0",
+      "candidate_id": "s_2d37b4039c562e2673df"
+    },
+    {
+      "source_id": "extraction_2_0_1",
+      "candidate_id": "s_b3ceb9b6ca5e2f8c5ec0"
+    },
+    {
+      "source_id": "extraction_2_2_0",
+      "candidate_id": "s_46f2c28102849238040b"
+    },
+    {
+      "source_id": "extraction_2_2_1",
+      "candidate_id": "s_4470982bd8043c4f85b6"
+    },
+    {
+      "source_id": "extraction_2_4_1",
+      "candidate_id": "s_a7936ea31a02c0bc869d"
+    },
+    {
+      "source_id": "extraction_3_0_3",
+      "candidate_id": "s_7330d84a5392221c7ec5"
+    },
+    {
+      "source_id": "extraction_3_1_2",
+      "candidate_id": "s_c355778eeb5187bf5cdf"
+    },
+    {
+      "source_id": "classification_0_1_2",
+      "candidate_id": "s_8355154f617b00536fe9"
+    },
+    {
+      "source_id": "classification_0_2_1",
+      "candidate_id": "s_c6bca36464e956047d32"
+    },
+    {
+      "source_id": "classification_0_2_2",
+      "candidate_id": "s_2ec62ea99a166d6ed66e"
+    },
+    {
+      "source_id": "classification_1_0_0",
+      "candidate_id": "s_cfc83b4c7814a5ee9ab7"
+    },
+    {
+      "source_id": "classification_1_1_2",
+      "candidate_id": "s_83b6eb82245f66758ae9"
+    },
+    {
+      "source_id": "classification_1_3_1",
+      "candidate_id": "s_6ea4b6b24908bcd1c4e2"
+    },
+    {
+      "source_id": "classification_1_4_2",
+      "candidate_id": "s_51e9dade830a5e3fe40a"
+    },
+    {
+      "source_id": "classification_2_1_0",
+      "candidate_id": "s_d4ac7b2bd4707aec9326"
+    },
+    {
+      "source_id": "classification_2_2_1",
+      "candidate_id": "s_08f1f402c9f2f2e3aeef"
+    },
+    {
+      "source_id": "classification_2_4_0",
+      "candidate_id": "s_705e1f83d839851b1d4c"
+    },
+    {
+      "source_id": "classification_2_4_1",
+      "candidate_id": "s_6ad58dbfeaa8bd866c9c"
+    },
+    {
+      "source_id": "classification_3_0_3",
+      "candidate_id": "s_f01fbc9a384f1a6a7576"
+    },
+    {
+      "source_id": "classification_3_1_1",
+      "candidate_id": "s_ce26c8428c569d53afad"
+    },
+    {
+      "source_id": "classification_3_1_3",
+      "candidate_id": "s_7f6b38aa74f85a1b6a17"
+    },
+    {
+      "source_id": "classification_3_2_0",
+      "candidate_id": "s_74255d49d470946e177c"
+    },
+    {
+      "source_id": "classification_4_1_3",
+      "candidate_id": "s_fa902e0aa96965f03500"
+    },
+    {
+      "source_id": "classification_4_2_1",
+      "candidate_id": "s_b7244389250f4153da9f"
+    },
+    {
+      "source_id": "classification_4_2_3",
+      "candidate_id": "s_2f604975c360774ca56b"
+    },
+    {
+      "source_id": "classification_4_3_0",
+      "candidate_id": "s_768ec4e87853c9dcc1a2"
+    }
+  ],
+  "accepted_sources": 61,
+  "unique_texts": 61,
+  "fallbacks_in_pool": 0,
+  "scope_sha256": "510938ba927885df4c43819a9aad0f52162ba24c4393a262ae8e2b7bff291096"
+}

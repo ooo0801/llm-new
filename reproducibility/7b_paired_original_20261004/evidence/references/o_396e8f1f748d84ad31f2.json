@@ -1,0 +1,39 @@
+{
+  "id": "o_396e8f1f748d84ad31f2",
+  "prompt": "从原点向东走5米，再向西走7米。最终在原点哪个方向？只输出答案，不加单位。",
+  "category": "logic",
+  "source_id": "logic_4_2_2",
+  "source_index": 67,
+  "prompt_sha256": "396e8f1f748d84ad31f287c51bc35d50f31640ba3f13fd06f69de887c44c4c42",
+  "sensitive_id": "s_77567d38dd00fea9f111",
+  "token_ids": [
+    60686
+  ],
+  "probabilities": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "c47a78753f86485e62beb0fe8f5203806082cca1ce231173541828688b6d2660",
+  "prompt_ids_sha256": "e618a44b58dd59da69afe8548000ef4e480ab400e81802019a9aaf9b3f1724cf"
+}

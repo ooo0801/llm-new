@@ -1,0 +1,13 @@
+{
+  "completed_at": "2026-09-30T18:25:27.994098+08:00",
+  "status": "COMPLETE",
+  "local_audit": "PASS",
+  "archive_sha256": "72214e4f1436c1b137c98d0aa233438b3009bc0817f6d3736f1adaf4b8b7ac3e",
+  "report": "7B百条几何平均校准报告.md",
+  "report_sha256": "3a499855df3ce25b3164f7890b81f3621740e922e90e41e1a13cefef9a109b35",
+  "shutdown_command": "/usr/bin/shutdown",
+  "ssh_after_shutdown": "connection refused",
+  "cloud_billing_state": "not independently verified",
+  "monitor": "PAUSED",
+  "model_preserved": true
+}

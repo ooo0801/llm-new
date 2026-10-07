@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "archive_sha256": "48fcd6a73ad0ef8b31d71b28b1172e70708738cc3a2a0ac79871e35ffe504080",
+  "files_verified": 514,
+  "code_files_verified": 234,
+  "new_micro": 140,
+  "new_macro": 100,
+  "old_micro": 7,
+  "old_macro": 10,
+  "source_mapping": "PASS",
+  "probe_seeds": "PASS",
+  "all_scales_and_weights_recomputed": "PASS",
+  "bootstrap_independently_recomputed": "PASS",
+  "bootstrap_valid": 1000,
+  "historical_local_equality": "PASS",
+  "model_hash": "PASS",
+  "no_generation_or_detector_data": true
+}

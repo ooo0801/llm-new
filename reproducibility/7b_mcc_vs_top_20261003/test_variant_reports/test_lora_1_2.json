@@ -1,0 +1,13 @@
+{
+  "variant_id": "test_lora_1_2",
+  "family": "finetuning",
+  "execution_mode": "adapter_reload",
+  "realized_method": "lora",
+  "isolated_base_reload": true,
+  "details": {
+    "adapter_path": "/root/autodl-tmp/token-integrity/runs/fingerprint-7b-mcc-vs-top-v1/adapters/test_lora_1_2",
+    "trainable_parameters_during_evaluation": 0,
+    "total_parameters": 7635801600,
+    "adapter_loaded": true
+  }
+}

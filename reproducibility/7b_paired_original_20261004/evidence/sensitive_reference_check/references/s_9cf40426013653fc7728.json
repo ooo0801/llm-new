@@ -1,0 +1,46 @@
+{
+  "id": "s_9cf40426013653fc7728",
+  "prompt": "解方程2,),\n-4=8，只输出x的数值。",
+  "category": "math",
+  "source_id": "math_2_2_1",
+  "source_index": 113,
+  "prompt_sha256": "9cf40426013653fc7728a48bd1c8014ef62abc3eff55a3853e8a362c30133cc6",
+  "token_ids": [
+    49238,
+    100345,
+    101140
+  ],
+  "probabilities": [
+    [
+      0.0,
+      0.37754066653428475,
+      0.6224593334657152
+    ],
+    [
+      0.0,
+      0.41165173053741455,
+      0.5883482694625854
+    ],
+    [
+      0.09474796339118371,
+      0.3901622113633815,
+      0.5150898252454348
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "2b00a381a6dd8139e3cd7defbd110e32951e6fb24fcec6e12de2e3d418dc2c1e",
+  "prompt_ids_sha256": "a67480efda34dc5893a95fd59dd45789446e311b5429c01d30e113339aa71d5f"
+}

@@ -1,0 +1,24 @@
+{
+  "updated_at": "2026-10-07",
+  "latest_experiment_date": "2026-10-04",
+  "current_method": "first-token E/P, RESF-inspired",
+  "current_model": "Qwen2.5-7B-Instruct",
+  "status": "completed_7b_sensitive_and_paired_original_evaluation",
+  "latest_evidence": [
+    "reproducibility/7b_mcc_vs_top_20261003",
+    "reproducibility/7b_paired_original_20261004"
+  ],
+  "historical_32b_experiments_present": true,
+  "current_first_token_method_32b_validated": false,
+  "new_model_experiment_run_during_this_update": false,
+  "server_runtime_status": "not inferred from historical documents",
+  "current_status_document": "docs/CURRENT_STATUS.md",
+  "experiment_index": "docs/EXPERIMENT_INDEX.md",
+  "limitations": [
+    "post-hoc same-selected-source original control",
+    "no proven additional MCC detection benefit",
+    "no stable demonstrated micro-over-JS increment",
+    "no unseen-attack-family validation",
+    "finite-sample observations, not population guarantees"
+  ]
+}

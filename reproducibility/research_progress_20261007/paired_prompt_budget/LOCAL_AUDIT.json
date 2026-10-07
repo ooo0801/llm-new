@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "response_counts": {
+    "development": 33600,
+    "test": 336000
+  },
+  "decisions_recomputed": 50400,
+  "panels_recomputed": 3912,
+  "source_mapping_verified": true,
+  "development_ranking_recomputed": true,
+  "all_responses_fresh": true
+}

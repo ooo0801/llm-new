@@ -1,0 +1,42 @@
+{
+  "id": "s_c355778eeb5187bf5cdf",
+  "prompt": "文本为—toQ39,何川,成都”，分隔符为“,”。从1开始数，只输出第1段。",
+  "category": "extraction",
+  "source_id": "extraction_3_1_2",
+  "source_index": 199,
+  "prompt_sha256": "c355778eeb5187bf5cdfc493d2ab1350ad93cdeedb29e8966d1cf3c8790af6b2",
+  "token_ids": [
+    983,
+    4686
+  ],
+  "probabilities": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.9106363910944614,
+      0.08936360890553859
+    ],
+    [
+      0.858823835849762,
+      0.14117616415023804
+    ]
+  ],
+  "decoding_checks": [
+    {
+      "temperature": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "temperature": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "null_sha256": "a11fe969635225467e85950440260704e60cf99d4e2537f22dddb5c003cc5822",
+  "prompt_ids_sha256": "f7909c750ebec77bfbd06f8aa90f46313ac94a9a536f1f2fafab18c4756d65de"
+}

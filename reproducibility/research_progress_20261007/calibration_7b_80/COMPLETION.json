@@ -1,0 +1,17 @@
+{
+  "status": "COMPLETE",
+  "completed_at": "2026-09-30T11:42:55.4709238+08:00",
+  "local_audit": "PASS",
+  "archive_sha256": "04b0033a6d7c9f920bdf0f2ccb2b5297eab04ae0d46ea7b6bc92f943e813ef63",
+  "micro_records": 560,
+  "macro_variant_records": 2000,
+  "macro_means": 400,
+  "model": "Qwen2.5-7B-Instruct",
+  "model_7b_retained": true,
+  "old_1p5b_model_removed": true,
+  "shutdown_command": "/usr/bin/shutdown",
+  "subsequent_ssh": "Connection refused",
+  "cloud_power_state": "not independently checked",
+  "report": "7B校准尺度计算报告.md",
+  "scope": "calibration only"
+}
